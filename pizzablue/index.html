@@ -16,11 +16,19 @@
 
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
+    
+    <!-- Team Blue CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    
+    <!-- Pure http://purecss.io/start/ -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -113,12 +121,10 @@
 
     <!-- Contact Section -->
     <section id="yhteystiedot" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Yhteystiedot</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
+    <h2>Yhteystiedot</h2>
+    <div class="row">
+            <div class="col-lg-6">
+            <h3>Pizza Blue</h3><p><br>Ratapihantie 13<br>00520 HELSINKI</p><br>
                 <ul class="list-inline banner-social-buttons">
                     <li>
                         <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
@@ -130,8 +136,21 @@
                         <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
+          </div>
+            <div class="col-lg-6">
+                <h3>Palautelomake</h3>
+                <form class="pure-form pure-form-aligned" action="" method="post">
+                <div class="pure-control-group">
+                <label for="nimi">Nimi: </label><input type="text" name="nimi"></div>
+                <div class="pure-control-group">
+                <label for="sahkoposti">Sähköposti: </label><input type="email" name="sahkoposti"></div>
+                <div class="pure-control-group">
+                <label for="puhelin">Puhelin: </label><input type="tel" name="puhelinumero"></div>
+                <div class="pure-control-group">
+                <label for="viesti">Viesti: </label><textarea rows="8" cols="40"></textarea></div>
+                </form>
             </div>
-        </div>
+         </div>
     </section>
 
     <!-- Map Section -->
