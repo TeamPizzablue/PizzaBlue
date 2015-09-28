@@ -24,9 +24,6 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    
-    <!-- Pure http://purecss.io/start/ -->
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
 
 
@@ -142,17 +139,19 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                     </li>
                 </ul>
           </div>
-            <div class="col-lg-6">
-                <h3>Palautelomake</h3>
-                <form class="pure-form pure-form-aligned" action="" method="post">
-                <div class="pure-control-group">
-                <label for="nimi">Nimi: </label><input type="text" name="nimi"></div>
-                <div class="pure-control-group">
-                <label for="sahkoposti">Sähköposti: </label><input type="email" name="sahkoposti"></div>
-                <div class="pure-control-group">
-                <label for="puhelin">Puhelin: </label><input type="tel" name="puhelinumero"></div>
-                <div class="pure-control-group">
-                <label for="viesti">Viesti: </label><textarea rows="8" cols="40"></textarea></div>
+            
+            <div class="col-lg-4">
+                <br><h3>Palautelomake</h3>
+                <form action="" method="post" role="form">
+                <div class="form-group col-xs-6">
+                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black"></div>
+                <div class="form-group col-xs-6">
+                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" name="puhelinumero" style="color:black"></div>
+                <div class="form-group col-xs-12">
+                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black"></div>
+                <div class="form-group col-xs-12">
+                <label for="viesti">Viesti: </label><textarea class="form-control" rows="8" max-cols="40" style="color:black"></textarea></div>
+                <button class="btn btn-default" type="submit" >Lähetä</button>
                 </form>
             </div>
          </div>
