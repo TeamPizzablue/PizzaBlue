@@ -31,17 +31,14 @@
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-
-
+	<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-<!--tähtiarvionti-->
-<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
 
 </head>
 
@@ -159,9 +156,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                         <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
-                <form>
-    <input id="input-22" data-min="1" data-max="5" data-step="1">
-    			</form>
+                <input id="input-22" data-min="1" data-max="5" data-step="1">
           </div>
             
             <div class="col-lg-4">
@@ -206,18 +201,22 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
     
-        <!--tähtiarvointi-->
-    <script src="js/star-rating.js" type="text/javascript"></script>
+    <!-- Tähtiarvointi -->
+    <script src="js/star-rating.min.js" type="text/javascript"></script>
+    
+    <script>
+    $(document).ready(function() {
+    	$("#input-22").rating({
+        	starCaptions: {1: "Very Poor", 2: "Poor", 3: "Ok", 4: "Good", 5: "Very Good"},
+        	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
+    	});
+    });
+    </script>
+    
+    
     
    <!-- Initialize your rating via javascript as follows -->
-    <script>
-$(document ).ready(function (){
-	$("#input-22").rating({
-    	starCaptions: {1: "Huono", 2: "Kehno", 3: "Kohtalainen", 4: "Hyvä", 5: "Erinomainen"},
-    	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: 	"text-primary", 5: "text-success"},
-	});
-});
-</script>
+
 
 </body>
 
