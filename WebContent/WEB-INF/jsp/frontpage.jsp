@@ -130,10 +130,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                 <div class="col-lg-12">
                     <h2>Pitsalista</h2>                  
                		<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
-                <div class="col-lg-12">
-                    <h2>Pitsalista</h2>
-                </div>
-            </div>
+            	</div>
+        	</div>
         </div>
     </section>
 
