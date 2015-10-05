@@ -1,5 +1,8 @@
+<%@page import="fi.pizzablue.bean.Pizza"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,8 +125,12 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Pitsalista</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <c:forEach items="${pizzat}" var="pizza">
+    <tr>
+    <td><c:out value="${pizza.id}"/></td>
+    <td><c:out value="${pizza.nimi}"/></td>
+    <td><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"/> &euro;</td>
+    </tr></c:forEach>
                     
                 </div>
             </div>
