@@ -101,6 +101,7 @@
 
     <!-- About Section -->
     <section id="esittely" class="container content-section text-center">
+    <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Esittely</h2>
@@ -111,20 +112,21 @@ Pizzeriassamme on laaja valikoima pizzoja, josta erilaisia ruokavaliota noudatta
 <br><br>
 Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>The Best Pizza In The Whole Wide World (TBPITWWW)</i> kilpailun parhaan pizzapohjan kategoriassa sijoittumalla kolmen 										parhaan joukkoon vuosina 2012-2014.
 					</p>
-             
+					
             </div>
-        </div>
+            <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
+        	</div>
+        	
+        
     </section>
 
     <!-- Download Section -->
     <section id="pitsalista" class="content-section text-center">
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Pitsalista</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                    
+                <div class="col-lg-12">
+                    <h2>Pitsalista</h2>                  
+               		<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
                 </div>
             </div>
         </div>

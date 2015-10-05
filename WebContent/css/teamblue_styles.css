@@ -9,3 +9,9 @@
 	font-weight:bold;
 	margin: 0 0 10px;
 }
+.button-success {
+   	background: rgb(28, 184, 65) !important; /* this is a green */
+   	color:white !important;
+   	font-weight: bold !important;
+   	margin:0 auto !important;
+}
