@@ -1,5 +1,8 @@
+<%@page import="fi.pizzablue.bean.Pizza"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,9 +127,21 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     <section id="pitsalista" class="content-section text-center">
         <div class="download-section">
             <div class="container">
+<<<<<<< HEAD
                 <div class="col-lg-12">
                     <h2>Pitsalista</h2>                  
                		<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
+=======
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Pitsalista</h2>
+                    <c:forEach items="${pizzat}" var="pizza">
+    <tr>
+    <td><c:out value="${pizza.id}"/></td>
+    <td><c:out value="${pizza.nimi}"/></td>
+    <td><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"/> &euro;</td>
+    </tr></c:forEach>
+                    
+>>>>>>> 94934a5880128c75316a678fe6c295f59b95af14
                 </div>
             </div>
         </div>
