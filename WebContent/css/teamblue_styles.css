@@ -21,3 +21,9 @@
 	width: 200px;
 	text-align: center;
 }
+.tuotetiedot {
+	font-size: small;
+}
+.hinta {
+	font-size: medium;
+}

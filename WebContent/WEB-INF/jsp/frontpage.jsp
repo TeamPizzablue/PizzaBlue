@@ -1,8 +1,10 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="fi.pizzablue.bean.Pizza"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<% DecimalFormat dec = new DecimalFormat("0.00"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +101,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <!-- About Section -->
@@ -128,26 +129,59 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-12">
-                    <h2>Pitsalista</h2>
-                    <img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
-                    <c:out value="${pizza.nimi}"/>
-                   <!--<c:forEach items="${pizzat}" var="pizza">
-					  <div class="row ikkuna">
-					  <div class="col-xs-12 col-md-3">
+                   <h2>Pitsalista</h2><br>
+                   <div class="row">
+                   <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
 					    <div class="thumbnail">
-					      <img src="" alt="">
+					      <img src="img/1.png" alt="">
 					      <div class="caption">
-					        <h3><c:out value="${pizza.nimi}"/></h3>
-					        <p>...</p>
-					        <p> <a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
 					      </div>
 					    </div>
-					  </div>
+					   </div>
+					</c:forEach>
 					</div>
-				</c:forEach>-->     
-                </div>
-            </div>                
-		</div>
+					<div class="row">
+                   <c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
+					    <div class="thumbnail">
+					      <img src="img/1.png" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+						<div class="row">
+                   <c:forEach items="${pizzat}" begin="8" end="11" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
+					    <div class="thumbnail">
+					      <img src="img/1.png" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+				<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
+				</div>
+			</div>
+         </div>
     </section>
 
     <!-- Contact Section -->
