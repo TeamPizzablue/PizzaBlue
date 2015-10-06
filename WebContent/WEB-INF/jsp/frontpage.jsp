@@ -198,9 +198,11 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <p class="palvelemme">Palvelemme:</p>
             <p>Ma - to ja su 10 - 21<br>
             Pe - la 10 - 22
-            
                 </p>
-                 <div class="center-block" id="ratingbox"><input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1"></div>
+                
+                <!-- Tähtiarviointi -->
+                 <div class="center-block" id="ratingbox"><input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1" value="0"></div>
+                
                 <ul class="list-inline banner-social-buttons">
                     <li>
                         <a href="https://facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
@@ -266,6 +268,9 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
         	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
     	});
+    	$("#input-22").listenClick(){
+    		
+    	}
     });
     </script>
     
