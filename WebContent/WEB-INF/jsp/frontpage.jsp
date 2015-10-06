@@ -104,6 +104,7 @@
 
     <!-- About Section -->
     <section id="esittely" class="container content-section text-center">
+    <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Esittely</h2>
@@ -114,9 +115,12 @@ Pizzeriassamme on laaja valikoima pizzoja, josta erilaisia ruokavaliota noudatta
 <br><br>
 Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>The Best Pizza In The Whole Wide World (TBPITWWW)</i> kilpailun parhaan pizzapohjan kategoriassa sijoittumalla kolmen 										parhaan joukkoon vuosina 2012-2014.
 					</p>
-             
+					
             </div>
-        </div>
+            <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
+        	</div>
+        	
+        
     </section>
 
     <!-- Download Section --> 
@@ -125,6 +129,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <div class="container">
                 <div class="col-lg-12">
                     <h2>Pitsalista</h2>
+                    <img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
                     <c:out value="${pizza.nimi}"/>
                    <!--<c:forEach items="${pizzat}" var="pizza">
 					  <div class="row ikkuna">
@@ -139,12 +144,10 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    </div>
 					  </div>
 					</div>
-				</c:forEach>-->
-
-                    
+				</c:forEach>-->     
                 </div>
-            </div>
-        </div>
+            </div>                
+		</div>
     </section>
 
     <!-- Contact Section -->
@@ -157,12 +160,14 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <p>Ratapihantie 13<br>
             00520 HELSINKI<br>
             Puh. 012 3456789<br>
-            pizzablue@sahkoposti.fi</p><br>
+            pizzablue@sahkoposti.fi</p>
             <p class="palvelemme">Palvelemme:</p>
             <p>Ma - to ja su 10 - 21<br>
-            Pe - la 10 - 22<br>
+            Pe - la 10 - 22
             
-                </p><ul class="list-inline banner-social-buttons">
+                </p>
+                 <div class="center-block" id="ratingbox"><input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1"></div>
+                <ul class="list-inline banner-social-buttons">
                     <li>
                         <a href="https://facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                     </li>
@@ -173,7 +178,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                         <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
-                <input id="input-22" data-min="1" data-max="5" data-step="1">
+               
           </div>
             
             <div class="col-lg-4">
@@ -224,7 +229,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     <script>
     $(document).ready(function() {
     	$("#input-22").rating({
-        	starCaptions: {1: "Very Poor", 2: "Poor", 3: "Ok", 4: "Good", 5: "Very Good"},
+        	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
         	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
     	});
     });
