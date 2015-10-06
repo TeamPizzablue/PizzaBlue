@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PizzaListController
  */
-@WebServlet("/index.jsp")
+@WebServlet("/frontpage.jsp")
 public class FrontPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

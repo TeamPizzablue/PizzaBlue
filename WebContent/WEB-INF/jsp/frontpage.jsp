@@ -119,18 +119,28 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download Section --> 
     <section id="pitsalista" class="content-section text-center">
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-12">
                     <h2>Pitsalista</h2>
-                    <c:forEach items="${pizzat}" var="pizza">
-    <tr>
-    <td><c:out value="${pizza.id}"/></td>
-    <td><c:out value="${pizza.nimi}"/></td>
-    <td><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"/> &euro;</td>
-    </tr></c:forEach>
+                    <c:out value="${pizza.nimi}"/>
+                   <!--<c:forEach items="${pizzat}" var="pizza">
+					  <div class="row ikkuna">
+					  <div class="col-xs-12 col-md-3">
+					    <div class="thumbnail">
+					      <img src="" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.nimi}"/></h3>
+					        <p>...</p>
+					        <p> <a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				</c:forEach>-->
+
                     
                 </div>
             </div>
