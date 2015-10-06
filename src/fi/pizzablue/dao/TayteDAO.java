@@ -57,11 +57,10 @@ public class TayteDAO {
 		try {
 			
 			//suoritetaan haku
-			String sql = "select t.nimi, t.id from tayte t, pizzantayte pt where t.id = pt.tayte_id and pt.pizza_id = 2;";
+			String sql = "select t.nimi, t.id from tayte t, pizzantayte pt where t.id = pt.tayte_id and pt.pizza_id = 1;";
 			Statement haku = yhteys.createStatement();
 			ResultSet tulokset = haku.executeQuery(sql);
-			
-			
+					
 			//käydään hakutulokset läpi
 			while(tulokset.next()) {
 				String tayte = tulokset.getString("t.nimi");
