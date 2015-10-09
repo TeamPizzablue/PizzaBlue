@@ -1,5 +1,8 @@
 package fi.pizzablue.bean;
 
+import java.util.List;
+
+
 public class Pizza {
 	
 	private int id;
@@ -10,6 +13,7 @@ public class Pizza {
 	private double proteiini;
 	private double hiilihydraatti;
 	private double rasva;
+	private List<Tayte> taytteet;
 	
 	public Pizza (int id, int numero, String nimi, double hinta) {
 		this.id = id;
@@ -27,6 +31,14 @@ public class Pizza {
 		this.proteiini = proteiini;
 		this.hiilihydraatti = hiilihydraatti;
 		this.rasva = rasva;
+	}
+
+	public List<Tayte> getTaytteet() {
+		return taytteet;
+	}
+
+	public void setTaytteet(List<Tayte> taytteet) {
+		this.taytteet = taytteet;
 	}
 
 	public int getId() {
@@ -93,13 +105,7 @@ public class Pizza {
 		this.rasva = rasva;
 	}
 
-	@Override
-	public String toString() {
-		return "Pizza [id=" + id + ", numero=" + numero + ", nimi=" + nimi
-				+ ", hinta=" + hinta + ", energia=" + energia + ", proteiini="
-				+ proteiini + ", hiilihydraatti=" + hiilihydraatti + ", rasva="
-				+ rasva + "]";
-	}
+
 	
 
 }
