@@ -273,7 +273,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
     	});
     	$("#rating-stars").click(function(){
-    		starCaptions: {""}
+    		$("span").text("Kiitos arviostasi!");
     	})
     });
     </script>
