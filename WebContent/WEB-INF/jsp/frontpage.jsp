@@ -136,16 +136,16 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    <div class="thumbnail">
 					    	<c:choose>
   								<c:when test="${pizza.numero == 1}">
-  									<img src="img/1.png" alt="">
+  									<img src="img/1.png" alt="hawaji">
   								</c:when>
  								<c:when test="${pizza.numero == 2}">
-									<img src="img/2.png" alt="">
+									<img src="img/2.png" alt="italiano">
   								</c:when>
   								<c:when test="${pizza.numero == 3}">
-  									<img src="img/3.png" alt="">
+  									<img src="img/3.png" alt="mexico">
   								</c:when>
   								<c:otherwise>
-  									<img src="img/4.png" alt="">	
+  									<img src="img/4.png" alt="pizzabluespecial">	
   								</c:otherwise>
 							</c:choose>
 					      <div class="caption">
@@ -167,16 +167,16 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    <div class="thumbnail">
 					      <c:choose>
   								<c:when test="${pizza.numero == 5}">
-  									<img src="img/5.png" alt="">
+  									<img src="img/5.png" alt="empire">
   								</c:when>
  								<c:when test="${pizza.numero == 6}">
-									<img src="img/6.png" alt="">
+									<img src="img/6.png" alt="bacon">
   								</c:when>
   								<c:when test="${pizza.numero == 7}">
-  									<img src="img/7.png" alt="">
+  									<img src="img/7.png" alt="vave">
   								</c:when>
   								<c:otherwise>
-  									<img src="img/8.png" alt="">	
+  									<img src="img/8.png" alt="vegeamericano">	
   								</c:otherwise>
 							</c:choose>
 					      <div class="caption">
@@ -198,16 +198,16 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    <div class="thumbnail">
 					      <c:choose>
   								<c:when test="${pizza.numero == 9}">
-  									<img src="img/9.png" alt="">
+  									<img src="img/9.png" alt="tropicalchicken">
   								</c:when>
  								<c:when test="${pizza.numero == 10}">
-									<img src="img/10.png" alt="">
+									<img src="img/10.png" alt="vege">
   								</c:when>
   								<c:when test="${pizza.numero == 11}">
-  									<img src="img/11.png" alt="">
+  									<img src="img/11.png" alt="pepperoni">
   								</c:when>
   								<c:otherwise>
-  									<img src="img/12.png" alt="">	
+  									<img src="img/12.png" alt="chickenfeta">	
   								</c:otherwise>
 							</c:choose>
 					      <div class="caption">
