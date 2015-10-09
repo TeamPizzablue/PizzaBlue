@@ -225,7 +225,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             
             <div class="col-lg-4">
                 <br><h3>Palautelomake</h3>
-                <form action="" method="post" role="form">
+                <form action="FeedbackMail" method="post" role="form">
                 <div class="form-group col-xs-6">
                 <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black"></div>
                 <div class="form-group col-xs-6">
@@ -233,7 +233,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                 <div class="form-group col-xs-12">
                 <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black"></div>
                 <div class="form-group col-xs-12">
-                <label for="viesti">Viesti: </label><textarea class="form-control" rows="8" max-cols="40" style="color:black"></textarea></div>
+                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black"></textarea></div>
                 <button class="btn btn-default" type="submit" >Lähetä</button>
                 </form>
             </div>
