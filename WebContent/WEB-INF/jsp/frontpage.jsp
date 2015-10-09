@@ -132,9 +132,22 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                    <h2>Pitsalista</h2><br>
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
-					  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					    <div class="thumbnail">
-					      <img src="img/1.png" alt="">
+					    	<c:choose>
+  								<c:when test="${pizza.numero == 1}">
+  									<img src="img/1.png" alt="">
+  								</c:when>
+ 								<c:when test="${pizza.numero == 2}">
+									<img src="img/2.png" alt="">
+  								</c:when>
+  								<c:when test="${pizza.numero == 3}">
+  									<img src="img/3.png" alt="">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/4.png" alt="">	
+  								</c:otherwise>
+							</c:choose>
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
 					        <p>Täytteet: <br>
@@ -150,9 +163,22 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					</div>
 					<div class="row">
                    <c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
-					  <div class="col-xs-12 col-lg-3">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					    <div class="thumbnail">
-					      <img src="img/1.png" alt="">
+					      <c:choose>
+  								<c:when test="${pizza.numero == 5}">
+  									<img src="img/5.png" alt="">
+  								</c:when>
+ 								<c:when test="${pizza.numero == 6}">
+									<img src="img/6.png" alt="">
+  								</c:when>
+  								<c:when test="${pizza.numero == 7}">
+  									<img src="img/7.png" alt="">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/8.png" alt="">	
+  								</c:otherwise>
+							</c:choose>
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
 					        <p>Täytteet: <br>
@@ -168,9 +194,22 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					</div>
 						<div class="row">
                    <c:forEach items="${pizzat}" begin="8" end="11" var="pizza">
-					  <div class="col-xs-12 col-lg-3">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					    <div class="thumbnail">
-					      <img src="img/1.png" alt="">
+					      <c:choose>
+  								<c:when test="${pizza.numero == 9}">
+  									<img src="img/9.png" alt="">
+  								</c:when>
+ 								<c:when test="${pizza.numero == 10}">
+									<img src="img/10.png" alt="">
+  								</c:when>
+  								<c:when test="${pizza.numero == 11}">
+  									<img src="img/11.png" alt="">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/12.png" alt="">	
+  								</c:otherwise>
+							</c:choose>
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
 					        <p>Täytteet: <br>
@@ -199,8 +238,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <br><br>
             <p>Ratapihantie 13<br>
             00520 HELSINKI<br>
-            Puh. 012 3456789<br>
-            pizzablue@sahkoposti.fi</p>
+            Puh. 012 3456789</p>
             <p class="palvelemme">Palvelemme:</p>
             <p>Ma - to ja su 10 - 21<br>
             Pe - la 10 - 22
