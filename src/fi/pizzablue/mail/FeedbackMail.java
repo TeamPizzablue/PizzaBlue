@@ -40,7 +40,7 @@ public class FeedbackMail extends HttpServlet {
 		String viesti = request.getParameter("viesti");
 		
 		
-		response.sendRedirect("http://localhost:8080/pizzablue/palauteVastaus.jsp");
+		response.sendRedirect("http://proto297.haaga-helia.fi:8080/pizzablue/palauteVastaus.jsp");
 
 		        String from = USER_NAME;
 		        String pass = PASSWORD;
