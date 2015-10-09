@@ -14,11 +14,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Pizza Blue</title>
-    
+	<meta name="description" content="Pizza Blue:n arvoihin kuuluu kotimaisten, lähellä tuotettujen raaka-aineiden käyttö, sekä pyrkimys mahdollisimman pieneen hiilijalanjälkeen.">
+	<meta name="robots" content="index, follow">
+	<meta name="keywords" content="pizza, pizzeria, kotimainen, tilaus, kuljetus, ruoka, pitsalista, täytteet, gluteeniton, ruokavalio, arvot, helsinki, palaute, esittely, yhteystiedot, pasila">
+	<title>Pizzaa kotimaisilla raaka-aineilla | Pizza Blue</title>
+	<meta name="google-site-verification" content=""/>
     
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 
