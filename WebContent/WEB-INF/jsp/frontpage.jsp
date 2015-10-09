@@ -265,13 +265,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                 <br><h3>Palautelomake</h3>
                 <form action="FeedbackMail" method="post" role="form">
                 <div class="form-group col-xs-6">
-                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black"></div>
+                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required></div>
                 <div class="form-group col-xs-6">
                 <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" name="puhelinumero" style="color:black"></div>
                 <div class="form-group col-xs-12">
-                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black"></div>
+                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black" required></div>
                 <div class="form-group col-xs-12">
-                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black"></textarea></div>
+                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea></div>
                 <button class="btn btn-default" type="submit" >Lähetä</button>
                 </form>
             </div>
