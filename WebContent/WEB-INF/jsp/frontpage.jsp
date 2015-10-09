@@ -272,8 +272,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
         	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
     	});
-    	$("#input-22").click(function(){
-    		
+    	$("#rating-stars").click(function(){
+    		starCaptions: {""}
     	})
     });
     </script>
