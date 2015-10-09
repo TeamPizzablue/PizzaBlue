@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 <%@ page import="fi.pizzablue.bean.Pizza"%>
-=======
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="fi.pizzablue.bean.Pizza"%>
->>>>>>> 6e7753964a40f7a2bfa4c8cd7d720c8c36576780
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>

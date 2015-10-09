@@ -57,7 +57,7 @@ public class TayteDAO {
 		try {
 			
 			//suoritetaan haku
-			String sql = "select t.nimi, t.id from tayte t, pizzantayte pt where t.id = pt.tayte_id and pt.pizza_id = 1;";
+			String sql = "select p.numero, group_concat(t.nimi SEPARATOR ', ') as taytteet from pizza p, tayte t, pizzantayte pt where t.id = pt.tayte_id and pt.pizza_id = p.id GROUP BY p.id;";
 			Statement haku = yhteys.createStatement();
 			ResultSet tulokset = haku.executeQuery(sql);
 					
