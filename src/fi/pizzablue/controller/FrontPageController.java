@@ -14,6 +14,7 @@ import fi.pizzablue.bean.Tayte;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.PizzaDAO;
 import fi.pizzablue.dao.TayteDAO;
+import fi.pizzablue.service.PizzalistaService;
 
 /**
  * Servlet implementation class PizzaListController
@@ -29,17 +30,14 @@ public class FrontPageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Pizza> pizzat;
-		List<Tayte> taytteet;
+
 		
 		try {
-			PizzaDAO pDAO = new PizzaDAO();
-			pizzat = pDAO.haeKaikki();
-			TayteDAO tDAO = new TayteDAO();
-			taytteet = tDAO.haeKaikki();
+			PizzalistaService service = new PizzalistaService();
+			pizzat = service.haePizzalista();
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		request.setAttribute("taytteet", taytteet);
 		request.setAttribute("pizzat", pizzat);
 		
 		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);

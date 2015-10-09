@@ -14,45 +14,12 @@ package fi.pizzablue.dao;
 
 	public class PizzaDAO {
 		
-		//lataa tietokantayhteyden ajurin
-		public PizzaDAO() throws DAOPoikkeus {
-			try {
-				Class.forName(DBConnectionProperties.getInstance().getProperty("driver")).newInstance();
-			} catch(Exception e) {
-				throw new DAOPoikkeus("Tietokannan ajuria ei kyetty lataamaan.", e);
-			}
-		}
-		
-		//Avaa tietokantayhteyden
-		private Connection avaaYhteys() throws DAOPoikkeus {
-			
-			try {
-				return DriverManager.getConnection(
-						DBConnectionProperties.getInstance().getProperty("url"), 
-						DBConnectionProperties.getInstance().getProperty("username"),
-						DBConnectionProperties.getInstance().getProperty("password"));
-			} catch (Exception e) {
-				throw new DAOPoikkeus("Tietokantayhteyden avaaminen epäonnistui", e);
-			}
-		}
-		
-		// Sulkee tietokantayhteyden
-		private void suljeYhteys(Connection yhteys) throws DAOPoikkeus {
-			try {
-				if (yhteys != null && !yhteys.isClosed())
-					yhteys.close();
-			} catch(Exception e) {
-				throw new DAOPoikkeus("Tietokantayhteys ei jostain syystä suostu menemään kiinni.", e);
-			}
-		}
+
 		
 		//Hakee pizzat kannasta 
-		public List<Pizza> haeKaikki() throws DAOPoikkeus{		
+		public List<Pizza> haeKaikki(Connection yhteys) throws DAOPoikkeus{		
 			
 			ArrayList<Pizza> pizzat = new ArrayList<Pizza>();
-			
-			//avataan yhteys
-			Connection yhteys = avaaYhteys();
 			
 			try {
 				
@@ -81,9 +48,6 @@ package fi.pizzablue.dao;
 			} catch(Exception e) {
 				// virheitä tapahtui
 				throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-			}finally {
-				// lopuksi AINA suljetaan yhteys
-				suljeYhteys(yhteys);
 			}
 			
 			System.out.println("HAETTIIN TIETOKANNASTA PIZZAT: " + pizzat.toString());

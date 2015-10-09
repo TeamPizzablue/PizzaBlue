@@ -137,7 +137,11 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					      <img src="img/1.png" alt="">
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
-					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p>Täytteet: <br>
+					        <c:forEach items="${pizza.taytteet}" var="tayte">
+					        	<c:out value="${tayte.nimi}"/>
+					        </c:forEach>
+					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
@@ -153,7 +157,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					      <img src="img/1.png" alt="">
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
-					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="4" end="7" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
@@ -169,7 +173,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					      <img src="img/1.png" alt="">
 					      <div class="caption">
 					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
-					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="8" end="11" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
