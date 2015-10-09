@@ -22,7 +22,7 @@
 	text-align: center;
 }
 .tuotetiedot {
-	font-size: small;
+	font-size: small !important;
 }
 .hinta {
 	font-size: medium;
