@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 <%@ page import="fi.pizzablue.bean.Pizza"%>
+=======
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="fi.pizzablue.bean.Pizza"%>
+>>>>>>> 6e7753964a40f7a2bfa4c8cd7d720c8c36576780
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<% DecimalFormat dec = new DecimalFormat("0.00"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +105,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <!-- About Section -->
@@ -123,16 +128,64 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         
     </section>
 
-    <!-- Download Section -->
+    <!-- Download Section --> 
     <section id="pitsalista" class="content-section text-center">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-12">
-                    <h2>Pitsalista</h2>                  
-               		<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
-            	</div>
-        	</div>
-        </div>
+                   <h2>Pitsalista</h2><br>
+                   <div class="row">
+                   <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
+					    <div class="thumbnail">
+					      <img src="img/1.png" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+					<div class="row">
+                   <c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
+					    <div class="thumbnail">
+					      <img src="img/1.png" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+						<div class="row">
+                   <c:forEach items="${pizzat}" begin="8" end="11" var="pizza">
+					  <div class="col-xs-12 col-lg-3">
+					    <div class="thumbnail">
+					      <img src="img/1.png" alt="">
+					      <div class="caption">
+					        <h3><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></h3>
+					        <p>Täytteet: <br><c:forEach items="${taytteet}" begin="0" end="3" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+				<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
+				</div>
+			</div>
+         </div>
     </section>
 
     <!-- Contact Section -->
@@ -149,9 +202,11 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <p class="palvelemme">Palvelemme:</p>
             <p>Ma - to ja su 10 - 21<br>
             Pe - la 10 - 22
-            
                 </p>
-                 <div class="center-block" id="ratingbox"><input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1"></div>
+                
+                <!-- Tähtiarviointi -->
+                 <div class="center-block" id="ratingbox"><input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1" value="0"></div>
+                
                 <ul class="list-inline banner-social-buttons">
                     <li>
                         <a href="https://facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
@@ -217,6 +272,9 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
         	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
     	});
+    	$("#input-22").listenClick(){
+    		
+    	}
     });
     </script>
     
