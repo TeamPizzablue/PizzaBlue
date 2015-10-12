@@ -72,7 +72,7 @@
                         <a class="page-scroll" href="#esittely">Esittely</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#pitsalista">Pitsalista</a>
+                        <a class="page-scroll" href="#pitsalista">Pizzamme</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
@@ -129,7 +129,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-12">
-                   <h2>Pitsalista</h2><br>
+                   <h2>Pizzamme</h2>
+                   <p>Tilaukset puhelimitse: 050 3256953</p>
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -238,7 +239,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <br><br>
             <p>Ratapihantie 13<br>
             00520 HELSINKI<br>
-            Puh. 012 3456789</p>
+            Puh. 050 3256953</p>
             <p class="palvelemme">Palvelemme:</p>
             <p>Ma - to ja su 10 - 21<br>
             Pe - la 10 - 22
