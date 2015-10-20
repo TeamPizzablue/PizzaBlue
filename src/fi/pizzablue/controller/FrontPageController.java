@@ -19,7 +19,7 @@ import fi.pizzablue.service.PizzalistaService;
 /**
  * Servlet implementation class PizzaListController
  */
-@WebServlet("/frontpage.jsp")
+@WebServlet(urlPatterns={"/frontpage.jsp","/index"})
 public class FrontPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

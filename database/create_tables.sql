@@ -29,6 +29,65 @@ CREATE TABLE pizzantayte (
 	FOREIGN KEY(tayte_id) REFERENCES tayte(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
+CREATE TABLE juoma (
+	id SMALLINT NOT NULL AUTO_INCREMENT,
+	numero SMALLINT NOT NULL,
+	nimi VARCHAR(20) NOT NULL,
+	maara INT NOT NULL,
+	hinta DECIMAL(4,2) NOT NULL,
+	energia INT,
+	proteiini DECIMAL(4,2),
+	hiilihydraatti DECIMAL(4,2),
+	rasva DECIMAL(4,2),
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE tilaus (
+	id INT NOT NULL AUTO_INCREMENT,
+	hinta DECIMAL(8,2) NOT NULL,
+	aikaleima TIMESTAMP NOT NULL,
+	toimitustapa BOOLEAN NOT NULL,
+	nimi VARCHAR(50),
+	puhelinnumero VARCHAR(15),
+	sahkoposti VARCHAR(50),
+	toimitusosoite VARCHAR(50),
+	lisatiedot VARCHAR(200),
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE pohja (
+	id INT NOT NULL AUTO_INCREMENT,
+	nimi VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE juomarivi (
+	id INT NOT NULL AUTO_INCREMENT,
+	maara SMALLINT NOT NULL,
+	hinta DECIMAL(6,2) NOT NULL,
+	juoma_id SMALLINT NOT NULL,
+	tilaus_id INT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(juoma_id) REFERENCES juoma(id),
+	FOREIGN KEY(tilaus_id) REFERENCES tilaus(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE pizzarivi (
+	id INT NOT NULL AUTO_INCREMENT,
+	hinta DECIMAL(6,2) NOT NULL,
+	maara SMALLINT NOT NULL,
+	oregano BOOLEAN,
+	valkosipuli BOOLEAN,
+	pohja_id INT NOT NULL,
+	pizza_id SMALLINT NOT NULL,
+	tilaus_id INT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(pohja_id) REFERENCES pohja(id),
+	FOREIGN KEY(pizza_id) REFERENCES pizza(id),
+	FOREIGN KEY(tilaus_id) REFERENCES tilaus(id)
+)ENGINE=InnoDB CHARACTER  SET=UTF8;
+	
+
 INSERT INTO pizza (numero, nimi, hinta, energia, proteiini, hiilihydraatti, rasva)
 values 	(1, 'Hawaji', 7.90, 645, 27.50, 77.00, 30.00),
 	(2, 'Italiano', 8.90, 663, 29.00, 78.00, 31.50),
@@ -105,3 +164,13 @@ values	(1, 1, 1),
 	(39, 12, 15),
 	(40, 12, 18),
 	(41, 12, 17);
+
+INSERT INTO juoma (numero, nimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva)
+values  (1, 'Coca cola', 250, 1.90, 108, 0.00, 27.00, 0.00),
+	(2, 'Fanta', 250, 1.90, 110, 0.00, 27.00, 0.00),
+	(3, '7UP', 250, 1.90, 108, 0.00, 27.50, 0.00),
+	(4, 'Mountain Dew', 250, 1.90, 108, 0.00, 27.00, 0.00),
+	(5, 'Vihersmoothie', 100, 2.90, 50, 0.40, 11.00, 0.00),
+	(6, 'Hedelmämehu', 250, 2.90, 111, 0.00, 24.00, 0.00),
+	(7, 'Mehu', 200, 2.50, 120, 0.00, 22.00, 0.00),
+	(8, 'Vesi', 200, 1.00, 0.00, 0.00, 0.00, 0.00);
