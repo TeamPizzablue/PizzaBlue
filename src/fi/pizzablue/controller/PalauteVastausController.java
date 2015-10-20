@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PalauteVastausController
  */
-@WebServlet("/palauteVastaus.jsp")
+@WebServlet("/palauteVastaus")
 public class PalauteVastausController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
