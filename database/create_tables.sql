@@ -1,3 +1,8 @@
+DROP TABLE pizzarivi;
+DROP TABLE juomarivi;
+DROP TABLE pohja;
+DROP TABLE tilaus;
+DROP TABLE juoma;
 DROP TABLE pizzantayte;
 DROP TABLE tayte;
 DROP TABLE pizza;
@@ -47,16 +52,20 @@ CREATE TABLE tilaus (
 	hinta DECIMAL(8,2) NOT NULL,
 	aikaleima TIMESTAMP NOT NULL,
 	toimitustapa BOOLEAN NOT NULL,
-	nimi VARCHAR(50),
+	etunimi VARCHAR(20),
+	sukunimi VARCHAR(30),
 	puhelinnumero VARCHAR(15),
 	sahkoposti VARCHAR(50),
 	toimitusosoite VARCHAR(50),
 	lisatiedot VARCHAR(200),
+	kasittelyssa BOOLEAN NOT NULL,
+	valmis BOOLEAN NOT NULL,
+	maksettu BOOLEAN NOT NULL,
 	PRIMARY KEY(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE pohja (
-	id INT NOT NULL AUTO_INCREMENT,
+	id SMALLINT NOT NULL AUTO_INCREMENT,
 	nimi VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
@@ -74,11 +83,11 @@ CREATE TABLE juomarivi (
 
 CREATE TABLE pizzarivi (
 	id INT NOT NULL AUTO_INCREMENT,
-	hinta DECIMAL(6,2) NOT NULL,
 	maara SMALLINT NOT NULL,
-	oregano BOOLEAN,
-	valkosipuli BOOLEAN,
-	pohja_id INT NOT NULL,
+	hinta DECIMAL(6,2) NOT NULL,
+	oregano BOOLEAN NOT NULL,
+	valkosipuli BOOLEAN NOT NULL,
+	pohja_id SMALLINT NOT NULL,
 	pizza_id SMALLINT NOT NULL,
 	tilaus_id INT NOT NULL,
 	PRIMARY KEY(id),
