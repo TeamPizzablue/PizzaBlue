@@ -6,28 +6,39 @@ public class Juoma {
 	private int id;
 	private int numero;
 	private String nimi;
+	private int maara;
 	private double hinta;
 	private int energia;
 	private double proteiini;
 	private double hiilihydraatti;
 	private double rasva;
 	
-	public Juoma (int id, int numero, String nimi, double hinta) {
+	public Juoma (int id, int numero, String nimi, int maara, double hinta) {
 		this.id = id;
 		this.numero = numero;
 		this.nimi = nimi;
+		this.maara = maara;
 		this.hinta = hinta;
 	}
 	
-	public Juoma (int id, int numero, String nimi, double hinta, int energia, double proteiini, double hiilihydraatti, double rasva) {
+	public Juoma (int id, int numero, String nimi, int maara, double hinta, int energia, double proteiini, double hiilihydraatti, double rasva) {
 		this.id = id;
 		this.numero = numero;
 		this.nimi = nimi;
+		this.maara = maara;
 		this.hinta = hinta;
 		this.energia = energia;
 		this.proteiini = proteiini;
 		this.hiilihydraatti = hiilihydraatti;
 		this.rasva = rasva;
+	}
+
+	public int getMaara() {
+		return maara;
+	}
+
+	public void setMaara(int maara) {
+		this.maara = maara;
 	}
 
 	public int getId() {
