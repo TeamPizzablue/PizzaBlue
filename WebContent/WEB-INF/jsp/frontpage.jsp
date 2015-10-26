@@ -159,17 +159,20 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					<br><br>
 					Kotiinkuljetuksemme hinta on <span style="color:#42DCA3; font-weight:700;">2.99 €.</span>
 					</p><br><br>
-					<ul class="list-inline banner-social-buttons">
-					  <li>
-                        <a href="" class="btn btn-default btn-lg">pizzat</a>
+					
+					<ul id="tabs" class="nav nav-tabs viiva-pois">
+					  <li class="active">
+                        <a href="#pizzalista" class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a>
                     </li>
                     <li>
-                        <a href="" class="btn btn-default btn-lg">juomat</a>
+                        <a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
                     </li>
                 	</ul>
+                	
 					<br><br>
 					<!-- PIZZALISTA ALKAA -->
-                   <div class="row">
+					<div id="my-tab-content" class="tab-content">
+                   <div id="pizzalista" class="tab-pane fade in active"><div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					    <div class="thumbnail">
@@ -264,10 +267,11 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					   </div>
 					</c:forEach>
 					</div>
+					</div>
 					
 					<!-- JUOMALISTA ALKAA -->
 					
-					<div class="row">
+					<div id="juomalista" class="tab-pane fade"><div class="row">
                    <c:forEach items="${juomat}" begin="0" end="3" var="juoma">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					    <div class="thumbnail">
@@ -329,6 +333,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    </div>
 					   </div>
 					</c:forEach>
+					</div>
+					</div>
 					</div>
 					
 					<p>Tilauksen voi jättää myös puhelimitse 
@@ -425,6 +431,9 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     	$("#rating-stars").click(function(){
     		$("span").text("Kiitos arviostasi!");
     	})
+    	
+    	$("#tabs").tabs();
+    	
     });
     </script>
     
