@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<% DecimalFormat dec = new DecimalFormat("0.00"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +29,9 @@
     
     <!-- Team Blue CSS -->
     <link href="css/teamblue_styles.css" rel="stylesheet">
+    
+    <!-- Bootstrap navbar cart -->
+    <link href="css/bootstrap_navbar_cart.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -77,6 +79,27 @@
                     <li>
                         <a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
                     </li>
+                     <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li class="divider"></li>
+              <li><a class="text-center" href="">Siirry tilaussivulle</a></li>
+          </ul>
+        </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,7 +153,16 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <div class="container">
                 <div class="col-lg-12">
                    <h2>Valikoima</h2>
-                   <p>Tilaukset puhelimitse: 050 3256953</p>
+                   
+                   <p>Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
+					<br>
+					Kaikkiin pizzoihimme kuuluu vakiona juusto sekä tomaattikastike.
+					<br><br>
+					Kotiinkuljetuksemme hinta on <span style="color:#42DCA3; font-weight:700;">2.99 €.</span>
+					</p><br><br>
+					
+					<!-- PIZZALISTA ALKAA -->
+					
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -162,6 +194,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					   </div>
 					</c:forEach>
 					</div>
+					
 					<div class="row">
                    <c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -193,6 +226,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					   </div>
 					</c:forEach>
 					</div>
+					
 						<div class="row">
                    <c:forEach items="${pizzat}" begin="8" end="11" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -225,7 +259,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					</c:forEach>
 					</div>
 					
-					<!-- TÄSTÄ ALKAA JUOMAT -->
+					<!-- JUOMALISTA ALKAA -->
 					
 					<div class="row">
                    <c:forEach items="${juomat}" begin="0" end="3" var="juoma">
@@ -291,6 +325,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					</c:forEach>
 					</div>
 					
+					<p>Tilauksen voi jättää myös puhelimitse 
+					<br><span class="glyphicon glyphicon-earphone" style="margin-right:5px; color:#42DCA3;" aria-hidden="true"></span> <span style="font-size: 26px;"> 050-3256953</span></p>
 				<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
 				</div>
 			</div>

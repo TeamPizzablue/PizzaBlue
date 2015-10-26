@@ -47,6 +47,12 @@ CREATE TABLE juoma (
 	PRIMARY KEY(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
+CREATE TABLE tila (
+	id SMALLINT NOT NULL,
+	nimi VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
 CREATE TABLE tilaus (
 	id INT NOT NULL AUTO_INCREMENT,
 	hinta DECIMAL(8,2) NOT NULL,
@@ -58,10 +64,9 @@ CREATE TABLE tilaus (
 	sahkoposti VARCHAR(50),
 	toimitusosoite VARCHAR(50),
 	lisatiedot VARCHAR(200),
-	kasittelyssa BOOLEAN NOT NULL,
-	valmis BOOLEAN NOT NULL,
-	maksettu BOOLEAN NOT NULL,
-	PRIMARY KEY(id)
+	tila_id SMALLINT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(tila_id) REFERENCES tila(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE pohja (
@@ -82,7 +87,7 @@ CREATE TABLE juomarivi (
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE pizzarivi (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,show
 	maara SMALLINT NOT NULL,
 	hinta DECIMAL(6,2) NOT NULL,
 	oregano BOOLEAN NOT NULL,
@@ -183,3 +188,8 @@ values  (1, 'Coca cola', 250, 1.90, 108, 0.00, 27.00, 0.00),
 	(6, 'Hedelmämehu', 250, 2.90, 111, 0.00, 24.00, 0.00),
 	(7, 'Mehu', 200, 2.50, 120, 0.00, 22.00, 0.00),
 	(8, 'Vesi', 200, 1.00, 0.00, 0.00, 0.00, 0.00);
+
+INSERT INTO tila (id, nimi)
+values	(1, 'käsittelyssä'),
+	(2, 'valmis'),
+	(3, 'maksettu');
