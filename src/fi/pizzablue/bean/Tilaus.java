@@ -12,8 +12,9 @@ public class Tilaus {
 	private String sahkoposti;
 	private String toimitusosoite;
 	private String lisatiedot;
+	private Tila tila;
 	
-	public Tilaus(int id, double hinta, Date aikaleima, boolean toimitustapa, String nimi, String puhelinnumero, String sahkoposti, String toimitusosoite, String lisatiedot) {
+	public Tilaus(int id, double hinta, Date aikaleima, boolean toimitustapa, String nimi, String puhelinnumero, String sahkoposti, String toimitusosoite, String lisatiedot, Tila tila) {
 		this.id = id;
 		this.hinta = hinta;
 		this.aikaleima = aikaleima;
@@ -23,6 +24,7 @@ public class Tilaus {
 		this.sahkoposti = sahkoposti;
 		this.toimitusosoite = toimitusosoite;
 		this.lisatiedot = lisatiedot;
+		this.tila = tila;
 	}
 
 	public int getId() {
@@ -95,6 +97,14 @@ public class Tilaus {
 
 	public void setLisatiedot(String lisatiedot) {
 		this.lisatiedot = lisatiedot;
+	}
+
+	public Tila getTila() {
+		return tila;
+	}
+
+	public void setTila(Tila tila) {
+		this.tila = tila;
 	}
 	
 	
