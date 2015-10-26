@@ -154,7 +154,12 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <div class="container">
                 <div class="col-lg-12">
                    <h2>Pizzamme</h2>
-                   <p>Tilaukset puhelimitse: 050 3256953</p>
+                   <p>Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
+					<br>
+					Kaikkiin pizzoihimme kuuluu vakiona juusto sekä tomaattikastike.
+					<br><br>
+					Kotiinkuljetuksemme hinta on <span style="color:#42DCA3; font-weight:700;">2.99 €.</span>
+					</p><br><br>
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -241,13 +246,15 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <c:forEach items="${pizza.taytteet}" var="tayte"> <c:out value="${tayte.nimi}"/></c:forEach>
 					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        </p><p class="hinta" style="font-weight:700;"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
 					      </div>
 					    </div>
 					   </div>
 					</c:forEach>
 					</div>
+					<p>Tilauksen voi jättää myös puhelimitse 
+					<br><span class="glyphicon glyphicon-earphone" style="margin-right:5px; color:#42DCA3;" aria-hidden="true"></span> <span style="font-size: 26px;"> 050-3256953</span></p>
 				<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
 				</div>
 			</div>
