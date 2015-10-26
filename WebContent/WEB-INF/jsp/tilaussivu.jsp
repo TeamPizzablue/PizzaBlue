@@ -56,6 +56,37 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h2>Ostoskorin sisältö</h2>
+				<table style="margin: 0 auto;">
+					<tr>
+						<td>Tuotteen nimi</td>
+						<td>Määrä</td>
+						<td>Hinta</td>
+						<td>Pizzapohja</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Pizza</td>
+						<td>1</td>
+						<td>8,50 &euro;</td>
+						<td>
+							<div class="dropdown">
+								<button class="btn btn-default dropdown-toggle" type="button"
+									id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="true">
+									Valitse pizzapohja <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><a href="#">Tavallinen</a></li>
+									<li><a href="#">Gluteeniton</a></li>
+									<li><a href="#">Täysjyvä</a></li>
+								</ul>
+							</div>
+						</td>
+						<td><button style="background: red;">X</button></td>
+					</tr>
+
+
+				</table>
 			</div>
 		</div>
 	</section>
@@ -76,8 +107,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<!-- Tilauksen lähetys, toiminnallisuus puuttu vielä -->
-				<a href="http://startbootstrap.com/template-overviews/grayscale/"
-					class="btn btn-default btn-lg">Lähetä tilaus</a>
+				<a href="pop-up" class="btn btn-default btn-lg">Lähetä tilaus</a>
 			</div>
 		</div>
 	</section>
