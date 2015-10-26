@@ -21,9 +21,29 @@
 	width: 200px;
 	text-align: center;
 }
+
 .tuotetiedot {
 	font-size: small !important;
 }
+
 .hinta {
 	font-size: medium;
+}
+
+.viiva-pois {
+	border-bottom: 0px !important;
+	text-align:center !important;
+	float: none !important;
+    display: inline-block !important;
+}
+
+.butska {
+	border-radius: 0 0 0 0 !important;
+	margin-left:15px !important;
+	border: 1px solid #42dca3 !important;
+}
+
+.butska:hover {
+	background-color: #42dca3 !important;
+	color: black !important;
 }
