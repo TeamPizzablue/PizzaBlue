@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<% DecimalFormat dec = new DecimalFormat("0.00"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +74,7 @@
                         <a class="page-scroll" href="#esittely">Esittely</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#pitsalista">Pizzamme</a>
+                        <a class="page-scroll" href="#pitsalista">Valikoima</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
@@ -153,7 +152,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-12">
-                   <h2>Pizzamme</h2>
+                   <h2>Valikoima</h2>
                    <p>Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
 					<br>
 					Kaikkiin pizzoihimme kuuluu vakiona juusto sekä tomaattikastike.
@@ -167,8 +166,9 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                     <li>
                         <a href="" class="btn btn-default btn-lg">juomat</a>
                     </li>
-                </ul>
+                	</ul>
 					<br><br>
+					<!-- PIZZALISTA ALKAA -->
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -194,12 +194,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
 					</c:forEach>
 					</div>
+					
 					<div class="row">
                    <c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -225,12 +226,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
 					</c:forEach>
 					</div>
+					
 						<div class="row">
                    <c:forEach items="${pizzat}" begin="8" end="11" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -255,13 +257,80 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <c:forEach items="${pizza.taytteet}" var="tayte"> <c:out value="${tayte.nimi}"/></c:forEach>
 					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p><p class="hinta" style="font-weight:700;"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Valitse</a></p>
+					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
 					</c:forEach>
 					</div>
+					
+					<!-- JUOMALISTA ALKAA -->
+					
+					<div class="row">
+                   <c:forEach items="${juomat}" begin="0" end="3" var="juoma">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					    <div class="thumbnail">
+					    	<c:choose>
+  								<c:when test="${juoma.numero == 1}">
+  									<img src="img/j1.png" alt="cocacola">
+  								</c:when>
+ 								<c:when test="${juoma.numero == 2}">
+									<img src="img/j2.png" alt="fanta">
+  								</c:when>
+  								<c:when test="${juoma.numero == 3}">
+  									<img src="img/j3.png" alt="7up">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/j4.png" alt="mountaindew">	
+  								</c:otherwise>
+							</c:choose>
+					      <div class="caption">
+					        <h3><c:out value="${juoma.numero}"/>. <c:out value="${juoma.nimi}"/></h3>
+					        <p>
+					        <c:out value="${juoma.maara}"/>ml
+					        </p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+					
+					<div class="row">
+                   <c:forEach items="${juomat}" begin="4" end="7" var="juoma">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					    <div class="thumbnail">
+					    	<c:choose>
+  								<c:when test="${juoma.numero == 5}">
+  									<img src="img/j5.png" alt="vihersmoothie">
+  								</c:when>
+ 								<c:when test="${juoma.numero == 6}">
+									<img src="img/j6.png" alt="hedelmämehu">
+  								</c:when>
+  								<c:when test="${juoma.numero == 7}">
+  									<img src="img/j7.png" alt="mehu">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/j8.png" alt="vesi">	
+  								</c:otherwise>
+							</c:choose>
+					      <div class="caption">
+					        <h3><c:out value="${juoma.numero}"/>. <c:out value="${juoma.nimi}"/></h3>
+					        <p>
+					        <c:out value="${juoma.maara}"/>ml
+					        </p>
+					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
+					        </p><p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+					
 					<p>Tilauksen voi jättää myös puhelimitse 
 					<br><span class="glyphicon glyphicon-earphone" style="margin-right:5px; color:#42DCA3;" aria-hidden="true"></span> <span style="font-size: 26px;"> 050-3256953</span></p>
 				<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
@@ -290,13 +359,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                 
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="https://facebook.com" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                        <a href="https://facebook.com" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        <a href="https://twitter.com" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                     </li>
                     <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                        <a href="https://plus.google.com/" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
                
