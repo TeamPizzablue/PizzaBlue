@@ -30,6 +30,9 @@
     
     <!-- Team Blue CSS -->
     <link href="css/teamblue_styles.css" rel="stylesheet">
+    
+    <!-- Bootstrap navbar cart -->
+    <link href="css/bootstrap_navbar_cart.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -77,6 +80,27 @@
                     <li>
                         <a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
                     </li>
+                     <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu">
+              <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+              </li>
+              <li class="divider"></li>
+              <li><a class="text-center" href="">Siirry tilaussivulle</a></li>
+          </ul>
+        </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
