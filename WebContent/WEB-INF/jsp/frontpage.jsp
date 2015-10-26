@@ -153,16 +153,22 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
             <div class="container">
                 <div class="col-lg-12">
                    <h2>Valikoima</h2>
-                   
                    <p>Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
 					<br>
 					Kaikkiin pizzoihimme kuuluu vakiona juusto sekä tomaattikastike.
 					<br><br>
 					Kotiinkuljetuksemme hinta on <span style="color:#42DCA3; font-weight:700;">2.99 €.</span>
 					</p><br><br>
-					
+					<ul class="list-inline banner-social-buttons">
+					  <li>
+                        <a href="" class="btn btn-default btn-lg">pizzat</a>
+                    </li>
+                    <li>
+                        <a href="" class="btn btn-default btn-lg">juomat</a>
+                    </li>
+                	</ul>
+					<br><br>
 					<!-- PIZZALISTA ALKAA -->
-					
                    <div class="row">
                    <c:forEach items="${pizzat}" begin="0" end="3" var="pizza">
 					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
