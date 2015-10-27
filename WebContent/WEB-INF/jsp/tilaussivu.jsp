@@ -56,31 +56,25 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h2>Ostoskorin sisältö</h2>
-				<table style="margin: 0 auto;">
+				<table class="sisalto" style="margin: 0 auto;">
 					<tr>
 						<td>Tuotteen nimi</td>
 						<td>Määrä</td>
-						<td>Hinta</td>
+						<td>Hinta &euro;</td>
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>Pizza</td>
 						<td>1</td>
-						<td>8,50 &euro;</td>
+						<td>8,50</td>
 						<td>
-							<div class="dropdown">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="true">
-									Valitse pizzapohja <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-									<li><a href="#">Tavallinen</a></li>
-									<li><a href="#">Gluteeniton</a></li>
-									<li><a href="#">Täysjyvä</a></li>
-								</ul>
-							</div>
+							<select name="Pizzapohja" style="background-color:white; padding:3px;" required class="btn-default btn pizzapohja">
+								<option value="">-Valitse-</option>
+								<option value="Tavallinen">Tavallinen</option>
+								<option value="Täysjyvä">Täysjyvä</option>
+								<option value="Gluteeniton">Gluteeniton</option>
+							</select>
 						</td>
 						<td><button style="background: red;">X</button></td>
 					</tr>
@@ -94,10 +88,64 @@
 	<!-- Toimitustiedot -->
 	<section id="toimitustiedot"
 		class="container content-section text-center">
+		<div class="col-lg-12">
+		
 		<div class="row">
-			<div class="col-lg-12">
-				<h2>Toimitustiedot</h2>
+		<h2>Toimitustiedot</h2>
+		
+					<ul id="tabs" class="nav nav-tabs viiva-pois">
+					  <li class="active">
+                        <a href="#kotiinkuljetus" class="btn btn-default btn-lg butska" data-toggle="tab">Kotiinkuljetus</a>
+                    </li>
+                    <li>
+                        <a href="#nouto" class="btn btn-default btn-lg butska" data-toggle="tab">Nouto</a>
+                    </li>
+                	</ul>
+		
+		<!-- kotiinkuljetus -->
+		<div id="kotiinkuljetus" class="tab-pane fade in active">
+			<div class="col-lg-4">
 			</div>
+			<div class="col-lg-4">
+				<form action="" method="post" role="form">
+				<div class="form-group col-xs-6">
+				<label for="Etunimi">Etunimi: </label><input class="form-control" type="text" name="etunimi" style="color:black" required></div>
+				<div class="form-group col-xs-6">
+                <label for="Sukunimi">Sukunimi: </label><input class="form-control" type="text" name="sukunimi" style="color:black" required></div>
+                <div class="form-group col-xs-12">
+                <label for="Katuosoite">Katuosoite: </label><input class="form-control" type="text" name="katuosoite" style="color:black" required></div>
+                <div class="form-group col-xs-6">
+				<label for="Postinumero">Postinumero: </label><input class="form-control" type="text" name="postinumero" style="color:black" required></div>
+				<div class="form-group col-xs-6">
+                <label for="Paikkakunta">Paikkakunta: </label><input class="form-control" type="text" name="sukunimi" style="color:black" required></div>
+                <div class="form-group col-xs-12">
+                <label for="Puhelinnumero">Puhelinnumero: </label><input class="form-control" type="tel" name="puhelinnumero" style="color:black" required></div>
+                <div class="form-group col-xs-12">
+                <label for="Sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black"></div>
+                <div class="form-group col-xs-12">
+                <label for="Lisatietoja">Lisätietoja: </label><textarea class="form-control" name="lisatietoja" rows="8" max-cols="40" style="color:black" required></textarea></div>
+				</form>
+			</div>
+			<div class="col-lg-4">
+			</div>
+			</div>
+			
+		<!-- nouto -->
+		<div id="nouto" class="tab-pane fade">
+			<div class="col-lg-4">
+			</div>
+			<div class="col-lg-4">
+				<form action="" method="post" role="form">
+                <div class="form-group col-xs-12">
+                <label for="Puhelinnumero">Puhelinnumero: </label><input class="form-control" type="tel" name="puhelinnumero" style="color:black" required></div>
+                <div class="form-group col-xs-12">
+                <label for="Sahkoposti">Sähköposti: </label><input class="form-control" type="email" name="sahkoposti" style="color:black"></div>
+				</form>
+			</div>
+			<div class="col-lg-4">
+			</div>	
+		</div>		
+		</div>
 		</div>
 	</section>
 
@@ -135,6 +183,16 @@
 
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
+	
+	    <script>
+    $(document).ready(function() {
+
+    	
+    	$("#tabs").tabs();
+    	
+    });
+    </script>
+    
 
 </body>
 
