@@ -17,6 +17,7 @@
    	margin:0 auto !important;
 }
 
+//* Tähtiarvioinnin tekstin alas heitto *//
 #ratingbox {
 	width: 200px;
 	text-align: center;
@@ -46,4 +47,18 @@
 .butska:hover {
 	background-color: #42dca3 !important;
 	color: black !important;
+}
+
+//* Tilaussivun taulukon tyyli *//
+.sisalto {
+	height:200px;
+	width:300px;
+}
+
+.sisalto td{
+	padding: 7px !important;
+}
+
+.pizzapohja{
+	padding 2px 5px !important;
 }

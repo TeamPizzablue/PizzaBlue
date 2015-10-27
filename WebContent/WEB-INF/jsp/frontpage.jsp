@@ -432,7 +432,6 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     		$("span").text("Kiitos arviostasi!");
     	})
     	
-    	$("#tabs").tabs();
     	
     });
     </script>
