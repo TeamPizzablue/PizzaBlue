@@ -158,7 +158,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					Kaikkiin pizzoihimme kuuluu vakiona juusto sekä tomaattikastike.
 					<br><br>
 					Kotiinkuljetuksemme hinta on <span style="color:#42DCA3; font-weight:700;">2.99 €.</span>
-					</p><br><br>
+					</p>
 					
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
 					  <li class="active">
