@@ -1,11 +1,10 @@
 package fi.pizzablue.bean;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class Ostoskori {
 
-	private ArrayList ostoskorinTuotteet = new ArrayList();
+	private ArrayList<OstoskorinTuote> ostoskorinTuotteet = new ArrayList<OstoskorinTuote>();
 	private double kokonaishinta;
 
 	public int tuotteidenMaara() {
@@ -84,11 +83,11 @@ public class Ostoskori {
 		return tuote;
 	}
 
-	public ArrayList haeTuotteet() {
+	public ArrayList<OstoskorinTuote> haeTuotteet() {
 		return ostoskorinTuotteet;
 	}
 
-	public void setCartItems(ArrayList alCartItems) {
+	public void setCartItems(ArrayList<OstoskorinTuote> alCartItems) {
 		this.ostoskorinTuotteet = alCartItems;
 	}
 
