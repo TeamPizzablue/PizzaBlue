@@ -65,6 +65,7 @@
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
+					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<tr>
 						<td>1</td>
 						<td>Pizza</td>
@@ -178,7 +179,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<!-- Tilauksen lähetys, toiminnallisuus puuttu vielä -->
-				<a href="pop-up" class="btn btn-default btn-lg">Lähetä tilaus</a>
+				<button class="btn btn-default btn-lg" type="submit" value="Submit">Lähetä</button>
+  				<!-- Paluu kotisivulle, tarkoitus myös jopa tyhjentää koko sessio myöhemmin. -->
+  				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp" class="btn btn-default btn-lg">Peruuta</a>
 			</div>
 		</div>
 	</section>

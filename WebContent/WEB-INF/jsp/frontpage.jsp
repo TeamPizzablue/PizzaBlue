@@ -147,7 +147,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
         
     </section>
 
-    <!-- Download Section --> 
+    <!-- Tuotelista --> 
     <section id="pitsalista" class="content-section text-center">
         <div class="download-section">
             <div class="container">
@@ -345,7 +345,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
          </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Yhteystiedot -->
     <section id="yhteystiedot" class="container content-section text-center">
     <br><h2>Yhteystiedot</h2>
     <div class="row">
@@ -376,7 +376,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
                 </ul>
                
           </div>
-            
+          
+            <!-- Palautetlomake -->
             <div class="col-lg-4">
                 <br><h3>Palautelomake</h3>
                 <form action="FeedbackMail" method="post" role="form">
@@ -394,7 +395,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
          </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Kartta -->
     <div id="map"></div>
 
     <!-- Footer -->
@@ -422,6 +423,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     <!-- Tähtiarvointi -->
     <script src="js/star-rating.min.js" type="text/javascript"></script>
     
+    <!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
     <script>
     $(document).ready(function() {
     	$("#input-22").rating({
@@ -436,9 +438,6 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     });
     </script>
     
-    
-    
-   <!-- Initialize your rating via javascript as follows -->
 
 
 </body>
