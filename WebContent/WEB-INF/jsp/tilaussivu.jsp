@@ -58,17 +58,17 @@
 				<h2>Ostoskorin sisältö</h2>
 				<table class="sisalto" style="margin: 0 auto; width:100%;">
 					<tr class="tietorivi">
-						<td>id</td>
-						<td>Tuotteen nimi</td>
-						<td>Määrä</td>
-						<td>Hinta &euro;</td>
-						<td>Pizzapohja</td>
-						<td></td>
+						<th>id</th>
+						<th>Tuotteen nimi</th>
+						<th>Määrä</th>
+						<th>Hinta &euro;</th>
+						<th>Pizzapohja</th>
+						<th></th>
 					</tr>
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<tr>
 						<td>1</td>
-						<td>Pizza</td>
+						<td>Margarita</td>
 						<td>1</td>
 						<td>8,50</td>
 						<td><select name="Pizzapohja"
@@ -81,9 +81,11 @@
 						</select></td>
 						<td><button type="button" class="btn btn-danger"><span class=" glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
 					</tr>
-
-
 				</table>
+				
+				<p> <br>
+				Yhteissumma: 8,50 &euro;<br>
+				<span></span></p>
 			</div>
 		</div>
 	</section>
@@ -95,6 +97,8 @@
 
 			<div class="row">
 				<h2>Toimitustiedot</h2>
+				
+				<p style="font-size:17px;"> Valitse alhaalta haluamasi toimitustapa tilauksellesi. Jos haluat saada tilausvahvistuksen, muista mainita sähköpostiosoitteesi toimitustietoja täyttäessäsi.</p>
 
 				<ul id="tabs" class="nav nav-tabs viiva-pois">
 					<li class="active"><a href="#kotiinkuljetus"
