@@ -17,7 +17,7 @@
    	margin:0 auto !important;
 }
 
-//* Tähtiarvioinnin tekstin alas heitto *//
+/* Tähtiarvioinnin tekstin alas heitto */
 #ratingbox {
 	width: 200px;
 	text-align: center;
@@ -51,11 +51,18 @@
 
 //* Tilaussivun taulukon tyyli *//
 .sisalto {
-	height:200px;
-	width:300px;
+	height:200px !important;
+	width:300px !important;
 }
 
-.sisalto td{
-	padding: 7px !important;
+.sisalto td {
+	padding: 5px 5px 5px 5px !important;
 }
+.tietorivi {
+	font-size: medium !important;
+	font-family: Helvetica;
+}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 743e4f77b466d298008d748fd65db21299db8fbe
