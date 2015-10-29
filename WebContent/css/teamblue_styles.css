@@ -53,10 +53,18 @@
 .sisalto {
 	height:200px !important;
 	width:300px !important;
+	border: 1px solid #42DCA3;
+	
+}
+.ilman	{
+	border: none !important;
 }
 
-.sisalto td {
-	padding: 5px 5px 5px 5px !important;
+.sisalto td, th {
+	padding: 5px !important;
+	text-align: center;
+	border: 1px solid #42DCA3;
+	border-collapse: collapse !important;
 }
 .tietorivi {
 	font-size: medium !important;
