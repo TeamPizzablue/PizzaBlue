@@ -62,6 +62,7 @@
 						<td>Tuotteen nimi</td>
 						<td>Määrä</td>
 						<td>Hinta &euro;</td>
+						<td align="right">Lisämausteet</td>
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
@@ -70,6 +71,10 @@
 						<td>Pizza</td>
 						<td>1</td>
 						<td>8,50</td>
+						<td align="left"><form action="">
+								<input type="checkbox" name="mausteet" value="valkosipuli"> Valkosipuli<br>
+								<input type="checkbox" name="mausteet" value="oregano"> Oregano
+							</form></td>
 						<td><select name="Pizzapohja"
 							style="background-color: white; padding: 3px;" required
 							class="btn-default btn pizzapohja">
@@ -80,8 +85,6 @@
 						</select></td>
 						<td><button type="button" class="btn btn-danger"><span class=" glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
 					</tr>
-
-
 				</table>
 			</div>
 		</div>
