@@ -97,7 +97,7 @@
                 </span>
               </li>
               <li class="divider"></li>
-              <li><a class="text-center" href="">Siirry tilaussivulle</a></li>
+              <li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>
           </ul>
         </li>
                 </ul>
@@ -195,8 +195,12 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <p>Täytteet: <br>
 					        <c:forEach items="${pizza.taytteet}" var="tayte"> <c:out value="${tayte.nimi}"/></c:forEach>
 					        </p>
-					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        
+					        <button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p></div><br/>
+					    
+					        <p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
@@ -227,8 +231,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <p>Täytteet: <br>
 					        <c:forEach items="${pizza.taytteet}" var="tayte"> <c:out value="${tayte.nimi}"/></c:forEach>
 					        </p>
-					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        
+  									<button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p></div><br/>
+  																
+					        
+					  		<p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
@@ -259,8 +268,12 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <p>Täytteet: <br>
 					        <c:forEach items="${pizza.taytteet}" var="tayte"> <c:out value="${tayte.nimi}"/></c:forEach>
 					        </p>
-					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        
+					        <button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
+					        </p></div><br/>
+					        
+					        <p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
@@ -280,13 +293,13 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
   									<img src="img/j1.png" alt="cocacola">
   								</c:when>
  								<c:when test="${juoma.numero == 2}">
-									<img src="img/j2.png" alt="fanta">
+									<img src="img/j2.png" alt="cocacolalight">
   								</c:when>
   								<c:when test="${juoma.numero == 3}">
-  									<img src="img/j3.png" alt="7up">
+  									<img src="img/j3.png" alt="fanta">
   								</c:when>
   								<c:otherwise>
-  									<img src="img/j4.png" alt="mountaindew">	
+  									<img src="img/j4.png" alt="7up">	
   								</c:otherwise>
 							</c:choose>
 					      <div class="caption">
@@ -294,8 +307,12 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <p>
 					        <c:out value="${juoma.maara}"/>ml
 					        </p>
-					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        
+					        <button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
+					        </p></div><br/>
+					        
+					        <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
@@ -309,16 +326,16 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					    <div class="thumbnail">
 					    	<c:choose>
   								<c:when test="${juoma.numero == 5}">
-  									<img src="img/j5.png" alt="vihersmoothie">
+  									<img src="img/j5.png" alt="mountaindew">
   								</c:when>
  								<c:when test="${juoma.numero == 6}">
-									<img src="img/j6.png" alt="hedelmämehu">
+									<img src="img/j6.png" alt="energiajuoma">
   								</c:when>
   								<c:when test="${juoma.numero == 7}">
-  									<img src="img/j7.png" alt="mehu">
+  									<img src="img/j7.png" alt="vihersmoothie">
   								</c:when>
   								<c:otherwise>
-  									<img src="img/j8.png" alt="vesi">	
+  									<img src="img/j8.png" alt="persikka-mango-smoothie">	
   								</c:otherwise>
 							</c:choose>
 					      <div class="caption">
@@ -326,14 +343,55 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        <p>
 					        <c:out value="${juoma.maara}"/>ml
 					        </p>
-					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
-					        </p><p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        
+					        <button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
+					        </p></div><br/>
+					        
+					        <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
 					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
 					</c:forEach>
 					</div>
+					
+					<div class="row">
+                   <c:forEach items="${juomat}" begin="8" end="11" var="juoma">
+					  <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					    <div class="thumbnail">
+					      <c:choose>
+  								<c:when test="${juoma.numero == 9}">
+  									<img src="img/j9.png" alt="vesimelonimehu">
+  								</c:when>
+ 								<c:when test="${juoma.numero == 10}">
+									<img src="img/j10.png" alt="hedelmämehu">
+  								</c:when>
+  								<c:when test="${juoma.numero == 11}">
+  									<img src="img/j11.png" alt="mehu">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/j12.png" alt="vesi">	
+  								</c:otherwise>
+							</c:choose>
+					      <div class="caption">
+					        <h3><c:out value="${juoma.numero}"/>. <c:out value="${juoma.nimi}"/></h3>
+					        <p>
+					        <c:out value="${juoma.maara}"/>ml
+					        </p>
+					        
+					        <button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
+  									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
+					        </p></div><br/>
+					        
+					        <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					      </div>
+					    </div>
+					   </div>
+					</c:forEach>
+					</div>
+					
 					</div>
 					</div>
 					
@@ -434,8 +492,21 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
     		$("span").text("Kiitos arviostasi!");
     	})
     	
+    	// $("#ra7").click(function() {
+    	//	$(".ttdiv7").show();
+    	// });
+    	
+    	$('.ravintoarvotBut').click(function() {
+    		  //Use the current button which triggered the event
+    		  $(this).siblings('.ravintoarvotDiv').slideToggle();
+    		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');
+    		  
+
+    		});
+    	
     	
     });
+    
     </script>
     
 
