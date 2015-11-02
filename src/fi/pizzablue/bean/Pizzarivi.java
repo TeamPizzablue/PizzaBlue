@@ -6,6 +6,11 @@ public class Pizzarivi extends Tilausrivi {
 	private Pohja pohja;
 	private Pizza pizza;
 	
+	
+	public Pizzarivi(Pizza pizza) {
+		this.pizza = pizza;
+	}
+	
 	public Pizzarivi(int id, int maara, double hinta, boolean oregano, boolean valkosipuli, Pohja pohja, Pizza pizza) {
 		super(id, maara, hinta);
 		this.oregano = oregano;

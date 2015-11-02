@@ -86,55 +86,7 @@
               <li>
                   <span class="item">
                     <span class="item-left">
-                    	<c:choose>
-  								<c:when test="${tuote.id == 1}">
-  									<img src="img/m1.png" alt="hawaji">
-  								</c:when>
- 								<c:when test="${tuote.id == 2}">
-									<img src="img/m2.png" alt="italiano">
-  								</c:when>
-  								<c:when test="${tuote.id == 3}">
-  									<img src="img/m3.png" alt="mexico">
-  								</c:when>
-  								<c:when test="${tuote.id == 4}">
-  									<img src="img/m4.png" alt="special">
-  								</c:when>
-  								<c:when test="${tuote.id == 5}">
-  									<img src="img/m5.png" alt="empire">
-  								</c:when>
-  								<c:when test="${tuote.id == 6}">
-  									<img src="img/m6.png" alt="bacon">
-  								</c:when>
-  								<c:when test="${tuote.id == 7}">
-  									<img src="img/m7.png" alt="vave">
-  								</c:when>
-  								<c:when test="${tuote.id == 8}">
-  									<img src="img/m8.png" alt="vegeamericano">
-  								</c:when>
-  								<c:when test="${tuote.id == 9}">
-  									<img src="img/m9.png" alt="tropicalchicken">
-  								</c:when>
-  								<c:when test="${tuote.id == 10}">
-  									<img src="img/m10.png" alt="vege">
-  								</c:when>
-  								<c:when test="${tuote.id == 11}">
-  									<img src="img/m11.png" alt="pepperoni">
-  								</c:when>
-  								<c:otherwise>
-  									<img src="img/m12.png" alt="chickenfeta">	
-  								</c:otherwise>
-							</c:choose>
-                        <span class="item-info">
-                        		<c:choose>
-                        		<c:when test="${ostoskori.size() > 0}">
-  								<span>
-  									<c:out value="${tuote.id}"/>.
-  									<c:out value="${tuote.nimi}"/><br>
-  									hinta: <fmt:formatNumber value="${tuote.hinta}" minFractionDigits="2"></fmt:formatNumber>€
-  								</span>
-  								</c:when>
-  								</c:choose>
-                        </span>
+                        <span class="item-info"></span>
                     </span>
                     <span class="item-right">
                         <button class="btn btn-xs btn-danger pull-right">x</button>
@@ -152,17 +104,24 @@
         </div>
         <!-- /.container -->
     </nav>
-
+	
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
-            <div class="container">
-                <div class="row">
+			<div class="container">
+
+				<div class="row">
                 <div class="col-lg-1"></div>
                     <div class="col-lg-10">
-               		<img src="img/iso_logo.png" class="img-responsive center-block col-xs-12" alt="Responsive image"> 
-                 </div></div>
+						<img src="img/iso_logo.png" class="img-responsive center-block col-xs-12" alt="Responsive image">
+					</div></div>
                  <div class="col-lg-1"></div>
+                 <c:if test="${not empty error}">
+					<div class="alert alert-danger row">
+						<strong>Virhe!</strong>
+						<c:out value="${error}" />
+					</div>
+				</c:if>
                  <div class="row">
                  	<a href="#esittely" class="btn btn-circle page-scroll center-block">
                             <i class="fa fa-angle-double-down animated"></i>
@@ -171,7 +130,6 @@
                 </div>
             </div>
     </header>
-
     <!-- About Section -->
     <section id="esittely" class="container content-section text-center">
     <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
@@ -243,7 +201,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p>
 					        <p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
 					        </p><p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>" class="btn btn-default">Lisää ostoskoriin</a></p>
+					        <form action="lisaa_pizza_ostoskoriin" method="post"><p><input type="hidden" name="id" value="<c:out value="${pizza.id}"/>"><button type="submit" class="btn btn-default">Lisää ostoskoriin</button></p></form>
 					      </div>
 					    </div>
 					   </div>
