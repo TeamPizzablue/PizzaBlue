@@ -32,7 +32,7 @@ public class OstoskoriController extends HttpServlet {
     deleteCart(request);
    }
   }
-  response.sendRedirect("../ShoppingCart.jsp");
+  response.sendRedirect("WEB-INF/jsp/tilaussivu.jsp");
  }
   
  protected void deleteCart(HttpServletRequest request) {

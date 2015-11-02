@@ -56,7 +56,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<h2>Ostoskorin sisältö</h2>
-				<table class="sisalto" style="margin: 0 auto; width:100%;">
+				<table class="sisalto" style="margin: 0 auto; width: 100%;">
 					<tr class="tietorivi">
 						<td>id</td>
 						<td>Tuotteen nimi</td>
@@ -66,9 +66,10 @@
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
+					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<tr>
 						<td>1</td>
-						<td>Pizza</td>
+						<td>Margarita</td>
 						<td>1</td>
 						<td>8,50</td>
 						<td align="left"><form action="">
@@ -83,9 +84,15 @@
 								<option value="Täysjyvä">Täysjyvä</option>
 								<option value="Gluteeniton">Gluteeniton</option>
 						</select></td>
-						<td><button type="button" class="btn btn-danger"><span class=" glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+						<td><button type="button" class="btn btn-danger">
+								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
+							</button></td>
 					</tr>
 				</table>
+
+				<p>
+					<br> Yhteissumma: 8,50 &euro;<br> <span></span>
+				</p>
 			</div>
 		</div>
 	</section>
@@ -98,13 +105,18 @@
 			<div class="row">
 				<h2>Toimitustiedot</h2>
 
+				<p style="font-size: 17px;">Valitse alhaalta haluamasi
+					toimitustapa tilauksellesi. Jos haluat saada tilausvahvistuksen,
+					muista mainita sähköpostiosoitteesi toimitustietoja täyttäessäsi.</p>
+
 				<ul id="tabs" class="nav nav-tabs viiva-pois">
 					<li class="active"><a href="#kotiinkuljetus"
 						class="btn btn-default btn-lg butska" data-toggle="tab">Kotiinkuljetus</a>
 					</li>
 					<li><a href="#nouto" class="btn btn-default btn-lg butska"
 						data-toggle="tab">Nouto</a></li>
-				</ul><br><br>
+				</ul>
+				<br> <br>
 
 				<!-- kotiinkuljetus -->
 				<div id="kotiinkuljetus" class="tab-pane fade in active">
@@ -155,7 +167,7 @@
 				</div>
 
 				<!-- nouto -->
-				<div id="nouto" class="tab-pane fade">	
+				<div id="nouto" class="tab-pane fade">
 					<div class="col-lg-4 col-lg-offset-4">
 						<form action="" method="post" role="form">
 							<div class="form-group col-xs-12">
@@ -180,8 +192,45 @@
 		class="container content-section text-center">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- Tilauksen lähetys, toiminnallisuus puuttu vielä -->
-				<a href="pop-up" class="btn btn-default btn-lg">Lähetä tilaus</a>
+				<!-- Tilauksen lähetys seka pop-up aukeaa, toiminnallisuus puuttuu vielä -->
+				<button class="btn btn-default btn-lg" data-toggle="modal"
+					data-target="#myModal" type="submit" value="Submit">Lähetä</button>
+				<!-- Paluu kotisivulle, tarkoitus myös jopa tyhjentää koko sessio myöhemmin. -->
+				<a
+					href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
+					class="btn btn-default btn-lg">Peruuta</a>
+			</div>
+			<!-- POP UP! -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Modal Header</h4>
+						</div>
+						<div class="modal-body">
+							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos
+								tilauksestanne!</h3>
+							<p style="color: black;">
+								Tilauksenne on lähetetty ravintolalle. <br> <br>
+								<!-- Tähän ohjataan tilausnumero -->
+								Tilausnumeronne on: <span class="tilausnumero"></span> <br>
+								<br> Otathan tilausnumeron talteen mahdollista
+								ongelmatilannetta varten<span class="glyphicon glyphicon-heart"
+									style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>
+							</p>
+						</div>
+						<div class="modal-footer center-block" style="text-align: center;">
+							<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
+								class="btn btn-default btn-lg" >Etusivulle</a> 
+							<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot"
+								class="btn btn-default btn-lg">Anna palautetta</a>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
 	</section>
