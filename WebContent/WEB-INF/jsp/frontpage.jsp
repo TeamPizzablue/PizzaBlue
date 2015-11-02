@@ -82,13 +82,58 @@
                      <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-cart" role="menu">
+          <c:forEach items="${ostoskori}" var="tuote">
               <li>
                   <span class="item">
                     <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
+                    	<c:choose>
+  								<c:when test="${tuote.id == 1}">
+  									<img src="img/m1.png" alt="hawaji">
+  								</c:when>
+ 								<c:when test="${tuote.id == 2}">
+									<img src="img/m2.png" alt="italiano">
+  								</c:when>
+  								<c:when test="${tuote.id == 3}">
+  									<img src="img/m3.png" alt="mexico">
+  								</c:when>
+  								<c:when test="${tuote.id == 4}">
+  									<img src="img/m4.png" alt="special">
+  								</c:when>
+  								<c:when test="${tuote.id == 5}">
+  									<img src="img/m5.png" alt="empire">
+  								</c:when>
+  								<c:when test="${tuote.id == 6}">
+  									<img src="img/m6.png" alt="bacon">
+  								</c:when>
+  								<c:when test="${tuote.id == 7}">
+  									<img src="img/m7.png" alt="vave">
+  								</c:when>
+  								<c:when test="${tuote.id == 8}">
+  									<img src="img/m8.png" alt="vegeamericano">
+  								</c:when>
+  								<c:when test="${tuote.id == 9}">
+  									<img src="img/m9.png" alt="tropicalchicken">
+  								</c:when>
+  								<c:when test="${tuote.id == 10}">
+  									<img src="img/m10.png" alt="vege">
+  								</c:when>
+  								<c:when test="${tuote.id == 11}">
+  									<img src="img/m11.png" alt="pepperoni">
+  								</c:when>
+  								<c:otherwise>
+  									<img src="img/m12.png" alt="chickenfeta">	
+  								</c:otherwise>
+							</c:choose>
                         <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
+                        		<c:choose>
+                        		<c:when test="${ostoskori.size() > 0}">
+  								<span>
+  									<c:out value="${tuote.id}"/>.
+  									<c:out value="${tuote.nimi}"/><br>
+  									hinta: <fmt:formatNumber value="${tuote.hinta}" minFractionDigits="2"></fmt:formatNumber>€
+  								</span>
+  								</c:when>
+  								</c:choose>
                         </span>
                     </span>
                     <span class="item-right">
@@ -96,6 +141,7 @@
                     </span>
                 </span>
               </li>
+              </c:forEach>
               <li class="divider"></li>
               <li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>
           </ul>
@@ -201,7 +247,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p></div><br/>
 					    
 					        <p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					        <p><a href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>" class="btn btn-default">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
@@ -234,11 +280,10 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        
   									<button class="ravintoarvotBut btn btn-primary"><div class="glyphicon glyphicon-chevron-down"></div> Ravintoarvot</button><br/>
   									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${pizza.energia}"/>kcal proteiini: <c:out value="${pizza.proteiini}"/>g hiilihydraatti: <c:out value="${pizza.hiilihydraatti}"/>g rasva: <c:out value="${pizza.rasva}"/>g 
-					        </p></div><br/>
-  																
+					        </p></div><br/>  																
 					        
 					  		<p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					        <p><a href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
@@ -274,7 +319,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p></div><br/>
 					        
 					        <p class="hinta"><fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					        <p><a href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
@@ -313,7 +358,7 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
 					        </p></div><br/>
 					        
 					        <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					        <p><a href="lisaa_tuote?numero=<c:out value="${juoma.numero}"/>" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
@@ -348,8 +393,8 @@ Pizzapohjamme on saanut myös tunnustusta useamman kerran kansainvälisessä <i>
   									<div class="ravintoarvotDiv"><p class="tuotetiedot">Tuotetiedot: energia: <c:out value="${juoma.energia}"/>kcal proteiini: <c:out value="${juoma.proteiini}"/>g hiilihydraatti: <c:out value="${juoma.hiilihydraatti}"/>g rasva: <c:out value="${juoma.rasva}"/>g 
 					        </p></div><br/>
 					        
-					        <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
-					        <p><a href="#" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
+					       <p class="hinta"><fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
+					        <p><a href="lisaa_tuote?numero=<c:out value="${juoma.numero}"/>" class="btn btn-default" role="button">Lisää ostoskoriin</a></p>
 					      </div>
 					    </div>
 					   </div>
