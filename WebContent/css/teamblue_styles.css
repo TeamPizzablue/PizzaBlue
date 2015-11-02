@@ -49,7 +49,22 @@
 	color: black !important;
 }
 
-//* Tilaussivun taulukon tyyli *//
+.ravintoarvotDiv {
+  display: none;
+}
+
+.ravintoarvotBut {
+	background-color: transparent !important;
+	color: #333 !important;
+	font-size: small !important;
+	border: none; 
+}
+
+.thumbnail {
+	min-height: 630px;
+}
+
+/* Tilaussivun taulukon tyyli */
 .sisalto {
 	height:200px !important;
 	width:300px !important;

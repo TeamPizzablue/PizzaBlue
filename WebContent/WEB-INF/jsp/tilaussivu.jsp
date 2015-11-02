@@ -58,12 +58,13 @@
 				<h2>Ostoskorin sisältö</h2>
 				<table class="sisalto" style="margin: 0 auto; width: 100%;">
 					<tr class="tietorivi">
-						<th>id</th>
-						<th>Tuotteen nimi</th>
-						<th>Määrä</th>
-						<th>Hinta &euro;</th>
-						<th>Pizzapohja</th>
-						<th></th>
+						<td>id</td>
+						<td>Tuotteen nimi</td>
+						<td>Määrä</td>
+						<td>Hinta &euro;</td>
+						<td align="right">Lisämausteet</td>
+						<td>Pizzapohja</td>
+						<td></td>
 					</tr>
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<tr>
@@ -71,6 +72,10 @@
 						<td>Margarita</td>
 						<td>1</td>
 						<td>8,50</td>
+						<td align="left"><form action="">
+								<input type="checkbox" name="mausteet" value="valkosipuli"> Valkosipuli<br>
+								<input type="checkbox" name="mausteet" value="oregano"> Oregano
+							</form></td>
 						<td><select name="Pizzapohja"
 							style="background-color: white; padding: 3px;" required
 							class="btn-default btn pizzapohja">
