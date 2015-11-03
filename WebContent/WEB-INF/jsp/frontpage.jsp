@@ -67,7 +67,7 @@
 					<i class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa"><img src="img/pienilogo.png" style="height: 30px"></i><span
+					class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i><span
 					class="light"> Pizza</span> Blue
 				</a>
 			</div>
@@ -665,9 +665,11 @@
                 <div class="form-group col-xs-6">
                 <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required></div>
                 <div class="form-group col-xs-6">
-                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black"></div>
+                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}"></div>
                 <div class="form-group col-xs-12">
-                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" required></div>
+                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required ></div>
                 <div class="form-group col-xs-12">
                 <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea></div>
                 <button class="btn btn-default" type="submit" >Lähetä</button>
