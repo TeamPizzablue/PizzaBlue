@@ -66,9 +66,11 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
+
 				<a class="navbar-brand page-scroll" href="#page-top"> 
 				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
 				<span class="light"> Pizza</span> Blue
+
 				</a>
 			</div>
 
@@ -217,7 +219,9 @@
 						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
 						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
 						kuuluu vakiona juusto sekä tomaattikastike. <br> <br>
+
 						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
+
 					</p>
 
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
@@ -228,6 +232,7 @@
 							class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
 						</li>
 					</ul>
+
 					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
@@ -647,22 +652,28 @@
 					</div>
 
 					<p>
-						Tilauksen voi jättää myös puhelimitse <br> <span class="glyphicon glyphicon-earphone" style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
+						Tilauksen voi jättää myös puhelimitse <br> <span
+							class="glyphicon glyphicon-earphone"
+							style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
 					</p>
-					<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
+
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<div class="col-lg-6">
+	<img class="ateria img-responsive" align="right" src="img/Ateria.png"
+			style="height: 200px; width: 300px;" alt="ateria">
+	</div>
 	<!-- Yhteystiedot -->
 	<section id="yhteystiedot"
 		class="container content-section text-center">
-		<br>
-		<h2>Yhteystiedot</h2>
+		 <br>
+			<h2>Yhteystiedot</h2>
 		<div class="row">
 			<div class="col-lg-6">
+				
 				<br>
 				<h3 class="yt-nimi">Pizza Blue</h3>
 				<br> <br>
@@ -693,64 +704,58 @@
 
 			</div>
 
-			<!-- Palautetlomake -->
-			<div class="col-lg-4">
-				<br>
-				<h3>Palautelomake</h3>
-				<form action="FeedbackMail" method="post" role="form">
-					<div class="form-group col-xs-6">
-						<label for="nimi">Nimi: </label>
-						<input class="form-control" type="text" name="nimi" style="color: black" required>
-					</div>
-					<div class="form-group col-xs-6">
-						<label for="puhelin">Puhelin: </label>
-						<input class="form-control" type="tel" name="puhelinumero" style="color: black">
-					</div>
-					<div class="form-group col-xs-12">
-						<label for="sahkoposti">Sähköposti: </label>
-						<input class="form-control" type="email" name="sahkoposti" style="color: black" required>
-					</div>
-					<div class="form-group col-xs-12">
-						<label for="viesti">Viesti: </label>
-						<textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color: black" required></textarea>
-					</div>
-					<button class="btn btn-default" type="submit">Lähetä</button>
-				</form>
-			</div>
-		</div>
-	</section>
+			      <!-- Palautetlomake -->
+            <div class="col-lg-4">
+                <br><h3>Palautelomake</h3>
+                <form action="FeedbackMail" method="post" role="form">
+                <div class="form-group col-xs-6">
+                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required></div>
+                <div class="form-group col-xs-6">
+                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}"></div>
+                <div class="form-group col-xs-12">
+                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required ></div>
+                <div class="form-group col-xs-12">
+                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea></div>
+                <button class="btn btn-default" type="submit" >Lähetä</button>
+                </form>
+            </div>
+         </div>
+    </section>
 
-	<!-- Kartta -->
-	<div id="map"></div>
 
-	<!-- Footer -->
-	<footer>
-		<div class="container text-center">
-			<p>Copyright &copy; Ryhmä Blue 2015</p>
-		</div>
-	</footer>
+    <!-- Kartta -->
+    <div id="map"></div>
 
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Ryhmä Blue 2015</p>
+        </div>
+    </footer>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzlVolWKgTA4-xE4KM7q28rG4BfP1agg&sensor=false"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
 
-	<!-- Custom Theme JavaScript -->
-	<script src="js/grayscale.js"></script>
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzlVolWKgTA4-xE4KM7q28rG4BfP1agg&sensor=false"></script>
 
-	<!-- Tähtiarvointi -->
-	<script src="js/star-rating.min.js" type="text/javascript"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+    
+    <!-- Tähtiarvointi -->
+    <script src="js/star-rating.min.js" type="text/javascript"></script>
+    
+    <!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
+    <script>
 
-	<!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
-	<script>
     $(document).ready(function() {
     	$("#input-22").rating({
         	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
@@ -765,12 +770,10 @@
     		  $(this).siblings('.ravintoarvotDiv').slideToggle();
     		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');
     		  
-
     		});
-    	
-    	
+    	    	
     });
-    
+
     </script>
 
 </body>
