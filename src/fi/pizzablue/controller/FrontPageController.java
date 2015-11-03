@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.bean.Pizza;
-import fi.pizzablue.bean.Tayte;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.dao.PizzaDAO;
-import fi.pizzablue.dao.TayteDAO;
 import fi.pizzablue.service.JuomalistaService;
 import fi.pizzablue.service.PizzalistaService;
 

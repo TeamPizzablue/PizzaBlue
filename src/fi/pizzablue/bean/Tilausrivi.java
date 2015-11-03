@@ -37,5 +37,5 @@ public abstract class Tilausrivi {
 	public void setMaara(int maara) {
 		this.maara = maara;
 	}
-
+	
 }

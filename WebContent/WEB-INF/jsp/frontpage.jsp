@@ -66,9 +66,11 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i><span
-					class="light"> Pizza</span> Blue
+
+				<a class="navbar-brand page-scroll" href="#page-top"> 
+				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
+				<span class="light"> Pizza</span> Blue
+
 				</a>
 			</div>
 
@@ -87,15 +89,64 @@
 							class="glyphicon glyphicon-shopping-cart"></span><span
 							class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-cart" role="menu">
-							<c:forEach items="${ostoskori}" var="tuote">
-								<li><span class="item"> <span class="item-left">
-											<span class="item-info"></span>
-									</span> <span class="item-right">
-											<button class="btn btn-xs btn-danger pull-right">x</button>
-									</span>
-								</span></li>
-							</c:forEach>
-							<li class="divider"></li>
+							<li>
+									
+										
+										<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
+											<span class="item"> 
+												<span class="item-left"> 
+												<c:choose>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 1}">
+													<img src="img/m1.png" alt="hawaji">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 2}">
+													<img src="img/m2.png" alt="italiano">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 3}">
+													<img src="img/m3.png" alt="mexico">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 4}">
+													<img src="img/m4.png" alt="empire">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 5}">
+													<img src="img/m5.png" alt="bacon">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 6}">
+													<img src="img/m6.png" alt="vave">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 7}">
+													<img src="img/m7.png" alt="empire">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 8}">
+													<img src="img/m8.png" alt="bacon">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 9}">
+													<img src="img/m9.png" alt="vave">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 10}">
+													<img src="img/m10.png" alt="vave">
+												</c:when>
+												<c:when test="${tilausrivit.getPizza().getNumero() == 11}">
+													<img src="img/m11.png" alt="vave">
+												</c:when>
+												<c:otherwise>
+													<img src="img/m12.png" alt="pizzabluespecial">
+												</c:otherwise>
+											</c:choose>
+												
+													<span class="item-info">
+													<c:out value="${tilausrivit.getPizza().getNumero()}"/>. 
+													<c:out value="${tilausrivit.getPizza().getNimi()}"/><br/>
+													<fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €	
+													</span>
+												</span> 
+												<span class="item-right">
+													<button class="btn btn-xs btn-danger pull-right">x</button>
+												</span>
+											</span>
+											</c:forEach>
+											</li>
+									<li class="divider"></li>
 							<li><a class="text-center" href="tilaussivu">Siirry
 									tilaussivulle</a></li>
 						</ul></li>
@@ -177,8 +228,9 @@
 						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
 						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
 						kuuluu vakiona juusto sekä tomaattikastike. <br> <br>
-						Kotiinkuljetuksemme hinta on <span
-							style="color: #42DCA3; font-weight: 700;">2.99 €</span>
+
+						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
+
 					</p>
 
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
@@ -319,12 +371,14 @@
 														minFractionDigits="2"></fmt:formatNumber>
 													€
 												</p>
-												<p>
-													<a
-														href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>"
-														class="btn btn-default" role="button">Lisää
-														ostoskoriin</a>
-												</p>
+												<form action="lisaa_pizza_ostoskoriin" method="post">
+													<p>
+														<input type="hidden" name="id"
+															value="<c:out value="${pizza.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää
+															ostoskoriin</button>
+													</p>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -387,12 +441,14 @@
 														minFractionDigits="2"></fmt:formatNumber>
 													€
 												</p>
-												<p>
-													<a
-														href="lisaa_tuote?numero=<c:out value="${pizza.numero}"/>"
-														class="btn btn-default" role="button">Lisää
-														ostoskoriin</a>
-												</p>
+												<form action="lisaa_pizza_ostoskoriin" method="post">
+													<p>
+														<input type="hidden" name="id"
+															value="<c:out value="${pizza.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää
+															ostoskoriin</button>
+													</p>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -457,12 +513,14 @@
 														minFractionDigits="2"></fmt:formatNumber>
 													€
 												</p>
-												<p>
-													<a
-														href="lisaa_tuote?numero=<c:out value="${juoma.numero}"/>"
-														class="btn btn-default" role="button">Lisää
-														ostoskoriin</a>
-												</p>
+												<form action="lisaa_juoma_ostoskoriin" method="post">
+													<p>
+														<input type="hidden" name="id"
+															value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää
+															ostoskoriin</button>
+													</p>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -523,12 +581,14 @@
 														minFractionDigits="2"></fmt:formatNumber>
 													€
 												</p>
-												<p>
-													<a
-														href="lisaa_tuote?numero=<c:out value="${juoma.numero}"/>"
-														class="btn btn-default" role="button">Lisää
-														ostoskoriin</a>
-												</p>
+												<form action="lisaa_juoma_ostoskoriin" method="post">
+													<p>
+														<input type="hidden" name="id"
+															value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää
+															ostoskoriin</button>
+													</p>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -576,23 +636,21 @@
 														kcal proteiini:
 														<c:out value="${juoma.proteiini}" />
 														g hiilihydraatti:
-														<c:out value="${juoma.hiilihydraatti}" />
-														g rasva:
-														<c:out value="${juoma.rasva}" />
-														g
+														<c:out value="${juoma.hiilihydraatti}" /> g rasva:
+														<c:out value="${juoma.rasva}" /> g
 													</p>
 												</div>
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${juoma.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
-												<p>
-													<a href="#" class="btn btn-default" role="button">Lisää
-														ostoskoriin</a>
-												</p>
+												<form action="lisaa_juoma_ostoskoriin" method="post">
+													<p>
+														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
+													</p>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -608,6 +666,7 @@
 							style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
 					</p>
+
 				</div>
 			</div>
 		</div>
@@ -637,128 +696,94 @@
 
 				<!-- Tähtiarviointi -->
 				<div class="center-block" id="ratingbox">
-					<input id="input-22" data-min="0" data-show-clear="false"
-						data-max="5" data-step="1" value="0">
+					<input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1" value="0">
 				</div>
 
 				<ul class="list-inline banner-social-buttons">
-					<li><a href="https://facebook.com"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+					<li><a href="https://facebook.com" class="btn btn-default btn-lg" target="_blank">
+					<i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
 					</li>
-					<li><a href="https://twitter.com"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+					<li><a href="https://twitter.com" class="btn btn-default btn-lg" target="_blank">
+						<i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 					</li>
-					<li><a href="https://plus.google.com/"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+					<li><a href="https://plus.google.com/" class="btn btn-default btn-lg" target="_blank">
+						<i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
 					</li>
 				</ul>
 
 			</div>
 
-			<!-- Palautetlomake -->
-			<div class="col-lg-4">
-				<br>
-				<h3>Palautelomake</h3>
-				<form action="FeedbackMail" method="post" role="form">
-					<div class="form-group col-xs-6">
-						<label for="nimi">Nimi: </label><input class="form-control"
-							type="text" name="nimi" style="color: black" required>
-					</div>
-					<div class="form-group col-xs-6">
-						<label for="puhelin">Puhelin: </label><input class="form-control"
-							type="tel" name="puhelinumero" style="color: black">
-					</div>
-					<div class="form-group col-xs-12">
-						<label for="sahkoposti">Sähköposti: </label><input
-							class="form-control" type="email" name="sahkoposti"
-							style="color: black" required>
-					</div>
-					<div class="form-group col-xs-12">
-						<label for="viesti">Viesti: </label>
-						<textarea class="form-control" name="viesti" rows="8"
-							max-cols="40" style="color: black" required></textarea>
-					</div>
-					<button class="btn btn-default" type="submit">Lähetä</button>
-				</form>
-			</div>
-		</div>
-	</section>
-
-	<!-- Kartta -->
-	<div id="map"></div>
-
-	<!-- Footer -->
-	<footer>
-		<div class="container text-center">
-			<p>Copyright &copy; Ryhmä Blue 2015</p>
-		</div>
-	</footer>
-
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="js/jquery.easing.min.js"></script>
-
-	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzlVolWKgTA4-xE4KM7q28rG4BfP1agg&sensor=false"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="js/grayscale.js"></script>
-
-	<!-- Tähtiarvointi -->
-	<script src="js/star-rating.min.js" type="text/javascript"></script>
-
-	<!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
-	<script>
-		$(document).ready(
-				function() {
-					$("#input-22").rating({
-						starCaptions : {
-							1 : "Kamala",
-							2 : "Huono",
-							3 : "Keskinkertainen",
-							4 : "Hyvä",
-							5 : "Erinomainen"
-						},
-						starCaptionClasses : {
-							1 : "text-danger",
-							2 : "text-warning",
-							3 : "text-info",
-							4 : "text-primary",
-							5 : "text-success"
-						},
-					});
-					$("#rating-stars").click(function() {
-						$("span").text("Kiitos arviostasi!");
-					})
-
-					// $("#ra7").click(function() {
-					//	$(".ttdiv7").show();
-					// });
-
-					$('.ravintoarvotBut').click(
-							function() {
-								//Use the current button which triggered the event
-								$(this).siblings('.ravintoarvotDiv')
-										.slideToggle();
-								$(this).find('.glyphicon').toggleClass(
-										'glyphicon-chevron-down').toggleClass(
-										'glyphicon-chevron-up');
-
-							});
-
-				});
-	</script>
+			      <!-- Palautetlomake -->
+            <div class="col-lg-4">
+                <br><h3>Palautelomake</h3>
+                <form action="FeedbackMail" method="post" role="form">
+                <div class="form-group col-xs-6">
+                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required></div>
+                <div class="form-group col-xs-6">
+                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}"></div>
+                <div class="form-group col-xs-12">
+                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required ></div>
+                <div class="form-group col-xs-12">
+                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea></div>
+                <button class="btn btn-default" type="submit" >Lähetä</button>
+                </form>
+            </div>
+         </div>
+    </section>
 
 
+    <!-- Kartta -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Ryhmä Blue 2015</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzlVolWKgTA4-xE4KM7q28rG4BfP1agg&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+    
+    <!-- Tähtiarvointi -->
+    <script src="js/star-rating.min.js" type="text/javascript"></script>
+    
+    <!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
+    <script>
+
+    $(document).ready(function() {
+    	$("#input-22").rating({
+        	starCaptions: {1: "Kamala", 2: "Huono", 3: "Keskinkertainen", 4: "Hyvä", 5: "Erinomainen"},
+        	starCaptionClasses: {1: "text-danger", 2: "text-warning", 3: "text-info", 4: "text-primary", 5: "text-success"},
+    	});
+    	$("#rating-stars").click(function(){
+    		$("span").text("Kiitos arviostasi!");
+    	})
+    	
+    	$('.ravintoarvotBut').click(function() {
+    		  //Use the current button which triggered the event
+    		  $(this).siblings('.ravintoarvotDiv').slideToggle();
+    		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');
+    		  
+    		});
+    	    	
+    });
+
+    </script>
 
 </body>
 
