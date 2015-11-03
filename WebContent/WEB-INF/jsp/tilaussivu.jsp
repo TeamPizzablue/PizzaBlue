@@ -67,11 +67,12 @@
 						<td></td>
 					</tr>
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
+					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
 					<tr>
+						<td><c:out value="${tilausrivit.getPizza().getNumero()}"/></td>
+						<td><c:out value="${tilausrivit.getPizza().getNimi()}"/></td>
 						<td>1</td>
-						<td>Margarita</td>
-						<td>1</td>
-						<td>8,50</td>
+						<td><fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td style="text-align: left;"><form action="">
 								<input type="checkbox" name="mausteet" value="valkosipuli">
 								Valkosipuli <br> <input type="checkbox" name="mausteet"
@@ -89,10 +90,11 @@
 								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
 							</button></td>
 					</tr>
+				</c:forEach>
 				</table>
 
 				<p>
-					<br> Yhteissumma: 8,50 &euro;<br> <span></span>
+					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
 			</div>
 		</div>
@@ -201,8 +203,8 @@
 					data-target="#myModal" type="submit" value="Submit">Lähetä</button>
 				<!-- Paluu kotisivulle, tarkoitus myös jopa tyhjentää koko sessio myöhemmin. -->
 				<a
-					href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
-					class="btn btn-default btn-lg">Peruuta</a>
+					href="tyhjenna_ostoskori"
+					class="btn btn-default btn-lg tyhjenna">Peruuta</a>
 			</div>
 			<!-- POP UP! -->
 			<div id="myModal" class="modal fade" role="dialog">

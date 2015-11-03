@@ -83,17 +83,11 @@
 					<li><a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
 					</li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"> <span
-							class="glyphicon glyphicon-shopping-cart"></span><span
+						data-toggle="dropdown" role="button" aria-expanded="false"><c:out value="${tilaus.getTilausrivit().size()}"/> <span class="glyphicon glyphicon-shopping-cart"></span><span
 							class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-cart" role="menu">
-							<li>
-									
-										
-										<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
-											<span class="item"> 
-												<span class="item-left"> 
-												<c:choose>
+							<li><c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
+									<span class="item"> <span class="item-left"> <c:choose>
 												<c:when test="${tilausrivit.getPizza().getNumero() == 1}">
 													<img src="img/m1.png" alt="hawaji">
 												</c:when>
@@ -130,23 +124,20 @@
 												<c:otherwise>
 													<img src="img/m12.png" alt="pizzabluespecial">
 												</c:otherwise>
-											</c:choose>
-												
-													<span class="item-info">
-													<c:out value="${tilausrivit.getPizza().getNumero()}"/>. 
-													<c:out value="${tilausrivit.getPizza().getNimi()}"/><br/>
-													<fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €	
-													</span>
-												</span> 
-												<span class="item-right">
-													<button class="btn btn-xs btn-danger pull-right">x</button>
-												</span>
+											</c:choose> 
+											<span class="item-info"> 
+												<c:out value="${tilausrivit.getPizza().getNumero()}" />. 
+												<c:out value="${tilausrivit.getPizza().getNimi()}" /><br /> 
+												<fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €
 											</span>
-											</c:forEach>
-											</li>
-									<li class="divider"></li>
-							<li><a class="text-center" href="tilaussivu">Siirry
-									tilaussivulle</a></li>
+										</span> 
+										<span class="item-right">
+											<button class="btn btn-xs btn-danger pull-right">x</button>
+										</span>
+									</span>
+								</c:forEach></li>
+							<li class="divider"></li>
+							<li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>
 						</ul></li>
 				</ul>
 			</div>
