@@ -1,3 +1,9 @@
+DROP TABLE pizzarivi;
+DROP TABLE juomarivi;
+DROP TABLE pohja;
+DROP TABLE tilaus;
+DROP TABLE tila;
+DROP TABLE juoma;
 DROP TABLE pizzantayte;
 DROP TABLE tayte;
 DROP TABLE pizza;
@@ -29,19 +35,87 @@ CREATE TABLE pizzantayte (
 	FOREIGN KEY(tayte_id) REFERENCES tayte(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
+CREATE TABLE juoma (
+	id SMALLINT NOT NULL AUTO_INCREMENT,
+	numero SMALLINT NOT NULL,
+	nimi VARCHAR(23) NOT NULL,
+	maara INT NOT NULL,
+	hinta DECIMAL(4,2) NOT NULL,
+	energia INT,
+	proteiini DECIMAL(4,2),
+	hiilihydraatti DECIMAL(4,2),
+	rasva DECIMAL(4,2),
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE tila (
+	id SMALLINT NOT NULL,
+	nimi VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE tilaus (
+	id INT NOT NULL AUTO_INCREMENT,
+	hinta DECIMAL(8,2) NOT NULL,
+	aikaleima TIMESTAMP NOT NULL,
+	toimitustapa BOOLEAN NOT NULL,
+	etunimi VARCHAR(20),
+	sukunimi VARCHAR(30),
+	puhelinnumero VARCHAR(15),
+	sahkoposti VARCHAR(50),
+	toimitusosoite VARCHAR(50),
+	lisatiedot VARCHAR(200),
+	tila_id SMALLINT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(tila_id) REFERENCES tila(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE pohja (
+	id SMALLINT NOT NULL AUTO_INCREMENT,
+	nimi VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE juomarivi (
+	id INT NOT NULL AUTO_INCREMENT,
+	maara SMALLINT NOT NULL,
+	hinta DECIMAL(6,2) NOT NULL,
+	juoma_id SMALLINT NOT NULL,
+	tilaus_id INT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(juoma_id) REFERENCES juoma(id),
+	FOREIGN KEY(tilaus_id) REFERENCES tilaus(id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE pizzarivi (
+	id INT NOT NULL AUTO_INCREMENT,
+	maara SMALLINT NOT NULL,
+	hinta DECIMAL(6,2) NOT NULL,
+	oregano BOOLEAN NOT NULL,
+	valkosipuli BOOLEAN NOT NULL,
+	pohja_id SMALLINT NOT NULL,
+	pizza_id SMALLINT NOT NULL,
+	tilaus_id INT NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(pohja_id) REFERENCES pohja(id),
+	FOREIGN KEY(pizza_id) REFERENCES pizza(id),
+	FOREIGN KEY(tilaus_id) REFERENCES tilaus(id)
+)ENGINE=InnoDB CHARACTER  SET=UTF8;
+	
+
 INSERT INTO pizza (numero, nimi, hinta, energia, proteiini, hiilihydraatti, rasva)
-values 	(1, 'Hawaji', 7.90, 645, 27.50, 77.00, 30.00),
-	(2, 'Italiano', 8.90, 663, 29.00, 78.00, 31.50),
+values 	(1, 'Hawaji', 8.70, 645, 27.50, 77.00, 30.00),
+	(2, 'Italiano', 9.70, 663, 29.00, 78.00, 31.50),
 	(3, 'Mexico', 8.90, 681, 29.50, 78.50, 32.00),
-	(4, 'Pizza Blue Special', 9.90, 699, 32.00, 79.00, 32.50),
-	(5, 'Empire', 8.90, 698, 31.00, 79.50, 32.50),
+	(4, 'Pizza Blue Special', 9.50, 699, 32.00, 79.00, 32.50),
+	(5, 'Empire', 9.70, 698, 31.00, 79.50, 32.50),
 	(6, 'Bacon', 9.90, 717, 32.50, 82.00, 33.00),
-	(7, 'Vave', 7.90, 687, 30.00, 80.00, 32.00),
+	(7, 'Vave', 8.70, 687, 30.00, 80.00, 32.00),
 	(8, 'Vege Americano', 8.90, 657, 28.00, 77.50, 32.50),
-	(9, 'Tropical Chicken', 7.90, 442, 16.00, 40.00, 22.00),
-	(10, 'Vege', 8.90, 448, 17.50, 43.00, 24.00),
-	(11, 'Pepperoni', 8.90, 478, 34.00, 71.00, 34.50),
-	(12, 'Chicken Feta', 9.90, 448, 29.00, 74.00, 30.00);
+	(9, 'Tropical Chicken', 8.70, 442, 16.00, 40.00, 22.00),
+	(10, 'Vege', 8.70, 448, 17.50, 43.00, 24.00),
+	(11, 'Pepperoni', 8.70, 478, 34.00, 71.00, 34.50),
+	(12, 'Chicken Feta', 9.20, 448, 29.00, 74.00, 30.00);
 
 INSERT INTO tayte (id, nimi)
 values	(1, 'kinkku'),
@@ -105,3 +179,22 @@ values	(1, 1, 1),
 	(39, 12, 15),
 	(40, 12, 18),
 	(41, 12, 17);
+
+INSERT INTO juoma (numero, nimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva)
+values  (1, 'Coca Cola', 330, 1.90, 108, 0.00, 27.00, 0.00),
+	(2, 'Coca Cola Light', 330, 1.90, 0, 0.00, 0.00, 0.00),
+	(3, 'Fanta', 330, 1.90, 110, 0.00, 27.00, 0.00),
+	(4, '7UP', 330, 1.90, 108, 0.00, 27.50, 0.00),
+	(5, 'Mountain Dew', 330, 1.90, 108, 0.00, 27.00, 0.00),
+	(6, 'Energiajuoma', 500, 2.90, 100, 16, 10, 0.00),
+	(7, 'Vihersmoothie', 330, 2.90, 50, 0.40, 11.00, 0.00),
+	(8, 'Persikka-Mango Smoothie', 330, 3.40, 100, 2.00, 14.00, 2.00),
+	(9, 'Vesimelonimehu', 350, 3.40, 80, 1.00, 16.00, 0.00),
+	(10, 'Hedelmämehu', 500, 2.90, 111, 0.00, 24.00, 0.00),
+	(11, 'Mehu', 350, 2.50, 120, 0.00, 22.00, 0.00),
+	(12, 'Vesi', 500, 1.00, 0.00, 0.00, 0.00, 0.00);
+
+INSERT INTO tila (id, nimi)
+values	(1, 'käsittelyssä'),
+	(2, 'valmis'),
+	(3, 'maksettu');

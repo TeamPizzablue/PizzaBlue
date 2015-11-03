@@ -17,13 +17,71 @@
    	margin:0 auto !important;
 }
 
+/* Tähtiarvioinnin tekstin alas heitto */
 #ratingbox {
 	width: 200px;
 	text-align: center;
 }
+
 .tuotetiedot {
 	font-size: small !important;
 }
+
 .hinta {
 	font-size: medium;
+}
+
+.viiva-pois {
+	border-bottom: 0px !important;
+	text-align:center !important;
+	float: none !important;
+    display: inline-block !important;
+}
+
+.butska {
+	border-radius: 0 0 0 0 !important;
+	margin-left:15px !important;
+	border: 1px solid #42dca3 !important;
+}
+
+.butska:hover {
+	background-color: #42dca3 !important;
+	color: black !important;
+}
+
+.ravintoarvotDiv {
+  display: none;
+}
+
+.ravintoarvotBut {
+	background-color: transparent !important;
+	color: #333 !important;
+	font-size: small !important;
+	border: none; 
+}
+
+.thumbnail {
+	min-height: 630px;
+}
+
+/* Tilaussivun taulukon tyyli */
+.sisalto {
+	height:200px !important;
+	width:300px !important;
+	border: 1px solid #42DCA3;
+	
+}
+.ilman	{
+	border: none !important;
+}
+
+.sisalto td, th {
+	padding: 5px !important;
+	text-align: center;
+	border: 1px solid #42DCA3;
+	border-collapse: collapse !important;
+}
+.tietorivi {
+	font-size: medium !important;
+	font-family: Helvetica;
 }

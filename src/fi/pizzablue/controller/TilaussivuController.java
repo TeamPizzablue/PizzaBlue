@@ -8,22 +8,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PalauteVastausController
+ * Servlet implementation class TilaussivuController
  */
-@WebServlet("/palauteVastaus")
-public class PalauteVastausController extends HttpServlet {
+@WebServlet(urlPatterns={"/tilaussivu"})
+public class TilaussivuController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PalauteVastausController() {
+    public TilaussivuController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("WEB-INF/jsp/palauteVastaus.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/tilaussivu.jsp").forward(request, response);
 		
 	}
 }
