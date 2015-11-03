@@ -211,11 +211,10 @@
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
-							<a> <i class="fa"><img src="img/pienilogo_nega.png"
-									style="height: 30px"></i>Pizza Blue
+							<a class="pop-up"> <i class="fa"> <img style="height: 45px; margin-right:7px;" src="img/pienilogo_nega.png">
+								</i>Pizza Blue
 							</a>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Modal Header</h4>
 						</div>
 						<div class="modal-body">
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos

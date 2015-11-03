@@ -82,3 +82,10 @@
 	font-size: medium !important;
 	font-family: Helvetica;
 }
+ /* pop-upin header */
+.pop-up {
+	color:black !important; 
+	font-size:20px !important; 
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important; 
+	text-transform: uppercase !important;
+}
