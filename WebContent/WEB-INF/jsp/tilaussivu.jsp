@@ -42,6 +42,8 @@
 	<section id="tilaussivu" class="content-section text-center"
 		style="padding: 0 !important;">
 		<div class="download-section">
+		<img class="pöytä img-responsive" align="right" src="img/hattu_pieni.png"
+			style="height: 325px; width: 280px;" alt="hattu">
 			<div class="container">
 				<div class="col-lg-8 col-lg-offset-2">
 					<h1>Tilaussivu</h1>
@@ -90,11 +92,13 @@
 							</button></td>
 					</tr>
 				</table>
-
+				
 				<p>
 					<br> Yhteissumma: 8,50 &euro;<br> <span></span>
 				</p>
+				
 			</div>
+			
 		</div>
 	</section>
 

@@ -67,7 +67,7 @@
 					<i class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa"><img src="img/pienilogo.png" style="height: 30px"></i><span
+					class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i><span
 					class="light"> Pizza</span> Blue
 				</a>
 			</div>
@@ -144,17 +144,16 @@
 				<p>
 					Vuonna 2012, kolme Pasilasta kotoisin olevaa ruokaa ja
 					yhteisöllisyyttä arvostavaa ystävää päättivät lyödä intohimoiset
-					päänsä yhteen ja perustaa Pizza Blue:n.<br>
-					<br> Pizza Blue:n arvoihin kuuluu kotimaisten, lähellä
-					tuotettujen raaka-aineiden käyttö, sekä pyrkimys mahdollisimman
-					pieneen hiilijalanjälkeen. Haluamme tarjota asiakkaillemme myös
+					päänsä yhteen ja perustaa Pizza Blue:n.<br> <br> Pizza
+					Blue:n arvoihin kuuluu kotimaisten, lähellä tuotettujen
+					raaka-aineiden käyttö, sekä pyrkimys mahdollisimman pieneen
+					hiilijalanjälkeen. Haluamme tarjota asiakkaillemme myös
 					mahdollisuuden tukea kotimaista työvoimaa hyödyntämällä myös muiden
 					kotimaisten yrittäjien tarjoamia palveluita tuottaessamme aidosti
-					kotimaisen makuelämyksen. <br>
-					<br> Pizzeriassamme on laaja valikoima pizzoja, josta
-					erilaisia ruokavaliota noudattavatkin voivat löytää jotain
-					nautittavaa. <br>
-					<br> Pizzapohjamme on saanut myös tunnustusta useamman kerran
+					kotimaisen makuelämyksen. <br> <br> Pizzeriassamme on
+					laaja valikoima pizzoja, josta erilaisia ruokavaliota
+					noudattavatkin voivat löytää jotain nautittavaa. <br> <br>
+					Pizzapohjamme on saanut myös tunnustusta useamman kerran
 					kansainvälisessä <i>The Best Pizza In The Whole Wide World
 						(TBPITWWW)</i> kilpailun parhaan pizzapohjan kategoriassa
 					sijoittumalla kolmen parhaan joukkoon vuosina 2012-2014.
@@ -177,8 +176,8 @@
 					<p>
 						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
 						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
-						kuuluu vakiona juusto sekä tomaattikastike. <br>
-						<br> Kotiinkuljetuksemme hinta on <span
+						kuuluu vakiona juusto sekä tomaattikastike. <br> <br>
+						Kotiinkuljetuksemme hinta on <span
 							style="color: #42DCA3; font-weight: 700;">2.99 €</span>
 					</p>
 
@@ -191,8 +190,7 @@
 						</li>
 					</ul>
 
-					<br>
-					<br>
+					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
 						<div id="pizzalista" class="tab-pane fade in active">
@@ -605,29 +603,30 @@
 					</div>
 
 					<p>
-						Tilauksen voi jättää myös puhelimitse <br>
-						<span class="glyphicon glyphicon-earphone"
+						Tilauksen voi jättää myös puhelimitse <br> <span
+							class="glyphicon glyphicon-earphone"
 							style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
 					</p>
-					<img class="ateria img-responsive" align="left"
-						src="img/Ateria.png" alt="ateria">
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<div class="col-lg-6">
+	<img class="ateria img-responsive" align="right" src="img/Ateria.png"
+			style="height: 200px; width: 300px;" alt="ateria">
+	</div>
 	<!-- Yhteystiedot -->
 	<section id="yhteystiedot"
 		class="container content-section text-center">
-		<br>
-		<h2>Yhteystiedot</h2>
+		 <br>
+			<h2>Yhteystiedot</h2>
 		<div class="row">
 			<div class="col-lg-6">
+				
 				<br>
 				<h3 class="yt-nimi">Pizza Blue</h3>
-				<br>
-				<br>
+				<br> <br>
 				<p>
 					Ratapihantie 13<br> 00520 HELSINKI<br> Puh. 050 3256953
 				</p>
