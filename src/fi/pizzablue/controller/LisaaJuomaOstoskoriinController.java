@@ -8,35 +8,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fi.pizzablue.bean.Pizza;
-import fi.pizzablue.bean.Pizzarivi;
+import fi.pizzablue.bean.Juoma;
+import fi.pizzablue.bean.Juomarivi;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.service.PizzalistaService;
+import fi.pizzablue.service.JuomalistaService;
 
 /**
  * Servlet implementation class LisaaPizzaOstoskoriinController
  */
-@WebServlet("/lisaa_pizza_ostoskoriin")
-public class LisaaPizzaOstoskoriinController extends HttpServlet {
+@WebServlet("/lisaa_juoma_ostoskoriin")
+public class LisaaJuomaOstoskoriinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String lisattavanPizzanIdStringina = request.getParameter("id");
-		int lisattavanPizzanId;
+		String lisattavanJuomanIdStringina = request.getParameter("id");
+		int lisattavanJuomanId;
 		
-		PizzalistaService service = new PizzalistaService();
+		JuomalistaService service = new JuomalistaService();
 		
 		try {
-			lisattavanPizzanId = Integer.parseInt(lisattavanPizzanIdStringina);
+			lisattavanJuomanId = Integer.parseInt(lisattavanJuomanIdStringina);
 			
-			Pizza p = service.haePizza(lisattavanPizzanId);
+			Juoma j = service.haeJuoma(lisattavanJuomanId);
 			
 			Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 			if (tilaus == null) {
 				tilaus = new Tilaus();
 			}
-			tilaus.getTilausrivit().add(new Pizzarivi(p));
+			
+			tilaus.getTilausrivit().add(new Juomarivi(j));
 			
 			System.out.println("MONTA: " + tilaus.getTilausrivit().size());
 			
@@ -45,7 +46,7 @@ public class LisaaPizzaOstoskoriinController extends HttpServlet {
 			response.sendRedirect("index.jsp");
 			
 		} catch(DAOPoikkeus e) {
-			System.out.println("ERROR: Ostoskoriin yritettiin lisätä pizza, jonka id ei ole kokonaisluku. (ID:" + lisattavanPizzanIdStringina + ")");
+			System.out.println("ERROR: Ostoskoriin yritettiin lisätä pizza, jonka id ei ole kokonaisluku. (ID:" + lisattavanJuomanIdStringina + ")");
 			request.setAttribute("error", "Pizzan lisäys epäonnistui");
 			request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
 		}
