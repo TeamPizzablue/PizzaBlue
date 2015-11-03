@@ -64,23 +64,20 @@
 	min-height: 630px;
 }
 
-/* Tilaussivun taulukon tyyli */
-.sisalto {
-	height:200px !important;
-	width:300px !important;
-	border: 1px solid #42DCA3;
-	
-}
-.ilman	{
-	border: none !important;
-}
+/* Tilaussivun taulukon tyyli */	
 
 .sisalto td, th {
 	padding: 5px !important;
 	text-align: center;
-	border: 1px solid #42DCA3;
 	border-collapse: collapse !important;
 }
+
+/*joka toinen rivi taulukossa erivärinen */
+.sisalto tr:nth-child(even) {background: #090909 !important;
+}
+.sisalto tr:nth-child(odd) {background: #0F0F0F !important;
+}
+
 .tietorivi {
 	font-size: medium !important;
 	font-family: Helvetica;
