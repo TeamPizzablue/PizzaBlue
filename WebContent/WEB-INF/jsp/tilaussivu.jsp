@@ -62,7 +62,7 @@
 						<td>Tuotteen nimi</td>
 						<td>Määrä</td>
 						<td>Hinta &euro;</td>
-						<td align="right">Lisämausteet</td>
+						<td>Lisämausteet</td>
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
@@ -72,9 +72,10 @@
 						<td>Margarita</td>
 						<td>1</td>
 						<td>8,50</td>
-						<td align="left"><form action="">
-								<input type="checkbox" name="mausteet" value="valkosipuli"> Valkosipuli<br>
-								<input type="checkbox" name="mausteet" value="oregano"> Oregano
+						<td style="text-align: left;"><form action="">
+								<input type="checkbox" name="mausteet" value="valkosipuli">
+								Valkosipuli <br> <input type="checkbox" name="mausteet"
+									value="oregano"> Oregano
 							</form></td>
 						<td><select name="Pizzapohja"
 							style="background-color: white; padding: 3px;" required
@@ -101,13 +102,13 @@
 	<section id="toimitustiedot"
 		class="container content-section text-center">
 		<div class="col-lg-12">
-
 			<div class="row">
 				<h2>Toimitustiedot</h2>
 
-				<p style="font-size: 17px;">Valitse alhaalta haluamasi
-					toimitustapa tilauksellesi. Jos haluat saada tilausvahvistuksen,
-					muista mainita sähköpostiosoitteesi toimitustietoja täyttäessäsi.</p>
+				<p class="col-lg-8 col-lg-offset-2" style="font-size: 17px;">Valitse
+					alhaalta haluamasi toimitustapa tilauksellesi. Jos haluat saada
+					tilausvahvistuksen, muista mainita sähköpostiosoitteesi
+					toimitustietoja täyttäessäsi.</p>
 
 				<ul id="tabs" class="nav nav-tabs viiva-pois">
 					<li class="active"><a href="#kotiinkuljetus"
@@ -119,68 +120,70 @@
 				<br> <br>
 
 				<!-- kotiinkuljetus -->
-				<div id="kotiinkuljetus" class="tab-pane fade in active">
-					<div class="col-lg-4 col-lg-offset-4">
-						<form action="" method="post" role="form">
-							<div class="form-group col-xs-6">
-								<label for="Etunimi">Etunimi: </label><input
-									class="form-control" type="text" name="etunimi"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-6">
-								<label for="Sukunimi">Sukunimi: </label><input
-									class="form-control" type="text" name="sukunimi"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-12">
-								<label for="Katuosoite">Katuosoite: </label><input
-									class="form-control" type="text" name="katuosoite"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-6">
-								<label for="Postinumero">Postinumero: </label><input
-									class="form-control" type="text" name="postinumero"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-6">
-								<label for="Paikkakunta">Paikkakunta: </label><input
-									class="form-control" type="text" name="sukunimi"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-12">
-								<label for="Puhelinnumero">Puhelinnumero: </label><input
-									class="form-control" type="tel" name="puhelinnumero"
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-12">
-								<label for="Sahkoposti">Sähköposti: </label><input
-									class="form-control" type="email" name="sahkoposti"
-									style="color: black">
-							</div>
-							<div class="form-group col-xs-12">
-								<label for="Lisatietoja">Lisätietoja: </label>
-								<textarea class="form-control" name="lisatietoja" rows="8"
-									max-cols="40" style="color: black" required></textarea>
-							</div>
-						</form>
+				<div id="my-tab-content" class="tab-content">
+					<div id="kotiinkuljetus" class="tab-pane fade in active">
+						<div class="col-lg-4 col-lg-offset-4">
+							<form action="" method="post" role="form">
+								<div class="form-group col-xs-6">
+									<label for="Etunimi">Etunimi: </label><input
+										class="form-control" type="text" name="etunimi"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-6">
+									<label for="Sukunimi">Sukunimi: </label><input
+										class="form-control" type="text" name="sukunimi"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-12">
+									<label for="Katuosoite">Katuosoite: </label><input
+										class="form-control" type="text" name="katuosoite"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-6">
+									<label for="Postinumero">Postinumero: </label><input
+										class="form-control" type="text" name="postinumero"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-6">
+									<label for="Paikkakunta">Paikkakunta: </label><input
+										class="form-control" type="text" name="sukunimi"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-12">
+									<label for="Puhelinnumero">Puhelinnumero: </label><input
+										class="form-control" type="tel" name="puhelinnumero"
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-12">
+									<label for="Sahkoposti">Sähköposti: </label><input
+										class="form-control" type="email" name="sahkoposti"
+										style="color: black">
+								</div>
+								<div class="form-group col-xs-12">
+									<label for="Lisatietoja">Lisätietoja: </label>
+									<textarea class="form-control" name="lisatietoja" rows="8"
+										max-cols="40" style="color: black" required></textarea>
+								</div>
+							</form>
+						</div>
 					</div>
-				</div>
 
-				<!-- nouto -->
-				<div id="nouto" class="tab-pane fade">
-					<div class="col-lg-4 col-lg-offset-4">
-						<form action="" method="post" role="form">
-							<div class="form-group col-xs-12">
-								<label for="Puhelinnumero">Puhelinnumero: </label><input
-									class="form-control" type="tel" name="puhelinnumero" required
-									style="color: black" required>
-							</div>
-							<div class="form-group col-xs-12">
-								<label for="Sahkoposti">Sähköposti: </label><input
-									class="form-control" type="email" name="sahkoposti"
-									style="color: black">
-							</div>
-						</form>
+					<!-- nouto -->
+					<div id="nouto" class="tab-pane fade">
+						<div class="col-lg-4 col-lg-offset-4">
+							<form action="" method="post" role="form">
+								<div class="form-group col-xs-12">
+									<label for="Puhelinnumero">Puhelinnumero: </label><input
+										class="form-control" type="tel" name="puhelinnumero" required
+										style="color: black" required>
+								</div>
+								<div class="form-group col-xs-12">
+									<label for="Sahkoposti">Sähköposti: </label><input
+										class="form-control" type="email" name="sahkoposti"
+										style="color: black">
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -189,7 +192,8 @@
 
 	<!-- Lähetä tilaus -->
 	<section id="tilauksenLähetys"
-		class="container content-section text-center">
+		class="container content-section text-center"
+		style="padding-top: 50px !important;">
 		<div class="row">
 			<div class="col-lg-12">
 				<!-- Tilauksen lähetys seka pop-up aukeaa, toiminnallisuus puuttuu vielä -->
@@ -207,8 +211,10 @@
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
+							<a class="pop-up"> <i class="fa"> <img style="height: 45px; margin-right:7px;" src="img/pienilogo_nega.png">
+								</i>Pizza Blue
+							</a>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Modal Header</h4>
 						</div>
 						<div class="modal-body">
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos
@@ -223,9 +229,10 @@
 							</p>
 						</div>
 						<div class="modal-footer center-block" style="text-align: center;">
-							<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
-								class="btn btn-default btn-lg" >Etusivulle</a> 
-							<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot"
+							<a
+								href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
+								class="btn btn-default btn-lg">Etusivulle</a> <a
+								href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot"
 								class="btn btn-default btn-lg">Anna palautetta</a>
 						</div>
 					</div>

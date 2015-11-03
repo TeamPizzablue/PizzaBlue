@@ -64,6 +64,7 @@
 	min-height: 630px;
 }
 
+<<<<<<< HEAD
 /* Tilaussivun taulukon tyyli */
 .sisalto {
 	height:200px !important;
@@ -71,13 +72,30 @@
 	border: 1px solid #42DCA3;
 	
 }
+=======
+/* Tilaussivun taulukon tyyli */	
+
+>>>>>>> 19fdb445d002c750f08bfe994bc7dc3c9d07343b
 .sisalto td, th {
 	padding: 5px !important;
 	text-align: center;
-	border: 1px solid #42DCA3;
 	border-collapse: collapse !important;
 }
+
+/*joka toinen rivi taulukossa erivärinen */
+.sisalto tr:nth-child(even) {background: #090909 !important;
+}
+.sisalto tr:nth-child(odd) {background: #0F0F0F !important;
+}
+
 .tietorivi {
 	font-size: medium !important;
 	font-family: Helvetica;
+}
+ /* pop-upin header */
+.pop-up {
+	color:black !important; 
+	font-size:20px !important; 
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important; 
+	text-transform: uppercase !important;
 }

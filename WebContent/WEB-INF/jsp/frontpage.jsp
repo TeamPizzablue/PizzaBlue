@@ -66,9 +66,9 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i><span
-					class="light"> Pizza</span> Blue
+				<a class="navbar-brand page-scroll" href="#page-top"> 
+				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
+				<span class="light"> Pizza</span> Blue
 				</a>
 			</div>
 
@@ -144,7 +144,7 @@
 											</span>
 											</c:forEach>
 											</li>
-							<li class="divider"></li>
+									<li class="divider"></li>
 							<li><a class="text-center" href="tilaussivu">Siirry
 									tilaussivulle</a></li>
 						</ul></li>
@@ -226,8 +226,7 @@
 						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
 						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
 						kuuluu vakiona juusto sekä tomaattikastike. <br> <br>
-						Kotiinkuljetuksemme hinta on <span
-							style="color: #42DCA3; font-weight: 700;">2.99 €</span>
+						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
 					</p>
 
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
@@ -238,7 +237,6 @@
 							class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
 						</li>
 					</ul>
-
 					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
@@ -633,25 +631,19 @@
 														kcal proteiini:
 														<c:out value="${juoma.proteiini}" />
 														g hiilihydraatti:
-														<c:out value="${juoma.hiilihydraatti}" />
-														g rasva:
-														<c:out value="${juoma.rasva}" />
-														g
+														<c:out value="${juoma.hiilihydraatti}" /> g rasva:
+														<c:out value="${juoma.rasva}" /> g
 													</p>
 												</div>
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${juoma.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -664,13 +656,10 @@
 					</div>
 
 					<p>
-						Tilauksen voi jättää myös puhelimitse <br> <span
-							class="glyphicon glyphicon-earphone"
-							style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
+						Tilauksen voi jättää myös puhelimitse <br> <span class="glyphicon glyphicon-earphone" style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
 					</p>
-					<img class="ateria img-responsive" align="left"
-						src="img/Ateria.png" alt="ateria">
+					<img class="ateria img-responsive" align="left" src="img/Ateria.png" alt="ateria">
 				</div>
 			</div>
 		</div>
@@ -696,22 +685,18 @@
 
 				<!-- Tähtiarviointi -->
 				<div class="center-block" id="ratingbox">
-					<input id="input-22" data-min="0" data-show-clear="false"
-						data-max="5" data-step="1" value="0">
+					<input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1" value="0">
 				</div>
 
 				<ul class="list-inline banner-social-buttons">
-					<li><a href="https://facebook.com"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+					<li><a href="https://facebook.com" class="btn btn-default btn-lg" target="_blank">
+					<i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
 					</li>
-					<li><a href="https://twitter.com"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+					<li><a href="https://twitter.com" class="btn btn-default btn-lg" target="_blank">
+						<i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 					</li>
-					<li><a href="https://plus.google.com/"
-						class="btn btn-default btn-lg" target="_blank"><i
-							class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+					<li><a href="https://plus.google.com/" class="btn btn-default btn-lg" target="_blank">
+						<i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
 					</li>
 				</ul>
 
@@ -723,22 +708,20 @@
 				<h3>Palautelomake</h3>
 				<form action="FeedbackMail" method="post" role="form">
 					<div class="form-group col-xs-6">
-						<label for="nimi">Nimi: </label><input class="form-control"
-							type="text" name="nimi" style="color: black" required>
+						<label for="nimi">Nimi: </label>
+						<input class="form-control" type="text" name="nimi" style="color: black" required>
 					</div>
 					<div class="form-group col-xs-6">
-						<label for="puhelin">Puhelin: </label><input class="form-control"
-							type="tel" name="puhelinumero" style="color: black">
+						<label for="puhelin">Puhelin: </label>
+						<input class="form-control" type="tel" name="puhelinumero" style="color: black">
 					</div>
 					<div class="form-group col-xs-12">
-						<label for="sahkoposti">Sähköposti: </label><input
-							class="form-control" type="email" name="sahkoposti"
-							style="color: black" required>
+						<label for="sahkoposti">Sähköposti: </label>
+						<input class="form-control" type="email" name="sahkoposti" style="color: black" required>
 					</div>
 					<div class="form-group col-xs-12">
 						<label for="viesti">Viesti: </label>
-						<textarea class="form-control" name="viesti" rows="8"
-							max-cols="40" style="color: black" required></textarea>
+						<textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color: black" required></textarea>
 					</div>
 					<button class="btn btn-default" type="submit">Lähetä</button>
 				</form>
@@ -786,10 +769,6 @@
     		$("span").text("Kiitos arviostasi!");
     	})
     	
-    	// $("#ra7").click(function() {
-    	//	$(".ttdiv7").show();
-    	// });
-    	
     	$('.ravintoarvotBut').click(function() {
     		  //Use the current button which triggered the event
     		  $(this).siblings('.ravintoarvotDiv').slideToggle();
@@ -802,8 +781,6 @@
     });
     
     </script>
-
-
 
 </body>
 
