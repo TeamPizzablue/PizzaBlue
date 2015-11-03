@@ -13,6 +13,10 @@ public class Juoma {
 	private double hiilihydraatti;
 	private double rasva;
 	
+	public Juoma(int id) {
+		this.id = id;
+	}
+	
 	public Juoma (int id, int numero, String nimi, int maara, double hinta) {
 		this.id = id;
 		this.numero = numero;
