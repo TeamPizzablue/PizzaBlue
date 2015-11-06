@@ -72,7 +72,7 @@
 					</tr>
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit" varStatus="count"></c:forEach>
+					<%--<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit" varStatus="count"></c:forEach> --%>
 
 					<tr>
 						<td><c:out value="${tilausrivit.getPizza().getNumero()}"/></td>
