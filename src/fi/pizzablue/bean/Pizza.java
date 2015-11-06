@@ -15,6 +15,11 @@ public class Pizza {
 	private double rasva;
 	private List<Tayte> taytteet;
 	
+	
+	public Pizza(int id) {
+		this.id = id;
+	}
+	
 	public Pizza (int id, int numero, String nimi, double hinta) {
 		this.id = id;
 		this.numero = numero;

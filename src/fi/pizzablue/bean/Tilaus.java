@@ -1,5 +1,7 @@
 package fi.pizzablue.bean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Tilaus {
 	
@@ -13,6 +15,11 @@ public class Tilaus {
 	private String toimitusosoite;
 	private String lisatiedot;
 	private Tila tila;
+	private List<Tilausrivi> tilausrivit;
+	
+	public Tilaus() {
+		this.tilausrivit = new ArrayList<Tilausrivi>();
+	}
 	
 	public Tilaus(int id, double hinta, Date aikaleima, boolean toimitustapa, String nimi, String puhelinnumero, String sahkoposti, String toimitusosoite, String lisatiedot, Tila tila) {
 		this.id = id;
@@ -25,6 +32,15 @@ public class Tilaus {
 		this.toimitusosoite = toimitusosoite;
 		this.lisatiedot = lisatiedot;
 		this.tila = tila;
+		this.tilausrivit = new ArrayList<Tilausrivi>();
+	}
+
+	public List<Tilausrivi> getTilausrivit() {
+		return tilausrivit;
+	}
+
+	public void setTilausrivit(List<Tilausrivi> tilausrivit) {
+		this.tilausrivit = tilausrivit;
 	}
 
 	public int getId() {

@@ -5,6 +5,9 @@ public abstract class Tilausrivi {
 	protected int maara;
 	protected double hinta;
 	
+	public Tilausrivi() {
+	}
+	
 	public Tilausrivi(int id, int maara, double hinta) {
 		this.id = id;
 		this.maara = maara;
@@ -34,5 +37,5 @@ public abstract class Tilausrivi {
 	public void setMaara(int maara) {
 		this.maara = maara;
 	}
-
+	
 }

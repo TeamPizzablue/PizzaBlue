@@ -17,7 +17,7 @@
    	margin:0 auto !important;
 }
 
-//* Tähtiarvioinnin tekstin alas heitto *//
+/* Tähtiarvioinnin tekstin alas heitto */
 #ratingbox {
 	width: 200px;
 	text-align: center;
@@ -49,16 +49,43 @@
 	color: black !important;
 }
 
-//* Tilaussivun taulukon tyyli *//
-.sisalto {
-	height:200px;
-	width:300px;
+.ravintoarvotDiv {
+  display: none;
 }
 
-.sisalto td{
-	padding: 7px !important;
+.ravintoarvotBut {
+	background-color: transparent !important;
+	color: #333 !important;
+	font-size: small !important;
+	border: none; 
 }
 
-.pizzapohja{
-	padding 2px 5px !important;
+.thumbnail {
+	min-height: 630px;
+}
+
+/* Tilaussivun taulukon tyyli */	
+
+.sisalto td, th {
+	padding: 5px !important;
+	text-align: center;
+	border-collapse: collapse !important;
+}
+
+/*joka toinen rivi taulukossa erivärinen */
+.sisalto tr:nth-child(even) {background: #090909 !important;
+}
+.sisalto tr:nth-child(odd) {background: #0F0F0F !important;
+}
+
+.tietorivi {
+	font-size: medium !important;
+	font-family: Helvetica;
+}
+ /* pop-upin header */
+.pop-up {
+	color:black !important; 
+	font-size:20px !important; 
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important; 
+	text-transform: uppercase !important;
 }
