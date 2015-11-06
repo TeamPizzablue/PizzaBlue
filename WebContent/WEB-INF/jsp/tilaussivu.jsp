@@ -92,7 +92,6 @@
 								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
 							</button></td>
 					</tr>
-				</c:forEach>
 				</table>
 				
 				<p>
