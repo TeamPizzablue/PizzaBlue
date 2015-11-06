@@ -70,13 +70,13 @@
 				<a class="navbar-brand page-scroll" href="#page-top"> 
 				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
 				<span class="light"> Pizza</span> Blue
-
 				</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
@@ -88,56 +88,94 @@
 						data-toggle="dropdown" role="button" aria-expanded="false"><c:out value="${tilaus.getTilausrivit().size()}"/> <span class="glyphicon glyphicon-shopping-cart"></span><span
 							class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-cart" role="menu">
-							<li><c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
-									<span class="item"> <span class="item-left"> <c:choose>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 1}">
-													<img src="img/m1.png" alt="hawaji">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 2}">
-													<img src="img/m2.png" alt="italiano">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 3}">
-													<img src="img/m3.png" alt="mexico">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 4}">
-													<img src="img/m4.png" alt="empire">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 5}">
-													<img src="img/m5.png" alt="bacon">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 6}">
-													<img src="img/m6.png" alt="vave">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 7}">
-													<img src="img/m7.png" alt="empire">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 8}">
-													<img src="img/m8.png" alt="bacon">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 9}">
-													<img src="img/m9.png" alt="vave">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 10}">
-													<img src="img/m10.png" alt="vave">
-												</c:when>
-												<c:when test="${tilausrivit.getPizza().getNumero() == 11}">
-													<img src="img/m11.png" alt="vave">
-												</c:when>
-												<c:otherwise>
-													<img src="img/m12.png" alt="pizzabluespecial">
-												</c:otherwise>
-											</c:choose> 
-											<span class="item-info"> 
-												<c:out value="${tilausrivit.getPizza().getNumero()}" />. 
-												<c:out value="${tilausrivit.getPizza().getNimi()}" /><br /> 
-												<fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €
+							<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
+								<c:if
+									test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+									<li>
+										<form action="poista_tuote_ostoskorista" method="post">
+											<span class="item"> <span class="item-left"> <img
+													src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png"
+													alt="kuva"> <span class="item-info"> <c:out
+															value="${tilausrivi.pizza.numero}" />. <c:out
+															value="${tilausrivi.pizza.nimi}" /><br /> <fmt:formatNumber
+															value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber>
+														€
+												</span>
+											</span> <span class="item-right"> <input type="hidden"
+													name="ordernr" value="<c:out value="${count.index}"/>">
+													<button type="submit"
+														class="btn btn-xs btn-danger pull-right">x</button>
+
 											</span>
-										</span> 
-										<span class="item-right">
-											<button class="btn btn-xs btn-danger pull-right">x</button>
+											</span>
+										</form>
+									</li>
+								</c:if>
+							</c:forEach>
+							<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
+								<c:if
+									test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+									<li>
+										<form action="poista_tuote_ostoskorista" method="post">
+											<span class="item"> <span class="item-left"> <!-- <img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva"> -->
+													<span class="item-info"> <c:out
+															value="${tilausrivi.juoma.numero}" />. <c:out
+															value="${tilausrivi.juoma.nimi}" /><br /> <fmt:formatNumber
+															value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber>
+														€
+												</span>
+											</span> <span class="item-right"> <input type="hidden"
+													name="ordernr" value="<c:out value="${count.index}"/>">
+													<button type="submit"
+														class="btn btn-xs btn-danger pull-right">x</button>
+
+											</span>
+											</span>
+										</form>
+									</li>
+								</c:if>
+							</c:forEach>
+							<%--
+							<li><c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivi">
+							<c:choose>
+								<c:when test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+								<form action="poista_pizza_ostoskorista" method="post">
+									<span class="item"> <span class="item-left">
+									<img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva">
+											<span class="item-info"> 
+												<c:out value="${tilausrivi.pizza.numero}" />. 
+												<c:out value="${tilausrivi.pizza.nimi}" /><br /> 
+												<fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
+											</span>
 										</span>
+											<span class="item-right">
+											<input type="hidden" name="id" value="<c:out value="${tilausrivi.pizza.id}"/>">
+												<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+											
+											</span>
 									</span>
-								</c:forEach></li>
+								</form>
+								</c:when>
+								<c:otherwise>
+								<form action="poista_juoma_ostoskorista" method="post">
+									<span class="item"> <span class="item-left">
+									<!-- <img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva"> -->
+											<span class="item-info"> 
+												<c:out value="${tilausrivi.juoma.numero}" />. 
+												<c:out value="${tilausrivi.juoma.nimi}" /><br /> 
+												<fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
+											</span>
+										</span>
+											<span class="item-right">
+											<input type="hidden" name="id" value="<c:out value="${tilausrivi.juoma.id}"/>">
+												<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+											
+											</span>
+									</span>
+								</form>
+								</c:otherwise>
+							</c:choose>
+							</c:forEach></li> --%>
 							<li class="divider"></li>
 							<li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>
 						</ul></li>
