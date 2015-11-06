@@ -177,7 +177,7 @@
 							</c:choose>
 							</c:forEach></li> --%>
 							<li class="divider"></li>
-							<li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>
+							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaussivulle</a></li>
 						</ul></li>
 				</ul>
 			</div>
