@@ -69,7 +69,6 @@
 						<td></td>
 					</tr>
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
 					<tr>
 						<td><c:out value="${tilausrivit.getPizza().getNumero()}"/></td>
 						<td><c:out value="${tilausrivit.getPizza().getNimi()}"/></td>
