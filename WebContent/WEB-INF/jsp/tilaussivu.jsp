@@ -100,8 +100,10 @@
 					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
 				
+				<p>Palaa pizzalistaan jatkamaan tilausta</p>
+				 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Valikoima</a>
+								
 			</div>
-			
 		</div>
 	</section>
 
