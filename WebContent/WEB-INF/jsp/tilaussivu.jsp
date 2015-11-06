@@ -57,7 +57,7 @@
 					</tr>
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-					
+
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
 					<tr>
@@ -102,13 +102,13 @@
 					</tr>
 					</c:if>
 				</c:forEach>
-				
+
 				</table>
 				
 				<p>
 					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
-				
+				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 				<p>Palaa pizzalistaan jatkamaan tilausta</p>
 				 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Valikoima</a>
 								

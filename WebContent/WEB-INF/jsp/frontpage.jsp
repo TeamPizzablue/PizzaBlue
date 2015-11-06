@@ -117,7 +117,7 @@
 									test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
 									<li>
 										<form action="poista_tuote_ostoskorista" method="post">
-											<span class="item"> <span class="item-left"> <!-- <img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva"> -->
+											<span class="item"> <span class="item-left"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva">
 													<span class="item-info"> <c:out
 															value="${tilausrivi.juoma.numero}" />. <c:out
 															value="${tilausrivi.juoma.nimi}" /><br /> <fmt:formatNumber
