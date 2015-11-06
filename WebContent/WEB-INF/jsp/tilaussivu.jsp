@@ -56,25 +56,31 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h2>Ostoskorin sisältö</h2>
-				<table class="sisalto" style="margin: 0 auto;">
+				<table style="margin: 0 auto;">
 					<tr>
 						<td>Tuotteen nimi</td>
 						<td>Määrä</td>
-						<td>Hinta &euro;</td>
+						<td>Hinta</td>
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>Pizza</td>
 						<td>1</td>
-						<td>8,50</td>
+						<td>8,50 &euro;</td>
 						<td>
-							<select name="Pizzapohja" style="background-color:white; padding:3px;" required class="btn-default btn pizzapohja">
-								<option value="">-Valitse-</option>
-								<option value="Tavallinen">Tavallinen</option>
-								<option value="Täysjyvä">Täysjyvä</option>
-								<option value="Gluteeniton">Gluteeniton</option>
-							</select>
+							<div class="dropdown">
+								<button class="btn btn-default dropdown-toggle" type="button"
+									id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="true">
+									Valitse pizzapohja <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li><a href="#">Tavallinen</a></li>
+									<li><a href="#">Gluteeniton</a></li>
+									<li><a href="#">Täysjyvä</a></li>
+								</ul>
+							</div>
 						</td>
 						<td><button style="background: red;">X</button></td>
 					</tr>
@@ -92,6 +98,7 @@
 		
 		<div class="row">
 		<h2>Toimitustiedot</h2>
+		<br>
 		
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
 					  <li class="active">
