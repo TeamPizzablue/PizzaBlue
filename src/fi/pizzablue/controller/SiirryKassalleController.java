@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TilaussivuController
  */
 @WebServlet(urlPatterns={"/tilaussivu"})
-public class TilaussivuController extends HttpServlet {
+public class SiirryKassalleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TilaussivuController() {
+    public SiirryKassalleController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("WEB-INF/jsp/tilaussivu.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/ostoskorinSisalto.jsp").forward(request, response);
 		
 	}
 }

@@ -17,7 +17,7 @@ import fi.pizzablue.bean.Pohja;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.bean.Tilausrivi;
 
-@WebServlet("/laheta_tilaus")
+@WebServlet("/siirry_toimitustietoihin")
 public class OstoskorinSisaltoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,7 +40,7 @@ public class OstoskorinSisaltoController extends HttpServlet {
 		List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
 		
 		List<String> pohjat = new ArrayList<String>();
-		for(int i=0; i<tilausrivit.size();i++) {
+		for(int i=0; i < tilausrivit.size(); i++) {
 			if(tilausrivit.get(i) instanceof Pizzarivi) {
 				Pizzarivi pizzarivi = (Pizzarivi)tilausrivit.get(i);
 				//pohja
@@ -56,7 +56,7 @@ public class OstoskorinSisaltoController extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("toimitustiedot");
 		
 	}
 
