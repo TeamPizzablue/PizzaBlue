@@ -153,7 +153,7 @@
 								</div>
 								<div class="form-group col-xs-6">
 									<label for="Paikkakunta">Paikkakunta: * </label><input
-										class="form-control" type="text" name="sukunimi"
+										class="form-control" type="text" name="paikkakunta"
 										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-12">
@@ -169,7 +169,7 @@
 								<div class="form-group col-xs-12">
 									<label for="Lisatietoja">Lisätietoja: </label>
 									<textarea class="form-control" name="lisatietoja" rows="8"
-										max-cols="40" placeholder="Esim. ovikoodi">style="color: black" required ></textarea>
+										max-cols="40" placeholder="Esim. ovikoodi" style="color: black" required ></textarea>
 								</div>
 							</form>
 						</div>
