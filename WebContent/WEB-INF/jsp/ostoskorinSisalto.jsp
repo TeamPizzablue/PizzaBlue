@@ -35,7 +35,7 @@
 </head>
 
 <body>
-<form action="laheta_tilaus" method="post" role="form">
+<form action="siirry_toimitustietoihin" method="post" role="form">
 
 
 	<!-- Ostoskori -->
@@ -123,7 +123,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<!-- Tilauksen lähetys sekä pop-up aukeaa, toiminnallisuus puuttuu vielä -->
-				<button class="btn btn-default btn-lg" type="submit" value="Submit">Lähetä</button>
+				<button class="btn btn-default btn-lg" type="submit" value="Submit">Eteenpäin</button>
 					
 				<!-- Paluu kotisivulle, session tyhjennys -->
 				<a

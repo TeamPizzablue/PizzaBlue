@@ -39,7 +39,7 @@ public class OstoskorinSisaltoController extends HttpServlet {
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
 		
-		List<String> pohjat = new ArrayList<String>();
+		/* List<String> pohjat = new ArrayList<String>(); */
 		for(int i=0; i < tilausrivit.size(); i++) {
 			if(tilausrivit.get(i) instanceof Pizzarivi) {
 				Pizzarivi pizzarivi = (Pizzarivi)tilausrivit.get(i);
@@ -54,6 +54,8 @@ public class OstoskorinSisaltoController extends HttpServlet {
 				
 			}
 		}
+		
+		System.out.println(tilaus.getTilausrivit().size());
 		
 		request.getSession().setAttribute("tilaus", tilaus);
 		response.sendRedirect("toimitustiedot");
