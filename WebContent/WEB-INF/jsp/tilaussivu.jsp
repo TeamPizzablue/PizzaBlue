@@ -72,7 +72,7 @@
 					</tr>
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit" varStatus="count">
+					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit" varStatus="count"></c:forEach>
 
 					<tr>
 						<td><c:out value="${tilausrivit.getPizza().getNumero()}"/></td>
@@ -102,7 +102,7 @@
 				<p>
 					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
-				
+				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 				<p>Palaa pizzalistaan jatkamaan tilausta</p>
 				 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Valikoima</a>
 								
@@ -125,6 +125,12 @@
 				<ul id="tabs" class="nav nav-tabs viiva-pois">
 					<li class="active"><a href="#kotiinkuljetus"
 						class="btn btn-default btn-lg butska" data-toggle="tab">Kotiinkuljetus</a>
+					<%-- <script type="text/javascript">
+					function kuljetusMaksu(k){
+					return k;
+					}
+					var maksu = document.getElementById("kuljetusmaksu").innerHTML = kuljetusMaksu(2.99);
+					</script>--%>
 					</li>
 					<li><a href="#nouto" class="btn btn-default btn-lg butska"
 						data-toggle="tab">Nouto</a></li>
