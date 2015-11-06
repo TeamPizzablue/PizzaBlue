@@ -1,6 +1,9 @@
 package fi.pizzablue.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,11 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.SendResult;
 
+import fi.pizzablue.bean.Pizzarivi;
+import fi.pizzablue.bean.Pohja;
+import fi.pizzablue.bean.Tilaus;
+import fi.pizzablue.bean.Tilausrivi;
+
 @WebServlet("/laheta_tilaus")
-public class LahetaTilausController extends HttpServlet {
+public class OstoskorinSisaltoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public LahetaTilausController() {
+    public OstoskorinSisaltoController() {
         super();
     }
 
@@ -23,26 +31,31 @@ public class LahetaTilausController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String[] rivinumerot = request.getParameterValues("riviNro");
 		
-		String etunimi = request.getParameter("etunimi");
-		String sukunimi = request.getParameter("sukunimi");
-		String katuosite = request.getParameter("katuosoite");
-		String postinumero = request.getParameter("postinumero");
-		String paikkakunta = request.getParameter("paikkakunta");
-		String puhelin = request.getParameter("puhelinumero");
-		String sahkoposti = request.getParameter("sahkoposti");
-		String lisatietoja = request.getParameter("lisatietoja");
 		
-		String valkosipuli = request.getParameter("mausteetV");
-		String oregano = request.getParameter("mausteetO");
-		String pizzapohja = request.getParameter("pizzapohja");
+		String[] rivitJoissaValkosipuli = request.getParameterValues("mausteetV");
+		String[] rivitJoissaOregano = request.getParameterValues("mausteetO");
 		
-		System.out.println(pizzapohja);
-		System.out.println(oregano);
-		System.out.println(valkosipuli);
-		System.out.println(lisatietoja);
+		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
+		List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
 		
+		List<String> pohjat = new ArrayList<String>();
+		for(int i=0; i<tilausrivit.size();i++) {
+			if(tilausrivit.get(i) instanceof Pizzarivi) {
+				Pizzarivi pizzarivi = (Pizzarivi)tilausrivit.get(i);
+				//pohja
+				pizzarivi.setPohja(new Pohja(request.getParameter("pizzapohja-"+i)));
+				//oreg
+				if (Arrays.asList(rivitJoissaOregano).contains(""+i))
+					pizzarivi.setOregano(true);
+				//vsip
+				if (Arrays.asList(rivitJoissaValkosipuli).contains(""+i))
+					pizzarivi.setValkosipuli(true);
+				
+			}
+		}
+		
+		request.getSession().setAttribute("tilaus", tilaus);
 		response.sendRedirect("index.jsp");
 		
 	}

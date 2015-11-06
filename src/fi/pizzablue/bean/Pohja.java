@@ -10,6 +10,10 @@ public class Pohja {
 		this.nimi = nimi;
 	}
 
+	public Pohja(String nimi) {
+		this.nimi = nimi;
+	}
+
 	public int getId() {
 		return id;
 	}
