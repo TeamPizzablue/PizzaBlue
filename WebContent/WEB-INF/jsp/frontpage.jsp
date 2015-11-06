@@ -70,13 +70,13 @@
 				<a class="navbar-brand page-scroll" href="#page-top"> 
 				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
 				<span class="light"> Pizza</span> Blue
-
 				</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
@@ -88,7 +88,9 @@
 						data-toggle="dropdown" role="button" aria-expanded="false"><c:out value="${tilaus.getTilausrivit().size()}"/> <span class="glyphicon glyphicon-shopping-cart"></span><span
 							class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-cart" role="menu">
+						
 							<li><c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit">
+							<form action="poista_tuote_ostoskorista" method="get">
 									<span class="item"> <span class="item-left"> <c:choose>
 												<c:when test="${tilausrivit.getPizza().getNumero() == 1}">
 													<img src="img/m1.png" alt="hawaji">
@@ -132,11 +134,14 @@
 												<c:out value="${tilausrivit.getPizza().getNimi()}" /><br /> 
 												<fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €
 											</span>
-										</span> 
-										<span class="item-right">
-											<button class="btn btn-xs btn-danger pull-right">x</button>
 										</span>
+											<span class="item-right">
+											<input type="hidden" name="id" value="<c:out value="${tilausrivit.getPizza().getId()}"/>">
+												<button class="btn btn-xs btn-danger pull-right">x</button>
+											
+											</span>
 									</span>
+								</form>
 								</c:forEach></li>
 							<li class="divider"></li>
 							<li><a class="text-center" href="tilaussivu">Siirry tilaussivulle</a></li>

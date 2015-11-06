@@ -64,18 +64,8 @@
 	min-height: 630px;
 }
 
-<<<<<<< HEAD
-/* Tilaussivun taulukon tyyli */
-.sisalto {
-	height:200px !important;
-	width:300px !important;
-	border: 1px solid #42DCA3;
-	
-}
-=======
 /* Tilaussivun taulukon tyyli */	
 
->>>>>>> 19fdb445d002c750f08bfe994bc7dc3c9d07343b
 .sisalto td, th {
 	padding: 5px !important;
 	text-align: center;
