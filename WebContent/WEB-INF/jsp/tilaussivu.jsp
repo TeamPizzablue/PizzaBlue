@@ -181,8 +181,8 @@
 							<form action="" method="post" role="form">
 								<div class="form-group col-xs-12">
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-    onchange="try{setCustomValidity('')}catch(e){}" required></div>
+										class="form-control" type="tel" name="puhelinnumero" required
+										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input
