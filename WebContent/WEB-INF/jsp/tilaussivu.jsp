@@ -35,7 +35,7 @@
 </head>
 
 <body>
-
+<form action="laheta_tilaus" method="post" role="form">
 
 
 	<!-- Tilaussivu -->
@@ -54,6 +54,7 @@
 
 
 	<!-- Ostoskori -->
+	
 	<section id="ostoskori" class="container content-section text-center">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
@@ -61,34 +62,38 @@
 
 				<table class="sisalto" style="margin: 0 auto; width: 100%;">
 					<tr class="tietorivi">
-						<td>id</td>
+						<td>Numero</td>
 						<td>Tuotteen nimi</td>
 						<td>Määrä</td>
-						<td>Hinta &euro;</td>
+						<td>Hinta</td>
 						<td>Lisämausteet</td>
 						<td>Pizzapohja</td>
 						<td></td>
 					</tr>
+					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
+					<c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivit" varStatus="count">
+
 					<tr>
 						<td><c:out value="${tilausrivit.getPizza().getNumero()}"/></td>
 						<td><c:out value="${tilausrivit.getPizza().getNimi()}"/></td>
 						<td>1</td>
 						<td><fmt:formatNumber value="${tilausrivit.getPizza().getHinta()}" minFractionDigits="2"></fmt:formatNumber> €</td>
-						<td style="text-align: left;"><form action="">
-								<input type="checkbox" name="mausteet" value="valkosipuli">
-								Valkosipuli <br> <input type="checkbox" name="mausteet"
+						<td style="text-align: left;">
+								<input type="checkbox" name="mausteetV" value="valkosipuli">
+								Valkosipuli <br> <input type="checkbox" name="mausteetO"
 									value="oregano"> Oregano
-							</form></td>
-						<td><select name="Pizzapohja"
+							</td>
+						<td><select name="pizzapohja"
 							style="background-color: white; padding: 3px;" required
 							class="btn-default btn pizzapohja">
-								<option value="">-Valitse-</option>
-								<option value="Tavallinen">Tavallinen</option>
-								<option value="Täysjyvä">Täysjyvä</option>
-								<option value="Gluteeniton">Gluteeniton</option>
+								<option value="tavallinen">Tavallinen</option>
+								<option value="taysjyva">Täysjyvä</option>
+								<option value="gluteeniton">Gluteeniton</option>
 						</select></td>
-						<td><button type="button" class="btn btn-danger">
+						<td>
+						<input type="hidden" name="riviNro" value="<c:out value="${count.index}"/>">
+						<button type="button" class="btn btn-danger">
 								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
 							</button></td>
 					</tr>
@@ -130,7 +135,7 @@
 				<div id="my-tab-content" class="tab-content">
 					<div id="kotiinkuljetus" class="tab-pane fade in active">
 						<div class="col-lg-4 col-lg-offset-4">
-							<form action="" method="post" role="form">
+							
 								<div class="form-group col-xs-6">
 									<label for="Etunimi">Etunimi: </label><input
 										class="form-control" type="text" name="etunimi"
@@ -153,6 +158,8 @@
     onchange="try{setCustomValidity('')}catch(e){}" required> 
 								</div>
 								<div class="form-group col-xs-6">
+
+
 									<label for="Paikkakunta">Paikkakunta: * </label><input
 										class="form-control" type="text" name="paikkakunta"
 										style="color: black" required>
@@ -172,14 +179,14 @@
 									<textarea class="form-control" name="lisatietoja" rows="8"
 										max-cols="40" placeholder="Esim. ovikoodi" style="color: black" required ></textarea>
 								</div>
-							</form>
+							
 						</div>
 					</div>
 
 					<!-- nouto -->
 					<div id="nouto" class="tab-pane fade">
 						<div class="col-lg-4 col-lg-offset-4">
-							<form action="" method="post" role="form">
+							
 								<div class="form-group col-xs-12">
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
 										class="form-control" type="tel" name="puhelinnumero" required
@@ -190,7 +197,7 @@
 										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
     onchange="try{setCustomValidity('')}catch(e){}">
 								</div>
-							</form>
+							
 						</div>
 					</div>
 				</div>
@@ -204,10 +211,10 @@
 		style="padding-top: 50px !important;">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- Tilauksen lähetys seka pop-up aukeaa, toiminnallisuus puuttuu vielä -->
-				<button class="btn btn-default btn-lg" data-toggle="modal"
-					data-target="#myModal" type="submit" value="Submit">Lähetä</button>
-				<!-- Paluu kotisivulle, tarkoitus myös jopa tyhjentää koko sessio myöhemmin. -->
+				<!-- Tilauksen lähetys sekä pop-up aukeaa, toiminnallisuus puuttuu vielä -->
+				<button class="btn btn-default btn-lg" type="submit" value="Submit">Lähetä</button>
+					
+				<!-- Paluu kotisivulle, session tyhjennys -->
 				<a
 					href="tyhjenna_ostoskori"
 					class="btn btn-default btn-lg tyhjenna">Peruuta</a>
@@ -249,7 +256,7 @@
 			</div>
 		</div>
 	</section>
-
+</form>
 
 	<!-- Footer -->
 	<footer>
