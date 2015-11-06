@@ -58,6 +58,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<h2>Ostoskorin sisältö</h2>
+
 				<table class="sisalto" style="margin: 0 auto; width: 100%;">
 					<tr class="tietorivi">
 						<td>id</td>
@@ -98,8 +99,10 @@
 					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
 				
+				<p>Palaa pizzalistaan jatkamaan tilausta</p>
+				 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Valikoima</a>
+								
 			</div>
-			
 		</div>
 	</section>
 
@@ -132,42 +135,43 @@
 								<div class="form-group col-xs-6">
 									<label for="Etunimi">Etunimi: </label><input
 										class="form-control" type="text" name="etunimi"
-										style="color: black" required>
+										style="color: black">
 								</div>
 								<div class="form-group col-xs-6">
 									<label for="Sukunimi">Sukunimi: </label><input
 										class="form-control" type="text" name="sukunimi"
-										style="color: black" required>
+										style="color: black">
 								</div>
 								<div class="form-group col-xs-12">
-									<label for="Katuosoite">Katuosoite: </label><input
+									<label for="Katuosoite">Katuosoite: * </label><input
 										class="form-control" type="text" name="katuosoite"
 										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-6">
-									<label for="Postinumero">Postinumero: </label><input
-										class="form-control" type="text" name="postinumero"
-										style="color: black" required>
+									<label for="Postinumero">Postinumero: * </label><input
+										class="form-control" type="text" pattern="[0-9]{5}"name="postinumero"
+										style="color: black" required oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required> 
 								</div>
 								<div class="form-group col-xs-6">
-									<label for="Paikkakunta">Paikkakunta: </label><input
-										class="form-control" type="text" name="sukunimi"
+									<label for="Paikkakunta">Paikkakunta: * </label><input
+										class="form-control" type="text" name="paikkakunta"
 										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-12">
-									<label for="Puhelinnumero">Puhelinnumero: </label><input
-										class="form-control" type="tel" name="puhelinnumero"
-										style="color: black" required>
-								</div>
+									<label for="Puhelinnumero">Puhelinnumero: *</label><input
+										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required></div>
+										
 								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input
-										class="form-control" type="email" name="sahkoposti"
-										style="color: black">
+										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    onchange="try{setCustomValidity('')}catch(e){}">
 								</div>
 								<div class="form-group col-xs-12">
 									<label for="Lisatietoja">Lisätietoja: </label>
 									<textarea class="form-control" name="lisatietoja" rows="8"
-										max-cols="40" style="color: black" required></textarea>
+										max-cols="40" placeholder="Esim. ovikoodi" style="color: black" required ></textarea>
 								</div>
 							</form>
 						</div>
@@ -178,14 +182,14 @@
 						<div class="col-lg-4 col-lg-offset-4">
 							<form action="" method="post" role="form">
 								<div class="form-group col-xs-12">
-									<label for="Puhelinnumero">Puhelinnumero: </label><input
+									<label for="Puhelinnumero">Puhelinnumero: *</label><input
 										class="form-control" type="tel" name="puhelinnumero" required
 										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input
-										class="form-control" type="email" name="sahkoposti"
-										style="color: black">
+										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    onchange="try{setCustomValidity('')}catch(e){}">
 								</div>
 							</form>
 						</div>
