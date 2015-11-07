@@ -109,8 +109,6 @@
 					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</p>
 				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
-				<p>Palaa pizzalistaan jatkamaan tilausta</p>
-				 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Valikoima</a>
 								
 			</div>
 		</div>
@@ -122,13 +120,12 @@
 		style="padding-top: 50px !important;">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- Tilauksen lähetys sekä pop-up aukeaa, toiminnallisuus puuttuu vielä -->
-				<button class="btn btn-default btn-lg" type="submit" value="Submit">Eteenpäin</button>
-					
-				<!-- Paluu kotisivulle, session tyhjennys -->
-				<a
-					href="tyhjenna_ostoskori"
-					class="btn btn-default btn-lg tyhjenna">Peruuta</a>
+			
+				<!-- Paluu etusivulle -->
+				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Palaa etusivulle</a>
+			
+				<!-- siirrytään eteenpäin tilausprosessissa -->
+				<button class="btn btn-default btn-lg" type="submit" value="Submit">Eteenpäin  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 			</div>
 		</div>
 	</section>
