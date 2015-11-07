@@ -108,6 +108,12 @@ public class Juoma {
 	public void setRasva(double rasva) {
 		this.rasva = rasva;
 	}
+
+	@Override
+	public String toString() {
+		return "Juoma [id=" + id + ", nimi=" + nimi + "]";
+	}
+	
 	
 	
 }

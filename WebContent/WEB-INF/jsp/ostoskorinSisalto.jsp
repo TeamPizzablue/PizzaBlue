@@ -30,6 +30,10 @@
 	rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css">
+	
+	
+<!-- Taulukon fontti -->	
+<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
 <title>Tilaussivu</title>
 </head>
@@ -37,35 +41,30 @@
 <body>
 <form action="siirry_toimitustietoihin" method="post" role="form">
 
-
 	<!-- Ostoskori -->
 	
 	<section id="ostoskori" class="container content-section text-center">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+			<div class="col-lg-10 col-lg-offset-1">
 				<h2>Ostoskorin sisältö</h2>
-
-				<table class="sisalto" style="margin: 0 auto; width: 100%;">
+				
+				<table class="sisalto text-uppercase">
 					<tr class="tietorivi">
-						<td>Numero</td>
-						<td>Tuotteen nimi</td>
-						<td>Määrä</td>
-						<td>Hinta</td>
-						<td>Lisämausteet</td>
-						<td>Pizzapohja</td>
-						<td></td>
+						<td>numero</td>
+						<td>tuotteen nimi</td>
+						<td>hinta</td>
+						<td>lisämausteet</td>
+						<td>pizzapohja</td>
 					</tr>
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
-					<tr>
-						<td><c:out value="${tilausrivi.pizza.numero}"/></td>
+					<tr class="tuoterivi">
+							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
 						<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
-						<td>1</td>
 						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-						<td style="text-align: left;">
+						<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
 								<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
 								Valkosipuli <br> <input type="checkbox" name="mausteetO"
 									value="<c:out value="${count.index}"/>"> Oregano
@@ -77,37 +76,27 @@
 								<option value="taysjyva">Täysjyvä</option>
 								<option value="gluteeniton">Gluteeniton</option>
 						</select></td>
-						<td>
-						<input type="hidden" name="riviNro" value="<c:out value="${count.index}"/>">
-						<button type="button" class="btn btn-danger">
-								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
-							</button></td>
 					</tr>
+					
 					</c:if>
 				</c:forEach>
 				
 				<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
-					<tr>
+					<tr class="tuoterivi">
 						<td><c:out value="${tilausrivi.juoma.numero}"/></td>
 						<td><c:out value="${tilausrivi.juoma.nimi}"/></td>
-						<td>1</td>
 						<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td></td><td></td>
-						<td>
-						<input type="hidden" name="riviNro" value="<c:out value="${count.index}"/>">
-						<button type="button" class="btn btn-danger">
-								<span class=" glyphicon glyphicon-remove" aria-hidden="true"></span>
-							</button></td>
 					</tr>
 					</c:if>
 				</c:forEach>
 
 				</table>
 				
-				<p>
-					<br> Yhteissumma: <fmt:formatNumber value="${tilaus.getHinta()}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
-				</p>
+				<h3>
+					<br><br><br> Yhteissumma: <fmt:formatNumber value="${tilausrivienyhteenlaskettuhinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
+				</h3>
 				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 								
 			</div>
@@ -130,14 +119,6 @@
 		</div>
 	</section>
 </form>
-
-	<!-- Footer -->
-	<footer>
-		<div class="container text-center">
-			<p>Copyright &copy; Ryhmä Blue 2015</p>
-		</div>
-	</footer>
-
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 
