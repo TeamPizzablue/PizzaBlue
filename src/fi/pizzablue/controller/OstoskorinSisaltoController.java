@@ -33,8 +33,10 @@ public class OstoskorinSisaltoController extends HttpServlet {
 		
 		
 		
-		String[] rivitJoissaValkosipuli = request.getParameterValues("mausteetV");
-		String[] rivitJoissaOregano = request.getParameterValues("mausteetO");
+		String[] rivitJoissaValkosipuli = null;
+		String[] rivitJoissaOregano = null;
+		rivitJoissaOregano = request.getParameterValues("mausteetO");
+		rivitJoissaValkosipuli = request.getParameterValues("mausteetV");
 		
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
@@ -45,13 +47,20 @@ public class OstoskorinSisaltoController extends HttpServlet {
 				Pizzarivi pizzarivi = (Pizzarivi)tilausrivit.get(i);
 				//pohja
 				pizzarivi.setPohja(new Pohja(request.getParameter("pizzapohja-"+i)));
-				//oreg
-				if (Arrays.asList(rivitJoissaOregano).contains(""+i))
-					pizzarivi.setOregano(true);
-				//vsip
-				if (Arrays.asList(rivitJoissaValkosipuli).contains(""+i))
-					pizzarivi.setValkosipuli(true);
+				System.out.println(pizzarivi.getPohja().getNimi());
 				
+				//oreg
+				if (rivitJoissaOregano != null) {
+					if (Arrays.asList(rivitJoissaOregano).contains(""+i)) {
+						pizzarivi.setOregano(true); 
+					}
+				}
+				//vsip
+				if (rivitJoissaValkosipuli != null) {
+					if (Arrays.asList(rivitJoissaValkosipuli).contains(""+i)) {
+						pizzarivi.setValkosipuli(true);
+					}
+				}
 			}
 		}
 		
