@@ -122,7 +122,7 @@
 			<div class="col-lg-12">
 			
 				<!-- Paluu etusivulle -->
-				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#pitsalista" class="btn btn-default btn-lg" role="button">Palaa etusivulle</a>
+				<a href="http://localhost:8080/pizzablue/frontpage#pitsalista" class="btn btn-default btn-lg" role="button">Palaa etusivulle</a>
 			
 				<!-- siirrytään eteenpäin tilausprosessissa -->
 				<button class="btn btn-default btn-lg" type="submit" value="Submit">Eteenpäin  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>

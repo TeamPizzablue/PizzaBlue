@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TilaussivuController
  */
-@WebServlet(urlPatterns={"/tilausvahvistus"})
-public class TilausvahvistussivunController extends HttpServlet {
+@WebServlet(urlPatterns={"/vahvistus", "/tilausvahvistus.jsp"})
+public class TilausvahvistusController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TilausvahvistussivunController() {
+    public TilausvahvistusController() {
         super();
     }
 

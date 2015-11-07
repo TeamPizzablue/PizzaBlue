@@ -18,10 +18,10 @@ import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.bean.Tilausrivi;
 
 @WebServlet("/siirry_toimitustietoihin")
-public class OstoskorinSisaltoController extends HttpServlet {
+public class TallennaOstoskorinSisaltoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public OstoskorinSisaltoController() {
+    public TallennaOstoskorinSisaltoController() {
         super();
     }
 
@@ -67,7 +67,7 @@ public class OstoskorinSisaltoController extends HttpServlet {
 		System.out.println(tilaus.getTilausrivit().size());
 		
 		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("toimitustiedot");
+		response.sendRedirect("toimitustiedot.jsp");
 		
 	}
 

@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class TilaussivuController
  */
 @WebServlet(urlPatterns={"/ostoskorinsisalto"})
-public class SiirryKassalleController extends HttpServlet {
+public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SiirryKassalleController() {
+    public SiirryOstoskorinSisaltoonController() {
         super();
     }
 

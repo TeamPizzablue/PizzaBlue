@@ -3,6 +3,7 @@ DROP TABLE juomarivi;
 DROP TABLE pohja;
 DROP TABLE tilaus;
 DROP TABLE tila;
+DROP TABLE posti;
 DROP TABLE juoma;
 DROP TABLE pizzantayte;
 DROP TABLE tayte;
@@ -54,20 +55,28 @@ CREATE TABLE tila (
 	PRIMARY KEY(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
+CREATE TABLE posti (
+	postinro CHAR(5),
+	postitmp VARCHAR(30),
+	PRIMARY KEY(postinro)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
 CREATE TABLE tilaus (
 	id INT NOT NULL AUTO_INCREMENT,
 	hinta DECIMAL(8,2) NOT NULL,
 	aikaleima TIMESTAMP NOT NULL,
-	toimitustapa BOOLEAN NOT NULL,
+	kotiinkuljetus BOOLEAN NOT NULL,
 	etunimi VARCHAR(20),
 	sukunimi VARCHAR(30),
 	puhelinnumero VARCHAR(15),
 	sahkoposti VARCHAR(50),
-	toimitusosoite VARCHAR(50),
+	katuosoite VARCHAR(50),
 	lisatiedot VARCHAR(200),
+	postinro CHAR(5),
 	tila_id SMALLINT NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY(tila_id) REFERENCES tila(id)
+	FOREIGN KEY(tila_id) REFERENCES tila(id),
+	FOREIGN KEY(postinro) REFERENCES posti(postinro)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE pohja (

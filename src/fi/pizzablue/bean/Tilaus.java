@@ -8,12 +8,14 @@ public class Tilaus {
 	private int id;
 	private double hinta;
 	private Date aikaleima;
-	private boolean toimitustapa;
-	private String nimi;
+	private boolean kotiinkuljetus;
+	private String etunimi;
+	private String sukunimi;
 	private String puhelinnumero;
 	private String sahkoposti;
-	private String toimitusosoite;
+	private String katuosoite;
 	private String lisatiedot;
+	private Posti posti;
 	private Tila tila;
 	private List<Tilausrivi> tilausrivit;
 	
@@ -21,16 +23,18 @@ public class Tilaus {
 		this.tilausrivit = new ArrayList<Tilausrivi>();
 	}
 	
-	public Tilaus(int id, double hinta, Date aikaleima, boolean toimitustapa, String nimi, String puhelinnumero, String sahkoposti, String toimitusosoite, String lisatiedot, Tila tila) {
+	public Tilaus(int id, double hinta, Date aikaleima, boolean kotiinkuljetus, String etunimi, String sukunimi, String puhelinnumero, String sahkoposti, String katuosoite, String lisatiedot, Posti posti, Tila tila) {
 		this.id = id;
 		this.hinta = hinta;
 		this.aikaleima = aikaleima;
-		this.toimitustapa = toimitustapa;
-		this.nimi = nimi;
+		this.kotiinkuljetus = kotiinkuljetus;
+		this.etunimi = etunimi;
+		this.sukunimi = sukunimi;
 		this.puhelinnumero = puhelinnumero;
 		this.sahkoposti = sahkoposti;
-		this.toimitusosoite = toimitusosoite;
+		this.katuosoite = katuosoite;
 		this.lisatiedot = lisatiedot;
+		this.posti = posti;
 		this.tila = tila;
 		this.tilausrivit = new ArrayList<Tilausrivi>();
 	}
@@ -67,20 +71,28 @@ public class Tilaus {
 		this.aikaleima = aikaleima;
 	}
 
-	public boolean getToimitustapa() {
-		return toimitustapa;
+	public boolean getKotiinkuljetus() {
+		return kotiinkuljetus;
 	}
 
-	public void setToimitustapa(boolean toimitustapa) {
-		this.toimitustapa = toimitustapa;
+	public void setKotiinkuljetus(boolean kotiinkuljetus) {
+		this.kotiinkuljetus = kotiinkuljetus;
 	}
 
-	public String getNimi() {
-		return nimi;
+	public String getEtunimi() {
+		return etunimi;
 	}
 
-	public void setNimi(String nimi) {
-		this.nimi = nimi;
+	public void setEtunimi(String etunimi) {
+		this.etunimi = etunimi;
+	}
+	
+	public String getSukunimi() {
+		return sukunimi;
+	}
+	
+	public void setSukunimi(String sukunimi) {
+		this.sukunimi = sukunimi;
 	}
 
 	public String getPuhelinnumero() {
@@ -99,12 +111,12 @@ public class Tilaus {
 		this.sahkoposti = sahkoposti;
 	}
 
-	public String getToimitusosoite() {
-		return toimitusosoite;
+	public String getKatuosoite() {
+		return katuosoite;
 	}
 
-	public void setToimitusosoite(String toimitusosoite) {
-		this.toimitusosoite = toimitusosoite;
+	public void setKatuosoite(String katuosoite) {
+		this.katuosoite = katuosoite;
 	}
 
 	public String getLisatiedot() {
@@ -121,6 +133,14 @@ public class Tilaus {
 
 	public void setTila(Tila tila) {
 		this.tila = tila;
+	}
+
+	public Posti getPosti() {
+		return posti;
+	}
+
+	public void setPosti(Posti posti) {
+		this.posti = posti;
 	}
 	
 	
