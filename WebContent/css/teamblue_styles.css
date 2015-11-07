@@ -66,22 +66,29 @@
 
 /* Tilaussivun taulukon tyyli */
 
+.sisalto {
+	margin: 0 auto; 
+	width: 100%;
+	font-family: 'Muli', sans-serif;
+}
+
 .sisalto td, th {
-	padding: 5px !important;
+	magin: 0px;
+	padding: 15px !important;
 	text-align: center;
 	border-collapse: collapse !important;
 }
 
 /*joka toinen rivi taulukossa erivärinen */
-.sisalto tr:nth-child(even) {background: #090909 !important;
+.tuoterivi:nth-child(even) {background: #090909 !important;
 }
-.sisalto tr:nth-child(odd) {background: #0F0F0F !important;
+.tuoterivi:nth-child(odd) {background: #0F0F0F !important;
 }
 
 .tietorivi {
-	font-size: medium !important;
-	font-family: Helvetica;
+	font-size: large !important;
 }
+
  /* pop-upin header */
 .pop-up {
 	color:black !important; 

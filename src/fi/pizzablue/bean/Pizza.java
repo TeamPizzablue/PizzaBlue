@@ -110,6 +110,12 @@ public class Pizza {
 		this.rasva = rasva;
 	}
 
+	@Override
+	public String toString() {
+		return "Pizza [id=" + id + ", nimi=" + nimi + "]";
+	}
+	
+
 
 	
 
