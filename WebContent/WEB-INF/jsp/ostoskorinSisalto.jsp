@@ -95,7 +95,7 @@
 				</table>
 				
 				<h3>
-					<br><br><br> Yhteissumma: <fmt:formatNumber value="${tilausrivienyhteenlaskettuhinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
+					<br><br><br> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
 				</h3>
 				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 								

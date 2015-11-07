@@ -60,6 +60,7 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 			}
 		}
 		
+		
 		System.out.println(tilaus.getTilausrivit().size());
 		
 		request.getSession().setAttribute("tilaus", tilaus);

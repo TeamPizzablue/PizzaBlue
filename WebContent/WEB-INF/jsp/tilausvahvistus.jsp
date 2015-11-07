@@ -42,9 +42,70 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1>Tilausvahvistus</h1>
-				<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:</p>
-				<p>Yhteissumma: 1000.00 €<%-- <c:out value="${}"/>--%></p>
-				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
+				<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
+				<table class="sisalto text-uppercase">
+					<tr class="tietorivi">
+						<td>numero</td>
+						<td>tuotteen nimi</td>
+						<td>hinta</td>
+						<td>lisämausteet</td>
+						<td>pizzapohja</td>
+					</tr>
+					
+					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
+					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
+					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+					<tr class="tuoterivi">
+							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
+						<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
+						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
+						<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
+								<c:if test="${tilausrivi.oregano == true}">
+									Oregano
+								</c:if>
+								<c:if test="${tilausrivi.valkosipuli == true}">
+									Valkosipuli
+								</c:if>
+							</td>
+						<td><c:choose>
+						<c:when test="${tilausrivi.pohja.nimi == 'tavallinen'}">
+							Tavallinen
+						</c:when>
+						<c:when test="${tilausrivi.pohja.nimi == 'taysjyva'}">
+							Täysjyvä
+						</c:when>
+						<c:otherwise>
+							Gluteeniton
+						</c:otherwise>
+						</c:choose></td>
+					</tr>
+					
+					</c:if>
+				</c:forEach>
+				
+				<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
+					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+					<tr class="tuoterivi">
+						<td><c:out value="${tilausrivi.juoma.numero}"/></td>
+						<td><c:out value="${tilausrivi.juoma.nimi}"/></td>
+						<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
+						<td></td><td></td>
+					</tr>
+					</c:if>
+				</c:forEach>
+
+				</table>
+				</p>
+				<p>Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</p>
+				<br/><br/>
+				<p>Toimitustiedot:</p><br/><br/>
+				<c:out value="${tilaus.etunimi}"/> <c:out value="${tilaus.sukunimi}"/><br/>
+				<c:out value="${tilaus.puhelinnumero}"/><br/>
+				<c:out value="${tilaus.sahkoposti}"/><br/>
+				<c:out value="${tilaus.katuosoite}"/><br/>
+				<c:out value="${tilaus.posti.postinro}"/> <c:out value="${tilaus.posti.postitmp}"/><br/>
+				<c:out value="${tilaus.lisatiedot}"/><br/><br/>
+				<a href="http://localhost:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
 					<button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
 				<a href="tyhjenna_ostoskori" class="btn btn-default btn-lg tyhjenna">Peruuta tilaus</a>
 			</div>

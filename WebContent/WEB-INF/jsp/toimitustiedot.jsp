@@ -73,23 +73,23 @@
 								<div class="form-group col-xs-12">
 									<label for="Katuosoite">Katuosoite: * </label><input
 										class="form-control" type="text" name="katuosoite"
-										style="color: black">
+										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-6">
 									<label for="Postinumero">Postinumero: * </label><input
 										class="form-control" type="text" pattern="[0-9]{5}"name="postinumero"
 										style="color: black" required oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-    onchange="try{setCustomValidity('')}catch(e){}"> 
+    onchange="try{setCustomValidity('')}catch(e){}" required> 
 								</div>
 								<div class="form-group col-xs-6">
 									<label for="Paikkakunta">Paikkakunta: * </label><input
 										class="form-control" type="text" name="paikkakunta"
-										style="color: black">
+										style="color: black" required>
 								</div>
 								<div class="form-group col-xs-12">
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
 										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-    onchange="try{setCustomValidity('')}catch(e){}"></div>
+    onchange="try{setCustomValidity('')}catch(e){}" required></div>
 										
 								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input

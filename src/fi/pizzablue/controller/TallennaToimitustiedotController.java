@@ -26,7 +26,7 @@ public class TallennaToimitustiedotController extends HttpServlet {
 		String etunimi = request.getParameter("etunimi");
 		String sukunimi = request.getParameter("sukunimi");
 		String katuosoite = request.getParameter("katuosoite");
-		String postinumero = request.getParameter("potinumero");
+		String postinumero = request.getParameter("postinumero");
 		String paikkakunta = request.getParameter("paikkakunta");
 		String puhelinnumero = request.getParameter("puhelinnumero");
 		String sahkoposti = request.getParameter("sahkoposti");

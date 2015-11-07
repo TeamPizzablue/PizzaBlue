@@ -18,7 +18,7 @@ public class Tilaus {
 	private Posti posti;
 	private Tila tila;
 	private List<Tilausrivi> tilausrivit;
-	
+
 	public Tilaus() {
 		this.tilausrivit = new ArrayList<Tilausrivi>();
 	}
@@ -143,5 +143,15 @@ public class Tilaus {
 		this.posti = posti;
 	}
 	
+	@Override
+	public String toString() {
+		return "Tilaus [id=" + id + ", hinta=" + hinta + ", aikaleima="
+				+ aikaleima + ", kotiinkuljetus=" + kotiinkuljetus
+				+ ", etunimi=" + etunimi + ", sukunimi=" + sukunimi
+				+ ", puhelinnumero=" + puhelinnumero + ", sahkoposti="
+				+ sahkoposti + ", katuosoite=" + katuosoite + ", lisatiedot="
+				+ lisatiedot + ", posti=" + posti + ", tila=" + tila
+				+ ", tilausrivit=" + tilausrivit + "]";
+	}
 	
 }

@@ -44,7 +44,8 @@ public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 			
 		}
 		System.out.println(tilausrivienyhteenlaskettuhinta);
-		request.getSession().setAttribute("tilausrivienyhteenlaskettuhinta", tilausrivienyhteenlaskettuhinta);
+		tilaus.setHinta(tilausrivienyhteenlaskettuhinta);
+		request.getSession().setAttribute("tilaus", tilaus);
 		
 		
 		request.getRequestDispatcher("WEB-INF/jsp/ostoskorinSisalto.jsp").forward(request, response);
