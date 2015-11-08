@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.Yhteys;
-import fi.pizzablue.dao.tilausDAO;
+import fi.pizzablue.dao.TilausDAO;
 
 @WebServlet("/laheta_tilaus")
 public class LahetaTilausController extends HttpServlet {
@@ -48,7 +48,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 		try {
 			Connection yhteys = Yhteys.avaaYhteys();
-			tilausDAO tDao = new tilausDAO();
+			TilausDAO tDao = new TilausDAO();
 			tDao.lisaaTilaus(tilaus, yhteys);
 			Yhteys.suljeYhteys(yhteys);
 		} catch (DAOPoikkeus e) {
