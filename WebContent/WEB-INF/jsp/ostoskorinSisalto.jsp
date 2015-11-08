@@ -119,6 +119,14 @@
 		</div>
 	</section>
 </form>
+
+<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p></p>
+		</div>
+	</footer>
+	
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 
