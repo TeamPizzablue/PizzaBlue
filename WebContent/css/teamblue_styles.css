@@ -82,6 +82,9 @@
 	text-align: center;
 	border-collapse: collapse !important;
 }
+table .minikuvat {
+	padding: 15px 15px 15px 50px !important;
+}
 
 /*joka toinen rivi taulukossa erivärinen */
 .tuoterivi:nth-child(even) {background: #090909 !important;

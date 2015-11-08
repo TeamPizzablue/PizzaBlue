@@ -31,6 +31,7 @@ import fi.pizzablue.bean.Tilaus;
 				lause.executeUpdate();
 				
 				System.out.println("Lisättiin tietokantaan tilaus: " + tilaus.toString());
+				
 
 				/*for (int i = 0; i < tilaus.getTilausrivit().size(); i++) {
 					

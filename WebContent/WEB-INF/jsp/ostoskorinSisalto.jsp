@@ -62,7 +62,7 @@
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
 					<tr class="tuoterivi">
 							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
-						<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
+						<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
 						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
 								<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
@@ -85,7 +85,7 @@
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
 					<tr class="tuoterivi">
 						<td><c:out value="${tilausrivi.juoma.numero}"/></td>
-						<td><c:out value="${tilausrivi.juoma.nimi}"/></td>
+						<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
 						<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td></td><td></td>
 					</tr>
