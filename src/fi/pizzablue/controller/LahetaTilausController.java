@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.dao.Yhteys;
 import fi.pizzablue.dao.TilausDAO;
+import fi.pizzablue.dao.Yhteys;
 
 @WebServlet("/laheta_tilaus")
 public class LahetaTilausController extends HttpServlet {
