@@ -43,6 +43,16 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 				Pizzarivi pizzarivi = (Pizzarivi)tilausrivit.get(i);
 				//pohja
 				pizzarivi.setPohja(new Pohja(request.getParameter("pizzapohja-"+i)));
+				
+				if (pizzarivi.getPohja().getNimi().equals("tavallinen")) {
+					pizzarivi.getPohja().setId(1);
+				} else if (pizzarivi.getPohja().getNimi().equals("taysjyva")) {
+					pizzarivi.getPohja().setId(2);
+				} else {
+					pizzarivi.getPohja().setId(3);
+				}
+				
+				System.out.println(pizzarivi.getPohja().getId());
 				System.out.println(pizzarivi.getPohja().getNimi());
 				
 				//oreg

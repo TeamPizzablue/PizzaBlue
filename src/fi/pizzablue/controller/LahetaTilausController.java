@@ -24,27 +24,7 @@ public class LahetaTilausController extends HttpServlet {
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String etunimi = request.getParameter("etunimi");
-		String sukunimi = request.getParameter("sukunimi");
-		String katuosoite = request.getParameter("katuosoite");
-		String postinro = request.getParameter("potinumero");
-		String postitmp = request.getParameter("paikkakunta");
-		String puhelinnumero = request.getParameter("puhelinnumero");
-		String sahkoposti = request.getParameter("sahkoposti");
-		String lisatiedot = request.getParameter("lisatietoja");
-		
-		
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
-		
-		tilaus.setEtunimi(etunimi);
-		tilaus.setSukunimi(sukunimi);
-		tilaus.setKatuosoite(katuosoite);
-		tilaus.setPostinro(postinro);
-		tilaus.setPostitmp(postitmp);
-		tilaus.setPuhelinnumero(puhelinnumero);
-		tilaus.setSahkoposti(sahkoposti);
-		tilaus.setLisatiedot(lisatiedot);
-		tilaus.setKotiinkuljetus(true);
 		
 		try {
 			Connection yhteys = Yhteys.avaaYhteys();

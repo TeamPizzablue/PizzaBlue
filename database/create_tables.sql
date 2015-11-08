@@ -73,7 +73,7 @@ CREATE TABLE tilaus (
 )ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE pohja (
-	id SMALLINT NOT NULL AUTO_INCREMENT,
+	id SMALLINT NOT NULL,
 	nimi VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
@@ -195,6 +195,11 @@ values  (1, 'Coca Cola', 330, 1.90, 108, 0.00, 27.00, 0.00),
 	(10, 'Hedelmämehu', 500, 2.90, 111, 0.00, 24.00, 0.00),
 	(11, 'Mehu', 350, 2.50, 120, 0.00, 22.00, 0.00),
 	(12, 'Vesi', 500, 1.00, 0.00, 0.00, 0.00, 0.00);
+	
+INSERT INTO pohja (id, nimi) 
+values	(1, 'Tavallinen'),
+	(2, 'Täysjyvä'),
+	(3, 'Gluteeniton');
 
 INSERT INTO tila (id, nimi)
 values	(1, 'käsittelyssä'),

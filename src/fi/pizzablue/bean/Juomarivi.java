@@ -21,4 +21,10 @@ public class Juomarivi extends Tilausrivi {
 		this.juoma = juoma;
 	}
 
+	@Override
+	public String toString() {
+		return "Juomarivi [juoma=" + juoma + ", id=" + id + ", maara=" + maara
+				+ ", hinta=" + hinta + "]";
+	}
+
 }

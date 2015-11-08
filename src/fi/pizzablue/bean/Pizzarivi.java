@@ -52,4 +52,11 @@ public class Pizzarivi extends Tilausrivi {
 		this.pizza = pizza;
 	}
 
+	@Override
+	public String toString() {
+		return "Pizzarivi [oregano=" + oregano + ", valkosipuli=" + valkosipuli
+				+ ", pohja=" + pohja + ", pizza=" + pizza + ", id=" + id
+				+ ", maara=" + maara + ", hinta=" + hinta + "]";
+	}
+
 }
