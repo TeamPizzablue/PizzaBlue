@@ -8,7 +8,7 @@ import fi.pizzablue.bean.Tilaus;
 	
 
 
-	public class tilausDAO {
+	public class TilausDAO {
 		
 		public void lisaaTilaus(Tilaus tilaus, Connection yhteys) throws DAOPoikkeus {
 
