@@ -195,7 +195,7 @@
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
 						<img src="img/iso_logo.png"
-							class="img-responsive center-block col-xs-12"
+							class="img-responsive center-block col-xs-12 etusivu-iso-logo"
 							alt="Responsive image">
 					</div>
 				</div>

@@ -43,7 +43,7 @@ public class LisaaJuomaOstoskoriinController extends HttpServlet {
 			
 			request.getSession().setAttribute("tilaus", tilaus);
 			
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index.jsp#pizzalista");
 			
 		} catch(DAOPoikkeus e) {
 			System.out.println("ERROR: Ostoskoriin yritettiin lisätä pizza, jonka id ei ole kokonaisluku. (ID:" + lisattavanJuomanIdStringina + ")");
