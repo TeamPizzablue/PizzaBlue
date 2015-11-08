@@ -39,7 +39,7 @@
 </head>
 
 <body>
-<form action="siirry_toimitustietoihin" method="post" role="form">
+<form action="siirry_toimitustietoihin" method="post" role="form" accept-charset="UTF-8">
 
 	<!-- Ostoskori -->
 	

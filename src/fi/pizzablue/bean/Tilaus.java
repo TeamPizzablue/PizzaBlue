@@ -14,8 +14,9 @@ public class Tilaus {
 	private String puhelinnumero;
 	private String sahkoposti;
 	private String katuosoite;
+	private String postinro;
+	private String postitmp;
 	private String lisatiedot;
-	private Posti posti;
 	private Tila tila;
 	private List<Tilausrivi> tilausrivit;
 
@@ -23,7 +24,7 @@ public class Tilaus {
 		this.tilausrivit = new ArrayList<Tilausrivi>();
 	}
 	
-	public Tilaus(int id, double hinta, Date aikaleima, boolean kotiinkuljetus, String etunimi, String sukunimi, String puhelinnumero, String sahkoposti, String katuosoite, String lisatiedot, Posti posti, Tila tila) {
+	public Tilaus(int id, double hinta, Date aikaleima, boolean kotiinkuljetus, String etunimi, String sukunimi, String puhelinnumero, String sahkoposti, String katuosoite, String postinro, String postitmp, String lisatiedot, Tila tila) {
 		this.id = id;
 		this.hinta = hinta;
 		this.aikaleima = aikaleima;
@@ -33,8 +34,9 @@ public class Tilaus {
 		this.puhelinnumero = puhelinnumero;
 		this.sahkoposti = sahkoposti;
 		this.katuosoite = katuosoite;
+		this.postinro = postinro;
+		this.postitmp = postitmp;
 		this.lisatiedot = lisatiedot;
-		this.posti = posti;
 		this.tila = tila;
 		this.tilausrivit = new ArrayList<Tilausrivi>();
 	}
@@ -135,23 +137,33 @@ public class Tilaus {
 		this.tila = tila;
 	}
 
-	public Posti getPosti() {
-		return posti;
+	public String getPostinro() {
+		return postinro;
 	}
 
-	public void setPosti(Posti posti) {
-		this.posti = posti;
+	public void setPostinro(String postinro) {
+		this.postinro = postinro;
 	}
-	
+
+	public String getPostitmp() {
+		return postitmp;
+	}
+
+	public void setPostitmp(String postitmp) {
+		this.postitmp = postitmp;
+	}
+
 	@Override
 	public String toString() {
 		return "Tilaus [id=" + id + ", hinta=" + hinta + ", aikaleima="
 				+ aikaleima + ", kotiinkuljetus=" + kotiinkuljetus
 				+ ", etunimi=" + etunimi + ", sukunimi=" + sukunimi
 				+ ", puhelinnumero=" + puhelinnumero + ", sahkoposti="
-				+ sahkoposti + ", katuosoite=" + katuosoite + ", lisatiedot="
-				+ lisatiedot + ", posti=" + posti + ", tila=" + tila
-				+ ", tilausrivit=" + tilausrivit + "]";
+				+ sahkoposti + ", katuosoite=" + katuosoite + ", postinro="
+				+ postinro + ", postitmp=" + postitmp + ", lisatiedot="
+				+ lisatiedot + ", tila=" + tila + ", tilausrivit="
+				+ tilausrivit + "]";
 	}
+	
 	
 }
