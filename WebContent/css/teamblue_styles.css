@@ -17,6 +17,10 @@
    	margin:0 auto !important;
 }
 
+.etusivu-iso-logo {
+	margin-top: 80px;
+}
+
 /* Tähtiarvioinnin tekstin alas heitto */
 #ratingbox {
 	width: 200px;

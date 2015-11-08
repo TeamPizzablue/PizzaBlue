@@ -42,7 +42,7 @@ public class LisaaPizzaOstoskoriinController extends HttpServlet {
 			
 			request.getSession().setAttribute("tilaus", tilaus);
 			
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index.jsp#pizzalista");
 			
 			
 		} catch(DAOPoikkeus e) {

@@ -93,18 +93,22 @@
 					</tr>
 					</c:if>
 				</c:forEach>
-
 				</table>
-				</p>
+				<br/><br/>
 				<h4>Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h4>
 				<br/><br/>
-				<h3>Toimitustiedot:</h3><br/><br/>
-				<c:out value="${tilaus.etunimi}"/> <c:out value="${tilaus.sukunimi}"/><br/>
-				<c:out value="${tilaus.puhelinnumero}"/><br/>
-				<c:out value="${tilaus.sahkoposti}"/><br/>
+				<h3>Toimitustiedot:</h3><br/>
+				<p>
+				<c:if test="${tilaus.etunimi != ''}"><c:out value="${tilaus.etunimi}"/></c:if>
+				<c:if test="${tilaus.sukunimi != ''}"> <c:out value="${tilaus.sukunimi}"/></c:if><br/>
 				<c:out value="${tilaus.katuosoite}"/><br/>
-				<c:out value="${tilaus.posti.postinro}"/> <c:out value="${tilaus.posti.postitmp}"/><br/>
-				<c:out value="${tilaus.lisatiedot}"/><br/><br/>
+				<c:out value="${tilaus.posti.postinro}"/> <c:out value="${tilaus.posti.postitmp}"/><br/><br/>
+				
+				<c:out value="${tilaus.puhelinnumero}"/><br/>
+				<c:if test="${tilaus.sahkoposti != ''}"><c:out value="${tilaus.sahkoposti}"/><br/></c:if><br/>
+				
+				<c:if test="${tilaus.lisatiedot != ''}">Lisätiedot: <c:out value="${tilaus.lisatiedot}"/><br/></c:if><br/>
+				</p>
 				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
 				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
 				<br><br><br>
