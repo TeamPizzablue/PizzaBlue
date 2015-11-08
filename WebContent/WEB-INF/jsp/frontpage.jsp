@@ -335,7 +335,7 @@
 													<p>
 														<input type="hidden" name="id"
 															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
+														<button type="submit" class="btn btn-default ostonappi">Lisää
 															ostoskoriin</button>
 													</p>
 												</form>
@@ -405,7 +405,7 @@
 													<p>
 														<input type="hidden" name="id"
 															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
+														<button type="submit" class="btn btn-default ostonappi">Lisää
 															ostoskoriin</button>
 													</p>
 												</form>
@@ -475,7 +475,7 @@
 													<p>
 														<input type="hidden" name="id"
 															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
+														<button type="submit" class="btn btn-default ostonappi">Lisää
 															ostoskoriin</button>
 													</p>
 												</form>

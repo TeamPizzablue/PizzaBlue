@@ -109,12 +109,16 @@
 				
 				<c:if test="${tilaus.lisatiedot != ''}">Lisätiedot: <c:out value="${tilaus.lisatiedot}"/><br/></c:if><br/>
 				</p>
+				
 				<form action="laheta_tilaus" method="post">
+				<div class="col-lg-6" align="right">
 				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
+				</div>
 				</form>
+				<div class="col-lg-6" align="left">
 				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
-				<br><br><br>
-				<div class="col-lg-12">
+				</div>
+				<div class="col-lg-12"><br><br><br>
 					<a href="http://localhost:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
 				</div>
 			</div>

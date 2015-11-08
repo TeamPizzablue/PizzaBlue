@@ -30,4 +30,9 @@ public class Pohja {
 		this.nimi = nimi;
 	}
 
+	@Override
+	public String toString() {
+		return "Pohja [id=" + id + ", nimi=" + nimi + "]";
+	}
+
 }

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 import fi.pizzablue.bean.Juomarivi;
+import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.bean.Pizzarivi;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.bean.Tilausrivi;
@@ -36,6 +37,9 @@ import fi.pizzablue.bean.Tilausrivi;
 				
 				System.out.println("Lisättiin tietokantaan tilaus: " + tilaus.toString());
 				
+				TilausIdDAO idDAO = new TilausIdDAO();
+				
+				
 				List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
 
 				for (int i = 0; i < tilaus.getTilausrivit().size(); i++) {
@@ -50,7 +54,7 @@ import fi.pizzablue.bean.Tilausrivi;
 						lausep.setBoolean(4, privi.isValkosipuli());
 						lausep.setInt(5, privi.getPohja().getId());
 						lausep.setInt(6, privi.getPizza().getId());
-						lausep.setInt(7, tilaus.getId());
+						lausep.setInt(7, 2);
 						
 						lausep.executeUpdate();
 						
