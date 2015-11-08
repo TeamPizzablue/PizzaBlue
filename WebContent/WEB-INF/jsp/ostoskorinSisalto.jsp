@@ -114,7 +114,7 @@
 				<a href="http://localhost:8080/pizzablue/frontpage#pitsalista" class="btn btn-default btn-lg" role="button">Palaa etusivulle</a>
 			
 				<!-- siirrytään eteenpäin tilausprosessissa -->
-				<button class="btn btn-default btn-lg" type="submit" value="Submit">Eteenpäin  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+				<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 			</div>
 		</div>
 	</section>

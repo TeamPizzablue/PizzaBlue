@@ -37,5 +37,11 @@ public abstract class Tilausrivi {
 	public void setMaara(int maara) {
 		this.maara = maara;
 	}
+
+	@Override
+	public String toString() {
+		return "Tilausrivi [id=" + id + ", maara=" + maara + ", hinta=" + hinta
+				+ "]";
+	}
 	
 }

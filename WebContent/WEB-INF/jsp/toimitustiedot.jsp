@@ -56,8 +56,8 @@
 				
 				<div id="my-tab-content" class="tab-content">
 				<form action="siirry_toimitustietoihin" method="post" role="form">
-					<div id="kotiinkuljetus" class="tab-pane fade in active">
-					--%>
+					<div id="kotiinkuljetus" class="tab-pane fade in active">--%>
+					<h1>Kotiinkuljetus</h1>
 					<form action="siirry_tilausvahvistukseen" method="post" role="form">
 						<div class="col-lg-4 col-lg-offset-4">
 								<div class="form-group col-xs-6">
@@ -101,9 +101,11 @@
 									<textarea class="form-control" name="lisatietoja" rows="8"
 										max-cols="40" placeholder="Esim. ovikoodi" style="color: black"></textarea>
 								</div>
-								<a href="http://localhost:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
-			<button class="btn btn-default btn-lg" type="submit" value="Submit">Seuraava sivu  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 						</div>
+						<div class="col-lg-8 col-lg-offset-2"><br>
+						<a href="http://localhost:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
+								<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+								</div>
 						</form>
 					</div>
 					
@@ -134,6 +136,13 @@
 				
 			
 	</section>
+	
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p></p>
+		</div>
+	</footer>
 
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>

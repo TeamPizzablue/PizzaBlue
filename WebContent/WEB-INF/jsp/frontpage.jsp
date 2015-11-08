@@ -169,8 +169,15 @@
 								</c:otherwise>
 							</c:choose>
 							</c:forEach></li> --%>
+							
+							<!-- testataan onko ostoskorissa tuotteita, jotta tilaamaan ei pääse ostoskorin ollessa tyhjä -->
+							<c:if test="${tilaus.getTilausrivit().size() != null && tilaus.getTilausrivit().size() != 0}">
 							<li class="divider"></li>
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
+							</c:if>
+							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br>
+							<p class="text-center"style="color:black;">Ostoskori on tyhjä</p>
+							</c:if>
 						</ul></li>
 				</ul>
 			</div>
@@ -193,6 +200,7 @@
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
+				<!--  virheilmoitus mikäli ostoskoriin yritetään syöttää muuta kuin pizzaid -->
 				<c:if test="${not empty error}">
 					<div class="alert alert-danger row">
 						<strong>Virhe!</strong>
@@ -694,7 +702,7 @@
 		</div>
 	</section>
 	<div class="col-lg-6">
-	<img class="ateria img-responsive" align="right" src="img/Ateria.png"
+	<<img class="ateria img-responsive" align="right" src="img/Ateria.png"
 			style="height: 200px; width: 300px;" alt="ateria">
 	</div>
 	<!-- Yhteystiedot -->

@@ -59,7 +59,7 @@
 							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
 						<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
 						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-						<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
+						<td>
 								<c:if test="${tilausrivi.oregano == true}">
 									Oregano
 								</c:if>
@@ -96,18 +96,21 @@
 
 				</table>
 				</p>
-				<p>Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</p>
+				<h4>Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h4>
 				<br/><br/>
-				<p>Toimitustiedot:</p><br/><br/>
+				<h3>Toimitustiedot:</h3><br/><br/>
 				<c:out value="${tilaus.etunimi}"/> <c:out value="${tilaus.sukunimi}"/><br/>
 				<c:out value="${tilaus.puhelinnumero}"/><br/>
 				<c:out value="${tilaus.sahkoposti}"/><br/>
 				<c:out value="${tilaus.katuosoite}"/><br/>
 				<c:out value="${tilaus.posti.postinro}"/> <c:out value="${tilaus.posti.postitmp}"/><br/>
 				<c:out value="${tilaus.lisatiedot}"/><br/><br/>
-				<a href="http://localhost:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
-					<button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
-				<a href="tyhjenna_ostoskori" class="btn btn-default btn-lg tyhjenna">Peruuta tilaus</a>
+				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
+				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
+				<br><br><br>
+				<div class="col-lg-12">
+					<a href="http://localhost:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
+				</div>
 			</div>
 			<!-- Tilausvahvistuksen pop-up ikkuna -->
 			<div id="myModal" class="modal fade" role="dialog">
@@ -148,7 +151,7 @@
 	<!-- Footer -->
 	<footer>
 		<div class="container text-center">
-			<p>Copyright &copy; Ryhmä Blue 2015</p>
+			<p></p>
 		</div>
 	</footer>
 
@@ -170,9 +173,7 @@
 
 	<script>
 		$(document).ready(function() {
-
 			$("#tabs").tabs();
-
 		});
 	</script>
 
