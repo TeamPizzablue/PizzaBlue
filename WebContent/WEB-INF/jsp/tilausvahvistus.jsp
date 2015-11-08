@@ -102,14 +102,16 @@
 				<c:if test="${tilaus.etunimi != ''}"><c:out value="${tilaus.etunimi}"/></c:if>
 				<c:if test="${tilaus.sukunimi != ''}"> <c:out value="${tilaus.sukunimi}"/></c:if><br/>
 				<c:out value="${tilaus.katuosoite}"/><br/>
-				<c:out value="${tilaus.posti.postinro}"/> <c:out value="${tilaus.posti.postitmp}"/><br/><br/>
+				<c:out value="${tilaus.postinro}"/> <c:out value="${tilaus.postitmp}"/><br/><br/>
 				
 				<c:out value="${tilaus.puhelinnumero}"/><br/>
 				<c:if test="${tilaus.sahkoposti != ''}"><c:out value="${tilaus.sahkoposti}"/><br/></c:if><br/>
 				
 				<c:if test="${tilaus.lisatiedot != ''}">Lisätiedot: <c:out value="${tilaus.lisatiedot}"/><br/></c:if><br/>
 				</p>
+				<form action="laheta_tilaus" method="post">
 				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
+				</form>
 				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
 				<br><br><br>
 				<div class="col-lg-12">
@@ -132,7 +134,7 @@
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos tilauksestanne!</h3>
 							<p style="color: black;"> Tilauksenne on lähetetty ravintolalle. <br> <br>
 								<!-- Tilausnumero tähän -->
-								Tilausnumeronne on: <span class="tilausnumero"></span> <br>
+								Tilausnumeronne on: <span class="tilausnumero"><c:out value="${tilaus.getId()}"></c:out></span> <br>
 								<br> Otathan tilausnumeron talteen mahdollista
 								ongelmatilannetta varten<span class="glyphicon glyphicon-heart"
 									style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>

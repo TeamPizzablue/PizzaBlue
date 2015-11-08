@@ -1,21 +1,16 @@
 package fi.pizzablue.dao;
 
-import java.awt.List;
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import fi.pizzablue.bean.Juomarivi;
-import fi.pizzablue.bean.Pizzarivi;
 import fi.pizzablue.bean.Tilaus;
-import fi.pizzablue.dao.Yhteys;
+
 	
 
 
 	public class tilausDAO {
 		
 		public void lisaaTilaus(Tilaus tilaus, Connection yhteys) throws DAOPoikkeus {
-			
 
 			try {
 				String sql = "INSERT INTO tilaus (hinta, kotiinkuljetus, etunimi, sukunimi, puhelinnumero, sahkoposti, katuosoite, postinro, postitmp, lisatiedot, tila_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -37,15 +32,20 @@ import fi.pizzablue.dao.Yhteys;
 				
 				System.out.println("Lisättiin tietokantaan tilaus: " + tilaus.toString());
 
-				for (int i = 0; i < tilaus.getTilausrivit().size(); i++) {
+				/*for (int i = 0; i < tilaus.getTilausrivit().size(); i++) {
 					
 					if (tilaus.getTilausrivit().get(i) instanceof Pizzarivi) {
-						//syotetään pizzariville tilaustiedot
+						String sqlp = "INSERT INTO pizzarivi (maara, hinta, oregano, valkosipuli, pohja_id, pizza_id, tilaus_id) VALUES (?,?,?,?,?,?,?)";
+						PreparedStatement lausep = yhteys.prepareStatement(sql);
+						//lause.setInt(1, tilaus );
+						//lause.setBoolean(2, tilaus.getKotiinkuljetus());
+						//lause.setString(3, tilaus.getEtunimi());
+						//lause.setString(4, tilaus.getSukunimi());
 						
 					} else if (tilaus.getTilausrivit().get(i) instanceof Juomarivi) {
 						//syötetään juomariville tilaustiedot
 					}
-				}
+				}*/
 				
 				} catch(Exception e) {
 					//JOTAIN VIRHETTÄ TAPAHTUI

@@ -1,6 +1,7 @@
 package fi.pizzablue.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Tilaus;
+import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.dao.Yhteys;
+import fi.pizzablue.dao.tilausDAO;
 
-/**
- * Servlet implementation class TilaussivuController
- */
 @WebServlet("/laheta_tilaus")
 public class LahetaTilausController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,6 +33,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		String sahkoposti = request.getParameter("sahkoposti");
 		String lisatiedot = request.getParameter("lisatietoja");
 		
+		
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		
 		tilaus.setEtunimi(etunimi);
@@ -44,12 +46,18 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		tilaus.setLisatiedot(lisatiedot);
 		tilaus.setKotiinkuljetus(true);
 		
+		try {
+			Connection yhteys = Yhteys.avaaYhteys();
+			tilausDAO tDao = new tilausDAO();
+			tDao.lisaaTilaus(tilaus, yhteys);
+			Yhteys.suljeYhteys(yhteys);
+		} catch (DAOPoikkeus e) {
+			throw new ServletException(e);
+		}
+		
 		System.out.println(tilaus.getTilausrivit().size());
-		
 		System.out.println(tilaus.toString());
-		
-		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("tilausvahvistus.jsp");
+		request.getRequestDispatcher("WEB-INF/jsp/tilausvahvistus.jsp").forward(request,response);
 		
 	}
 }
