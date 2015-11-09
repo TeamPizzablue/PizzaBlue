@@ -5,17 +5,21 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class TilausIdDAO {
-	public int haeId(int id, Connection yhteys) throws DAOPoikkeus{		
+	
+	public int haeId(Connection yhteys) throws DAOPoikkeus{		
+		
+		int id = 0;
 		
 		try {
-			
 			//suoritetaan haku
-			String sql = "SELECT LAST_INSERT_ID();";
+			String sql = "SELECT MAX(id) from tilaus;";
 			Statement haku = yhteys.createStatement();
 			ResultSet tulokset = haku.executeQuery(sql);
 			
 			//käydään hakutulokset läpi
+			while (tulokset.next()) {
 				id = tulokset.getInt("id");
+			}
 			
 		} catch(Exception e) {
 			// virheitä tapahtui

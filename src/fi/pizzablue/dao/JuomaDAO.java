@@ -39,7 +39,7 @@ public class JuomaDAO {
 				double rasva = tulokset.getDouble("j.rasva");
 				
 				
-				//lisätään pizza listaan
+				//lisätään juoma listaan
 				Juoma j = new Juoma(id, numero, nimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva);
 				juomat.add(j);
 			}

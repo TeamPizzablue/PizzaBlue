@@ -35,6 +35,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throw new ServletException(e);
 		}
 		
+		//try {
+		//	Connection yhteys = Yhteys.avaaYhteys();
+		//	TilausDAO tDao = new TilausDAO();
+		//	tDao.lisaaTilausrivit(tilaus, yhteys);
+		//	Yhteys.suljeYhteys(yhteys);
+		//} catch (DAOPoikkeus e) {
+		//	throw new ServletException(e);
+		//}
+		
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.toString());
 		request.getRequestDispatcher("WEB-INF/jsp/tilausvahvistus.jsp").forward(request,response);

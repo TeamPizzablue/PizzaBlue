@@ -9,6 +9,7 @@ import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.bean.Pizzarivi;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.bean.Tilausrivi;
+import fi.pizzablue.service.TilausIdService;
 
 	
 
@@ -34,13 +35,25 @@ import fi.pizzablue.bean.Tilausrivi;
 				
 				//suoritetaan lause
 				lause.executeUpdate();
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Tilauksen lisäys kantaan aiheutti virheen: ", e);
+			} 
 				
 				System.out.println("Lisättiin tietokantaan tilaus: " + tilaus.toString());
 				
-				TilausIdDAO idDAO = new TilausIdDAO();
+		}
+				
+		public void lisaaTilausrivit(Tilaus tilaus, Connection yhteys) throws DAOPoikkeus {
+				
+				TilausIdService tidService = new TilausIdService();
 				
 				
 				List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
+				
+				int tilausID = tidService.haeTilausId();
+				
+				try {
 
 				for (int i = 0; i < tilaus.getTilausrivit().size(); i++) {
 					
@@ -54,7 +67,7 @@ import fi.pizzablue.bean.Tilausrivi;
 						lausep.setBoolean(4, privi.isValkosipuli());
 						lausep.setInt(5, privi.getPohja().getId());
 						lausep.setInt(6, privi.getPizza().getId());
-						lausep.setInt(7, 2);
+						lausep.setInt(7, tilausID);
 						
 						lausep.executeUpdate();
 						
@@ -68,7 +81,7 @@ import fi.pizzablue.bean.Tilausrivi;
 						lausej.setInt(1, 1);
 						lausej.setDouble(2, jrivi.getHinta());
 						lausej.setInt(3, jrivi.getId());
-						lausej.setInt(4, tilaus.getId());
+						lausej.setInt(4, tilausID);
 						
 						lausej.executeUpdate();
 						
