@@ -173,7 +173,7 @@
 							<!-- testataan onko ostoskorissa tuotteita, jotta tilaamaan ei pääse ostoskorin ollessa tyhjä -->
 							<c:if test="${tilaus.getTilausrivit().size() != null && tilaus.getTilausrivit().size() != 0}">
 							<li class="divider"></li>
-							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
+							<li><a class="text-center" href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br>
 							<p class="text-center"style="color:black;">Ostoskori on tyhjä</p>
