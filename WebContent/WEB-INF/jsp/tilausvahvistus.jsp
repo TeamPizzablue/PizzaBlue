@@ -119,7 +119,7 @@
 				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
 				</div>
 				<div class="col-lg-12"><br><br><br>
-					<a href="http://localhost:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
+					<a href="http://proto297.haaga-helia.fi:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
 				</div>
 			</div>
 			<!-- Tilausvahvistuksen pop-up ikkuna -->
