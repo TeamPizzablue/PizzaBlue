@@ -15,10 +15,10 @@ import fi.pizzablue.dao.TilausDAO;
 import fi.pizzablue.dao.Yhteys;
 
 @WebServlet("/laheta_tilaus")
-public class LahetaTilausController extends HttpServlet {
+public class TallennaTilausTietokantaanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public LahetaTilausController() {
+    public TallennaTilausTietokantaanController() {
         super();
     }
 

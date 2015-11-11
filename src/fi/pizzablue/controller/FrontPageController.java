@@ -15,17 +15,11 @@ import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.service.JuomalistaService;
 import fi.pizzablue.service.PizzalistaService;
 
-/**
- * Servlet implementation class PizzaListController
- */
+
 @WebServlet(urlPatterns={"/frontpage","/index.jsp"})
 public class FrontPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Pizza> pizzat;
