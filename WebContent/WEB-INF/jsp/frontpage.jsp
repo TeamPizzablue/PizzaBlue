@@ -1,7 +1,6 @@
 <%@ page import="fi.pizzablue.bean.Pizza"%>
 <%@page import="java.text.DecimalFormat"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -13,14 +12,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description"
-	content="Pizza Blue:n arvoihin kuuluu kotimaisten, lähellä tuotettujen raaka-aineiden käyttö, sekä pyrkimys mahdollisimman pieneen hiilijalanjälkeen.">
+<meta name="description" content="Pizza Blue:n arvoihin kuuluu kotimaisten, lähellä tuotettujen raaka-aineiden käyttö, sekä pyrkimys mahdollisimman pieneen hiilijalanjälkeen.">
 <meta name="robots" content="index, follow">
-<meta name="keywords"
-	content="pizza, pizzeria, kotimainen, tilaus, kuljetus, ruoka, pitsalista, täytteet, gluteeniton, ruokavalio, arvot, helsinki, palaute, esittely, yhteystiedot, pasila">
+<meta name="keywords" content="pizza, pizzeria, kotimainen, tilaus, kuljetus, ruoka, pitsalista, täytteet, gluteeniton, ruokavalio, arvot, helsinki, palaute, esittely, yhteystiedot, pasila">
 <title>Pizza Blue | Pizzaa kotimaisilla raaka-aineilla</title>
 <meta name="google-site-verification" content="" />
 
+<!-- favicon kuva -->
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
 <!-- Bootstrap Core CSS -->
@@ -44,8 +42,8 @@
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css">
 
-<link href="css/star-rating.min.css" media="all" rel="stylesheet"
-	type="text/css" />
+<!-- tähtiarvioinnin tyylitiedosto -->
+<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -55,74 +53,78 @@
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-main-collapse">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
 
 				<a class="navbar-brand page-scroll" href="#page-top"> 
-				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
-				<span class="light"> Pizza</span> Blue
+					<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
+					<span class="light"> Pizza</span> Blue
 				</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div
-				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#esittely">Esittely</a></li>
 					<li><a class="page-scroll" href="#pitsalista">Valikoima</a></li>
-					<li><a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a>
-					</li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false"><c:out value="${tilaus.getTilausrivit().size()}"/> <span class="glyphicon glyphicon-shopping-cart"></span><span
-							class="caret"></span></a>
+					<li><a class="page-scroll" href="#yhteystiedot">Yhteystiedot</a></li>
+					
+					<!-- mini-ostoskori alkaa -->
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><c:out value="${tilaus.getTilausrivit().size()}"/> <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-cart" role="menu">
 							<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-								<c:if
-									test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+								<!-- tarkistetaan onko tilausrivi pizzarivi -->
+								<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
 									<li>
 										<form action="poista_tuote_ostoskorista" method="post">
-											<span class="item"> <span class="item-left"> <img
-													src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png"
-													alt="kuva"> <span class="item-info"> <c:out
-															value="${tilausrivi.pizza.numero}" />. <c:out
-															value="${tilausrivi.pizza.nimi}" /><br /> <fmt:formatNumber
-															value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber>
-														€
-												</span>
-											</span> <span class="item-right"> <input type="hidden"
-													name="ordernr" value="<c:out value="${count.index}"/>">
-													<button type="submit"
-														class="btn btn-xs btn-danger pull-right">x</button>
+											<span class="item"> 
+												<span class="item-left"> 
+													<!-- haetaan kuva jolla on pizzarivillä olevan pizzan numero -->
+													<img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva"> 
+													<span class="item-info"> 
+														<!-- haetaan pizzarivillä olevan pizzan numero -->
+														<c:out value="${tilausrivi.pizza.numero}" />. 
+														<!-- haetaan pizzarivillä olevan pizzan nimi -->
+														<c:out value="${tilausrivi.pizza.nimi}" /><br /> 
+														<!-- haetaan pizzarivillä olevan pizzan hinta -->
+														<fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
+													</span>
+												</span> 
+												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
+													<!-- poista nappi -->
+													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
 
-											</span>
+												</span>
 											</span>
 										</form>
 									</li>
 								</c:if>
 							</c:forEach>
 							<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-								<c:if
-									test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+								<!-- tarkistetaan onko tilausrivi juomarivi -->
+								<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
 									<li>
 										<form action="poista_tuote_ostoskorista" method="post">
-											<span class="item"> <span class="item-left"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva">
-													<span class="item-info"> <c:out
-															value="${tilausrivi.juoma.numero}" />. <c:out
-															value="${tilausrivi.juoma.nimi}" /><br /> <fmt:formatNumber
-															value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber>
-														€
+											<span class="item"> 
+												<!-- haetaan kuva jolla on juomarivillä olevan juoman numero -->
+												<span class="item-left"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva">
+													<span class="item-info"> 
+														<!--  haetaan juomarivillä olevan juoman numero -->
+														<c:out value="${tilausrivi.juoma.numero}" />. 
+														<!-- haetaan juomarivillä olevan juoman nimi -->
+														<c:out value="${tilausrivi.juoma.nimi}" /><br />
+														<!-- haetaan juomarivillä olevan juoman hinta --> 
+														<fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
+													</span>
+												</span> 
+												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
+													<!-- poista nappi -->
+													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
 												</span>
-											</span> <span class="item-right"> <input type="hidden"
-													name="ordernr" value="<c:out value="${count.index}"/>">
-													<button type="submit"
-														class="btn btn-xs btn-danger pull-right">x</button>
-
-											</span>
 											</span>
 										</form>
 									</li>
@@ -175,7 +177,7 @@
 							<li class="divider"></li>
 							<li><a class="text-center" href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
-							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br>
+							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
 							<p class="text-center"style="color:black;">Ostoskori on tyhjä</p>
 							</c:if>
 						</ul></li>
@@ -194,9 +196,7 @@
 				<div class="row">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
-						<img src="img/iso_logo.png"
-							class="img-responsive center-block col-xs-12 etusivu-iso-logo"
-							alt="Responsive image">
+						<img src="img/iso_logo.png" class="img-responsive center-block col-xs-12 etusivu-iso-logo" alt="Responsive image">
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
@@ -215,25 +215,24 @@
 			</div>
 		</div>
 	</header>
-	<!-- About Section -->
+	<!-- esittely sivu alkaa -->
 	<section id="esittely" class="container content-section text-center">
-		<img class="bonappetito img-responsive" align="left"
-			src="img/Bonappetito.png" alt="bonappetito">
+		<img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<h2>Esittely</h2>
 				<p>
 					Vuonna 2012, kolme Pasilasta kotoisin olevaa ruokaa ja
 					yhteisöllisyyttä arvostavaa ystävää päättivät lyödä intohimoiset
-					päänsä yhteen ja perustaa Pizza Blue:n.<br> <br> Pizza
+					päänsä yhteen ja perustaa Pizza Blue:n.<br/> <br/> Pizza
 					Blue:n arvoihin kuuluu kotimaisten, lähellä tuotettujen
 					raaka-aineiden käyttö, sekä pyrkimys mahdollisimman pieneen
 					hiilijalanjälkeen. Haluamme tarjota asiakkaillemme myös
 					mahdollisuuden tukea kotimaista työvoimaa hyödyntämällä myös muiden
 					kotimaisten yrittäjien tarjoamia palveluita tuottaessamme aidosti
-					kotimaisen makuelämyksen. <br> <br> Pizzeriassamme on
+					kotimaisen makuelämyksen. <br/> <br/> Pizzeriassamme on
 					laaja valikoima pizzoja, josta erilaisia ruokavaliota
-					noudattavatkin voivat löytää jotain nautittavaa. <br> <br>
+					noudattavatkin voivat löytää jotain nautittavaa. <br/> <br/>
 					Pizzapohjamme on saanut myös tunnustusta useamman kerran
 					kansainvälisessä <i>The Best Pizza In The Whole Wide World
 						(TBPITWWW)</i> kilpailun parhaan pizzapohjan kategoriassa
@@ -241,8 +240,7 @@
 				</p>
 
 			</div>
-			<img class="slaissi img-responsive" align="right"
-				src="img/Slaissi.png" alt="slaissi">
+			<img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
 		</div>
 
 
@@ -257,18 +255,17 @@
 					<p>
 						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
 						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
-						kuuluu vakiona juusto sekä tomaattikastike. <br> <br>
+						kuuluu vakiona juusto sekä tomaattikastike. <br/> <br/>
 
 						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
 
 					</p>
 
+					<!-- navigointi pizzojen ja juomien välillä -->
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
-						<li class="active"><a href="#pizzalista"
-							class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a>
+						<li class="active"><a href="#pizzalista" class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a>
 						</li>
-						<li><a href="#juomalista"
-							class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
+						<li><a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
 						</li>
 					</ul>
 
@@ -327,16 +324,12 @@
 												</div>
 												<br />
 												<p class="hinta">
-													<fmt:formatNumber value="${pizza.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
+														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -370,7 +363,7 @@
 													<c:out value="${pizza.nimi}" />
 												</h3>
 												<p>
-													Täytteet: <br>
+													Täytteet: <br/>
 													<c:forEach items="${pizza.taytteet}" var="tayte">
 														<c:out value="${tayte.nimi}" />
 													</c:forEach>
@@ -397,16 +390,12 @@
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${pizza.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
+														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -467,16 +456,12 @@
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${pizza.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
+														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -539,16 +524,12 @@
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${juoma.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -607,16 +588,12 @@
 												<br />
 
 												<p class="hinta">
-													<fmt:formatNumber value="${juoma.hinta}"
-														minFractionDigits="2"></fmt:formatNumber>
-													€
+													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
-														<input type="hidden" name="id"
-															value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää
-															ostoskoriin</button>
+														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
+														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -691,9 +668,7 @@
 					</div>
 
 					<p>
-						Tilauksen voi jättää myös puhelimitse <br> <span
-							class="glyphicon glyphicon-earphone"
-							style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
+						Tilauksen voi jättää myös puhelimitse <br> <span class="glyphicon glyphicon-earphone" style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
 					</p>
 
@@ -702,22 +677,19 @@
 		</div>
 	</section>
 	<div class="col-lg-6">
-	<<img class="ateria img-responsive" align="right" src="img/Ateria.png"
-			style="height: 200px; width: 300px;" alt="ateria">
+		<img class="ateria img-responsive" align="right" src="img/Ateria.png" style="height: 200px; width: 300px;" alt="ateria">
 	</div>
 	<!-- Yhteystiedot -->
-	<section id="yhteystiedot"
-		class="container content-section text-center">
-		 <br>
-			<h2>Yhteystiedot</h2>
+	<section id="yhteystiedot" class="container content-section text-center">
+		<br/>
+		<h2>Yhteystiedot</h2>
 		<div class="row">
-			<div class="col-lg-6">
-				
-				<br>
+			<div class="col-lg-6">	
+				<br/>
 				<h3 class="yt-nimi">Pizza Blue</h3>
-				<br> <br>
+				<br/> <br/>
 				<p>
-					Ratapihantie 13<br> 00520 HELSINKI<br> Puh. 050 3256953
+					Ratapihantie 13<br/> 00520 HELSINKI<br/> Puh. 050 3256953
 				</p>
 				<p class="palvelemme">Palvelemme:</p>
 				<p>
@@ -731,7 +703,7 @@
 
 				<ul class="list-inline banner-social-buttons">
 					<li><a href="https://facebook.com" class="btn btn-default btn-lg" target="_blank">
-					<i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+						<i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
 					</li>
 					<li><a href="https://twitter.com" class="btn btn-default btn-lg" target="_blank">
 						<i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
@@ -745,19 +717,21 @@
 
 			      <!-- Palautetlomake -->
             <div class="col-lg-4">
-                <br><h3>Palautelomake</h3>
+                <br/><h3>Palautelomake</h3>
                 <form action="FeedbackMail" method="post" role="form">
-                <div class="form-group col-xs-6">
-                <label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required></div>
-                <div class="form-group col-xs-6">
-                <label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-    onchange="try{setCustomValidity('')}catch(e){}"></div>
-                <div class="form-group col-xs-12">
-                <label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-    onchange="try{setCustomValidity('')}catch(e){}" required ></div>
-                <div class="form-group col-xs-12">
-                <label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea></div>
-                <button class="btn btn-default" type="submit" >Lähetä</button>
+                	<div class="form-group col-xs-6">
+                		<label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required>
+                	</div>
+                	<div class="form-group col-xs-6">
+                		<label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')" onchange="try{setCustomValidity('')}catch(e){}">
+                	</div>
+                	<div class="form-group col-xs-12">
+                		<label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')" onchange="try{setCustomValidity('')}catch(e){}" required >
+                	</div>
+                	<div class="form-group col-xs-12">
+                		<label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea>
+                	</div>
+                	<button class="btn btn-default" type="submit" >Lähetä</button>
                 </form>
             </div>
          </div>
@@ -792,7 +766,7 @@
     <!-- Tähtiarvointi -->
     <script src="js/star-rating.min.js" type="text/javascript"></script>
     
-    <!-- Tähtiarvioinnin tähtien tekstilliset vastineet -->
+    <!-- Tähtiarvioinnin tähtien tekstilliset vastineet, ravintoarvot tulee klikattaessa esiin ja menee pois -->
     <script>
 
     $(document).ready(function() {
