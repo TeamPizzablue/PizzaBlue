@@ -43,7 +43,7 @@
 			<div class="col-lg-12">
 				<h1>Tilausvahvistus</h1>
 				<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
-				<table class="sisalto text-uppercase">
+				<table class="sisalto text-uppercase table-responsive">
 					<tr class="tietorivi">
 						<td>numero</td>
 						<td>tuotteen nimi</td>

@@ -48,7 +48,7 @@
 			<div class="col-lg-10 col-lg-offset-1">
 				<h2>Ostoskorin sisältö</h2>
 				
-				<table class="sisalto text-uppercase">
+				<table class="sisalto text-uppercase table-responsive">
 					<tr class="tietorivi">
 						<td>numero</td>
 						<td>tuotteen nimi</td>
