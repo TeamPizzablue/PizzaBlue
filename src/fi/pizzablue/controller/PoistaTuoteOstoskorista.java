@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Tilaus;
-import fi.pizzablue.bean.Tilausrivi;
-import fi.pizzablue.service.PizzalistaService;
 
-/**
- * Servlet implementation class PoistaTuoteOstoskorista
- */
 @WebServlet("/poista_tuote_ostoskorista")
 public class PoistaTuoteOstoskorista extends HttpServlet {
 	private static final long serialVersionUID = 1L;
