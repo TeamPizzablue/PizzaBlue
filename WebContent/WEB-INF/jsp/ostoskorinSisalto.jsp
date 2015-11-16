@@ -59,43 +59,47 @@
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
-					<tr class="tuoterivi">
-							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
-						<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
-						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-						<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
-								<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
-								Valkosipuli <br> <input type="checkbox" name="mausteetO"
-									value="<c:out value="${count.index}"/>"> Oregano
-							</td>
-						<td><select name="pizzapohja-<c:out value="${count.index}"/>"
-							style="background-color: white; padding: 3px;" required
-							class="btn-default btn pizzapohja">
-								<option value="tavallinen">Tavallinen</option>
-								<option value="taysjyva">Täysjyvä</option>
-								<option value="gluteeniton">Gluteeniton</option>
-						</select></td>
-					</tr>
-					
-					</c:if>
-				</c:forEach>
+						<!-- jos tuote on pizzarivillä tulostetaan pizzan tietoja -->
+						<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+							<tr class="tuoterivi">
+								<td><c:out value="${tilausrivi.pizza.numero}"/></td>
+								<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
+								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
+								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
+								<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
+									<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
+										Valkosipuli <br/> 
+									<input type="checkbox" name="mausteetO" value="<c:out value="${count.index}"/>"> 
+										Oregano
+								</td>
+								<td>
+									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
+										<option value="tavallinen">Tavallinen</option>
+										<option value="taysjyva">Täysjyvä</option>
+										<option value="gluteeniton">Gluteeniton</option>
+									</select>
+								</td>
+							</tr>
+						</c:if>
+					</c:forEach>
 				
-				<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
-					<tr class="tuoterivi">
-						<td><c:out value="${tilausrivi.juoma.numero}"/></td>
-						<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
-						<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-						<td></td><td></td>
-					</tr>
-					</c:if>
-				</c:forEach>
-
+					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
+						<!-- jos tuote on juomarivillä tulostetaan juoman tietoja -->
+						<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+							<tr class="tuoterivi">
+								<td><c:out value="${tilausrivi.juoma.numero}"/></td>
+								<!--  haetaan juoman nimen eteen kuva juoman numeron mukaan -->
+								<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
+								<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
+								<td></td><td></td>
+							</tr>
+						</c:if>
+					</c:forEach>
 				</table>
 				
+				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
 				<h3>
-					<br><br><br> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br> <span></span>
+					<br/><br/><br/> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br/> <span></span>
 				</h3>
 				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 								
@@ -104,9 +108,7 @@
 	</section>
 
 	<!-- Lähetä tilaus -->
-	<section id="tilauksenLähetys"
-		class="container content-section text-center"
-		style="padding-top: 50px !important;">
+	<section id="tilauksenLähetys" class="container content-section text-center" style="padding-top: 50px !important;">
 		<div class="row">
 			<div class="col-lg-12">
 			
