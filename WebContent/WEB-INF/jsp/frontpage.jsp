@@ -192,7 +192,6 @@
 	<header class="intro">
 		<div class="intro-body">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-lg-1"></div>
 					<div class="col-lg-10">
@@ -205,6 +204,13 @@
 					<div class="alert alert-danger row">
 						<strong>Virhe!</strong>
 						<c:out value="${error}" />
+					</div>
+				</c:if>
+				<!-- tilausvahvistus sivulta palataan etusivulle, tähän pitäisi tulla tilausvahvistuspopup -->
+				<c:if test="${not empty vahvistus}">
+					<div class="alert alert-success row">
+						<strong>Tilaus vahvistettu!</strong>
+						<c:out value="${vaihvistus}" />
 					</div>
 				</c:if>
 				<div class="row">

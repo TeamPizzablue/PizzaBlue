@@ -28,8 +28,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		try {
 			if (tilaus == null || tilaus.getHinta() == 0) {
 				System.out.println("Tilausta ei voida lähettää se on tyhjä");
-				//EI TOIMI redirect vvvvv
-				response.sendRedirect("index.jsp");
+				
+				//tyhjennetään sessio
+				request.getSession().invalidate();
+			
+				//siirrytään etusivulle KADOTTAA LISTAT
+				request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request,response);
 			} else {
 				TilausService tService = new TilausService();
 				tService.lisaaTilaus(tilaus);
@@ -41,8 +45,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		try {
 			if (tilaus == null || tilaus.getHinta() == 0) {
 				System.out.println("Tilausta ei voida lähettää se on tyhjä");
-				//EI TOIMI redirect vvvvv
-				response.sendRedirect("index.jsp");
+			
+				//tyhjennetään sessio
+				request.getSession().invalidate();
+			
+				//siirrytään etusivulle KADOTTAA LISTAT
+				request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request,response);
 			} else {
 				TilausrivitService trService = new TilausrivitService();
 				trService.lisaaTilausrivit(tilaus);
@@ -53,8 +61,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.toString());
-		//EI TOIMI vvvvvvv
-		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request,response);
+		
+		//tyhjennetään sessio
+		request.getSession().invalidate();
+		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
+		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
 		
 	}
 }
