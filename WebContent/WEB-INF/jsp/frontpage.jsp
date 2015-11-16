@@ -329,7 +329,7 @@
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -395,7 +395,7 @@
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -461,7 +461,7 @@
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
-														<button type="submit" class="btn btn-default ostonappi">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -529,7 +529,7 @@
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -593,7 +593,7 @@
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -655,7 +655,7 @@
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
-														<button type="submit" class="btn btn-default">Lisää ostoskoriin</button>
+														<button type="submit" class="btn btn-default ostosnappi">Lisää ostoskoriin</button>
 													</p>
 												</form>
 											</div>
@@ -776,17 +776,18 @@
     	});
     	$("#rating-stars").click(function(){
     		$("span").text("Kiitos arviostasi!");
-    	})
+    	});
     	
     	$('.ravintoarvotBut').click(function() {
     		  //Use the current button which triggered the event
     		  $(this).siblings('.ravintoarvotDiv').slideToggle();
-    		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');
-    		  
-    		});
-    	    	
+    		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');	  
+    	});
+    	
+    	$(".ostosnappi").click(function() {
+    		$(".glyphicon-shopping-cart").css("color", '#FF1975');
+    	});
     });
-
     </script>
 
 </body>
