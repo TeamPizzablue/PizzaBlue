@@ -1,7 +1,6 @@
 package fi.pizzablue.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.dao.TilausDAO;
-import fi.pizzablue.dao.Yhteys;
+import fi.pizzablue.service.TilausService;
+import fi.pizzablue.service.TilausrivitService;
 
 @WebServlet("/laheta_tilaus")
 public class TallennaTilausTietokantaanController extends HttpServlet {
@@ -27,26 +26,46 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		
 		try {
-			Connection yhteys = Yhteys.avaaYhteys();
-			TilausDAO tDao = new TilausDAO();
-			tDao.lisaaTilaus(tilaus, yhteys);
-			Yhteys.suljeYhteys(yhteys);
+			if (tilaus == null || tilaus.getHinta() == 0) {
+				System.out.println("Tilausta ei voida lähettää se on tyhjä");
+				
+				//tyhjennetään sessio
+				request.getSession().invalidate();
+			
+				//siirrytään etusivulle KADOTTAA LISTAT
+				request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request,response);
+			} else {
+				TilausService tService = new TilausService();
+				tService.lisaaTilaus(tilaus);
+			}
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
 		
-		//try {
-		//	Connection yhteys = Yhteys.avaaYhteys();
-		//	TilausDAO tDao = new TilausDAO();
-		//	tDao.lisaaTilausrivit(tilaus, yhteys);
-		//	Yhteys.suljeYhteys(yhteys);
-		//} catch (DAOPoikkeus e) {
-		//	throw new ServletException(e);
-		//}
+		try {
+			if (tilaus == null || tilaus.getHinta() == 0) {
+				System.out.println("Tilausta ei voida lähettää se on tyhjä");
+			
+				//tyhjennetään sessio
+				request.getSession().invalidate();
+			
+				//siirrytään etusivulle KADOTTAA LISTAT
+				request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request,response);
+			} else {
+				TilausrivitService trService = new TilausrivitService();
+				trService.lisaaTilausrivit(tilaus);
+			}
+		} catch (DAOPoikkeus e) {
+			throw new ServletException(e);
+		}
 		
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.toString());
-		request.getRequestDispatcher("WEB-INF/jsp/tilausvahvistus.jsp").forward(request,response);
+		
+		//tyhjennetään sessio
+		request.getSession().invalidate();
+		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
+		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
 		
 	}
 }

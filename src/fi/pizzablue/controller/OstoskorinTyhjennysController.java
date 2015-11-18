@@ -17,7 +17,10 @@ public class OstoskorinTyhjennysController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//tyhjennetään sessio
 		request.getSession().invalidate();
+		
+		//siirrytään etusivulle
 		response.sendRedirect("index.jsp");
 	}
 }

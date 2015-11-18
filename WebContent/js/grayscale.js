@@ -25,9 +25,12 @@ $(function() {
 });
 
 // Closes the Responsive Menu on Menu Item Click
+
+/* Ei käytössä ostoskorin näkyvyyden takia
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+*/
 
 // Google Maps Scripts
 // When the window has finished loading create our google map below

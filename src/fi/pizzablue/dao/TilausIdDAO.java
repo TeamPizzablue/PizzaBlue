@@ -18,7 +18,7 @@ public class TilausIdDAO {
 			
 			//käydään hakutulokset läpi
 			while (tulokset.next()) {
-				id = tulokset.getInt("id");
+				id = tulokset.getInt("MAX(id)");
 			}
 			
 		} catch(Exception e) {

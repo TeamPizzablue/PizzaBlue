@@ -22,10 +22,11 @@ public class FrontPageController extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// luodaan uudet listat juomille ja pizzoille 
 		List<Pizza> pizzat;
 		List<Juoma> juomat;
 
-		
+		//haetaan servicen avulla juomat ja pizzat listoille
 		try {
 			PizzalistaService pService = new PizzalistaService();
 			JuomalistaService jService = new JuomalistaService();
@@ -34,9 +35,12 @@ public class FrontPageController extends HttpServlet {
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
+		
+		//asetetaan listat requestin attribuuteiksi
 		request.setAttribute("pizzat", pizzat);
 		request.setAttribute("juomat", juomat);
 		
+		//siirrytään etusivulle
 		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
 	}
 
