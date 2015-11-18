@@ -83,12 +83,12 @@
 								</div>
 								<div class="form-group col-xs-6"> <!-- ei voi syöttää numeroita, vain kirjaimia -->
 									<label for="Paikkakunta">Paikkakunta: * </label><input
-										class="form-control" type="text" pattern="[A-Za-z]"name="paikkakunta" 
-										style="color: black" required>
-								</div>
+										class="form-control" type="text" name="paikkakunta" pattern="[A-Za-z]*" style="color:black" oninvalid="setCustomValidity('Syötä vain kirjaimia! ')"
+  										  onchange="try{setCustomValidity('')}catch(e){}" required></div>
+  										  
 								<div class="form-group col-xs-12"> <!-- ei voi syöttää kirjaimia, vain numeroita 10 kpl -->
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" placeholder="Anna puhelinnumero muodossa: 0401234567" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
   										  onchange="try{setCustomValidity('')}catch(e){}" required></div>
 										
 								<div class="form-group col-xs-12"> <!-- sähköpostissa oltava @merkki ja piste -->
