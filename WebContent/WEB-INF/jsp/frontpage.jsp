@@ -122,7 +122,7 @@
 													</span>
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
-													<!-- ostoskorin poista nappi -->
+													<!-- valitun tuotteen poistaminen ostokorista napin kautta -->
 													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
 												</span>
 											</span>
@@ -248,10 +248,8 @@
 			</div>
 			<img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
 		</div>
-
-
+		<!-- esittely sivu päättyy -->
 	</section>
-
 	<!-- Tuotelista -->
 	<section id="pitsalista" class="content-section text-center">
 		<div class="download-section">
@@ -266,7 +264,6 @@
 						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
 
 					</p>
-
 					<!-- navigointi pizzojen ja juomien välillä -->
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
 						<li class="active"><a href="#pizzalista" class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a>
@@ -332,7 +329,7 @@
 												<p class="hinta">
 													<fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
-												<!-- Lisää ostoskoriin -nappin avulla pizza siirtyy ostoskoriin -->
+												<!-- Lisätään pizza ostoskoriin napin avulla -->
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
@@ -476,7 +473,7 @@
 									</div>
 								</c:forEach>
 							</div>
-						</div>
+						</div>	<!-- PIZZALISTA PÄÄTTYY -->
 
 						<!-- JUOMALISTA ALKAA -->
 
@@ -533,7 +530,7 @@
 												<p class="hinta">
 													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
-												<!-- Lisää ostoskoriin -nappin avulla juoma siirtyy ostoskoriin -->
+												<!-- juoma lisätään ostoskoriin napin avulla -->
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
@@ -673,8 +670,8 @@
 							</div>
 
 						</div>
-					</div>
-
+					</div>	<!-- JUOMALISTA PÄÄTTYY -->
+					<!-- tilauksen jättäminen puhelimitse -->
 					<p>
 						Tilauksen voi jättää myös puhelimitse <br> <span class="glyphicon glyphicon-earphone" style="margin-right: 5px; color: #42DCA3;" aria-hidden="true"></span>
 						<span style="font-size: 26px;"> 050-3256953</span>
@@ -708,7 +705,7 @@
 				<div class="center-block" id="ratingbox">
 					<input id="input-22" data-min="0" data-show-clear="false" data-max="5" data-step="1" value="0">
 				</div>
-
+				<!-- napit sosiaaliselle medialle -->
 				<ul class="list-inline banner-social-buttons">
 					<li><a href="https://facebook.com" class="btn btn-default btn-lg" target="_blank">
 						<i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
@@ -720,10 +717,8 @@
 						<i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
 					</li>
 				</ul>
-
 			</div>
-
-			      <!-- Palautetlomake -->
+			<!-- Palautelomake -->
             <div class="col-lg-4">
                 <br/><h3>Palautelomake</h3>
                 <form action="FeedbackMail" method="post" role="form">
@@ -744,7 +739,6 @@
             </div>
          </div>
     </section>
-
 
     <!-- Kartta -->
     <div id="map"></div>

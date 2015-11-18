@@ -38,71 +38,25 @@
 	<section id="toimitustiedot"
 		class="container content-section text-center" style="padding: 50px 0px 0px 0px !important;">
 		<div class="col-lg-12">
-				<%-- <h1>Valitse toimitustapa</h1>
-				<p>Valitse
-					alhaalta haluamasi toimitustapa tilauksellesi. Jos haluat saada
-					tilausvahvistuksen, muista mainita sähköpostiosoitteesi
-					toimitustietoja täyttäessäsi</p>
-				<ul id="tabs" class="nav nav-tabs viiva-pois">
-					<li class="active"><a href="#kotiinkuljetus"
-						class="btn btn-default btn-lg butska" data-toggle="tab">Kotiinkuljetus</a>
-					</li>
-					 <li><a href="#nouto" class="btn btn-default btn-lg butska"
-						data-toggle="tab">Nouto</a></li> 
-				</ul>
-				<br> <br>
-
-				<!-- kotiinkuljetus -->
-				
-				<div id="my-tab-content" class="tab-content">
-				<form action="siirry_toimitustietoihin" method="post" role="form">
-					<div id="kotiinkuljetus" class="tab-pane fade in active">--%>
-					<h1>Kotiinkuljetus</h1>
+					<h1>Nouto</h1>
 					<form action="siirry_tilausvahvistukseen" method="post" role="form">
 						<div class="col-lg-4 col-lg-offset-4">
-								<div class="form-group col-xs-6">
-									<label for="Etunimi">Etunimi: </label><input
-										class="form-control" type="text" name="etunimi"
-										style="color: black">
-								</div>
-								<div class="form-group col-xs-6">
-									<label for="Sukunimi">Sukunimi: </label><input
-										class="form-control" type="text" name="sukunimi"
-										style="color: black">
-								</div>
-								<div class="form-group col-xs-12"><!-- pakollinen kenttä, herjaa jos käyttäjä ei täytä -->
-									<label for="Katuosoite">Katuosoite: * </label><input
-										class="form-control" type="text" name="katuosoite"
-										style="color: black" required oninvalid="setCustomValidity('Kerro osoite! ')"
- 										   onchange="try{setCustomValidity('')}catch(e){}"  required>
-								</div>
-								<div class="form-group col-xs-6"> <!-- ei voi syöttää kirjaimia, vain numeroita 5 kpl -->
-									<label for="Postinumero">Postinumero: * </label><input
-										class="form-control" type="text" pattern="[0-9]{5}"name="postinumero"
-										style="color: black" required oninvalid="setCustomValidity('Syötä vain numeroita! ')"
- 										   onchange="try{setCustomValidity('')}catch(e){}" required> 
-								</div>
-								<div class="form-group col-xs-6"> <!-- ei voi syöttää numeroita, vain kirjaimia -->
-									<label for="Paikkakunta">Paikkakunta: * </label><input
-										class="form-control" type="text" name="paikkakunta" pattern="[A-Za-z]*" style="color:black" oninvalid="setCustomValidity('Syötä vain kirjaimia! ')"
-  										  onchange="try{setCustomValidity('')}catch(e){}" required></div>
-  										  
-								<div class="form-group col-xs-12"> <!-- ei voi syöttää kirjaimia, vain numeroita 10 kpl -->
+								<div class="form-group col-xs-12">
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" placeholder="Anna puhelinnumero muodossa: 0401234567" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-  										  onchange="try{setCustomValidity('')}catch(e){}" required></div>
+										class="form-control" type="tel" name="puhelinnumero" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required></div>
 										
-								<div class="form-group col-xs-12"> <!-- sähköpostissa oltava @merkki ja piste -->
+								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input
 										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-   										 onchange="try{setCustomValidity('')}catch(e){}">
-								</div> 
+    onchange="try{setCustomValidity('')}catch(e){}">
+								</div>
 								<div class="form-group col-xs-12">
 									<label for="Lisatietoja">Lisätietoja: </label>
 									<textarea class="form-control" name="lisatietoja" rows="8"
 										max-cols="40" placeholder="Esim. ovikoodi" style="color: black"></textarea>
 								</div>
-						</div> <!-- Jatka tilaamista -painike / Palaa edelliselle sivulle -painike -->
+						</div>
 						<div class="col-lg-8 col-lg-offset-2"><br>
 						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
 								<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
@@ -111,7 +65,7 @@
 					</div>
 					
 					
-					<!-- nouto(lomake) ei vielä otettu käyttöön -->
+					<!-- nouto -->
 					<%-- 
 					<form action="siirry_toimitustietoihin" method="post" role="form">
 					<div id="nouto" class="tab-pane fade">
@@ -125,10 +79,10 @@
 								<div class="form-group col-xs-12">
 									<label for="Sahkoposti">Sähköposti: </label><input
 										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-  										  onchange="try{setCustomValidity('')}catch(e){}">
+    onchange="try{setCustomValidity('')}catch(e){}">
 								</div>
 								<a href="http://localhost:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
-								<button class="btn btn-default btn-lg" type="submit" value="Submit">Seuraava sivu  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+			<button class="btn btn-default btn-lg" type="submit" value="Submit">Seuraava sivu  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 							
 						</div>
 					</div>

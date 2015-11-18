@@ -52,7 +52,7 @@
 					<td>pizzapohja</td>
 				</tr>
 					
-					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
+					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä -->
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
 					<tr class="tuoterivi">
@@ -79,10 +79,9 @@
 						</c:otherwise>
 						</c:choose></td>
 					</tr>
-					
 					</c:if>
 					</c:forEach>
-				
+	
 				<!-- Näyttää tilausrivin, yhteissumman sekä toimitustietojen sisällöt käyttäjälle -->
 				<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 				<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
@@ -111,7 +110,7 @@
 				<c:if test="${tilaus.lisatiedot != ''}">Lisätiedot: <c:out value="${tilaus.lisatiedot}"/><br/></c:if><br/>
 				</p>
 				
-				<!-- Vahvista, peruuta tilaus ja palaa toimitustietoihin -napit -->
+				<!-- Vahvista, peruuta ja palaa toimitustietoihin -napit -->
 				<form action="laheta_tilaus" method="post">
 				<div class="col-lg-6" align="right">
 					<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
@@ -136,7 +135,7 @@
 							</i>Pizza Blue
 							</a>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
+					</div>
 						<div class="modal-body">
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos tilauksestanne!</h3>
 							<p style="color: black;"> Tilauksenne on lähetetty ravintolalle. <br> <br>
@@ -146,8 +145,8 @@
 								ongelmatilannetta varten<span class="glyphicon glyphicon-heart"
 									style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>
 							</p>
-						</div>
-						<!-- Etusivulle ja anna palutetta -napit -->
+					</div>
+						<!-- Etusivulle ja anna palautetta -napit -->
 						<div class="modal-footer center-block" style="text-align: center;">
 						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
 							class="btn btn-default btn-lg">Etusivulle</a> 
