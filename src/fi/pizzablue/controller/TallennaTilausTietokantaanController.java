@@ -65,7 +65,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		//tyhjennetään sessio
 		request.getSession().invalidate();
 		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
-		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/kiitosTilauksesta.jsp").forward(request, response);
 		
 	}
 }

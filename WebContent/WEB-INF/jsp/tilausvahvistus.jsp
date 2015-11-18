@@ -124,11 +124,9 @@
 				</div>
 			</div>
 			
-				<!-- Tilausvahvistuksen pop-up ikkuna -->
-				<div id="myModal" class="modal fade" role="dialog">
+				<%--<!-- Tilausvahvistuksen pop-up ikkuna -->
+				 <div id="myModal" class="modal fade" role="dialog">
 					<div class="modal-dialog">
-
-					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
 							<a class="pop-up"> <i class="fa"> <img style="height: 45px; margin-right:7px;" src="img/pienilogo_nega.png">
@@ -139,7 +137,6 @@
 						<div class="modal-body">
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos tilauksestanne!</h3>
 							<p style="color: black;"> Tilauksenne on lähetetty ravintolalle. <br> <br>
-								<!-- Tilausnumero tähän -->
 								Tilausnumeronne on: <span class="tilausnumero"><c:out value="${tilaus.getId()}"></c:out></span> <br>
 								<br> Otathan tilausnumeron talteen mahdollista
 								ongelmatilannetta varten<span class="glyphicon glyphicon-heart"
@@ -158,6 +155,7 @@
 				</div>
 			</div>
 		</div>
+		--%>
 	</section>
 
 
