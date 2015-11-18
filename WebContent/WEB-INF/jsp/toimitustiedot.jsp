@@ -70,10 +70,11 @@
 										class="form-control" type="text" name="sukunimi"
 										style="color: black">
 								</div>
-								<div class="form-group col-xs-12">
+								<div class="form-group col-xs-12"><!-- pakollinen kenttä, herjaa jos käyttäjä ei täytä -->
 									<label for="Katuosoite">Katuosoite: * </label><input
 										class="form-control" type="text" name="katuosoite"
-										style="color: black" required>
+										style="color: black" required oninvalid="setCustomValidity('Kerro osoite! ')"
+ 										   onchange="try{setCustomValidity('')}catch(e){}"  required>
 								</div>
 								<div class="form-group col-xs-6"> <!-- ei voi syöttää kirjaimia, vain numeroita 5 kpl -->
 									<label for="Postinumero">Postinumero: * </label><input
