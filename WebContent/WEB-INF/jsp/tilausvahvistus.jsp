@@ -1,5 +1,5 @@
 <%@ page import="fi.pizzablue.bean.Pizza"%>
-<%@page import="java.text.DecimalFormat"%>
+<%@ page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -24,12 +24,12 @@
 
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
+	  type="text/css">
 <link
-	href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+	  href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	  rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
+	  rel="stylesheet" type="text/css">
 
 <title>Tilausvahvistus</title>
 </head>
@@ -40,33 +40,33 @@
 		class="container content-section text-center"
 		style="padding-top: 50px !important;">
 		<div class="row">
-			<div class="col-lg-12">
-				<h1>Tilausvahvistus</h1>
-				<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
+		<div class="col-lg-12">
+			<h1>Tilausvahvistus</h1>
+			<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
 				<table class="sisalto text-uppercase table-responsive">
-					<tr class="tietorivi">
-						<td>numero</td>
-						<td>tuotteen nimi</td>
-						<td>hinta</td>
-						<td>lisämausteet</td>
-						<td>pizzapohja</td>
-					</tr>
+				<tr class="tietorivi">
+					<td>numero</td>
+					<td>tuotteen nimi</td>
+					<td>hinta</td>
+					<td>lisämausteet</td>
+					<td>pizzapohja</td>
+				</tr>
 					
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
 					<tr class="tuoterivi">
-							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
+						<td><c:out value="${tilausrivi.pizza.numero}"/></td>
 						<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
 						<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td>
-								<c:if test="${tilausrivi.oregano == true}">
+							<c:if test="${tilausrivi.oregano == true}">
 									Oregano
-								</c:if>
-								<c:if test="${tilausrivi.valkosipuli == true}">
+							</c:if>
+							<c:if test="${tilausrivi.valkosipuli == true}">
 									Valkosipuli
-								</c:if>
-							</td>
+						</c:if>
+						</td>
 						<td><c:choose>
 						<c:when test="${tilausrivi.pohja.nimi == 'tavallinen'}">
 							Tavallinen
@@ -81,17 +81,18 @@
 					</tr>
 					
 					</c:if>
-				</c:forEach>
+					</c:forEach>
 				
+				<!-- Näyttää tilausrivin, yhteissumman sekä toimitustietojen sisällöt käyttäjälle -->
 				<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+				<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
 					<tr class="tuoterivi">
 						<td><c:out value="${tilausrivi.juoma.numero}"/></td>
 						<td><c:out value="${tilausrivi.juoma.nimi}"/></td>
 						<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 						<td></td><td></td>
 					</tr>
-					</c:if>
+				</c:if>
 				</c:forEach>
 				</table>
 				<br/><br/>
@@ -110,27 +111,29 @@
 				<c:if test="${tilaus.lisatiedot != ''}">Lisätiedot: <c:out value="${tilaus.lisatiedot}"/><br/></c:if><br/>
 				</p>
 				
+				<!-- Vahvista, peruuta tilaus ja palaa toimitustietoihin -napit -->
 				<form action="laheta_tilaus" method="post">
 				<div class="col-lg-6" align="right">
-				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
+					<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
 				</div>
 				</form>
 				<div class="col-lg-6" align="left">
-				<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
+					<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
 				</div>
 				<div class="col-lg-12"><br><br><br>
 					<a href="http://proto297.haaga-helia.fi:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
 				</div>
 			</div>
-			<!-- Tilausvahvistuksen pop-up ikkuna -->
-			<div id="myModal" class="modal fade" role="dialog">
-				<div class="modal-dialog">
+			
+				<!-- Tilausvahvistuksen pop-up ikkuna -->
+				<div id="myModal" class="modal fade" role="dialog">
+					<div class="modal-dialog">
 
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
 							<a class="pop-up"> <i class="fa"> <img style="height: 45px; margin-right:7px;" src="img/pienilogo_nega.png">
-								</i>Pizza Blue
+							</i>Pizza Blue
 							</a>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 						</div>
@@ -144,11 +147,12 @@
 									style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>
 							</p>
 						</div>
+						<!-- Etusivulle ja anna palutetta -napit -->
 						<div class="modal-footer center-block" style="text-align: center;">
-							<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
-								class="btn btn-default btn-lg">Etusivulle</a> 
-								<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot"
-								class="btn btn-default btn-lg">Anna palautetta</a>
+						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp"
+							class="btn btn-default btn-lg">Etusivulle</a> 
+						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot"
+							class="btn btn-default btn-lg">Anna palautetta</a>
 						</div>
 					</div>
 
@@ -160,8 +164,8 @@
 
 	<!-- Footer -->
 	<footer>
-		<div class="container text-center">
-			<p></p>
+	<div class="container text-center">
+		<p></p>
 		</div>
 	</footer>
 
@@ -176,7 +180,7 @@
 
 	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
