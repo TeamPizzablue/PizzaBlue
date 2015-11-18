@@ -49,7 +49,7 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-	<!-- Navigation -->
+	<!-- Navigointi -->
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -58,16 +58,16 @@
 				</button>
 
 				<a class="navbar-brand page-scroll" href="#page-top"> 
-					<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
-					<span class="light"> Pizza</span> Blue
+				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
+				<span class="light"> Pizza</span> Blue
 				</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
+			<!-- navigointipalkin sisältö -->
 			<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				
 				<ul class="nav navbar-nav">
-					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<!-- navigointipalkin napit ohjaavat käyttäjän tiettyihin kohtiin etusivulla -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#esittely">Esittely</a></li>
 					<li><a class="page-scroll" href="#pitsalista">Valikoima</a></li>
@@ -122,7 +122,7 @@
 													</span>
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
-													<!-- poista nappi -->
+													<!-- ostoskorin poista nappi -->
 													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
 												</span>
 											</span>
@@ -188,7 +188,7 @@
 		<!-- /.container -->
 	</nav>
 
-	<!-- Intro Header -->
+	<!-- intron header -->
 	<header class="intro">
 		<div class="intro-body">
 			<div class="container">
@@ -244,7 +244,7 @@
 						(TBPITWWW)</i> kilpailun parhaan pizzapohjan kategoriassa
 					sijoittumalla kolmen parhaan joukkoon vuosina 2012-2014.
 				</p>
-
+			<!-- slaissi-kuva on liian alhaalla sillä esittelyosasta tulee liian pitkä! -->
 			</div>
 			<img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
 		</div>
@@ -309,7 +309,7 @@
 														<c:out value="${tayte.nimi}" />
 													</c:forEach>
 												</p>
-
+												<!-- Ravintoarvot -->
 												<button class="ravintoarvotBut btn btn-primary">
 													<div class="glyphicon glyphicon-chevron-down"></div>
 													Ravintoarvot
@@ -332,6 +332,7 @@
 												<p class="hinta">
 													<fmt:formatNumber value="${pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
+												<!-- Lisää ostoskoriin -nappin avulla pizza siirtyy ostoskoriin -->
 												<form action="lisaa_pizza_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${pizza.id}"/>">
@@ -343,7 +344,7 @@
 									</div>
 								</c:forEach>
 							</div>
-
+							
 							<div class="row">
 								<c:forEach items="${pizzat}" begin="4" end="7" var="pizza">
 									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -374,7 +375,7 @@
 														<c:out value="${tayte.nimi}" />
 													</c:forEach>
 												</p>
-
+												
 												<button class="ravintoarvotBut btn btn-primary">
 													<div class="glyphicon glyphicon-chevron-down"></div>
 													Ravintoarvot
@@ -508,7 +509,7 @@
 													<c:out value="${juoma.maara}" />
 													ml
 												</p>
-
+												
 												<button class="ravintoarvotBut btn btn-primary">
 													<div class="glyphicon glyphicon-chevron-down"></div>
 													Ravintoarvot
@@ -532,6 +533,7 @@
 												<p class="hinta">
 													<fmt:formatNumber value="${juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 												</p>
+												<!-- Lisää ostoskoriin -nappin avulla juoma siirtyy ostoskoriin -->
 												<form action="lisaa_juoma_ostoskoriin" method="post">
 													<p>
 														<input type="hidden" name="id" value="<c:out value="${juoma.id}"/>">
