@@ -35,11 +35,11 @@
 	
 	.container {
 		background: url(../img/liitutaulu.jpg);
-		}
+	}
 		
 	.kuva {
 		max-width: 60%;
-		}
+	}
 	
 	</style>
 

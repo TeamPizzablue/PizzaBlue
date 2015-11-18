@@ -178,7 +178,9 @@
 							<li><a class="text-center" href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="text-center"style="color:black;">Ostoskori on tyhjä</p>
+							<p class="text-center"style="color:black;">Ostoskori on tyhjä !</p>
+							<li class="divider"></li>
+							<br>
 							</c:if>
 						</ul></li>
 				</ul>
