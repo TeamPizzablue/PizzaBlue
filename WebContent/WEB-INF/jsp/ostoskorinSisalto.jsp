@@ -73,7 +73,8 @@
 										Oregano
 								</td>
 								<td>
-									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
+									<!-- pizzapohjien valinnat saadaan mustalla värillä selkeämmäksi -->
+									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
 										<option value="tavallinen">Tavallinen</option>
 										<option value="taysjyva">Täysjyvä</option>
 										<option value="gluteeniton">Gluteeniton</option>
@@ -99,7 +100,8 @@
 				
 				<br><br><br>
   				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
- 				<select name="toimitusmuoto" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
+  				<!-- toimitusmuotojen valinnat mustalla värillä näkyvämmäksi -->
+ 				<select name="toimitusmuoto" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
     			<option>Nouto pizzeriasta</option>
     			<option>Kotiinkuljetus</option>
   				</select>
