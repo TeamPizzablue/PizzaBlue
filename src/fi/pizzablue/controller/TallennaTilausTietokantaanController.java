@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.mail.TilausvahvistusMail;
 import fi.pizzablue.service.TilausService;
 import fi.pizzablue.service.TilausrivitService;
 
@@ -58,6 +59,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
+		
+		TilausvahvistusMail lahetysSahkopostiin = new TilausvahvistusMail();
+		
+		lahetysSahkopostiin.sendFromGMail(tilaus);
 		
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.toString());
