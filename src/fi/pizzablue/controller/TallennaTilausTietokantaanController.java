@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.mail.TilausvahvistusMail;
+import fi.pizzablue.service.TilausIdService;
 import fi.pizzablue.service.TilausService;
 import fi.pizzablue.service.TilausrivitService;
 
@@ -64,12 +65,22 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 		lahetysSahkopostiin.sendFromGMail(tilaus);
 		
+		int tilausId;
+		
+		try {
+			TilausIdService tdService = new TilausIdService();
+			tilausId = tdService.haeTilausId();
+		} catch (DAOPoikkeus e) {
+			throw new ServletException(e);
+		}
+		
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.toString());
 		
 		//tyhjennetään sessio
 		request.getSession().invalidate();
 		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
+		request.setAttribute("tilausid", tilausId);
 		request.getRequestDispatcher("WEB-INF/jsp/kiitosTilauksesta.jsp").forward(request, response);
 		
 	}

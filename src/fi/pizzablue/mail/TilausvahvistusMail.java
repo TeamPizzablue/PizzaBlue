@@ -61,9 +61,9 @@ public class TilausvahvistusMail {
 		        String body = "Kiitos tilauksestasi!" + "\n\n" +
 		        		"Tässä tilauksesi tiedot:" + "\n\n" +
 		        		"Tilausnumero: " + tilausId + "\n\n" +
-		        		"Tuoteet" + "\n\n" + tuotteet + "\n\n" +
-		        		"Yhteishinta: " + tilaus.getHinta() + "\n" +
-						"\nTerveisin, Pizza Blue";
+		        		"Tuotteet" + "\n\n" + tuotteet + "\n\n" +
+		        		"Yhteishinta: " + dec.format(tilaus.getHinta()) + " €" + "\n" +
+						"\nYstävällisin terveisin, " + "\n\nPizza Blue";
 		        
 		        Properties props = System.getProperties();
 		        String host = "smtp.gmail.com";

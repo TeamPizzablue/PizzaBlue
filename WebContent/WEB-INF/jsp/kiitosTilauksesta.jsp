@@ -56,7 +56,7 @@
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos tilauksestanne!</h3>
 							<p style="color: white;"> Tilauksenne on lähetetty ravintolalle. <br><br>
 								<!-- Tilausnumero tähän -->
-								Tilausnumeronne on: <span class="tilausnumero"><c:out value="${tilaus.getId()}"></c:out></span> <br>
+								Tilausnumeronne on: <span class="tilausnumero"><c:out value="${tilausid}"></c:out></span> <br>
 								<br> Otathan tilausnumeron talteen mahdollista
 								ongelmatilannetta varten<span class="glyphicon glyphicon-heart" style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>
 							</p>
