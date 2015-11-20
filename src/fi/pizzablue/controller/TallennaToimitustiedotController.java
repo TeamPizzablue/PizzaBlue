@@ -43,7 +43,6 @@ public class TallennaToimitustiedotController extends HttpServlet {
 		tilaus.setPuhelinnumero(puhelinnumero);
 		tilaus.setSahkoposti(sahkoposti);
 		tilaus.setLisatiedot(lisatiedot);
-		tilaus.setKotiinkuljetus(true);
 		
 		System.out.println(tilaus.getTilausrivit().size());
 		
