@@ -33,6 +33,7 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 		String[] rivitJoissaOregano = null;
 		rivitJoissaOregano = request.getParameterValues("mausteetO");
 		rivitJoissaValkosipuli = request.getParameterValues("mausteetV");
+		String toimitustapa = request.getParameter("toimitustapa");
 		
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		List<Tilausrivi> tilausrivit = tilaus.getTilausrivit();
@@ -68,13 +69,22 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 				}
 			}
 		}
-		
-		
+		System.out.println(toimitustapa);
+		if (toimitustapa.equals("nouto")) {
+			tilaus.setKotiinkuljetus(false);
+		} else if (toimitustapa.equals("kotiinkuljetus")) {
+			tilaus.setKotiinkuljetus(true);
+		}
 		System.out.println(tilaus.getTilausrivit().size());
+		System.out.println(tilaus.getKotiinkuljetus());
 		
 		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("toimitustiedot.jsp");
 		
+		if (tilaus.getKotiinkuljetus() == true) {
+			response.sendRedirect("toimitustiedot.jsp");	
+		}
+		response.sendRedirect("noutolomake.jsp");
+
 	}
 
 }

@@ -99,9 +99,9 @@
 				
 				<br><br><br>
   				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
- 				<select name="toimitusmuoto" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
-    			<option>Nouto pizzeriasta</option>
-    			<option>Kotiinkuljetus</option>
+ 				<select name="toimitustapa" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
+    			<option value="nouto">Nouto pizzeriasta</option>
+    			<option value="kotiinkuljetus">Kotiinkuljetus</option>
   				</select>
 				
 				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
