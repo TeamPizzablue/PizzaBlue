@@ -96,7 +96,7 @@
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
 													<!-- poista nappi -->
-													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+														<button type="submit" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon glyphicon-trash"> </button>
 
 												</span>
 											</span>
@@ -178,7 +178,7 @@
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="text-center"style="color:black;">Ostoskori on tyhjä !</p>
+							<p class="emptycart"style="color:black;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p> <p> Valikoimasta löydät pizzat ja juomat "style="color:black;"</p>
 							<li class="divider"></li>
 							<br>
 							</c:if>
