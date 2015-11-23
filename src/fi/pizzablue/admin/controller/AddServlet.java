@@ -1,4 +1,4 @@
-package fi.pizzablue.admin;
+package fi.pizzablue.admin.controller;
 
 import java.io.IOException;
 import java.util.List;
