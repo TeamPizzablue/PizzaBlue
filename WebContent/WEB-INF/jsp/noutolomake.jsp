@@ -62,34 +62,7 @@
 								<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 								</div>
 						</form>
-					</div>
-					
-					
-					<!-- nouto -->
-					<%-- 
-					<form action="siirry_toimitustietoihin" method="post" role="form">
-					<div id="nouto" class="tab-pane fade">
-						<div class="col-lg-4 col-lg-offset-4">
-							
-								<div class="form-group col-xs-12">
-									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" name="puhelinnumero"
-										style="color: black">
-								</div>
-								<div class="form-group col-xs-12">
-									<label for="Sahkoposti">Sähköposti: </label><input
-										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-    onchange="try{setCustomValidity('')}catch(e){}">
-								</div>
-								<a href="http://localhost:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
-			<button class="btn btn-default btn-lg" type="submit" value="Submit">Seuraava sivu  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
-							
-						</div>
-					</div>
-					
-					</form> --%>
-				
-			
+					</div>	
 	</section>
 	
 	<!-- Footer -->

@@ -73,7 +73,8 @@
 										Oregano
 								</td>
 								<td>
-									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px;" required class="btn-default btn pizzapohja">
+									<!-- pizzapohjien valinnat saadaan mustalla värillä selkeämmäksi -->
+									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
 										<option value="tavallinen">Tavallinen</option>
 										<option value="taysjyva">Täysjyvä</option>
 										<option value="gluteeniton">Gluteeniton</option>
@@ -97,6 +98,15 @@
 					</c:forEach>
 				</table>
 				
+				<br><br><br>
+  				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
+  				
+  				<!-- toimitustavan valinta -->
+ 				<select name="toimitustapa" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
+    			<option value="nouto">Nouto pizzeriasta</option>
+    			<option value="kotiinkuljetus">Kotiinkuljetus</option>
+    			</select>
+				
 				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
 				<h3>
 					<br/><br/><br/> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br/> <span></span>
@@ -113,7 +123,7 @@
 			<div class="col-lg-12">
 			
 				<!-- Paluu etusivulle -->
-				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage#pitsalista" class="btn btn-default btn-lg" role="button">Palaa etusivulle</a>
+				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage#pitsalista" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Palaa etusivulle</a>
 			
 				<!-- siirrytään eteenpäin tilausprosessissa -->
 				<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
