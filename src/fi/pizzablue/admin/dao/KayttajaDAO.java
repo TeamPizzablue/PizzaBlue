@@ -5,13 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fi.softala.jee.demo.d10.bean.WebUser;
-import fi.softala.jee.demo.d10.dao.DAOPoikkeus;
-import fi.softala.jee.demo.d10.dao.webuser.UsernameVarattuPoikkeus;
+import fi.pizzablue.admin.bean.Kayttaja;
+import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.admin.dao.UsernameVarattuPoikkeus;
 
 public class KayttajaDAO {
 	
-	public WebUserDAO() throws DAOPoikkeus {
+	public KayttajaDAO() throws DAOPoikkeus {
 		super();
 	}
 
@@ -26,9 +26,9 @@ public class KayttajaDAO {
 	 * @throws DAOPoikkeus
 	 *             Mikäli tietokantahaussa tapahtuu virhe
 	 */
-	public void lisaa(WebUser kayttaja) throws UsernameVarattuPoikkeus,
+	public void lisaa(Kayttaja kayttaja) throws UsernameVarattuPoikkeus,
 			DAOPoikkeus {
-		Connection yhteys = avaaYhteys();
+		//Connection yhteys = avaaYhteys();
 
 		try {
 
@@ -59,8 +59,8 @@ public class KayttajaDAO {
 
 	}
 
-	public WebUser hae(String username) throws DAOPoikkeus {
-		WebUser kayttaja;
+	public Kayttaja hae(String username) throws DAOPoikkeus {
+		Kayttaja kayttaja;
 		Connection yhteys = avaaYhteys();
 
 		try {
@@ -72,14 +72,14 @@ public class KayttajaDAO {
 			ResultSet rs = usernameHaku.executeQuery();
 			if (rs.next()) {
 				// LÖYTYI
-				kayttaja = new WebUser(rs.getInt("id"),
+				kayttaja = new Kayttaja(rs.getInt("id"),
 						rs.getString("username"), rs.getString("salt"),
 						rs.getString("password_hash"));
 			} else {
 				// EI LÖYTYNYT
 				// generoidaan kuitenkin tyhjä user, jotta 
 				// login tarkistus kestää aina yhtä kauan
-				kayttaja = new WebUser(-1, "-", "-", "-");
+				kayttaja = new Kayttaja(-1, "-", "-", "-");
 			}
 
 		} catch (SQLException e) {
@@ -91,8 +91,5 @@ public class KayttajaDAO {
 		}
 		return kayttaja;
 	}
-
-}
-
 
 }
