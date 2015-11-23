@@ -82,9 +82,9 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 		
 		if (tilaus.getKotiinkuljetus() == true) {
 			response.sendRedirect("toimitustiedot.jsp");	
+		} else {
+			response.sendRedirect("noutolomake.jsp");
 		}
-		response.sendRedirect("noutolomake.jsp");
-
 	}
 
 }

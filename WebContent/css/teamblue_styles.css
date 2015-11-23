@@ -21,6 +21,18 @@
 	margin-top: 80px;
 }
 
+#esittely {
+	padding-top: 50px !important;
+}
+
+#pitsalista {
+	padding-top:50px !important;
+}
+
+#map {
+	margin-top:100px !important;
+}
+
 /* Tähtiarvioinnin tekstin alas heitto */
 #ratingbox {
 	width: 200px;
