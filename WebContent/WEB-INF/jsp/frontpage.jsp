@@ -175,7 +175,7 @@
 							<!-- testataan onko ostoskorissa tuotteita, jotta tilaamaan ei pääse ostoskorin ollessa tyhjä -->
 							<c:if test="${tilaus.getTilausrivit().size() != null && tilaus.getTilausrivit().size() != 0}">
 							<li class="divider"></li>
-							<li><a class="text-center" href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
+							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
 							<p class="text-center"style="color:black;">Ostoskori on tyhjä !</p>
@@ -728,7 +728,7 @@
                 		<label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required>
                 	</div>
                 	<div class="form-group col-xs-6">
-                		<label for="puhelin">Puhelin: </label><input class="form-control" type="tel" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')" onchange="try{setCustomValidity('')}catch(e){}">
+                		<label for="puhelin">Puhelin: </label><input class="form-control" type="tel" placeholder="040XXXXXXX" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')" onchange="try{setCustomValidity('')}catch(e){}">
                 	</div>
                 	<div class="form-group col-xs-12">
                 		<label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')" onchange="try{setCustomValidity('')}catch(e){}" required >
