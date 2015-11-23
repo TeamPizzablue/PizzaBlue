@@ -3,8 +3,8 @@ package fi.pizzablue.admin.bean;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-import fi.softala.jee.demo.d10.bean.InvalidWebUserPoikkeus;
-import fi.softala.security.Salaaja;
+import fi.pizzablue.admin.bean.InvalidKayttajaPoikkeus;
+import fi.pizzablue.admin.security.Salaaja;
 
 public class Kayttaja {
 	private int id;
@@ -32,9 +32,9 @@ public class Kayttaja {
 	 * @throws InvalidWebUserPoikkeus
 	 *             Mikäli tietojen validointi epäonnistui
 	 */
-	public WebUser(String username, String password, String password2)
+	public Kayttaja(String username, String password, String password2)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException,
-			InvalidWebUserPoikkeus {
+			InvalidKayttajaPoikkeus {
 		super();
 
 		validoi(username, password, password2);
@@ -50,7 +50,7 @@ public class Kayttaja {
 		setPasswordHash(kryptattuSalasana);
 	}
 
-	public WebUser(int id, String username, String salt, String passwordHash) {
+	public Kayttaja(int id, String username, String salt, String passwordHash) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -89,16 +89,16 @@ public class Kayttaja {
 	}
 
 	private void validoi(String username, String password, String password2)
-			throws InvalidWebUserPoikkeus {
+			throws InvalidKayttajaPoikkeus {
 
 		if (username == null || username.trim().length() < 3)
-			throw new InvalidWebUserPoikkeus(
+			throw new InvalidKayttajaPoikkeus(
 					"Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä pitkä");
 		else if (password == null || password.trim().length() < 6)
-			throw new InvalidWebUserPoikkeus(
+			throw new InvalidKayttajaPoikkeus(
 					"Salasanan täytyy olla vähintään 6 merkkiä pitkä");
 		else if (!password.equals(password2))
-			throw new InvalidWebUserPoikkeus("Salasanat eivät täsmää");
+			throw new InvalidKayttajaPoikkeus("Salasanat eivät täsmää");
 	}
 
 	// kryptaa annetun salasanan tämän olion suolalla ja vertaa sitä tämän olion
@@ -111,7 +111,5 @@ public class Kayttaja {
 
 		return kryptattuSalasana.equals(this.passwordHash);
 	}
-
-}
 
 }
