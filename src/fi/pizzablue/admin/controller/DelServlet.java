@@ -1,4 +1,4 @@
-package fi.pizzablue.admin;
+package fi.pizzablue.admin.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,31 +19,27 @@ import fi.pizzablue.dao.PizzaDAO;
 
 
 
-@WebServlet("/add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/del")
+public class DelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-	
+ 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String syoteNimi = request.getParameter("nimi");
-		String syoteHinta = request.getParameter("hinta");
-
-		//muutetaan hinta desimaaliluvuksi
-		Double hinta = Double.parseDouble(syoteHinta);
+		String syoteID = request.getParameter("id");
 		
+		//muutetaan string syöte intiksi
+		int id = Integer.parseInt(syoteID);
+		
+		//luodaan pizzaolio poistoa varten
 		Pizza p = new Pizza(id);
-		
-		System.out.println(p.toString());
-		
-		try {
+
+		/*try {
 			PizzaDAO pDao = new PizzaDAO();
-			pDao.lisaa(p);
+			pDao.poista(p);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
-		}
-		
-		response.sendRedirect("list?added=true");
+		}*/
+		response.sendRedirect("list?deleted=true");
 	}
 	
 }
