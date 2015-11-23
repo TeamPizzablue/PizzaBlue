@@ -32,13 +32,13 @@ public class AddServlet extends HttpServlet {
 		//muutetaan hinta desimaaliluvuksi
 		Double hinta = Double.parseDouble(syoteHinta);
 		
-		Pizza p = new Pizza(id);
+		//Pizza p = new Pizza(id);
 		
 		System.out.println(p.toString());
 		
 		try {
 			PizzaDAO pDao = new PizzaDAO();
-			pDao.lisaa(p);
+			pDao.lisaa(p, yhteys);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}

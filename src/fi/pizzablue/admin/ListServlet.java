@@ -1,6 +1,7 @@
 package fi.pizzablue.admin;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,9 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fi.omapizzeria.admin.bean.Pizza;
-import fi.omapizzeria.admin.dao.DAOPoikkeus;
-import fi.omapizzeria.admin.dao.PizzaDAO;
+import fi.pizzablue.bean.Pizza;
+import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.dao.PizzaDAO;
+import fi.pizzablue.dao.Yhteys;
 
 
 
@@ -30,13 +32,15 @@ public class ListServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Connection yhteys = Yhteys.avaaYhteys();
 	
 		List<Pizza> pizzat;
 		
 		try {
 			//tietokannasta pizzat
 			PizzaDAO hDao = new PizzaDAO();
-			pizzat = hDao.haePizzat();
+			pizzat = hDao.haeKaikki(yhteys);
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
