@@ -1,14 +1,14 @@
 package fi.pizzablue.dao;
 	
 	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.Statement;
-	import java.util.ArrayList;
-	import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 	import fi.pizzablue.bean.Pizza;
-	import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.dao.DAOPoikkeus;
 
 	public class PizzaDAO {
 		
@@ -86,4 +86,54 @@ package fi.pizzablue.dao;
 			
 			return p;
 		}
+		public void lisaa(Pizza p, Connection yhteys) throws DAOPoikkeus{
+			
+			
+			try {
+				
+				//suoritetaan haku
+				
+				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
+				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
+				String sql = "insert into pizza(nimi, hinta) values(?,?)";
+				PreparedStatement lause = yhteys.prepareStatement(sql);
+				
+				//täytetään puuttuvat tiedot
+				lause.setString(1, p.getNimi());
+				lause.setDouble(2, p.getHinta());
+				
+				//suoritetaan lause
+				lause.executeUpdate();
+				System.out.println("Lisättiin tietokantaan pizza: "+ p);
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
+			} 
+
+		}
+		public void poista(Pizza p, Connection yhteys) throws DAOPoikkeus{
+
+			
+			try {
+				
+				//suoritetaan haku
+				
+				//alustetaan sql-lause, huom pitää olla ? ja seuraavassa kohtaa täydennetään tiedot
+				String sql = "delete from pizza where id = ?";
+				PreparedStatement lause = yhteys.prepareStatement(sql);
+				
+				//täytetään puuttuvat tiedot
+				lause.setInt(1, p.getId());
+				
+				//suoritetaan lause
+				lause.executeUpdate();
+				System.out.println("Poistettiin tietokannasta pizza: "+ p);
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
+			} 
+			
+
+		}
+		
 	}
