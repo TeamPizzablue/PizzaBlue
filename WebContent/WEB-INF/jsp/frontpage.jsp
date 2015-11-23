@@ -178,7 +178,8 @@
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="emptycart"style="color:black;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p> <p> Valikoimasta löydät pizzat ja juomat "style="color:black;"</p>
+							<p class="emptycart"style="color:black;font-style:bold;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p>
+							<p style="color:black;font-size:12px;text-align:center;margin-top:-20px;"> Valikoimasta löydät pizzat ja juomat</p>
 							<li class="divider"></li>
 							<br>
 							</c:if>
