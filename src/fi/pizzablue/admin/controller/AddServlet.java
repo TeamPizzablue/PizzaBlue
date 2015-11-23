@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.PizzaDAO;
+import fi.pizzablue.admin.service.PizzaAdminService;
+import fi.pizzablue.service.PizzalistaService;
 
 
 
@@ -26,24 +28,29 @@ public class AddServlet extends HttpServlet {
   
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
 		String syoteNimi = request.getParameter("nimi");
 		String syoteHinta = request.getParameter("hinta");
+		
+		//haetaan viimeksi syötetyn pizzan numero kannasta
+		int numero = 0;
 
 		//muutetaan hinta desimaaliluvuksi
 		Double hinta = Double.parseDouble(syoteHinta);
 		
-		//Pizza p = new Pizza(id);
+		Pizza p = new Pizza(0, numero, syoteNimi, hinta);
 		
 		System.out.println(p.toString());
 		
 		try {
-			PizzaDAO pDao = new PizzaDAO();
-			pDao.lisaa(p, yhteys);
+			PizzaAdminService service = new PizzaAdminService();
+			service.lisaaPizza(p);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
 		
-		response.sendRedirect("list?added=true");
+		response.sendRedirect("admin?added=true");
 	}
 	
 }

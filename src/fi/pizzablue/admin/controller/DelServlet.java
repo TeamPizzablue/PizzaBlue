@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.PizzaDAO;
+import fi.pizzablue.admin.service.PizzaAdminService;
 
 
 
@@ -33,13 +34,13 @@ public class DelServlet extends HttpServlet {
 		//luodaan pizzaolio poistoa varten
 		Pizza p = new Pizza(id);
 
-		/*try {
-			PizzaDAO pDao = new PizzaDAO();
-			pDao.poista(p);
+		try {
+			PizzaAdminService service = new PizzaAdminService();
+			service.poistaPizza(p);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
-		}*/
-		response.sendRedirect("list?deleted=true");
+		}
+		response.sendRedirect("admin?deleted=true");
 	}
 	
 }

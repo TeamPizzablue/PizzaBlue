@@ -14,14 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.PizzaDAO;
 import fi.pizzablue.dao.Yhteys;
+import fi.pizzablue.service.JuomalistaService;
+import fi.pizzablue.service.PizzalistaService;
 
 
 
-@WebServlet(urlPatterns={"/index.jsp","/list"})
+@WebServlet(urlPatterns={"/admin.jsp","/admin"})
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,31 +35,25 @@ public class ListServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Connection yhteys = Yhteys.avaaYhteys();
 	
 		List<Pizza> pizzat;
+		List<Juoma> juomat;
 		
 		try {
-			//tietokannasta pizzat
-			PizzaDAO hDao = new PizzaDAO();
-			pizzat = hDao.haeKaikki(yhteys);
+			PizzalistaService pService = new PizzalistaService();
+			JuomalistaService jService = new JuomalistaService();
+			juomat = jService.haeJuomalista();
+			pizzat = pService.haePizzalista();
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
 		
-		//requestiin talteen
+		//asetetaan listat requestin attribuuteiksi
 		request.setAttribute("pizzat", pizzat);
+		request.setAttribute("juomat", juomat);
 		
-			
-		Date aloitusaika = (Date)request.getSession().getAttribute("aloitus");
-		
-		if (aloitusaika == null) {
-			aloitusaika = new Date();
-			request.getSession().setAttribute("aloitus", aloitusaika);
-		}
-		//siirret��n list.jsp:lle requesti
-		request.getRequestDispatcher("WEB-INF/list.jsp").forward(request, response);
+		//siirretään request list.jsplle
+		request.getRequestDispatcher("WEB-INF/jsp/admin/admin.jsp").forward(request, response);
 		
 	}
 

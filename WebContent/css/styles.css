@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+* {
+    font-family: Verdana;
+}
+p, body {
+	text-align: center;
+}
+div {
+    background-color: #EEEEEE;
+    padding: 10px;
+    margin: 20px;
+}
+table {
+	border: 1px solid black;
+	border-radius: 100px;
+    height: 100px;
+    width: 750px;
+    text-align: center;
+   	border-collapse: collapse;  
+}
+td {
+	border: 1px;
+	border-style: solid;
+	border-color: #c0c0c0;
+	padding: 10px;
+	
+}
+.ylinrivi {
+	padding: 7px 0px 7px 0px !important;
+	background: #f0f0f0;
+}
+.id {
+	padding: 0px 15px 0px 15px !important;
+}
+.nappula {
+	margin: 5px 5px 5px 5px !important;
+	
+}
+.pizzanluomisilmoitus {
+	color: #008000 !important;
+}
+.pizzanpoistoilmoitus {
+	color: red !important;
+}
+form {
+	display:inline-block !important;
+}
+
+label {
+	margin: 0 auto !important;
+}
+
+
+
+
+
