@@ -28,6 +28,10 @@
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
     <td class="ylinrivi"><strong>hinta</strong></td>
+    <td class="ylinrivi"><strong>energia</strong></td>
+    <td class="ylinrivi"><strong>proteiini</strong></td>
+    <td class="ylinrivi"><strong>hiilihydraatti</strong></td>
+    <td class="ylinrivi"><strong>rasva</strong></td>
     <td class="ylinrivi"><strong>toiminnot</strong></td>
     </tr>
     
@@ -37,6 +41,10 @@
     <td><c:out value="${pizza.id}"/></td>
     <td><c:out value="${pizza.nimi}"/></td>
     <td><fmt:formatNumber value="${pizza.hinta}"  minFractionDigits="2"/> &euro;</td>
+    <td><c:out value="${pizza.energia}"/></td>
+    <td><fmt:formatNumber value="${pizza.proteiini}"  minFractionDigits="2"/></td>
+    <td><fmt:formatNumber value="${pizza.hiilihydraatti}"  minFractionDigits="2"/></td>
+    <td><fmt:formatNumber value="${pizza.rasva}"  minFractionDigits="2"/></td>
     <td>
     <form action="del" method="post"><input type="hidden" name="id" value="<c:out value="${pizza.id}"/>"><button class="btn btn-danger nappula">Poista</button></form></td>
     </tr>
@@ -45,6 +53,10 @@
     	  <td></td>
     	  	<td><label for="nimi"><input type="text" name="nimi" form="addform"></label></td>
     	  	<td><label for="hinta"><input type="number" min="0" step="any" name="hinta" form="addform"></label></td>
+    	  	<td><label for="energia"><input type="number" min="0" step="any" name="energia" form="addform"></label></td>
+    	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
+    	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
+    	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
     	 </tr>
    </table>
@@ -55,6 +67,10 @@
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
     <td class="ylinrivi"><strong>hinta</strong></td>
+    <td class="ylinrivi"><strong>energia</strong></td>
+    <td class="ylinrivi"><strong>proteiini</strong></td>
+    <td class="ylinrivi"><strong>hiilihydraatti</strong></td>
+    <td class="ylinrivi"><strong>rasva</strong></td>
     <td class="ylinrivi"><strong>toiminnot</strong></td>
     </tr>
     
@@ -64,6 +80,10 @@
     <td><c:out value="${juoma.id}"/></td>
     <td><c:out value="${juoma.nimi}"/></td>
     <td><fmt:formatNumber value="${juoma.hinta}"  minFractionDigits="2"/> &euro;</td>
+    <td><c:out value="${juoma.energia}"/></td>
+    <td><fmt:formatNumber value="${juoma.proteiini}"  minFractionDigits="2"/></td>
+    <td><fmt:formatNumber value="${juoma.hiilihydraatti}"  minFractionDigits="2"/></td>
+    <td><fmt:formatNumber value="${juoma.rasva}"  minFractionDigits="2"/></td>
     <td>
     <form action="del" method="post"><input type="hidden" name="id" value="<c:out value="${juoma.id}"/>"><button class="btn btn-danger nappula">Poista</button></form></td>
     </tr>
@@ -72,6 +92,10 @@
     	  <td></td>
     	  	<td><label for="nimi"><input type="text" name="nimi" form="addform"></label></td>
     	  	<td><label for="hinta"><input type="number" min="0" step="any" name="hinta" form="addform"></label></td>
+    	  	<td><label for="energia"><input type="number" min="0" step="any" name="energia" form="addform"></label></td>
+    	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
+    	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
+    	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
     	 </tr>
    </table>

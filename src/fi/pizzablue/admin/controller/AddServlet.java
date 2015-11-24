@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.PizzaDAO;
+import fi.pizzablue.admin.dao.PizzaNumeroDAO;
 import fi.pizzablue.admin.service.PizzaAdminService;
 import fi.pizzablue.service.PizzalistaService;
 
@@ -28,18 +29,35 @@ public class AddServlet extends HttpServlet {
   
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 
 		String syoteNimi = request.getParameter("nimi");
 		String syoteHinta = request.getParameter("hinta");
+		String syoteEnergia = request.getParameter("energia");
+		String syoteProteiini = request.getParameter("proteiini");
+		String syoteHiilihydraatti = request.getParameter("hiilihydraatti");
+		String syoteRasva = request.getParameter("rasva");
 		
 		//haetaan viimeksi syötetyn pizzan numero kannasta
-		int numero = 0;
 
-		//muutetaan hinta desimaaliluvuksi
-		Double hinta = Double.parseDouble(syoteHinta);
+		int pNumero = 0;
+		try {
+			PizzaAdminService pservice = new PizzaAdminService();
+			pNumero = pservice.haePizzaNumero();
+		} catch (DAOPoikkeus e) {
+			throw new ServletException(e);
+		}
+		pNumero += 1;
 		
-		Pizza p = new Pizza(0, numero, syoteNimi, hinta);
+
+		//muutetaan hinta, energia, proteiini ja hiilihydraatti desimaaliluvuksi
+		Double hinta = Double.parseDouble(syoteHinta);
+		int energia = Integer.parseInt(syoteEnergia);
+		Double proteiini = Double.parseDouble(syoteProteiini);
+		Double hiilihydraatti = Double.parseDouble(syoteHiilihydraatti);
+		Double rasva = Double.parseDouble(syoteRasva);
+		
+		
+		Pizza p = new Pizza(0, pNumero, syoteNimi, hinta, energia, proteiini, hiilihydraatti, rasva);
 		
 		System.out.println(p.toString());
 		

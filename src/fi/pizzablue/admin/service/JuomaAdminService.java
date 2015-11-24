@@ -1,33 +1,36 @@
 package fi.pizzablue.admin.service;
 
 import java.sql.Connection;
-import fi.pizzablue.admin.dao.PizzaNumeroDAO;
+
+import fi.pizzablue.admin.dao.JuomaNumeroDAO;
+import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
+import fi.pizzablue.dao.JuomaDAO;
 import fi.pizzablue.dao.PizzaDAO;
 import fi.pizzablue.dao.Yhteys;
 
-public class PizzaAdminService {
+public class JuomaAdminService {
 	
-	PizzaDAO pDAO = new PizzaDAO();
-	PizzaNumeroDAO pnroDAO = new PizzaNumeroDAO();
+	JuomaDAO jDAO = new JuomaDAO();
+	JuomaNumeroDAO jnroDAO = new JuomaNumeroDAO();
 	
-	public void lisaaPizza(Pizza p) throws DAOPoikkeus {
+	public void lisaaJuoma(Juoma j) throws DAOPoikkeus {
 	
 		Connection yhteys = Yhteys.avaaYhteys();
-		pDAO.lisaa(p, yhteys);
+		jDAO.lisaa(j, yhteys);
 		Yhteys.suljeYhteys(yhteys);	
 	}
-	public void poistaPizza(Pizza p) throws DAOPoikkeus {
+	public void poistaJuoma(Juoma j) throws DAOPoikkeus {
 		
 		Connection yhteys = Yhteys.avaaYhteys();
-		pDAO.poista(p, yhteys);
+		jDAO.poista(j, yhteys);
 		Yhteys.suljeYhteys(yhteys);	
 	}
 	public int haePizzaNumero() throws DAOPoikkeus {
 		
 		Connection yhteys = Yhteys.avaaYhteys();
-		int numero = pnroDAO.haeNumero(yhteys);
+		int numero = jnroDAO.haeNumero(yhteys);
 		Yhteys.suljeYhteys(yhteys);
 		return numero;
 	}

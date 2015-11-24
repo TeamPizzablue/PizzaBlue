@@ -95,16 +95,21 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				
 				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
 				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
-				String sql = "insert into pizza(nimi, hinta) values(?,?)";
+				String sql = "insert into pizza(numero, nimi, hinta, energia, proteiini, hiilihydraatti, rasva) values(?,?,?,?,?,?,?)";
 				PreparedStatement lause = yhteys.prepareStatement(sql);
 				
 				//täytetään puuttuvat tiedot
-				lause.setString(1, p.getNimi());
-				lause.setDouble(2, p.getHinta());
+				lause.setInt(1, p.getNumero());
+				lause.setString(2, p.getNimi());
+				lause.setDouble(3, p.getHinta());
+				lause.setDouble(4, p.getEnergia());
+				lause.setDouble(5, p.getProteiini());
+				lause.setDouble(6, p.getHiilihydraatti());
+				lause.setDouble(7, p.getRasva());
 				
 				//suoritetaan lause
 				lause.executeUpdate();
-				System.out.println("Lisättiin tietokantaan pizza: "+ p);
+				System.out.println("Lisättiin tietokantaan pizza: "+ p.toString());
 			} catch(Exception e) {
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
@@ -112,8 +117,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 
 		}
 		public void poista(Pizza p, Connection yhteys) throws DAOPoikkeus{
-
-			
+	
 			try {
 				
 				//suoritetaan haku
