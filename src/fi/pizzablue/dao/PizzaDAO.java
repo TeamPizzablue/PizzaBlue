@@ -88,9 +88,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 		}
 		public void lisaa(Pizza p, Connection yhteys) throws DAOPoikkeus{
 			
-			
 			try {
-				
 				//suoritetaan haku
 				
 				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
@@ -109,7 +107,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				
 				//suoritetaan lause
 				lause.executeUpdate();
-				System.out.println("Lisättiin tietokantaan pizza: "+ p.toString());
+				System.out.println("Lisättiin tietokantaan pizza: "+ p);
 			} catch(Exception e) {
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);

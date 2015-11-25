@@ -66,6 +66,7 @@
     <tr>
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
+    <td class="ylinrivi"><strong>maara</strong></td>
     <td class="ylinrivi"><strong>hinta</strong></td>
     <td class="ylinrivi"><strong>energia</strong></td>
     <td class="ylinrivi"><strong>proteiini</strong></td>
@@ -79,6 +80,7 @@
     <!-- nämä pitää olla c:outin sisällä, muuten käyttäjä pääsee syöttämään scriptejä syötekenttiin -->
     <td><c:out value="${juoma.id}"/></td>
     <td><c:out value="${juoma.nimi}"/></td>
+     <td><c:out value="${juoma.maara}"/></td>
     <td><fmt:formatNumber value="${juoma.hinta}"  minFractionDigits="2"/> &euro;</td>
     <td><c:out value="${juoma.energia}"/></td>
     <td><fmt:formatNumber value="${juoma.proteiini}"  minFractionDigits="2"/></td>
@@ -91,12 +93,13 @@
     	 <tr>
     	  <td></td>
     	  	<td><label for="nimi"><input type="text" name="nimi" form="addform"></label></td>
+    	  	<td><label for="maara"><input type="number" min="0" step="any" name="maara" form="addform"></label></td>
     	  	<td><label for="hinta"><input type="number" min="0" step="any" name="hinta" form="addform"></label></td>
     	  	<td><label for="energia"><input type="number" min="0" step="any" name="energia" form="addform"></label></td>
     	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
     	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
     	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
-    	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
+    	  	<td><form action="lisaajuoma" method="post" id="addform"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
     	 </tr>
    </table>
 </body>

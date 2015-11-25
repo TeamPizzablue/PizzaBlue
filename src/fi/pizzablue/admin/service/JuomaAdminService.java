@@ -27,7 +27,7 @@ public class JuomaAdminService {
 		jDAO.poista(j, yhteys);
 		Yhteys.suljeYhteys(yhteys);	
 	}
-	public int haePizzaNumero() throws DAOPoikkeus {
+	public int haeJuomaNumero() throws DAOPoikkeus {
 		
 		Connection yhteys = Yhteys.avaaYhteys();
 		int numero = jnroDAO.haeNumero(yhteys);
