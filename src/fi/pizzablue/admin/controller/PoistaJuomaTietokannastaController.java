@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fi.pizzablue.bean.Pizza;
+import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.admin.service.PizzaAdminService;
+import fi.pizzablue.admin.service.JuomaAdminService;
 
 
-
-@WebServlet("/del")
-public class DelServlet extends HttpServlet {
+@WebServlet("/poistajuoma")
+public class PoistaJuomaTietokannastaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
  
@@ -26,15 +25,16 @@ public class DelServlet extends HttpServlet {
 		int id = Integer.parseInt(syoteID);
 		
 		//luodaan pizzaolio poistoa varten
-		Pizza p = new Pizza(id);
+		Juoma j = new Juoma(id);
 
 		try {
-			PizzaAdminService service = new PizzaAdminService();
-			service.poistaPizza(p);
+			
+			JuomaAdminService service = new JuomaAdminService();
+			service.poistaJuoma(j);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		response.sendRedirect("admin?deleted=true");
+		response.sendRedirect("admin?poistettu=true");
 	}
 	
 }
