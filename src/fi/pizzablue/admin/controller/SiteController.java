@@ -13,24 +13,17 @@ import fi.pizzablue.admin.bean.Kayttaja;
 @WebServlet("/site")
 public class SiteController extends HttpServlet {
 
-	public static final String FRONT_PAGE = "WEB-INF/jsp/etusivu.jsp";
-	private static final String INSIDE_PAGE = "WEB-INF/jsp/secure/inside.jsp";
+	public static final String FRONT_PAGE = "WEB-INF/jsp/admin/kirjautuminen.jsp";
+	private static final String INSIDE_PAGE = "WEB-INF/jsp/admin/admin.jsp";
 
 	public static final String SESSION_ATTR_WEBUSER = "kayttajatiedot";
 
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public SiteController() {
 		super();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		

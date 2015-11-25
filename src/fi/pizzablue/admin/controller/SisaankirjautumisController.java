@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.admin.bean.Kayttaja;
-import fi.pizzablue.admin.dao.KayttajaDAO;
+import fi.pizzablue.admin.service.KayttajaService;
 import fi.pizzablue.dao.DAOPoikkeus;
 
 
@@ -34,8 +34,9 @@ public class SisaankirjautumisController extends HttpServlet {
 		
 		try {
 			//haetaan käyttäjä tietokannasta
-			KayttajaDAO dao = new KayttajaDAO();
-			Kayttaja kayttajaKannasta = dao.hae(username);
+			KayttajaService kService = new KayttajaService();
+			Kayttaja kayttajaKannasta;
+			kayttajaKannasta = kService.haeKayttaja(username);
 			
 			boolean validiKayttaja = kayttajaKannasta.vertaaSalasanaa(password);
 			
