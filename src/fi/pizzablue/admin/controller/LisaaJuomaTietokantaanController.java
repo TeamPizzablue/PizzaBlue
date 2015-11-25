@@ -18,15 +18,17 @@ public class LisaaJuomaTietokantaanController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String syoteNimi = request.getParameter("nimi");
-		String syoteMaara = request.getParameter("maara");
-		String syoteHinta = request.getParameter("hinta");
-		String syoteEnergia = request.getParameter("energia");
-		String syoteProteiini = request.getParameter("proteiini");
-		String syoteHiilihydraatti = request.getParameter("hiilihydraatti");
-		String syoteRasva = request.getParameter("rasva");
+		String syoteNimi = request.getParameter("jnimi");
+		String syoteMaara = request.getParameter("jmaara");
+		String syoteHinta = request.getParameter("jhinta");
+		String syoteEnergia = request.getParameter("jenergia");
+		String syoteProteiini = request.getParameter("jproteiini");
+		String syoteHiilihydraatti = request.getParameter("jhiilihydraatti");
+		String syoteRasva = request.getParameter("jrasva");
 		
 		//haetaan viimeksi syötetyn juoman numero kannasta
+		System.out.println(request.getParameter("jnimi"));
+		System.out.println(request.getParameter("jmaara"));
 
 		int jNumero = 0;
 		
@@ -59,7 +61,7 @@ public class LisaaJuomaTietokantaanController extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		response.sendRedirect("admin?added=true");
+		response.sendRedirect("admin?lisatty=true");
 	}
 	
 }
