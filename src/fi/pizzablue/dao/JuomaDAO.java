@@ -88,4 +88,56 @@ public class JuomaDAO {
 		
 		return j;
 	}
+	public void lisaa(Juoma j, Connection yhteys) throws DAOPoikkeus{
+		
+		
+		try {
+			//suoritetaan haku
+			//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
+			//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
+			String sql = "insert into juoma(numero, nimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva) values(?,?,?,?,?,?,?,?)";
+			PreparedStatement lause = yhteys.prepareStatement(sql);
+			
+			//täytetään puuttuvat tiedot
+			lause.setInt(1, j.getNumero());
+			lause.setString(2, j.getNimi());
+			lause.setInt(3, j.getMaara());
+			lause.setDouble(4, j.getHinta());
+			lause.setDouble(5, j.getEnergia());
+			lause.setDouble(6, j.getProteiini());
+			lause.setDouble(7, j.getHiilihydraatti());
+			lause.setDouble(8, j.getRasva());
+			
+			//suoritetaan lause
+			lause.executeUpdate();
+			System.out.println("Lisättiin tietokantaan juoma: "+ j);
+		} catch(Exception e) {
+			//JOTAIN VIRHETTÄ TAPAHTUI
+			throw new DAOPoikkeus("Juoman lisäämisyritys aiheutti virheen", e);
+		} 
+
+	}
+	public void poista(Juoma j, Connection yhteys) throws DAOPoikkeus{
+
+		try {
+			
+			//suoritetaan haku
+			
+			//alustetaan sql-lause, huom pitää olla ? ja seuraavassa kohtaa täydennetään tiedot
+			String sql = "delete from juoma where id = ?";
+			PreparedStatement lause = yhteys.prepareStatement(sql);
+			
+			//täytetään puuttuvat tiedot
+			lause.setInt(1, j.getId());
+			
+			//suoritetaan lause
+			lause.executeUpdate();
+			System.out.println("Poistettiin tietokannasta juoma: "+ j);
+		} catch(Exception e) {
+			//JOTAIN VIRHETTÄ TAPAHTUI
+			throw new DAOPoikkeus("Juoman lisäämisyritys aiheutti virheen", e);
+		} 
+		
+
+	}
 }

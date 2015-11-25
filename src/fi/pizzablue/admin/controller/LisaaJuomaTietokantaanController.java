@@ -1,47 +1,46 @@
 package fi.pizzablue.admin.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fi.pizzablue.bean.Pizza;
+import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.admin.service.PizzaAdminService;
+import fi.pizzablue.admin.service.JuomaAdminService;
 
-
-
-
-@WebServlet("/add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/lisaajuoma")
+public class LisaaJuomaTietokantaanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String syoteNimi = request.getParameter("nimi");
+		String syoteMaara = request.getParameter("maara");
 		String syoteHinta = request.getParameter("hinta");
 		String syoteEnergia = request.getParameter("energia");
 		String syoteProteiini = request.getParameter("proteiini");
 		String syoteHiilihydraatti = request.getParameter("hiilihydraatti");
 		String syoteRasva = request.getParameter("rasva");
 		
-		//haetaan viimeksi syötetyn pizzan numero kannasta
+		//haetaan viimeksi syötetyn juoman numero kannasta
 
-		int pNumero = 0;
+		int jNumero = 0;
+		
 		try {
-			PizzaAdminService pservice = new PizzaAdminService();
-			pNumero = pservice.haePizzaNumero();
+			JuomaAdminService jservice = new JuomaAdminService();
+			jNumero = jservice.haeJuomaNumero();
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		pNumero += 1;
 		
+		jNumero += 1;
 
-		//muutetaan hinta, energia, proteiini ja hiilihydraatti desimaaliluvuksi
+		//muutetaan määrä, hinta, energia, proteiini ja hiilihydraatti desimaaliluvuksi
+		int maara = Integer.parseInt(syoteMaara);
 		Double hinta = Double.parseDouble(syoteHinta);
 		int energia = Integer.parseInt(syoteEnergia);
 		Double proteiini = Double.parseDouble(syoteProteiini);
@@ -49,13 +48,13 @@ public class AddServlet extends HttpServlet {
 		Double rasva = Double.parseDouble(syoteRasva);
 		
 		
-		Pizza p = new Pizza(0, pNumero, syoteNimi, hinta, energia, proteiini, hiilihydraatti, rasva);
+		Juoma j = new Juoma(0, jNumero, syoteNimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva);
 		
-		System.out.println(p.toString());
+		System.out.println(j.toString());
 		
 		try {
-			PizzaAdminService service = new PizzaAdminService();
-			service.lisaaPizza(p);
+			JuomaAdminService service = new JuomaAdminService();
+			service.lisaaJuoma(j);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
