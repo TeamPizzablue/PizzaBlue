@@ -13,7 +13,6 @@ import fi.pizzablue.bean.Pizza;
 public class JuomaDAO {
 	
 
-	
 	//Hakee pizzat kannasta 
 	public List<Juoma> haeJuomat(Connection yhteys) throws DAOPoikkeus{		
 		

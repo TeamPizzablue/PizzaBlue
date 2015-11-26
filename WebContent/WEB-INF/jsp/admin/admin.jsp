@@ -60,7 +60,7 @@
     	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
     	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
     	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
-    	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
+    	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
     <br><br>
@@ -102,7 +102,7 @@
     	  	<td><label for="jproteiini"><input type="number" min="0" step="any" name="jproteiini" form="lisaajuoma"></label></td>
     	  	<td><label for="jhiilihydraatti"><input type="number" min="0" step="any" name="jhiilihydraatti" form="lisaajuoma"></label></td>
     	  	<td><label for="jrasva"><input type="number" min="0" step="any" name="jrasva" form="lisaajuoma"></label></td>
-    	  	<td><form action="lisaajuoma" method="post" id="lisaajuoma"><button class="btn btn-success nappula" type="submit">Lisää</button></form></td>	
+    	  	<td><form action="lisaajuoma" method="post" id="lisaajuoma"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
 </body>
