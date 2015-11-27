@@ -58,15 +58,20 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
-    <section id="about" class="container content-section text-center">
+    <section id="tiedote" class="container content-section text-center">
         <div class="row">
 			<h1>Tiedotteet</h1>
+			<form action="uusi_tiedote">
+			<div class="form-group col-xs-12">
+				<label>Syötä uusi tiedote: </label>
+				<textarea class="form-control" name="tiedote" rows="8"
+					cols="40" style="color: black"></textarea>
+			</div>
+			</form>
 
-   		</div>
+		</div>
    </section>
 </body>
 <footer>
