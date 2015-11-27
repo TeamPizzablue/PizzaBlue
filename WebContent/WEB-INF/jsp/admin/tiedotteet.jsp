@@ -50,9 +50,9 @@
                     <li>
                         <a class="page-scroll" href="">Tiedotteet</a>
                     </li>
-                    <li>
+                   <!-- <li>
                         <a class="page-scroll" href="">Aukioloajat</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a class="page-scroll" href="kirjaudu_ulos">Kirjaudu ulos</a>
                     </li>
@@ -63,12 +63,14 @@
     <section id="tiedote" class="container content-section text-center">
         <div class="row">
 			<h1>Tiedotteet</h1>
-			<form action="uusi_tiedote">
+			<c:if test="${not empty param.lisatty}"><br><p class="tiedote">Uuden tiedotteen luominen onnistui!</p></c:if>
+			<form action="uusi_tiedote" method="post">
 			<div class="form-group col-xs-12">
 				<label>Syötä uusi tiedote: </label>
 				<textarea class="form-control" name="tiedote" rows="8"
 					cols="40" style="color: black"></textarea>
 			</div>
+			<button class="btn btn-default">Lisää tiedote</button>
 			</form>
 
 		</div>

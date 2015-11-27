@@ -50,9 +50,9 @@
                     <li>
                         <a class="page-scroll" href="http://localhost:8080/pizzablue/WEB-INF/jsp/admin/tiedotteet.jsp">Tiedotteet</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a class="page-scroll" href="">Aukioloajat</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a class="page-scroll" href="kirjaudu_ulos">Kirjaudu ulos</a>
                     </li>

@@ -14,6 +14,11 @@ public class Tiedote {
 	public void setTiedote(String tiedote) {
 		this.tiedote = tiedote;
 	}
+
+	@Override
+	public String toString() {
+		return "Tiedote [tiedote=" + tiedote + "]";
+	}
 	
 
 }

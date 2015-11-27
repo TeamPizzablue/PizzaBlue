@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fi.pizzablue.admin.bean.Tiedote;
-import fi.pizzablue.admin.service.PizzaAdminService;
 import fi.pizzablue.admin.service.TiedoteService;
 import fi.pizzablue.dao.DAOPoikkeus;
 
-@WebServlet("/LisaaTiedoteKantaan")
+@WebServlet("/uusi_tiedote")
 public class LisaaTiedoteKantaanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,6 +22,9 @@ public class LisaaTiedoteKantaanController extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		
 		String syoteTiedote = request.getParameter("tiedote");
 		Tiedote t = new Tiedote(syoteTiedote);
 
@@ -32,7 +34,7 @@ public class LisaaTiedoteKantaanController extends HttpServlet {
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		request.getRequestDispatcher("WEB-INF/jsp/admin/tiedotteet.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/admin/tiedotteet.jsp?lisatty=true").forward(request, response);
 	}
 
 }
