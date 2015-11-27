@@ -259,12 +259,12 @@
 				<div class="col-lg-12">
 					<h2>Valikoima</h2>
 					<p>
-						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
-						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
-						kuuluu vakiona juusto sekä tomaattikastike. <br/> <br/>
-
-						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
-
+						Tilaussivullamme voit valita haluatko pitsallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
+						<br>Juomia pystyy tilaamaan vain pitsojen yhteydessä sekä pitsojen täytteitä ei pysty itse valitsemaan.
+						<br>Kaikkiin pitsoihin kuuluu vakiona juusto sekä tomaattikastike. Kaikki tuotteiden hinnat ovat alvillisia.
+						 <br>Huomioi, että pitsoja voi tilata enintään 10 kpl yhdellä tilauksella.
+						 <br><br>Toimitusalueemme on 5,0 km. Kotiinkuljetuksemme hinta on <span style="color: #00FF00; font-weight: 700;">2.99 €</span>
+					<br/> <br/>
 					</p>
 					<!-- navigointi pizzojen ja juomien välillä -->
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
@@ -273,7 +273,9 @@
 						<li><a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
 						</li>
 					</ul>
-
+					<p>	<!-- lisätty ohje nappien käytöstä -->
+						<br><span style="color:#42DCA3; font-size:35px;">*</span> Yläpuolella näkyvien nappien avulla, pääset hyppimään pitsojen ja juomien välillä.
+					</p>
 					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
@@ -696,7 +698,7 @@
 				<h3 class="yt-nimi">Pizza Blue</h3>
 				<br/> <br/>
 				<p>
-					Ratapihantie 13<br/> 00520 HELSINKI<br/> Puh. 050 3256953
+					Ratapihantie 13<br/> 00520 HELSINKI<br/> Puh. 050-3256953
 				</p>
 				<p class="palvelemme">Palvelemme:</p>
 				<p>
