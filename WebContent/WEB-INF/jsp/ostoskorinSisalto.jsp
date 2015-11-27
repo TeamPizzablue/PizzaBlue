@@ -50,7 +50,7 @@
 				
 				<table class="sisalto text-uppercase table-responsive">
 					<tr class="tietorivi">
-						<td>numero</td>
+						<td>numero<span style="color:#42DCA3; font-size:25px;">*</span></td>
 						<td>tuotteen nimi</td>
 						<td>hinta</td>
 						<td>lisämausteet</td>
@@ -98,19 +98,39 @@
 					</c:forEach>
 				</table>
 				
-				<br><br><br>
-  				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
+				<!-- numeron selvennys, kyseessä ei ole rivinumero! - selitystä SAA MUUTTAA! -->
+				<br><p><span style="color:#42DCA3; font-size:25px;">*</span>
+				tarkoittaa tuotteen numeroa, jotta järjestelmämme tunnistaa tilaamasi tuotteet!
+				
+				</p>
+				<br><br>
+				
+  				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto<span style="color:#42DCA3; font-size:25px;">*</span></p><br>
   				
   				<!-- toimitustavan valinta -->
  				<select name="toimitustapa" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
     			<option value="nouto">Nouto pizzeriasta</option>
     			<option value="kotiinkuljetus">Kotiinkuljetus</option>
     			</select>
+    			
+				<!-- lisätty käyttäjälle hyödyllisiä tekstejä - SAA MUUTTAA! -->
+				<br><br><br><p><span style="color:#42DCA3; font-size:25px;">*</span>
+				Voit valita noudatko tilauksesi pizzeriasta vai tuommeko sen kotiovellesi asti.
+				<br><br>Kuljetustilausten vastaanotto päättyy tuntia ennen sulkemista, <br>mutta noutotilausten vastaanotto päättyy vasta puoli tuntia ennen sulkemista.
+				<br><br>Toimituskestot - kotiinkuljetus: 30-60 min, nouto: 15-30 min.
+				<br>Toimitusalueemme on 5,0 km. Kotiinkuljetus maksaa <span style="color: #00FF00; font-weight: 700;">2,99 €</span>
+				</p>
 				
 				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
 				<h3>
 					<br/><br/><br/> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br/> <span></span>
 				</h3>
+				
+				<!-- alvi löytyy jo yhteissummasta! -->
+				<p>
+				Yhteissummaan on jo laskettu alvillinen hinta valmiiksi!
+				
+				</p>
 				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
 								
 			</div>
