@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+body{
+	font-family: Verdana;
+	background-color: #F3F3F3;
+}
+input {
+	border: 1px;
+	border-color: black;
+	border-style: solid;
+	background-color: white;
+	color: black;
+	width: 100%
+}
+button {
+	border: 3px;
+	border-color: #333333;
+	color: #333333;
+	background: #EEFFEE;
+	width: 100%;
+	font-weight: bold;
+	font-size: large;
+	vertical-align: middle;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+p.Viesti {
+	color: green;
+}
+p.Virhe {
+	color: red;
+}
+td {
+	padding: 6px;
+}
+#register {
+	text-align: center;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 20px;
+	padding-right: 20px;
+	float: left;
+	margin: 20px;
+	background-color: #FFFFFF;
+}

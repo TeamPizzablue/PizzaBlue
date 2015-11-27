@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="styles/rekisteroityminen.css">
+<link rel="stylesheet" type="text/css" href="css/registerlogin_styles.css"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <title>Rekisteröityminen</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td><button type="submit">Rekisteröidy</button></td>
+					<td><button class="btn" type="submit">Rekisteröidy</button></td>
 				</tr>
 			</table>
 

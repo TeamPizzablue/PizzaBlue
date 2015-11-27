@@ -16,6 +16,8 @@
 </head>
 
 <body>
+
+<a href="kirjaudu_ulos">Kirjaudu ulos</a>
 <h1>Hallinnoi pizzoja ja juomia</h1>
 <!-- pizzat -->
 <c:if test="${not empty param.added}"><br><p class="pizzanluomisilmoitus">Uuden pizzan luominen onnistui!</p></c:if>
