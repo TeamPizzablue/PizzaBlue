@@ -118,7 +118,7 @@
 				Voit valita noudatko tilauksesi pizzeriasta vai tuommeko sen kotiovellesi asti.
 				<br><br>Kuljetustilausten vastaanotto päättyy tuntia ennen sulkemista, <br>mutta noutotilausten vastaanotto päättyy vasta puoli tuntia ennen sulkemista.
 				<br><br>Toimituskestot - kotiinkuljetus: 30-60 min, nouto: 15-30 min.
-				<br>Toimitusalueemme on 5,0 km. Kotiinkuljetus maksaa <span style="color: #00FF00; font-weight: 700;">2,99 €</span>
+				<br>Toimitusalueemme on 5,0 km. Kotiinkuljetus maksaa <span style="color: pink; font-weight: 700;">2,99 €</span>
 				</p>
 				
 				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->

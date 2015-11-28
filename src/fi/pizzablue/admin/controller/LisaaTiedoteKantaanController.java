@@ -25,8 +25,9 @@ public class LisaaTiedoteKantaanController extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
+		String syoteOtsikko = request.getParameter("otsikko");
 		String syoteTiedote = request.getParameter("tiedote");
-		Tiedote t = new Tiedote(syoteTiedote);
+		Tiedote t = new Tiedote(syoteOtsikko, syoteTiedote);
 
 		try {
 			TiedoteService service = new TiedoteService();

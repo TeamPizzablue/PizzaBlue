@@ -62,17 +62,19 @@
     </nav>
     <section id="tiedote" class="container content-section text-center">
         <div class="row">
-			<h1>Tiedotteet</h1>
-			<c:if test="${not empty param.lisatty}"><br><p class="tiedote">Uuden tiedotteen luominen onnistui!</p></c:if>
-			<form action="uusi_tiedote" method="post">
-			<div class="form-group col-xs-12">
-				<label>Syötä uusi tiedote: </label>
-				<textarea class="form-control" name="tiedote" rows="8"
-					cols="40" style="color: black"></textarea>
+        	<div class="col-lg-8 col-lg-offset-2">
+				<h1>Tiedotteet</h1>
+				<c:if test="${not empty param.lisatty}"><br><p class="tiedote">Uuden tiedotteen luominen onnistui!</p></c:if>
+				<form action="uusi_tiedote" method="post">
+					<div class="form-group col-xs-12">
+						<label>Otsikko: </label><input class="form-control" type="text" name="otsikko" required></input>
+					</div>
+					<div class="form-group col-xs-12">
+						<label>Tiedote: </label><textarea class="form-control" name="tiedote" rows="10" cols="50" placeholder="max. 500 merkkiä" style="color: black" required></textarea>
+					</div>
+					<button class="btn btn-default">Lisää tiedote</button>
+				</form>
 			</div>
-			<button class="btn btn-default">Lisää tiedote</button>
-			</form>
-
 		</div>
    </section>
 </body>

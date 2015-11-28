@@ -225,9 +225,9 @@
 	</header>
 	<!-- esittely sivu alkaa -->
 	<section id="esittely" class="container content-section text-center">
-		<img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
+		<!--  <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito"> -->
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+			<div class="col-lg-6">
 				<h2>Esittely</h2>
 				<p>
 					Vuonna 2012, kolme Pasilasta kotoisin olevaa ruokaa ja
@@ -248,7 +248,13 @@
 				</p>
 			<!-- slaissi-kuva on liian alhaalla sillä esittelyosasta tulee liian pitkä! -->
 			</div>
-			<img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
+			<div class="col-lg-6">
+				<h2>Tiedotteet</h2>
+				<c:forEach items="${tiedotteet}" var="tiedote" varStatus="count" end="2">
+				<blockquote><h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4><c:out value="${tiedote.sisalto}"/></blockquote>
+				</c:forEach>
+			</div>
+			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>
 		<!-- esittely sivu päättyy -->
 	</section>
@@ -263,7 +269,7 @@
 						<br>Juomia pystyy tilaamaan vain pitsojen yhteydessä sekä pitsojen täytteitä ei pysty itse valitsemaan.
 						<br>Kaikkiin pitsoihin kuuluu vakiona juusto sekä tomaattikastike. Kaikki tuotteiden hinnat ovat alvillisia.
 						 <br>Huomioi, että pitsoja voi tilata enintään 10 kpl yhdellä tilauksella.
-						 <br><br>Toimitusalueemme on 5,0 km. Kotiinkuljetuksemme hinta on <span style="color: #00FF00; font-weight: 700;">2.99 €</span>
+						 <br><br>Toimitusalueemme on 5,0 km. Kotiinkuljetuksemme hinta on <span style="color: pink; font-weight: 700;">2.99 €</span>
 					<br/> <br/>
 					</p>
 					<!-- navigointi pizzojen ja juomien välillä -->
