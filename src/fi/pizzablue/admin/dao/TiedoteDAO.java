@@ -48,6 +48,7 @@ public class TiedoteDAO extends HttpServlet {
 			PreparedStatement lause = yhteys.prepareStatement(sql);
 			
 			//täytetään puuttuvat tiedot
+			lause.setInt(1, t.getId());
 			
 			//suoritetaan lause
 			lause.executeUpdate();

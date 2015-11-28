@@ -12,30 +12,26 @@ import fi.pizzablue.admin.bean.Tiedote;
 import fi.pizzablue.admin.service.TiedoteService;
 import fi.pizzablue.dao.DAOPoikkeus;
 
-@WebServlet("/uusi_tiedote")
-public class LisaaTiedoteKantaanController extends HttpServlet {
+@WebServlet("/poista_tiedote")
+public class PoistaTiedoteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public LisaaTiedoteKantaanController() {
-        super();
-       
-    }
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	String syoteID = request.getParameter("id");
 		
-		request.setCharacterEncoding("UTF-8");
+		//muutetaan string syöte intiksi
+		int id = Integer.parseInt(syoteID);
 		
-		String syoteOtsikko = request.getParameter("otsikko");
-		String syoteTiedote = request.getParameter("tiedote");
-		Tiedote t = new Tiedote(syoteOtsikko, syoteTiedote);
+		//luodaan pizzaolio poistoa varten
+		Tiedote t = new Tiedote(id);
 
 		try {
 			TiedoteService service = new TiedoteService();
-			service.lisaaTiedote(t);
+			service.poistaTiedote(t);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		response.sendRedirect("tiedotteet?lisatty=true");
+		response.sendRedirect("tiedotteet?poistettu=true");
 	}
 
 }

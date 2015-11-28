@@ -10,8 +10,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
-	<title>Pizzojen ja juomien hallinta</title>
-	<!-- <link rel="stylesheet" type="text/css" href="css/adminstyles.css"/>-->
+	<title>Tiedotteiden hallinta</title>
+	<link rel="stylesheet" type="text/css" href="css/adminstyles.css"/>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<!-- Bootstrap Core CSS -->
  	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -62,9 +62,10 @@
     </nav>
     <section id="tiedote" class="container content-section text-center">
         <div class="row">
+        <h1>Tiedotteet</h1><br><br>
         	<div class="col-lg-8 col-lg-offset-2">
-				<h1>Tiedotteet</h1>
-				<c:if test="${not empty param.lisatty}"><br><p class="tiedote">Uuden tiedotteen luominen onnistui!</p></c:if>
+				<h2>Lisää uusi tiedote</h2>
+				<c:if test="${not empty param.lisatty}"><br><p class="tiedotteenLisays">Uuden tiedotteen luominen onnistui!</p></c:if>
 				<form action="uusi_tiedote" method="post">
 					<div class="form-group col-xs-12">
 						<label>Otsikko: </label><input class="form-control" type="text" name="otsikko" required></input>
@@ -76,6 +77,24 @@
 				</form>
 			</div>
 		</div>
+   </section>
+   <section class="container content-section text-center">
+     <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+        <h2>Poista tiedotteita</h2>
+        <c:if test="${not empty param.poistettu}"><br><p class="tiedotteenPoisto">Tiedotteen poisto onnistui!</p></c:if>
+        <c:forEach items="${tiedotteet}" var="tiedote" varStatus="count">
+        	<blockquote>
+        		<h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4>
+        		<c:out value="${tiedote.sisalto}"/><br><br>
+        		<form action="poista_tiedote" method="post">
+        			<input type="hidden" name="id" value="<c:out value="${tiedote.id}"/>"><button class="btn btn-danger">Poista</button>
+        		</form>
+        	</blockquote>
+        	<div style="color:white;"><h1>...</h1></div>
+        </c:forEach>
+        </div>
+      </div>
    </section>
 </body>
 <footer>

@@ -89,3 +89,9 @@ label {
 input {
 	color:black !important;
 }
+.tiedotteenLisays {
+	color:lime;
+}
+.tiedotteenPoisto {
+	color: pink;
+}
