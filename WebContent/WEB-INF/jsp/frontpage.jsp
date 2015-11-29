@@ -225,7 +225,6 @@
 	</header>
 	<!-- esittely sivu alkaa -->
 	<section id="esittely" class="container content-section text-center">
-		<!--  <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito"> -->
 		<div class="row">
 			<div class="col-lg-6">
 				<h2>Esittely</h2>
@@ -253,6 +252,7 @@
 				<c:forEach items="${tiedotteet}" var="tiedote" varStatus="count" end="2">
 				<blockquote><h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4><c:out value="${tiedote.sisalto}"/></blockquote>
 				</c:forEach>
+				<img class="img-responsive" align="right" src="img/Bonappetito.png" alt="kuva">
 			</div>
 			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>

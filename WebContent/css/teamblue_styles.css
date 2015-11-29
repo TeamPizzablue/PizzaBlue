@@ -115,3 +115,17 @@ table .minikuvat {
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important; 
 	text-transform: uppercase !important;
 }
+.yhteissumma {
+	margin: 0;
+}
+.tehostevari {
+	color: #42DCA3;
+}
+.kotiinkuljetushinta {
+	color: pink; 
+	font-weight: 700;
+}
+.mausteet {
+	text-align: left !important;
+	padding: 15px 15px 15px 50px !important;
+}
