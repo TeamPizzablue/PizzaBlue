@@ -103,6 +103,7 @@
 }
 table .minikuvat {
 	padding: 15px 15px 15px 50px !important;
+	float:left !important;
 }
 
 /*joka toinen rivi taulukossa erivärinen */
@@ -144,3 +145,12 @@ table .minikuvat {
 	text-align: left !important;
 	padding: 15px 15px 15px 50px !important;
 }
+
+
+.tilausvaihtoehdot {
+	background-color: #0F0E0E;
+	border: 3px solid black;
+	min-height: 275px;
+	padding-top: 8px;
+}
+

@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
             	<br><br><br><br><br><br><br>
-                <i class="fa"><img style="height: 45px; margin-right:7px;" src="img/pieni_logo.png">
+                <i class="fa"><img alt="logokuva" style="height: 45px; margin-right:7px;" src="img/pieni_logo.png">
 							</i><br><br><h3>Pizza Blue</h3>
 						<div class="modal-body">
 							<h3 style="color: #42DCA3; margin-top: 5px;">Kiitos tilauksestanne!</h3>
