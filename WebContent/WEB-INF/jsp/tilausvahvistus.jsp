@@ -45,7 +45,7 @@
 			<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
 				<table class="sisalto text-uppercase table-responsive">
 				<tr class="tietorivi">
-					<td>numero</td>
+					<td>numero<span style="color:#42DCA3; font-size:25px;">*</span></td>
 					<td>tuotteen nimi</td>
 					<td>hinta</td>
 					<td>lisämausteet</td>
@@ -98,6 +98,9 @@
 				<h2 class="yhteissumma">Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h2>
 				<h5>sis. alv 14%</h5>
 				<br/><br/>
+				<!-- numeron selvennys, kyseessä ei ole rivinumero! - selitystä SAA MUUTTAA! -->
+				<p><span style="color:#42DCA3; font-size:25px;">*</span>
+				tarkoittaa tuotteen numeroa, jotta järjestelmämme tunnistaa tilaamasi tuotteet!</p>
 				<h3>Toimitustiedot:</h3><br/>
 				<p>
 				<c:if test="${tilaus.etunimi != ''}"><c:out value="${tilaus.etunimi}"/></c:if>
@@ -119,9 +122,6 @@
 				</form>
 				<div class="col-lg-6" align="left">
 					<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
-				</div>
-				<div class="col-lg-12"><br><br><br>
-					<a href="http://proto297.haaga-helia.fi:8080/pizzablue/toimitustiedot.jsp" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa toimitustietoihin</a>
 				</div>
 			</div>
 			

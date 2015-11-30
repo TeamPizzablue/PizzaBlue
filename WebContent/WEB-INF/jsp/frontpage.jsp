@@ -95,7 +95,7 @@
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
 													<!-- poista nappi -->
-													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+														<button type="submit" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
 
 												</span>
 											</span>
