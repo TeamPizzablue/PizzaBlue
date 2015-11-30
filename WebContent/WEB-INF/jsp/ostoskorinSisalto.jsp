@@ -66,7 +66,7 @@
 								<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
 								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
 								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-								<td class="mausteet">
+								<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
 									<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
 										Valkosipuli <br/> 
 									<input type="checkbox" name="mausteetO" value="<c:out value="${count.index}"/>"> 
@@ -165,15 +165,6 @@
 
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
-
-	<script>
-		$(document).ready(function() {
-
-			$("#tabs").tabs();
-
-		});
-	</script>
-
 
 </body>
 
