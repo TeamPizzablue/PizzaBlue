@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-<form action="siirry_toimitustietoihin" method="post" role="form" accept-charset="UTF-8">
+<form action="siirry_toimitustietoihin" method="post" accept-charset="UTF-8">
 
 	<!-- Ostoskori -->
 	
@@ -64,7 +64,7 @@
 							<tr class="tuoterivi">
 								<td><c:out value="${tilausrivi.pizza.numero}"/></td>
 								<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
-								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
+								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
 								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 								<td class="mausteet">
 									<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
@@ -90,7 +90,7 @@
 							<tr class="tuoterivi">
 								<td><c:out value="${tilausrivi.juoma.numero}"/></td>
 								<!--  haetaan juoman nimen eteen kuva juoman numeron mukaan -->
-								<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
+								<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
 								<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
 								<td></td><td></td>
 							</tr>

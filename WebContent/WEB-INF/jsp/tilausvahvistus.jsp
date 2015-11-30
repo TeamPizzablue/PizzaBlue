@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -116,13 +116,14 @@
 				
 				<!-- Vahvista, peruuta ja palaa toimitustietoihin -napit -->
 				<form action="laheta_tilaus" method="post">
-				<div class="col-lg-6" align="right">
+				<div class="col-lg-6 col-md-6 col-xs-6" align="right">
 					<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" type="submit" value="Submit">Vahvista tilaus</button>
 				</div>
 				</form>
-				<div class="col-lg-6" align="left">
+				<div class="col-lg-6 col-md-6 col-xs-6" align="left">
 					<a href="tyhjenna_ostoskori" class="btn btn-danger btn-lg tyhjenna">Peruuta tilaus</a>
 				</div>
+			</div>
 			</div>
 			
 				<%--<!-- Tilausvahvistuksen pop-up ikkuna -->

@@ -103,6 +103,7 @@
 }
 table .minikuvat {
 	padding: 15px 15px 15px 50px !important;
+	float:left !important;
 }
 
 /*joka toinen rivi taulukossa erivärinen */
