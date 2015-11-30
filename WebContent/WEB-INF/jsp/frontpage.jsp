@@ -7,7 +7,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +49,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 	<!-- Navigointi -->
-	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-custom navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -58,7 +57,7 @@
 				</button>
 
 				<a class="navbar-brand page-scroll" href="#page-top"> 
-				<i class="fa"><img src="img/pieni_logo.png" style="height: 30px"></i>
+				<i class="fa"><img src="img/pieni_logo.png" alt="logo" style="height: 30px"></i>
 				<span class="light"> Pizza</span> Blue
 				</a>
 			</div>
@@ -89,14 +88,14 @@
 														<!-- haetaan pizzarivillä olevan pizzan numero -->
 														<c:out value="${tilausrivi.pizza.numero}" />. 
 														<!-- haetaan pizzarivillä olevan pizzan nimi -->
-														<c:out value="${tilausrivi.pizza.nimi}" /><br /> 
+														<c:out value="${tilausrivi.pizza.nimi}" /><br/> 
 														<!-- haetaan pizzarivillä olevan pizzan hinta -->
 														<fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
 													</span>
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
 													<!-- poista nappi -->
-														<button type="submit" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon glyphicon-trash"> </button>
+														<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
 
 												</span>
 											</span>
@@ -178,8 +177,7 @@
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="emptycart"style="color:black;font-style:bold;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p>
-							<p style="color:black;font-size:12px;text-align:center;margin-top:-20px;"> Valikoimasta löydät pizzat ja juomat</p>
+							<li class="text-center" style="color:black;">Ostoskori on tyhjä !</li>
 							<li class="divider"></li>
 							<br>
 							</c:if>
@@ -253,7 +251,7 @@
 				<c:forEach items="${tiedotteet}" var="tiedote" varStatus="count" end="2">
 				<blockquote><h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4><c:out value="${tiedote.sisalto}"/></blockquote>
 				</c:forEach>
-				<img class="img-responsive" align="right" src="img/Bonappetito.png" alt="kuva">
+				<img class="img-responsive center-block" src="img/Bonappetito.png" alt="kuva">
 			</div>
 			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>
@@ -319,7 +317,7 @@
 												</p>
 												<!-- Ravintoarvot -->
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+												<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -385,7 +383,7 @@
 												</p>
 												
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+													<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -451,7 +449,7 @@
 												</p>
 
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+													<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -519,7 +517,7 @@
 												</p>
 												
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+													<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -584,7 +582,7 @@
 												</p>
 
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+													<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -648,7 +646,7 @@
 												</p>
 
 												<button class="ravintoarvotBut btn btn-primary">
-													<div class="glyphicon glyphicon-chevron-down"></div>
+													<span class="glyphicon glyphicon-chevron-down"></span>
 													Ravintoarvot
 												</button>
 												<br />
@@ -692,9 +690,6 @@
 			</div>
 		</div>
 	</section>
-	<div class="col-lg-6">
-		<img class="ateria img-responsive" align="right" src="img/Ateria.png" style="height: 200px; width: 300px;" alt="ateria">
-	</div>
 	<!-- Yhteystiedot -->
 	<section id="yhteystiedot" class="container content-section text-center">
 		<br/>
@@ -732,21 +727,22 @@
 			<!-- Palautelomake -->
             <div class="col-lg-4">
                 <br/><h3>Palautelomake</h3>
-                <form action="FeedbackMail" method="post" role="form">
+                <form action="FeedbackMail" method="post">
                 	<div class="form-group col-xs-6">
-                		<label for="nimi">Nimi: </label><input class="form-control" type="text" name="nimi" style="color:black" required>
+                		<label for="nimi">Nimi: </label><input class="form-control" type="text" id="nimi" name="nimi" style="color:black" required>
                 	</div>
                 	<div class="form-group col-xs-6">
-                		<label for="puhelin">Puhelin: </label><input class="form-control" type="tel" placeholder="040XXXXXXX" pattern="[0-9]{10}" name="puhelinumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')" onchange="try{setCustomValidity('')}catch(e){}">
+                		<label for="puhelin">Puhelin: </label><input class="form-control" type="tel" placeholder="040XXXXXXX" pattern="[0-9]{10}" id="puhelin" name="puhelinnumero" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')" onchange="try{setCustomValidity('')}catch(e){}">
                 	</div>
                 	<div class="form-group col-xs-12">
-                		<label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')" onchange="try{setCustomValidity('')}catch(e){}" required >
+                		<label for="sahkoposti">Sähköposti: </label><input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" id="sahkoposti" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')" onchange="try{setCustomValidity('')}catch(e){}" required >
                 	</div>
                 	<div class="form-group col-xs-12">
-                		<label for="viesti">Viesti: </label><textarea class="form-control" name="viesti" rows="8" max-cols="40" style="color:black" required></textarea>
+                		<label for="viesti">Viesti: </label><textarea class="form-control" id="viesti" name="viesti" rows="8" cols="40" style="color:black" required></textarea>
                 	</div>
                 	<button class="btn btn-default" type="submit" >Lähetä</button>
                 </form>
+               <!--   <img class="ateria img-responsive center-block" src="img/Ateria.png" style="height: 200px; width: 300px;" alt="ateria"> -->
             </div>
          </div>
     </section>
