@@ -95,3 +95,20 @@ input {
 .tiedotteenPoisto {
 	color: pink;
 }
+
+.lisatiedot {
+  display: none;
+}
+
+.alastule {
+	display:none;
+}
+
+.ylinrivi {
+	float:left;
+	padding: 10px;
+}
+
+.tilaustable {
+	margin-left:auto !important;
+}

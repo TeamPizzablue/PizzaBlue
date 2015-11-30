@@ -45,10 +45,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="">Tuotteet</a>
+                        <a class="page-scroll" href="http://localhost:8080/pizzablue/admin">Tuotteet</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="">Tiedotteet</a>
+                        <a class="page-scroll" href="#">Tiedotteet</a>
                     </li>
                    <!-- <li>
                         <a class="page-scroll" href="">Aukioloajat</a>

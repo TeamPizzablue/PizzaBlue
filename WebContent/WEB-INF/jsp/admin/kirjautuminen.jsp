@@ -11,7 +11,7 @@
 <!-- Custom CSS -->
 <link href="css/grayscale.css" rel="stylesheet">
 
-<title>Etusivu</title>
+<title>Sisäänkirjautuminen</title>
 </head>
 <body>
 

@@ -20,7 +20,7 @@ import fi.pizzablue.service.PizzalistaService;
 public class SiteController extends HttpServlet {
 
 	public static final String FRONT_PAGE = "WEB-INF/jsp/admin/kirjautuminen.jsp";
-	private static final String INSIDE_PAGE = "WEB-INF/jsp/admin/admin.jsp";
+	private static final String INSIDE_PAGE = "admin.jsp";
 
 	public static final String SESSION_ATTR_WEBUSER = "kayttajatiedot";
 
@@ -39,24 +39,7 @@ public class SiteController extends HttpServlet {
 		if (user == null) { //jos käyttäjätietoja ei löydy, heitetään etusivulle
 			request.getRequestDispatcher(FRONT_PAGE).forward(request, response);
 		} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
-			
-			List<Pizza> pizzat;
-			List<Juoma> juomat;
-			
-			try {
-				PizzalistaService pService = new PizzalistaService();
-				JuomalistaService jService = new JuomalistaService();
-				juomat = jService.haeJuomalista();
-				pizzat = pService.haePizzalista();
-			} catch(DAOPoikkeus e) {
-				throw new ServletException(e);
-			}
-			
-			//asetetaan listat requestin attribuuteiksi
-			request.setAttribute("pizzat", pizzat);
-			request.setAttribute("juomat", juomat);
-			
-			request.getRequestDispatcher(INSIDE_PAGE).forward(request, response);
+			response.sendRedirect(INSIDE_PAGE);
 		}
 	}
 }
