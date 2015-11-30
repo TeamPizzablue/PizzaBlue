@@ -39,6 +39,9 @@
 		class="container content-section text-center" style="padding: 50px 0px 0px 0px !important;">
 		<div class="col-lg-12">
 					<h1>Nouto</h1>
+					
+					<p> Jos haluat sähköpostivahvistuksen tilauksestasi, kirjoita sähköpostiosoitteesi tälle lomakkeelle. </p>
+					
 					<form action="siirry_tilausvahvistukseen" method="post" role="form">
 						<div class="col-lg-4 col-lg-offset-4">
 								<div class="form-group col-xs-12">

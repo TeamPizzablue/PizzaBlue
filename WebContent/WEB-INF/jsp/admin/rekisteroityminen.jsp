@@ -5,47 +5,62 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="styles/rekisteroityminen.css">
+<link rel="stylesheet" type="text/css" href="css/registerlogin_styles.css"/>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/grayscale.css" rel="stylesheet">
 <title>Rekisteröityminen</title>
 </head>
 <body>
 
+<section id="viesti" class="container text-center">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="form-group col-md-4 col-md-offset-4">
+				<c:if test="${not empty param.onnistui }">
+					<p class="Viesti">Rekisteröityminen onnistui!</p>
+				</c:if>
 
-	<c:if test="${not empty param.onnistui }">
-		<p class="Viesti">Rekisteröityminen onnistui!</p>
-	</c:if>
-
-	<c:if test="${not empty error }">
-		<p class="Virhe">
-			<c:out value="${error}" />
-		</p>
-	</c:if>
-
-	<div id="register">
-
-		<form action="rekisteroidy" method="post">
-			<h1>Rekisteröityminen</h1>
-			<table>
-				<tr>
-					<td>Käyttäjätunnus</td>
-					<td><input type="text" name="username" value="<c:out value="${prev_reg_username}"/>"/></td>
-				</tr>
-				<tr>
-					<td>Salasana</td>
-					<td><input type="password" name="password" /></td>
-				</tr>
-				<tr>
-					<td>Salasana uudestaan</td>
-					<td><input type="password" name="password2" /></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td><button type="submit">Rekisteröidy</button></td>
-				</tr>
-			</table>
-
-		</form>
+				<c:if test="${not empty error }">
+					<p class="Virhe">
+						<c:out value="${error}" />
+					</p>
+				</c:if>
+			</div>
+		</div>
 	</div>
+</section>
+	
+	<section id="rekisteroituminen" class="container text-center">
+		<div class="row">
+		<div class="col-lg-12"><br/>
+			<h3>Rekisteröityminen</h3>
+            <form action="rekisteroidy" method="post">
+            	<div class="form-group col-md-4 col-md-offset-4">
+                	<label for="kayttajatunnus">Käyttäjätunnus: </label><input class="form-control" type="text" name="username" value="<c:out value="${prev_reg_username}"/>" style="color:black">
+                </div>
+                <div class="form-group col-md-4 col-md-offset-4">
+                	<label for="salasana">Salasana: </label><input class="form-control" type="password" name="puhelinumero" style="color:black">
+                </div>
+                <div class="form-group col-md-4 col-md-offset-4">
+                	<label for="salasana2">Salasana: </label><input class="form-control" type="password" name="sahkoposti" style="color:black">
+                </div>
+                <div class="form-group col-md-4 col-md-offset-4">
+                	<button class="btn btn-default" type="submit" >Rekisteröidy</button>
+                </div>
+			</form>
+		</div>
+		</div>
+	</section>
+	
+	<!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 </body>
 </html>

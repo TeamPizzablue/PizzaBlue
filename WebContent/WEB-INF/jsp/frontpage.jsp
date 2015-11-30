@@ -96,7 +96,7 @@
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
 													<!-- poista nappi -->
-													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+														<button type="submit" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon glyphicon-trash"> </button>
 
 												</span>
 											</span>
@@ -178,7 +178,8 @@
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="text-center"style="color:black;">Ostoskori on tyhjä !</p>
+							<p class="emptycart"style="color:black;font-style:bold;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p>
+							<p style="color:black;font-size:12px;text-align:center;margin-top:-20px;"> Valikoimasta löydät pizzat ja juomat</p>
 							<li class="divider"></li>
 							<br>
 							</c:if>
@@ -225,9 +226,8 @@
 	</header>
 	<!-- esittely sivu alkaa -->
 	<section id="esittely" class="container content-section text-center">
-		<img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+			<div class="col-lg-6">
 				<h2>Esittely</h2>
 				<p>
 					Vuonna 2012, kolme Pasilasta kotoisin olevaa ruokaa ja
@@ -248,7 +248,14 @@
 				</p>
 			<!-- slaissi-kuva on liian alhaalla sillä esittelyosasta tulee liian pitkä! -->
 			</div>
-			<img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi">
+			<div class="col-lg-6">
+				<h2>Tiedotteet</h2>
+				<c:forEach items="${tiedotteet}" var="tiedote" varStatus="count" end="2">
+				<blockquote><h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4><c:out value="${tiedote.sisalto}"/></blockquote>
+				</c:forEach>
+				<img class="img-responsive" align="right" src="img/Bonappetito.png" alt="kuva">
+			</div>
+			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>
 		<!-- esittely sivu päättyy -->
 	</section>
@@ -259,12 +266,12 @@
 				<div class="col-lg-12">
 					<h2>Valikoima</h2>
 					<p>
-						Tilaussivullamme voit valita haluatko pizzallesi gluteenittoman,
-						täysjyvän vai tavallisen pohjan. <br> Kaikkiin pizzoihimme
-						kuuluu vakiona juusto sekä tomaattikastike. <br/> <br/>
-
-						Kotiinkuljetuksemme hinta on <span style="color: #42DCA3; font-weight: 700;">2.99 €</span>
-
+						Tilaussivullamme voit valita haluatko pitsallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
+						<br>Juomia pystyy tilaamaan vain pitsojen yhteydessä sekä pitsojen täytteitä ei pysty itse valitsemaan.
+						<br>Kaikkiin pitsoihin kuuluu vakiona juusto sekä tomaattikastike. Kaikki tuotteiden hinnat ovat alvillisia.
+						 <br>Huomioi, että pitsoja voi tilata enintään 10 kpl yhdellä tilauksella.
+						 <br><br>Toimitusalueemme on 5,0 km. Kotiinkuljetuksemme hinta on <span style="color: pink; font-weight: 700;">2.99 €</span>
+					<br/> <br/>
 					</p>
 					<!-- navigointi pizzojen ja juomien välillä -->
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
@@ -273,7 +280,9 @@
 						<li><a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
 						</li>
 					</ul>
-
+					<p>	<!-- lisätty ohje nappien käytöstä -->
+						<br><span style="color:#42DCA3; font-size:35px;">*</span> Yläpuolella näkyvien nappien avulla, pääset hyppimään pitsojen ja juomien välillä.
+					</p>
 					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
@@ -696,7 +705,7 @@
 				<h3 class="yt-nimi">Pizza Blue</h3>
 				<br/> <br/>
 				<p>
-					Ratapihantie 13<br/> 00520 HELSINKI<br/> Puh. 050 3256953
+					Ratapihantie 13<br/> 00520 HELSINKI<br/> Puh. 050-3256953
 				</p>
 				<p class="palvelemme">Palvelemme:</p>
 				<p>

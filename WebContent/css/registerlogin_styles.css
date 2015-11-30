@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+
+p.Viesti {
+	color: green;
+}
+p.Virhe {
+	color: red;
+}
+
+#viesti {
+	padding-top: 50px;
+}

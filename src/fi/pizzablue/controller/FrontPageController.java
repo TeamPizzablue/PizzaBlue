@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fi.pizzablue.admin.bean.Tiedote;
+import fi.pizzablue.admin.service.TiedoteService;
 import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
@@ -25,13 +27,16 @@ public class FrontPageController extends HttpServlet {
 		// luodaan uudet listat juomille ja pizzoille 
 		List<Pizza> pizzat;
 		List<Juoma> juomat;
+		List<Tiedote> tiedotteet;
 
 		//haetaan servicen avulla juomat ja pizzat listoille
 		try {
 			PizzalistaService pService = new PizzalistaService();
 			JuomalistaService jService = new JuomalistaService();
+			TiedoteService tService = new TiedoteService();
 			juomat = jService.haeJuomalista();
 			pizzat = pService.haePizzalista();
+			tiedotteet = tService.haeTiedotteet();
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
@@ -39,6 +44,7 @@ public class FrontPageController extends HttpServlet {
 		//asetetaan listat requestin attribuuteiksi
 		request.setAttribute("pizzat", pizzat);
 		request.setAttribute("juomat", juomat);
+		request.setAttribute("tiedotteet", tiedotteet);
 		
 		//siirrytään etusivulle
 		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);

@@ -29,6 +29,10 @@ public class TallennaRekisteroityminenController extends HttpServlet {
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("password2");
 		
+		/*if (username.equals("tyontekija") == false || username.equals("omistaja") == false) {
+			String virheviesti = "Käyttäjätunnus " + username + " ei kelpaa";
+			takaisinVirheviestilla(virheviesti, username, request, response);
+		}*/
 		
 		try {
 			//luodaan käyttäjä suolalla ja hashilla

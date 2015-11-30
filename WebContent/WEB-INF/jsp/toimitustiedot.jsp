@@ -58,6 +58,9 @@
 				<form action="siirry_toimitustietoihin" method="post" role="form">
 					<div id="kotiinkuljetus" class="tab-pane fade in active">--%>
 					<h1>Kotiinkuljetus</h1>
+					
+					<p> Muistathan ilmoittaa sähköpostiosoitteesi, mikäli haluat tilausvahvistuksen. </p>
+					
 					<form action="siirry_tilausvahvistukseen" method="post" role="form">
 						<div class="col-lg-4 col-lg-offset-4">
 								<div class="form-group col-xs-6">
