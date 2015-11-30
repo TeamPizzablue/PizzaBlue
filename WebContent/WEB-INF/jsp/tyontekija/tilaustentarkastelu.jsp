@@ -27,45 +27,38 @@
 
 <body>
 
-    <section id="hallinta" class="container content-section text-center">
+<section id="hallinta" class="container content-section text-center">
     <div class="row">
-<h1>Tilausten tarkastelu</h1>
+		<h1>Tilausten tarkastelu</h1>
 
-<!-- juomat -->
-<c:if test="${not empty param.lisatty}"><br><p class="pizzanluomisilmoitus">Uuden juoman luominen onnistui!</p></c:if>
-<c:if test="${not empty param.poistettu}"><br><p class="pizzanpoistoilmoitus">Juoman poistaminen onnistui!</p></c:if>
+		<!-- juomat -->
+		<c:if test="${not empty param.lisatty}"><br><p class="pizzanluomisilmoitus">Uuden juoman luominen onnistui!</p></c:if>
+		<c:if test="${not empty param.poistettu}"><br><p class="pizzanpoistoilmoitus">Juoman poistaminen onnistui!</p></c:if>
 
-<br>
-<h2>Tilaukset</h2><br>
-<div class="col-lg-10 sisaltopizza tilaustable text-uppercase table-responsive">
-    <div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>aika</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div></div>
-    <button class="lisatietojaBut btn btn-primary">Lisätietoja</button>
-    <div class="lisatiedot col-lg-12">
-    <p>Tilauksen tiedot <br/>
-    id pizzanimi määrä<br/>
-    pohjan tyyppi<br/>
-    id juomannimi määrä<br/><br/>
-    yhteishinta
-    </p></div>
-    
-    <div class="col-lg-10 sisaltopizza tilaustable text-uppercase table-responsive">
-    <div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>aika</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
-    <div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div></div>
-    <button class="lisatietojaBut btn btn-primary">Lisätietoja</button>
-    <div class="col-lg-12 lisatiedot">
-    <p>Tilauksen tiedot <br/>
-    id pizzanimi määrä<br/>
-    pohjan tyyppi<br/>
-    id juomannimi määrä<br/><br/>
-    yhteishinta
-    </p></div>
+		<br>
+		<h2>Tilaukset</h2><br>
+		<c:forEach items="1,2,3" var="numero">
+			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
+    			<div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
+    			<div class="lisatiedot col-lg-12">
+    			<div class="col-lg-8">
+    				Tilauksen tiedot <c:out value="${numero}"/><br/>
+   					id pizzanimi määrä<br/>
+    				pohjan tyyppi<br/>
+    				id juomannimi määrä<br/><br/>
+    				
+    			</div>
+    			<div class="col-lg-4">
+    				<p>yhteishinta</p>
+    			</div>
+    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button></div></div>
+   			</div>
+		</c:forEach>
     </div>
     <br><br>
    </section>

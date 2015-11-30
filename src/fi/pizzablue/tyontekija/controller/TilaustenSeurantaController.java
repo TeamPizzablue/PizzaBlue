@@ -1,4 +1,4 @@
-package fi.pizzablue.admin.controller;
+package fi.pizzablue.tyontekija.controller;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class TilaustenSeurantaController extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.getRequestDispatcher("WEB-INF/jsp/admin/tilaustentarkastelu.jsp").forward(request, response);
+    	request.getRequestDispatcher("WEB-INF/jsp/tyontekija/tilaustentarkastelu.jsp").forward(request, response);
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
