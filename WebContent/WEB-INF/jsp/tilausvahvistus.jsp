@@ -95,7 +95,8 @@
 				</c:forEach>
 				</table>
 				<br/><br/>
-				<h4>Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h4>
+				<h2 class="yhteissumma">Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h2>
+				<h5>sis. alv 14%</h5>
 				<br/><br/>
 				<!-- numeron selvennys, kyseessä ei ole rivinumero! - selitystä SAA MUUTTAA! -->
 				<p><span style="color:#42DCA3; font-size:25px;">*</span>

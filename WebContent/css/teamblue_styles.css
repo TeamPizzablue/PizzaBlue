@@ -76,6 +76,13 @@
 	border: none; 
 }
 
+
+.slaissi {
+	max-width:70%;
+	
+	
+}
+
 .thumbnail {
 	min-height: 630px;
 }
@@ -114,4 +121,26 @@ table .minikuvat {
 	font-size:20px !important; 
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important; 
 	text-transform: uppercase !important;
+}
+
+.emptycart {
+	color:black !important; 
+	text-align: center;
+	font-size:16px !important; 
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+.yhteissumma {
+	margin: 0;
+}
+.tehostevari {
+	color: #42DCA3;
+}
+.kotiinkuljetushinta {
+	color: pink; 
+	font-weight: 700;
+}
+.mausteet {
+	text-align: left !important;
+	padding: 15px 15px 15px 50px !important;
 }

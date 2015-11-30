@@ -96,7 +96,7 @@
 												</span> 
 												<span class="item-right"> <input type="hidden" name="ordernr" value="<c:out value="${count.index}"/>">
 													<!-- poista nappi -->
-													<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
+														<button type="submit" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon glyphicon-trash"> </button>
 
 												</span>
 											</span>
@@ -178,7 +178,8 @@
 							<li><a class="text-center" href="http://localhost:8080/pizzablue/ostoskorinsisalto">Siirry tilaamaan</a></li>
 							</c:if>
 							<c:if test="${tilaus.getTilausrivit().size() ==  null || tilaus.getTilausrivit().size() == 0}"><br/>
-							<p class="text-center"style="color:black;">Ostoskori on tyhjä !</p>
+							<p class="emptycart"style="color:black;font-style:bold;"><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskori on tyhjä </p>
+							<p style="color:black;font-size:12px;text-align:center;margin-top:-20px;"> Valikoimasta löydät pizzat ja juomat</p>
 							<li class="divider"></li>
 							<br>
 							</c:if>
@@ -225,7 +226,6 @@
 	</header>
 	<!-- esittely sivu alkaa -->
 	<section id="esittely" class="container content-section text-center">
-		<!--  <img class="bonappetito img-responsive" align="left" src="img/Bonappetito.png" alt="bonappetito"> -->
 		<div class="row">
 			<div class="col-lg-6">
 				<h2>Esittely</h2>
@@ -253,6 +253,7 @@
 				<c:forEach items="${tiedotteet}" var="tiedote" varStatus="count" end="2">
 				<blockquote><h4 style="color:#42DCA3;"><c:out value="${tiedote.otsikko}"/></h4><c:out value="${tiedote.sisalto}"/></blockquote>
 				</c:forEach>
+				<img class="img-responsive" align="right" src="img/Bonappetito.png" alt="kuva">
 			</div>
 			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>
