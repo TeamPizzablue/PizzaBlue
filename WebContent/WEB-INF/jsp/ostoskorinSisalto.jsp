@@ -50,7 +50,7 @@
 				
 				<table class="sisalto text-uppercase table-responsive">
 					<tr class="tietorivi">
-						<td>numero</td>
+						<td>pizzan numero</td>
 						<td>tuotteen nimi</td>
 						<td>hinta</td>
 						<td>lisämausteet</td>
@@ -66,7 +66,7 @@
 								<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
 								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
 								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-								<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
+								<td class="mausteet">
 									<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
 										Valkosipuli <br/> 
 									<input type="checkbox" name="mausteetO" value="<c:out value="${count.index}"/>"> 
@@ -97,28 +97,39 @@
 						</c:if>
 					</c:forEach>
 				</table>
-				
-				<br><br><br>
-  				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
+				<br><br>
+				<div class="col-lg-12">
+  					<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto<span style="color:#42DCA3; font-size:25px;">*</span></p><br>
   				
-  				<!-- toimitustavan valinta -->
- 				<select name="toimitustapa" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
-    			<option value="nouto">Nouto pizzeriasta</option>
-    			<option value="kotiinkuljetus">Kotiinkuljetus</option>
-    			</select>
-				
+  					<!-- toimitustavan valinta -->
+ 					<select name="toimitustapa" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
+    					<option value="nouto">Nouto pizzeriasta</option>
+    					<option value="kotiinkuljetus">Kotiinkuljetus</option>
+    				</select><br><br><br>
+    			</div>
+				<!-- toimitusehdot-->
+				<div class="row">
+    				<div class="col-lg-6">
+    					<h3>Nouto</h3>
+    					<p>Noutotilauksen toimitusaika on 15-30 min.</p>
+						<p>Noutotilausten vastaanotto päättyy puoli tuntia ennen sulkemista.</p>
+					</div>
+					<div class="col-lg-6">
+					<h3>Kotiinkuljetus</h3>
+						<p>Kotiinkuljetuksen toimitusaika on 30-60 min ja kuljetustilausten vastaanotto päättyy tuntia ennen sulkemista.</p>
+						<p>Toimitusalueemme on 5km. Kotiinkuljetus maksaa <span class="kotiinkuljetushinta">2,99 €</span>.</p>
+					</div>
+				</div>
 				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
-				<h3>
-					<br/><br/><br/> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br/> <span></span>
-				</h3>
-				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
-								
+				<h2 class="yhteissumma">Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h2>
+				<h5>sis. alv 14%</h5>
+				<p class="small"><span class="tehostevari">*</span> Voit valita noudatko tilauksesi pizzeriastamme vai toimitammeko sen kotiovellesi.</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Lähetä tilaus -->
-	<section id="tilauksenLähetys" class="container content-section text-center" style="padding-top: 50px !important;">
+	<section id="tilauksenLähetys" class="container content-section text-center" style="padding-top: 20px !important;">
 		<div class="row">
 			<div class="col-lg-12">
 			

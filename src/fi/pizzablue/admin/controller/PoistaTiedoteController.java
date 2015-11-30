@@ -8,33 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fi.pizzablue.bean.Pizza;
+import fi.pizzablue.admin.bean.Tiedote;
+import fi.pizzablue.admin.service.TiedoteService;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.admin.service.PizzaAdminService;
 
-
-
-@WebServlet("/del")
-public class DelServlet extends HttpServlet {
+@WebServlet("/poista_tiedote")
+public class PoistaTiedoteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String syoteID = request.getParameter("id");
+	String syoteID = request.getParameter("id");
 		
 		//muutetaan string syöte intiksi
 		int id = Integer.parseInt(syoteID);
 		
 		//luodaan pizzaolio poistoa varten
-		Pizza p = new Pizza(id);
+		Tiedote t = new Tiedote(id);
 
 		try {
-			PizzaAdminService service = new PizzaAdminService();
-			service.poistaPizza(p);
+			TiedoteService service = new TiedoteService();
+			service.poistaTiedote(t);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		response.sendRedirect("admin?deleted=true");
+		response.sendRedirect("tiedotteet?poistettu=true");
 	}
-	
+
 }

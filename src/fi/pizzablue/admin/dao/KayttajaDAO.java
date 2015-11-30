@@ -7,13 +7,8 @@ import java.sql.SQLException;
 
 import fi.pizzablue.admin.bean.Kayttaja;
 import fi.pizzablue.dao.DAOPoikkeus;
-import fi.pizzablue.admin.dao.UsernameVarattuPoikkeus;
 
 public class KayttajaDAO {
-	
-	public KayttajaDAO() throws DAOPoikkeus {
-		super();
-	}
 
 
 	/**
@@ -26,23 +21,21 @@ public class KayttajaDAO {
 	 * @throws DAOPoikkeus
 	 *             Mikäli tietokantahaussa tapahtuu virhe
 	 */
-	public void lisaa(Kayttaja kayttaja) throws UsernameVarattuPoikkeus,
-			DAOPoikkeus {
-		//Connection yhteys = avaaYhteys();
+	public void lisaa(Kayttaja kayttaja, Connection yhteys) throws DAOPoikkeus {
 
 		try {
 
 			// tarkistetaan, että usernamella ei jo löydy käyttäjää
-			PreparedStatement usernameHaku = yhteys
-					.prepareStatement("select id from webuser where username = ?");
+			PreparedStatement usernameHaku = yhteys.prepareStatement("select id from kayttaja where username = ?");
 			usernameHaku.setString(1, kayttaja.getUsername());
 			ResultSet rs = usernameHaku.executeQuery();
-			if (rs.next())
-				throw new UsernameVarattuPoikkeus();
+			if (rs.next()) {
+				System.out.println("Käyttäjä on jo");
+				throw new DAOPoikkeus();
+			}
 
 			// suoritetaan lisäys
-			PreparedStatement insertLause = yhteys
-					.prepareStatement("insert into webuser(username, password_hash, salt) values(?,?,?)");
+			PreparedStatement insertLause = yhteys.prepareStatement("insert into kayttaja(username, password_hash, salt) values(?,?,?)");
 			insertLause.setString(1, kayttaja.getUsername());
 			insertLause.setString(2, kayttaja.getPasswordHash());
 			insertLause.setString(3, kayttaja.getSalt());
@@ -52,22 +45,17 @@ public class KayttajaDAO {
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
 			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-		} finally {
-			// LOPULTA AINA SULJETAAN YHTEYS
-			suljeYhteys(yhteys);
 		}
 
 	}
 
-	public Kayttaja hae(String username) throws DAOPoikkeus {
+	public Kayttaja hae(String username, Connection yhteys) throws DAOPoikkeus {
 		Kayttaja kayttaja;
-		Connection yhteys = avaaYhteys();
 
 		try {
 
 			// tarkistetaan, että usernamella ei jo löydy käyttäjää
-			PreparedStatement usernameHaku = yhteys
-					.prepareStatement("select id, username, salt, password_hash from webuser where username = ?");
+			PreparedStatement usernameHaku = yhteys.prepareStatement("select id, username, salt, password_hash from kayttaja where username = ?");
 			usernameHaku.setString(1, username);
 			ResultSet rs = usernameHaku.executeQuery();
 			if (rs.next()) {
@@ -85,9 +73,6 @@ public class KayttajaDAO {
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
 			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-		} finally {
-			// LOPULTA AINA SULJETAAN YHTEYS
-			suljeYhteys(yhteys);
 		}
 		return kayttaja;
 	}

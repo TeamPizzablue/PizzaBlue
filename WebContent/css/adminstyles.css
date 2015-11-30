@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-* {
+/* * {
     font-family: Verdana;
 }
 p, body {
@@ -23,7 +23,7 @@ td {
 	border: 1px;
 	border-style: solid;
 	border-color: #c0c0c0;
-	padding: 10px;
+	padding: 0px !important;
 	
 }
 .ylinrivi {
@@ -51,7 +51,47 @@ label {
 	margin: 0 auto !important;
 }
 
+*/
+/* uusia tyylejä */
 
+.sisaltopizza, .sisaltojuoma {
+	margin: 0 auto; 
+	width: 100%;
+	font-family: 'Muli', sans-serif;
+	border: 1px solid #0F0F0F;
+	
+}
 
+.sisaltopizza td, th {
+	margin: 0px;
+	padding: 10px !important;
+	text-align: center;
+	border-collapse: collapse !important;
+}
 
+.sisaltojuoma td, th {
+	margin: 0px;
+	padding: 10px 5px 10px 5px !important;
+	text-align: center;
+	border-collapse: collapse !important;
+}
 
+.tuoterivi:nth-child(even) {background: #090909 !important;
+}
+
+.tuoterivi:nth-child(odd) {background: #0F0F0F !important;
+}
+
+#hallinta {
+	padding-top: 130px !important;
+}
+
+input {
+	color:black !important;
+}
+.tiedotteenLisays {
+	color:lime;
+}
+.tiedotteenPoisto {
+	color: pink;
+}

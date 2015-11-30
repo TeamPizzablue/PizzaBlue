@@ -96,7 +96,7 @@
 }
 
 .sisalto td, th {
-	magin: 0px;
+	margin: 0px;
 	padding: 15px !important;
 	text-align: center;
 	border-collapse: collapse !important;
@@ -123,13 +123,24 @@ table .minikuvat {
 	text-transform: uppercase !important;
 }
 
-
-
 .emptycart {
 	color:black !important; 
 	text-align: center;
 	font-size:16px !important; 
 	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
 
-
+.yhteissumma {
+	margin: 0;
+}
+.tehostevari {
+	color: #42DCA3;
+}
+.kotiinkuljetushinta {
+	color: pink; 
+	font-weight: 700;
+}
+.mausteet {
+	text-align: left !important;
+	padding: 15px 15px 15px 50px !important;
 }
