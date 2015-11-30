@@ -30,115 +30,153 @@
 	rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css">
-	
-	
-<!-- Taulukon fontti -->	
-<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+
+
+<!-- Taulukon fontti -->
+<link href='https://fonts.googleapis.com/css?family=Muli'
+	rel='stylesheet' type='text/css'>
 
 <title>Tilaussivu</title>
 </head>
 
 <body>
-<form action="siirry_toimitustietoihin" method="post" role="form" accept-charset="UTF-8">
+	<form action="siirry_toimitustietoihin" method="post" role="form"
+		accept-charset="UTF-8">
 
-	<!-- Ostoskori -->
-	
-	<section id="ostoskori" class="container content-section text-center">
-		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1">
-				<h2>Ostoskorin sisältö</h2>
-				
-				<table class="sisalto text-uppercase table-responsive">
-					<tr class="tietorivi">
-						<td>numero</td>
-						<td>tuotteen nimi</td>
-						<td>hinta</td>
-						<td>lisämausteet</td>
-						<td>pizzapohja</td>
-					</tr>
-					
-					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
-					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-						<!-- jos tuote on pizzarivillä tulostetaan pizzan tietoja -->
-						<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
-							<tr class="tuoterivi">
-								<td><c:out value="${tilausrivi.pizza.numero}"/></td>
-								<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
-								<td class="minikuvat"><img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.pizza.nimi}"/></td>
-								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-								<td style="text-align: left; padding: 15px 15px 15px 50px !important;">
-									<input type="checkbox" name="mausteetV" value="<c:out value="${count.index}"/>">
-										Valkosipuli <br/> 
-									<input type="checkbox" name="mausteetO" value="<c:out value="${count.index}"/>"> 
-										Oregano
-								</td>
-								<td>
-									<!-- pizzapohjien valinnat saadaan mustalla värillä selkeämmäksi -->
-									<select name="pizzapohja-<c:out value="${count.index}"/>" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
-										<option value="tavallinen">Tavallinen</option>
-										<option value="taysjyva">Täysjyvä</option>
-										<option value="gluteeniton">Gluteeniton</option>
+		<!-- Ostoskori -->
+
+		<section id="ostoskori" class="container content-section text-center">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1">
+					<h2>Ostoskorin sisältö</h2>
+
+					<table class="sisalto text-uppercase table-responsive">
+						<tr class="tietorivi">
+							<td>numero</td>
+							<td>tuotteen nimi</td>
+							<td>hinta</td>
+							<td>lisämausteet</td>
+							<td>pizzapohja</td>
+						</tr>
+
+						<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
+						<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi"
+							varStatus="count">
+							<!-- jos tuote on pizzarivillä tulostetaan pizzan tietoja -->
+							<c:if
+								test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
+								<tr class="tuoterivi">
+									<td><c:out value="${tilausrivi.pizza.numero}" /></td>
+									<!--  haetaan pizzan nimen eteen kuva pizzan numeron mukaan -->
+									<td class="minikuvat"><img
+										src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png"
+										alt="kuva" align="left"> <c:out
+											value="${tilausrivi.pizza.nimi}" /></td>
+									<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}"
+											minFractionDigits="2"></fmt:formatNumber> €</td>
+									<td
+										style="text-align: left; padding: 15px 15px 15px 50px !important;">
+										<input type="checkbox" name="mausteetV"
+										value="<c:out value="${count.index}"/>"> Valkosipuli <br />
+										<input type="checkbox" name="mausteetO"
+										value="<c:out value="${count.index}"/>"> Oregano
+									</td>
+									<td>
+										<!-- pizzapohjien valinnat saadaan mustalla värillä selkeämmäksi -->
+										<select name="pizzapohja-<c:out value="${count.index}"/>"
+										style="background-color: white; padding: 3px; color: black;"
+										required class="btn-default btn pizzapohja">
+											<option value="tavallinen">Tavallinen</option>
+											<option value="taysjyva">Täysjyvä</option>
+											<option value="gluteeniton">Gluteeniton</option>
 									</select>
-								</td>
-							</tr>
-						</c:if>
-					</c:forEach>
-				
-					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
-						<!-- jos tuote on juomarivillä tulostetaan juoman tietoja -->
-						<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
-							<tr class="tuoterivi">
-								<td><c:out value="${tilausrivi.juoma.numero}"/></td>
-								<!--  haetaan juoman nimen eteen kuva juoman numeron mukaan -->
-								<td class="minikuvat"><img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva" align="left">  <c:out value="${tilausrivi.juoma.nimi}"/></td>
-								<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-								<td></td><td></td>
-							</tr>
-						</c:if>
-					</c:forEach>
-				</table>
-				
-				<br><br><br>
-  				<p class="sisalto text-uppercase">Valitse tilauksen toimitusmuoto</p><br>
-  				
-  				<!-- toimitustavan valinta -->
- 				<select name="toimitustapa" style="background-color: white; padding: 3px; color:black;" required class="btn-default btn pizzapohja">
-    			<option value="nouto">Nouto pizzeriasta</option>
-    			<option value="kotiinkuljetus">Kotiinkuljetus</option>
-    			</select>
-				
-				<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
-				<h3>
-					<br/><br/><br/> Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;<br/> <span></span>
-				</h3>
-				<%-- <p id="kuljetusmaksu" style="color:white"></p>--%>
-								
-			</div>
-		</div>
-	</section>
+									</td>
+								</tr>
+							</c:if>
+						</c:forEach>
 
-	<!-- Lähetä tilaus -->
-	<section id="tilauksenLähetys" class="container content-section text-center" style="padding-top: 50px !important;">
-		<div class="row">
-			<div class="col-lg-12">
-			
-				<!-- Paluu etusivulle -->
-				<a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage#pitsalista" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Palaa etusivulle</a>
-			
-				<!-- siirrytään eteenpäin tilausprosessissa -->
-				<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
-			</div>
-		</div>
-	</section>
-</form>
+						<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi"
+							varStatus="count">
+							<!-- jos tuote on juomarivillä tulostetaan juoman tietoja -->
+							<c:if
+								test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Juomarivi'}">
+								<tr class="tuoterivi">
+									<td><c:out value="${tilausrivi.juoma.numero}" /></td>
+									<!--  haetaan juoman nimen eteen kuva juoman numeron mukaan -->
+									<td class="minikuvat"><img
+										src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png"
+										alt="kuva" align="left"> <c:out
+											value="${tilausrivi.juoma.nimi}" /></td>
+									<td><fmt:formatNumber value="${tilausrivi.juoma.hinta}"
+											minFractionDigits="2"></fmt:formatNumber> €</td>
+									<td></td>
+									<td></td>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</table>
 
-<!-- Footer -->
+					<br> <br> <br>
+					<p class="sisalto text-uppercase">Valitse tilauksen
+						toimitusmuoto</p>
+					<br>
+
+					<!-- toimitustavan valinta -->
+
+					<select name="toimitustapa"
+						style="background-color: white; padding: 3px; color: black;"
+						required class="btn-default btn pizzapohja" id="toimitustapa"
+						form="kotiinkuljetushinta" onchange="myFunction(this.value)">
+						<option value="nouto">Nouto pizzeriasta</option>
+						<option value="kotiinkuljetus">Kotiinkuljetus</option>
+					</select>
+
+					<!-- haetaan tilaus-oliosta tilauksen yhteissumma -->
+					<h3>
+						<br /> <br /> <br /> Yhteissumma:
+						<fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber>
+						&euro;<br /> <span id="ilmoitusteksti"></span>
+					</h3>
+					<p id="kuljetusmaksu" style="color: white"></p>
+					<%
+						
+					%>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Lähetä tilaus -->
+		<section id="tilauksenLähetys"
+			class="container content-section text-center"
+			style="padding-top: 50px !important;">
+			<div class="row">
+				<div class="col-lg-12">
+
+					<!-- Paluu etusivulle -->
+					<a
+						href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage#pitsalista"
+						class="btn btn-default btn-lg" role="button"><span
+						class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						Palaa etusivulle</a>
+
+					<!-- siirrytään eteenpäin tilausprosessissa -->
+					<button class="btn btn-default btn-lg" type="submit" value="Submit">
+						Jatka tilaamista <span class="glyphicon glyphicon-arrow-right"
+							aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+		</section>
+	</form>
+	<form action="kotiinkuljetus_hinta" name="kotiinkuljetushinta"></form>
+	<!-- Footer -->
 	<footer>
 		<div class="container text-center">
 			<p></p>
 		</div>
 	</footer>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 
@@ -156,11 +194,54 @@
 	<script src="js/grayscale.js"></script>
 
 	<script>
-		$(document).ready(function() {
+		$(document)
+				.ready(
+						function() {
 
-			$("#tabs").tabs();
+							var toimitustapa = 'kotiinkuljetus';
 
-		});
+							/* $( "select" ).change(function() {
+							$("option[value=kotiinkuljetus]").add(function() {
+								
+							});
+							$("option[value=nouto]");
+							});
+							 
+
+							$("select option")
+									.each(
+											function() {
+												if ($(this).val() == toimitustapa) {
+
+													var para = document
+															.createElement("p");
+													var node = document
+															.createTextNode("Tilauksen hintaan lisätään kotiinkuljetuksen hinta 2.99 €");
+													para.appendChild(node);
+
+													var element = document
+															.getElementById("ilmoitusteksti");
+													element.appendChild(para);
+												}
+											});
+							*/
+							function myFunction(val) {
+								location.reload();
+								var kotiinkuljetus = 'kotiinkuljetus';
+								if ($(this).val() === kotiinkuljetus) {
+									var para = document.createElement("p");
+									var node = document
+											.createTextNode("Tilauksen hintaan lisättiin kotiinkuljetuksen hinta");
+									para.appendChild(node);
+
+									var element = document
+											.getElementById("ilmoitusteksti");
+									element.appendChild(para);
+								}
+
+							}
+
+						});
 	</script>
 
 

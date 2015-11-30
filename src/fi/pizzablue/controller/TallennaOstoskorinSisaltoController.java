@@ -69,6 +69,7 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 				}
 			}
 		}
+		
 		System.out.println(toimitustapa);
 		if (toimitustapa.equals("nouto")) {
 			tilaus.setKotiinkuljetus(false);
