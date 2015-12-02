@@ -23,6 +23,10 @@ public class KokoTilaus {
 	private List<Juoma> juomat;
 	private int tila;
 	
+	public KokoTilaus() {
+		
+	}
+	
 	public KokoTilaus(int id, double hinta, Date aikaleima,
 			boolean kotiinkuljetus, String etunimi, String sukunimi,
 			String puhelinnumero, String sahkoposti, String katuosoite,
