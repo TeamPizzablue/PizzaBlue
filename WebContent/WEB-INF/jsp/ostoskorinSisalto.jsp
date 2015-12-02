@@ -56,7 +56,7 @@
 							<td>tuotteen nimi</td>
 							<td>hinta</td>
 							<td>lisämausteet</td>
-							<td>pizzapohja</td>
+							<td>pizzapohja <span style="color: #42DCA3; font-size: 25px;">*</span></td> 
 						</tr>
 
 						<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä. -->
@@ -211,9 +211,15 @@
 
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
-
-
-
+<script>
+$(document).ready(function() {
+ 	$('.ravintoarvotBut').click(function() {
+    		  //Use the current button which triggered the event
+    		  $(this).siblings('.ravintoarvotDiv').slideToggle();
+    		  $(this).find('.glyphicon').toggleClass('glyphicon-chevron-down').toggleClass('glyphicon-chevron-up');	  
+    	});
+})
+ 	</script>
 </body>
 
 </html>
