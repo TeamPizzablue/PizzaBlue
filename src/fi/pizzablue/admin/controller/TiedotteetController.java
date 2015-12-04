@@ -32,7 +32,7 @@ public class TiedotteetController extends HttpServlet {
 
 		if (user == null) { //jos käyttäjätietoja ei löydy, heitetään etusivulle
 			request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
-		} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
+		} else if(user.getUsername().equals("admin")) {// mikäli käyttäjätiedot löytyvät, päästetään sisään
 		
 			try {
 				TiedoteService tService = new TiedoteService();
@@ -42,6 +42,9 @@ public class TiedotteetController extends HttpServlet {
 			}
 			request.setAttribute("tiedotteet", tiedotteet);
 			request.getRequestDispatcher("WEB-INF/jsp/admin/tiedotteet.jsp").forward(request, response);
+		} else {
+			request.setAttribute("error", "Ei oikeuksia!");
+			request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
 		}
 	}
 }

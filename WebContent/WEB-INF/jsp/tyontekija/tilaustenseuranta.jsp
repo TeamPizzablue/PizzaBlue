@@ -25,11 +25,39 @@
 	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Hallintapaneeli</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#">Tilaukset</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="kirjaudu_ulos">Kirjaudu ulos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <section id="hallinta" class="container content-section text-center">
     <div class="row">
-		<h1>Tilausten tarkastelu</h1>
+		<h1>Tilausten seuranta</h1>
 
 		<!-- juomat -->
 		<c:if test="${not empty param.lisatty}"><br><p class="pizzanluomisilmoitus">Uuden juoman luominen onnistui!</p></c:if>
@@ -37,26 +65,41 @@
 
 		<br>
 		<h2>Tilaukset</h2><br>
-		<c:forEach items="1,2,3" var="numero">
-			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
-    			<div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
+		<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
+    			<div class="ylinrivi col-lg-1"><strong>tilausnumero</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>toimitustapa</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
+    			<div class="ylinrivi col-lg-2"></div>
+    	</div>
+		<c:forEach items="${tilaus}" var="tilaus">
+			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
+    			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.id}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.aikaleima}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><c:choose>
+    			<c:when test="${tilaus.kotiinkuljetus == true}">
+    			Kotiinkuljetus</c:when>
+    			<c:otherwise>
+    			Nouto</c:otherwise></c:choose></strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
     			<div class="col-lg-8">
-    				Tilauksen tiedot <c:out value="${numero}"/><br/>
-   					id pizzanimi määrä<br/>
-    				pohjan tyyppi<br/>
+    			<c:forEach items="${tilaus.pizzat}" var="pizza">
+    				Tilauksen tiedot <br/>
+   					<c:out value="${pizza.pizza.id}"/> <c:out value="${pizza.pizza.nimi}"/><br/>
+    				<c:out value="${pizza.pohja}"/><br/>
+    				</c:forEach>
     				id juomannimi määrä<br/><br/>
-    				
     			</div>
     			<div class="col-lg-4">
     				<p>yhteishinta</p>
     			</div>
-    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button></div></div>
+    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button><br><br></div></div>
    			</div>
 		</c:forEach>
     </div>

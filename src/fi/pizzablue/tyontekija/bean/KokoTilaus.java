@@ -3,8 +3,6 @@ package fi.pizzablue.tyontekija.bean;
 import java.util.Date;
 import java.util.List;
 
-import fi.pizzablue.bean.Juoma;
-
 public class KokoTilaus {
 	
 	private int id;
@@ -20,7 +18,7 @@ public class KokoTilaus {
 	private String postitoimipaikka;
 	private String lisatiedot;
 	private List<KokoPizza> pizzat;
-	private List<Juoma> juomat;
+	private List<KokoJuoma> juomat;
 	private int tila;
 	
 	public KokoTilaus() {
@@ -31,7 +29,7 @@ public class KokoTilaus {
 			boolean kotiinkuljetus, String etunimi, String sukunimi,
 			String puhelinnumero, String sahkoposti, String katuosoite,
 			String postinumero, String postitoimipaikka, String lisatiedot,
-			List<KokoPizza> pizzat, List<Juoma> juomat, int tila) {
+			List<KokoPizza> pizzat, List<KokoJuoma> juomat, int tila) {
 		this.id = id;
 		this.hinta = hinta;
 		this.aikaleima = aikaleima;
@@ -153,11 +151,11 @@ public class KokoTilaus {
 		this.pizzat = pizzat;
 	}
 
-	public List<Juoma> getJuomat() {
+	public List<KokoJuoma> getJuomat() {
 		return juomat;
 	}
 
-	public void setJuomat(List<Juoma> juomat) {
+	public void setJuomat(List<KokoJuoma> juomat) {
 		this.juomat = juomat;
 	}
 

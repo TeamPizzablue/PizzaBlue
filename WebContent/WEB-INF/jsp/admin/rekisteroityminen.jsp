@@ -41,10 +41,10 @@
                 	<label for="kayttajatunnus">Käyttäjätunnus: </label><input class="form-control" type="text" name="username" value="<c:out value="${prev_reg_username}"/>" style="color:black">
                 </div>
                 <div class="form-group col-md-4 col-md-offset-4">
-                	<label for="salasana">Salasana: </label><input class="form-control" type="password" name="puhelinumero" style="color:black">
+                	<label for="salasana">Salasana: </label><input class="form-control" type="password" name="password" style="color:black">
                 </div>
                 <div class="form-group col-md-4 col-md-offset-4">
-                	<label for="salasana2">Salasana: </label><input class="form-control" type="password" name="sahkoposti" style="color:black">
+                	<label for="salasana2">Salasana: </label><input class="form-control" type="password" name="password2" style="color:black">
                 </div>
                 <div class="form-group col-md-4 col-md-offset-4">
                 	<button class="btn btn-default" type="submit" >Rekisteröidy</button>

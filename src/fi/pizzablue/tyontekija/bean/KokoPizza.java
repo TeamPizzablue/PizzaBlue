@@ -4,16 +4,30 @@ import fi.pizzablue.bean.Pizza;
 
 public class KokoPizza {
 	
+	private int tilausId;
 	private boolean oregano;
 	private boolean valkosipuli;
 	private String pohja;
 	private Pizza pizza;
 	
-	public KokoPizza(boolean oregano, boolean valkosipuli, String pohja, Pizza pizza) {
+	public KokoPizza(int tilausId, boolean oregano, boolean valkosipuli, String pohja, Pizza pizza) {
+		this.tilausId = tilausId;
 		this.oregano = oregano;
 		this.valkosipuli = valkosipuli;
 		this.pohja = pohja;
 		this.pizza = pizza;
+	}
+
+	public KokoPizza() {
+		
+	}
+	
+	public int getTilausId() {
+		return tilausId;
+	}
+	
+	public void setTilausId(int tilausId) {
+		this.tilausId = tilausId;
 	}
 
 	public boolean isOregano() {
