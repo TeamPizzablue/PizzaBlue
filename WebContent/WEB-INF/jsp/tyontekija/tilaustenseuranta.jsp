@@ -97,7 +97,7 @@
     			<div class="col-lg-4">
     				<p>yhteishinta</p>
     			</div>
-    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button><br><br></div></div>
+    			<div class="col-lg-10"></div><div class="col-lg-2"><form action="tulosta_tilaus" method="post"><button class="btn btn-default">Tulosta tilaus</button></form><br><br></div></div>
    			</div>
 		</c:forEach>
     </div>
