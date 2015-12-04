@@ -29,10 +29,7 @@ public class TallennaRekisteroityminenController extends HttpServlet {
 		String password = request.getParameter("password");
 		String password2 = request.getParameter("password2");
 		
-		/*if (username.equals("tyontekija") == false || username.equals("omistaja") == false) {
-			String virheviesti = "Käyttäjätunnus " + username + " ei kelpaa";
-			takaisinVirheviestilla(virheviesti, username, request, response);
-		}*/
+		if (username.equals("tyontekija") || username.equals("admin")) {
 		
 		try {
 			//luodaan käyttäjä suolalla ja hashilla
@@ -52,6 +49,10 @@ public class TallennaRekisteroityminenController extends HttpServlet {
 			throw new ServletException("Tietokantavirhe", e);
 		} catch (NoSuchAlgorithmException e) {
 			throw new ServletException("Salausalgoritmia ei löydy.", e);
+		}
+		} else {
+			String virheviesti = "Käyttäjätunnus " + username + " ei kelpaa";
+			takaisinVirheviestilla(virheviesti, username, request, response);
 		}
 	
 		
