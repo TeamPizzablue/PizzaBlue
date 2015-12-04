@@ -16,6 +16,11 @@ public class KokoPizza {
 		this.pizza = pizza;
 	}
 
+	public KokoPizza() {
+		super();
+	}
+
+
 	public boolean isOregano() {
 		return oregano;
 	}
