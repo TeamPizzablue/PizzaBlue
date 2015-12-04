@@ -65,26 +65,35 @@
 
 		<br>
 		<h2>Tilaukset</h2><br>
-		<c:forEach items="1,2,3" var="numero">
-			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
-    			<div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
+		<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
+    			<div class="ylinrivi col-lg-1"><strong>tilausnumero</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
+    			<div class="ylinrivi col-lg-2"></div>
+    	</div>
+		<c:forEach items="${tilaus}" var="tilaus">
+			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
+    			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.id}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.aikaleima}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
     			<div class="col-lg-8">
-    				Tilauksen tiedot <c:out value="${numero}"/><br/>
+    				Tilauksen tiedot <br/>
    					id pizzanimi määrä<br/>
     				pohjan tyyppi<br/>
     				id juomannimi määrä<br/><br/>
-    				
     			</div>
     			<div class="col-lg-4">
     				<p>yhteishinta</p>
     			</div>
-    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button></div></div>
+    			<div class="col-lg-10"></div><div class="col-lg-2"><button class="btn btn-default">Tulosta tilaus</button><br><br></div></div>
    			</div>
 		</c:forEach>
     </div>
