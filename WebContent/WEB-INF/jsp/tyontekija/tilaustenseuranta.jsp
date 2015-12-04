@@ -89,9 +89,11 @@
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
     			<div class="col-lg-8">
+    			<c:forEach items="${tilaus.pizzat}" var="pizza">
     				Tilauksen tiedot <br/>
-   					id pizzanimi määrä<br/>
-    				pohjan tyyppi<br/>
+   					<c:out value="${pizza.pizza.id}"/> <c:out value="${pizza.pizza.nimi}"/><br/>
+    				<c:out value="${pizza.pohja}"/><br/>
+    				</c:forEach>
     				id juomannimi määrä<br/><br/>
     			</div>
     			<div class="col-lg-4">
