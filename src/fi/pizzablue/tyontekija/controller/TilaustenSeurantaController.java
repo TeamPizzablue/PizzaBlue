@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import fi.pizzablue.dao.DAOPoikkeus;
 
+import fi.pizzablue.admin.bean.Kayttaja;
+import fi.pizzablue.admin.controller.SiteController;
+import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.tyontekija.bean.KokoTilaus;
 import fi.pizzablue.tyontekija.service.KokoTilausService;
 
@@ -22,7 +24,14 @@ public class TilaustenSeurantaController extends HttpServlet {
         super();
     }
     
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//otetaan käyttäjätiedot sessiosta
+				Kayttaja user = (Kayttaja) request.getSession().getAttribute(SiteController.SESSION_ATTR_WEBUSER);
+
+				if (user == null) { //jos käyttäjätietoja ei löydy, heitetään etusivulle
+					request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
+				} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
 		// luodaan lista
 				List<KokoTilaus> tilaus;
 
@@ -33,16 +42,9 @@ public class TilaustenSeurantaController extends HttpServlet {
 				} catch(DAOPoikkeus e) {
 					throw new ServletException(e);
 				}
+				request.setAttribute("tilaus", tilaus);
+				request.getRequestDispatcher("WEB-INF/jsp/tyontekija/tilaustenseuranta.jsp").forward(request, response);
 				
-		
-		//otetaan käyttäjätiedot sessiosta
-		/*Kayttaja user = (Kayttaja) request.getSession().getAttribute(SiteController.SESSION_ATTR_WEBUSER);
-
-		if (user == null) { //jos käyttäjätietoja ei löydy, heitetään etusivulle
-			request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
-		} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
-			request.getRequestDispatcher("WEB-INF/jsp/admin/tilaustenseuranta.jsp").forward(request, response);
-		} */
-		request.getRequestDispatcher("WEB-INF/jsp/tyontekija/tilaustenseuranta.jsp").forward(request, response);
-	}
+				}
+		}
 }

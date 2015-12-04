@@ -70,7 +70,7 @@
     			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>toimitustapa</strong></div>
     			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
     			<div class="ylinrivi col-lg-2"></div>
     	</div>
@@ -80,7 +80,11 @@
     			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.aikaleima}"/></strong></div>
     			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>kotiinkuljetus/nouto</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><c:choose>
+    			<c:when test="${tilaus.kotiinkuljetus == true}">
+    			Kotiinkuljetus</c:when>
+    			<c:otherwise>
+    			Nouto</c:otherwise></c:choose></strong></div>
     			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">

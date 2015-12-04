@@ -22,10 +22,9 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 		public List<KokoTilaus> haeTilaukset(Connection yhteys) throws DAOPoikkeus {
 
 			List<KokoTilaus> ktilaus = new ArrayList<KokoTilaus>();
-			KokoTilaus kokotilaus = new KokoTilaus();
 			
 			try {
-				String sql = "SELECT t.id, t.aikaleima, t.kotiinkuljetus, t.hinta, t.etunimi, t.sukunimi, t.puhelinnumero, t.sahkoposti, t.katuosoite, t.postinro, t.postitmp, t.lisatiedot, ti.id FROM tilaus t JOIN tila ti ON t.tila_id = ti.id;";
+				String sql = "SELECT t.id, t.aikaleima, t.kotiinkuljetus, t.hinta, t.etunimi, t.sukunimi, t.puhelinnumero, t.sahkoposti, t.katuosoite, t.postinro, t.postitmp, t.lisatiedot, ti.id FROM tilaus t JOIN tila ti ON t.tila_id = ti.id ORDER BY t.id DESC;";
 				Statement haku = yhteys.createStatement();
 				ResultSet tulokset = haku.executeQuery(sql);
 				
@@ -44,6 +43,8 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 					String postitmp = tulokset.getString("t.postitmp");
 					String lisatiedot = tulokset.getString("t.lisatiedot");
 					int tilaId = tulokset.getInt("ti.id");
+					
+					KokoTilaus kokotilaus = new KokoTilaus();
 					
 			//lisätään tilaus listaan
 					kokotilaus.setId(tilausId);
@@ -66,7 +67,7 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
 			} 
 				
-				System.out.println("Haettiin tilaukset: " + kokotilaus.toString());
+				//System.out.println("Haettiin tilaukset: " + kokotilaus.toString());
 				
 				return ktilaus;
 				
