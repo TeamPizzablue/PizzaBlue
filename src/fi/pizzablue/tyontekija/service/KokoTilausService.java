@@ -5,6 +5,8 @@ import java.util.List;
 
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.Yhteys;
+import fi.pizzablue.tyontekija.bean.KokoJuoma;
+import fi.pizzablue.tyontekija.bean.KokoPizza;
 import fi.pizzablue.tyontekija.bean.KokoTilaus;
 import fi.pizzablue.tyontekija.dao.HaeTilausDAO;
 
@@ -18,25 +20,19 @@ public class KokoTilausService {
 
 		Connection yhteys = Yhteys.avaaYhteys();	
 		List<KokoTilaus> tilaus = hDAO.haeTilaukset(yhteys);
+		
+		for (KokoTilaus kokotilaus : tilaus) {
+			int id = kokotilaus.getId();
+			List<KokoPizza> kpLista = hDAO.haeKokotilauksenPizzat(id, yhteys);
+			kokotilaus.setPizzat(kpLista);
+			List<KokoJuoma> kjLista = hDAO.haeKokotilauksenJuomat(id, yhteys);
+			kokotilaus.setJuomat(kjLista);	
+		}
+		
 		Yhteys.suljeYhteys(yhteys);
 		
 		return tilaus;
 		
 	}
-//kesken
-	public void haeTilauksenPizzat() throws DAOPoikkeus {
-
-		Connection yhteys = Yhteys.avaaYhteys();
-		hDAO.haeKokotilauksenPizzat(kokotilaus, yhteys);
-		Yhteys.suljeYhteys(yhteys);	
-	}
-//kesken
-	public void haeTilauksenJuomat() throws DAOPoikkeus {
-
-		Connection yhteys = Yhteys.avaaYhteys();
-		hDAO.haeKokotilauksenJuomat(kokotilaus, yhteys);
-		Yhteys.suljeYhteys(yhteys);
-	}
-
 }
 
