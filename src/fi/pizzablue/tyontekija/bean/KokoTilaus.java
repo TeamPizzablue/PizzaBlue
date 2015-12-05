@@ -18,7 +18,9 @@ public class KokoTilaus {
 	private String postitoimipaikka;
 	private String lisatiedot;
 	private List<KokoPizza> pizzat;
+	private int pizzojenMaara;
 	private List<KokoJuoma> juomat;
+	private int juomienMaara;
 	private int tila;
 	
 	public KokoTilaus() {
@@ -29,7 +31,7 @@ public class KokoTilaus {
 			boolean kotiinkuljetus, String etunimi, String sukunimi,
 			String puhelinnumero, String sahkoposti, String katuosoite,
 			String postinumero, String postitoimipaikka, String lisatiedot,
-			List<KokoPizza> pizzat, List<KokoJuoma> juomat, int tila) {
+			List<KokoPizza> pizzat, int pizzojenMaara, List<KokoJuoma> juomat, int juomienMaara, int tila) {
 		this.id = id;
 		this.hinta = hinta;
 		this.aikaleima = aikaleima;
@@ -43,7 +45,9 @@ public class KokoTilaus {
 		this.postitoimipaikka = postitoimipaikka;
 		this.lisatiedot = lisatiedot;
 		this.pizzat = pizzat;
+		this.pizzojenMaara = pizzojenMaara;
 		this.juomat = juomat;
+		this.juomienMaara = juomienMaara;
 		this.tila = tila;
 	}
 
@@ -167,6 +171,22 @@ public class KokoTilaus {
 		this.tila = tila;
 	}
 
+	public int getPizzojenMaara() {
+		return pizzojenMaara;
+	}
+
+	public void setPizzojenMaara(int pizzojenMaara) {
+		this.pizzojenMaara = pizzojenMaara;
+	}
+
+	public int getJuomienMaara() {
+		return juomienMaara;
+	}
+
+	public void setJuomienMaara(int juomienMaara) {
+		this.juomienMaara = juomienMaara;
+	}
+
 	@Override
 	public String toString() {
 		return "KokoTilaus [id=" + id + ", hinta=" + hinta + ", aikaleima="
@@ -176,10 +196,8 @@ public class KokoTilaus {
 				+ sahkoposti + ", katuosoite=" + katuosoite + ", postinumero="
 				+ postinumero + ", postitoimipaikka=" + postitoimipaikka
 				+ ", lisatiedot=" + lisatiedot + ", pizzat=" + pizzat
-				+ ", juomat=" + juomat + ", tila=" + tila + "]";
+				+ ", pizzojenMaara=" + pizzojenMaara + ", juomat=" + juomat
+				+ ", juomienMaara=" + juomienMaara + ", tila=" + tila + "]";
 	}
-	
-	
-	
 
 }

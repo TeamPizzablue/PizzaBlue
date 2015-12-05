@@ -66,38 +66,43 @@
 		<br>
 		<h2>Tilaukset</h2><br>
 		<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
-    			<div class="ylinrivi col-lg-1"><strong>tilausnumero</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>pizzojen määrä</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong>juomien määrä</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>toimitustapa</strong></div>
-    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>tila</strong></div>
     			<div class="ylinrivi col-lg-2"></div>
     	</div>
 		<c:forEach items="${tilaus}" var="tilaus">
 			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
-    			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.id}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.id}"/></strong></div>
     			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.aikaleima}"/></strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>pizzojen määrä</strong></div>
-    			<div class="ylinrivi col-lg-2"><strong>juomien määrä</strong></div>
+    			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.pizzojenMaara}"/></strong></div>
+    			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.juomienMaara}"/></strong></div>
     			<div class="ylinrivi col-lg-2"><strong><c:choose>
-    			<c:when test="${tilaus.kotiinkuljetus == true}">
-    			Kotiinkuljetus</c:when>
-    			<c:otherwise>
-    			Nouto</c:otherwise></c:choose></strong></div>
-    			<div class="ylinrivi col-lg-1"><strong>tila</strong></div>
+    			<c:when test="${tilaus.kotiinkuljetus == true}">Kotiinkuljetus</c:when>
+    			<c:otherwise>Nouto</c:otherwise></c:choose></strong></div>
+    			<c:choose>
+    				<c:when test="${tilaus.tila == 1}"><c:set var="tilavari" value="kasittelyssa"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>käsittelyssä</strong></div></c:when>
+    				<c:when test="${tilaus.tila == 2}"><c:set var="tilavari" value="valmis"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>valmis</strong></div></c:when>
+    				<c:otherwise><c:set var="tilavari" value="maksettu"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>valmis</strong></div></c:otherwise>
+    			</c:choose>
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
-    			<div class="col-lg-8">
-    			<c:forEach items="${tilaus.pizzat}" var="pizza">
-    				Tilauksen tiedot <br/>
+    			<!-- pizzojen tiedot -->
+    			<div class="col-lg-4" style="text-align:left;">
+    				<c:forEach items="${tilaus.pizzat}" var="pizza"> Pizzat <br/>
    					<c:out value="${pizza.pizza.id}"/> <c:out value="${pizza.pizza.nimi}"/><br/>
     				<c:out value="${pizza.pohja}"/><br/>
     				</c:forEach>
-    				id juomannimi määrä<br/><br/>
+    			</div>
+    			<!-- juomien tiedot -->
+    			<div class="col-lg-4" style="text-align:left;"> Juomat<br>
+    				id juomannimi<br/><br/>
     			</div>
     			<div class="col-lg-4">
-    				<p>yhteishinta</p>
+    				<p>yhteishinta: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
     			</div>
     			<div class="col-lg-10"></div><div class="col-lg-2"><form action="tulosta_tilaus" method="post"><button class="btn btn-default">Tulosta tilaus</button></form><br><br></div></div>
    			</div>
@@ -126,9 +131,9 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.lisatietojaBut').click(function() {
-		// Use the current button which triggered the event
 	  	$(this).siblings('.lisatiedot').slideToggle();	  
 	});
+	
 });
 	
 

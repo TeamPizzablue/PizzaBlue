@@ -109,3 +109,12 @@ input {
 .tilaustable {
 	margin-left:auto !important;
 }
+.kasittelyssa {
+	background-color: red !important;
+}
+.valmis {
+	background-color: yellow !important;
+}
+.maksettu {
+	background-color: green !important;
+}

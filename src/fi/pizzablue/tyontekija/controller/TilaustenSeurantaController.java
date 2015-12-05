@@ -33,16 +33,25 @@ public class TilaustenSeurantaController extends HttpServlet {
 					request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
 				} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
 		// luodaan lista
-				List<KokoTilaus> tilaus;
+				List<KokoTilaus> tilaukset;
 
 				//haetaan servicen avulla juomat ja pizzat listoille
 				try {
 					KokoTilausService ktService = new KokoTilausService();
-					tilaus = ktService.haeTilaukset();
+					tilaukset = ktService.haeTilaukset();
 				} catch(DAOPoikkeus e) {
 					throw new ServletException(e);
 				}
-				request.setAttribute("tilaus", tilaus);
+				int pizzojenMaara = 0;
+				int juomienMaara = 0;
+				for (int i = 0; i < tilaukset.size(); i++) {
+					pizzojenMaara = tilaukset.get(i).getPizzat().size();
+					juomienMaara = tilaukset.get(i).getJuomat().size();
+					tilaukset.get(i).setPizzojenMaara(pizzojenMaara);
+					tilaukset.get(i).setJuomienMaara(juomienMaara);
+				}
+					
+				request.setAttribute("tilaus", tilaukset);
 				request.getRequestDispatcher("WEB-INF/jsp/tyontekija/tilaustenseuranta.jsp").forward(request, response);
 				
 				}
