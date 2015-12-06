@@ -31,7 +31,7 @@ td {
 	background: #f0f0f0;
 }
 .id {
-	padding: 0px 15px 0px 15px !important;
+	padding: 0px !important;
 }
 .nappula {
 	margin: 5px 5px 5px 5px !important;
@@ -64,14 +64,14 @@ label {
 
 .sisaltopizza td, th {
 	margin: 0px;
-	padding: 10px !important;
+	padding: 0px !important;
 	text-align: center;
 	border-collapse: collapse !important;
 }
 
 .sisaltojuoma td, th {
 	margin: 0px;
-	padding: 10px 5px 10px 5px !important;
+	padding: 0px !important;
 	text-align: center;
 	border-collapse: collapse !important;
 }
@@ -103,7 +103,7 @@ input {
 }
 
 .ylinrivi {
-	padding: 10px;
+	padding: 0px;
 }
 
 .tilaustable {
