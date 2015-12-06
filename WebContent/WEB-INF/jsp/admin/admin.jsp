@@ -74,7 +74,7 @@
 
 <br>
 <h2>Pizzat</h2><br>
-<table class="sisaltopizza text-uppercase table-responsive" style="margin: 0 auto">
+<table class="sisaltopizza text-uppercase table-responsive" style="width:100%">
     <tr>
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
@@ -83,6 +83,7 @@
     <td class="ylinrivi"><strong>proteiini</strong></td>
     <td class="ylinrivi"><strong>hiilihydraatti</strong></td>
     <td class="ylinrivi"><strong>rasva</strong></td>
+    <td class="ylinrivi"><strong>täytteet</strong></td>
     <td class="ylinrivi"><strong>poista</strong></td>
     </tr>
     
@@ -96,6 +97,7 @@
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.proteiini}"  minFractionDigits="2"/></td>
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.hiilihydraatti}"  minFractionDigits="2"/></td>
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.rasva}"  minFractionDigits="2"/></td>
+    <td class="ravintoarvot"></td>
     <td>
     <form action="del" method="post"><input type="hidden" name="id" value="<c:out value="${pizza.id}"/>"><button class="btn btn-danger nappula"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
     </tr>
@@ -108,6 +110,7 @@
     	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
     	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
     	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
+    	  	<td><label for="taytteet"><input type="text" min="0" step="any" name="taytteet" form="addform"></label></td>
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
