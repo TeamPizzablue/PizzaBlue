@@ -78,7 +78,7 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 			List<KokoPizza> kpLista = new ArrayList<>();
 			
 			try {
-				String sql = "SELECT pr.pizza_id, poh.nimi, pr.oregano, pr.valkosipuli FROM tilaus t JOIN pizzarivi pr ON t.id = pr.tilaus_id JOIN pohja poh ON poh.id = pr.pohja_id WHERE t.id = ?;";
+				String sql = "SELECT pr.pizza_id, p.numero, p.nimi, poh.nimi, pr.oregano, pr.valkosipuli FROM tilaus t JOIN pizzarivi pr ON t.id = pr.tilaus_id JOIN pohja poh ON poh.id = pr.pohja_id JOIN pizza p ON p.id = pr.pizza_id WHERE t.id = ?;";
 				PreparedStatement haku = yhteys.prepareStatement(sql);
 				haku.setInt(1, kokotilausid);
 				ResultSet tulokset = haku.executeQuery();
@@ -86,6 +86,8 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				//käydään hakutulokset läpi
 				while(tulokset.next()) {
 					int pizzaid = tulokset.getInt("pr.pizza_id");
+					int pizzanNumero = tulokset.getInt("p.numero");
+					String pizzanNimi = tulokset.getString("p.nimi");
 					String pohja = tulokset.getString("poh.nimi");
 					boolean oregano = tulokset.getBoolean("pr.oregano");
 					boolean valkosipuli = tulokset.getBoolean("pr.valkosipuli");
@@ -98,7 +100,8 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 					kp.setOregano(oregano);
 					kp.setValkosipuli(valkosipuli);
 					kp.setPohja(pohja);
-					kp.setPizza(p);
+					kp.setNumero(pizzanNumero);
+					kp.setNimi(pizzanNimi);
 					
 					kpLista.add(kp);
 					
@@ -117,7 +120,7 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 			List<KokoJuoma> jLista = new ArrayList<>();
 			
 			try {
-				String sql = "SELECT jr.juoma_id FROM tilaus t JOIN juomarivi jr ON t.id = jr.tilaus_id WHERE t.id = ?;";
+				String sql = "SELECT jr.juoma_id, j.numero, j.nimi FROM tilaus t JOIN juomarivi jr ON t.id = jr.tilaus_id JOIN juoma j ON j.id = jr.juoma_id WHERE t.id = ?;";
 				PreparedStatement haku = yhteys.prepareStatement(sql);
 				haku.setInt(1, kokotilausid);
 				ResultSet tulokset = haku.executeQuery();
@@ -125,13 +128,17 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				//käydään hakutulokset läpi
 				while(tulokset.next()) {
 					int juomaid = tulokset.getInt("jr.juoma_id");
+					int juomaNumero = tulokset.getInt("j.numero");
+					String juomaNimi = tulokset.getString("j.nimi");
 					
 					Juoma j = new Juoma(juomaid);
 					KokoJuoma kj = new KokoJuoma();
 			
-			//lisätään tilaus listaan
-					kj.setJuoma(j);
-					
+			//lisätään attribuutit olioille
+					j.setId(juomaid);
+					kj.setNumero(juomaNumero);
+					kj.setNimi(juomaNimi);
+
 					jLista.add(kj);
 				}
 			} catch(Exception e) {
@@ -143,7 +150,5 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				return jLista;
 			
 		}
-		
-		
 
 	} 

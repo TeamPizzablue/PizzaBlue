@@ -35,17 +35,30 @@ public class TulostaTilausController extends HttpServlet {
 			request.getRequestDispatcher(SiteController.FRONT_PAGE).forward(request, response);
 		} else {// mikäli käyttäjätiedot löytyvät, päästetään sisään
 		
-			// luodaan lista
-			List<KokoTilaus> tilaus;
+		// luodaan lista
+		List<KokoTilaus> tilaukset;
+			
+		String tulostettavaTilausStringina = request.getParameter("ordernr");
+		int tulostettavanTilauksenJarjnro = Integer.parseInt(tulostettavaTilausStringina);
 
 		//haetaan servicen avulla juomat ja pizzat listoille
 		try {
 			KokoTilausService ktService = new KokoTilausService();
-			tilaus = ktService.haeTilaukset();
+			tilaukset = ktService.haeTilaukset();
 		} catch(DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		request.setAttribute("tilaus", tilaus);
+		
+		KokoTilaus ktilaus = new KokoTilaus();
+		
+		for (int i = 0; i < tilaukset.size(); i++) {
+			if(tulostettavanTilauksenJarjnro == tilaukset.get(i).getId()) {
+				ktilaus = tilaukset.get(i);
+			}
+		}
+	
+		System.out.println(ktilaus.toString());
+		request.setAttribute("tilaus", ktilaus);
 		request.getRequestDispatcher("WEB-INF/jsp/tyontekija/tulostus.jsp").forward(request, response);
 		}
 

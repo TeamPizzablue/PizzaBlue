@@ -5,31 +5,46 @@ import fi.pizzablue.bean.Juoma;
 public class KokoJuoma {
 	
 	private int tilausId;
-	private Juoma juoma;
+	private int numero;
+	private String nimi;
 	
-	public KokoJuoma(int tilausId, Juoma juoma) {
+	public KokoJuoma(int tilausId, int numero, String nimi) {
 		this.tilausId = tilausId;
-		this.juoma = juoma;
+		this.numero = numero;
+		this.nimi = nimi;
 	}
 	
 	public KokoJuoma() {
 		
 	}
 	
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getNimi() {
+		return nimi;
+	}
+
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
+	}
+
 	public int getTilausId() {
 		return tilausId;
 	}
 	public void setTilausId(int tilausId) {
 		this.tilausId = tilausId;
 	}
-	public Juoma getJuoma() {
-		return juoma;
-	}
-	public void setJuoma(Juoma juoma) {
-		this.juoma = juoma;
-	}
+
 	@Override
 	public String toString() {
-		return "KokoJuoma [tilausId=" + tilausId + ", juoma=" + juoma + "]";
+		return "KokoJuoma [tilausId=" + tilausId + ", numero=" + numero
+				+ ", nimi=" + nimi + "]";
 	}
+
 }

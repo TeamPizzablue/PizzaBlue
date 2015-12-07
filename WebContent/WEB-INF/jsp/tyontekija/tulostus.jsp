@@ -9,11 +9,9 @@
 <title>tulosta tilaus</title>
 </head>
 <body style="text-align:center;">
-<c:forEach items="1" var="tilaus" >
-<h1>Tilausnumero: </h1>
-<p>Aikaleima: </p>
-<p>Toimitustapa: </p>
+<h1>Tilausnumero: <c:out value="${tilaus.id}"/></h1>
+<p>Aikaleima: <c:out value="${tilaus.aikaleima}"/></p>
+<p>Toimitustapa: <c:out value="${tilaus.kotiinkuljetus}"/></p>
 <p>Tuotteet: </p>
-</c:forEach>
 </body>
 </html>

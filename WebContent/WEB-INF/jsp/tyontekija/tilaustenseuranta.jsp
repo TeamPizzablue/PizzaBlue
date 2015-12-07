@@ -77,34 +77,42 @@
 		<c:forEach items="${tilaus}" var="tilaus">
 			<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
     			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.id}"/></strong></div>
-    			<div class="ylinrivi col-lg-2"><strong><c:out value="${tilaus.aikaleima}"/></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong><fmt:formatDate pattern="dd.MM.yy HH:mm" value="${tilaus.aikaleima}"/></strong></div>
     			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.pizzojenMaara}"/></strong></div>
     			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.juomienMaara}"/></strong></div>
     			<div class="ylinrivi col-lg-2"><strong><c:choose>
     			<c:when test="${tilaus.kotiinkuljetus == true}">Kotiinkuljetus</c:when>
     			<c:otherwise>Nouto</c:otherwise></c:choose></strong></div>
     			<c:choose>
-    				<c:when test="${tilaus.tila == 1}"><c:set var="tilavari" value="kasittelyssa"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>käsittelyssä</strong></div></c:when>
-    				<c:when test="${tilaus.tila == 2}"><c:set var="tilavari" value="valmis"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>valmis</strong></div></c:when>
-    				<c:otherwise><c:set var="tilavari" value="maksettu"/><div class="ylinrivi col-lg-2 ${tilavari}"><strong>valmis</strong></div></c:otherwise>
+    				<c:when test="${tilaus.tila == 1}"><div class="ylinrivi col-lg-2 saapunut"><strong>saapunut</strong></div></c:when>
+    				<c:when test="${tilaus.tila == 2}"><div class="ylinrivi col-lg-2 valmistettu"><strong>valmistettu</strong></div></c:when>
+    				<c:otherwise><div class="ylinrivi col-lg-2 maksettu"><strong>maksettu</strong></div></c:otherwise>
     			</c:choose>
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
     			<!-- pizzojen tiedot -->
-    			<div class="col-lg-4" style="text-align:left;">
-    				<c:forEach items="${tilaus.pizzat}" var="pizza"> Pizzat <br/>
-   					<c:out value="${pizza.pizza.id}"/> <c:out value="${pizza.pizza.nimi}"/><br/>
-    				<c:out value="${pizza.pohja}"/><br/>
+    			<div class="col-lg-6" style="text-align:left;">
+    				<c:forEach items="${tilaus.pizzat}" var="pizza">
+   					<strong style="font-size:16px;"><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></strong><strong><br>pohja: </strong>
+    				<c:out value="${pizza.pohja}"/><strong><c:choose><c:when test="${pizza.oregano == false && pizza.valkosipuli == false}"> </c:when><c:otherwise>, mausteet: </c:otherwise></c:choose></strong>
+    				<c:choose>
+    				<c:when test="${pizza.oregano == true}">oregano</c:when>
+    				<c:when test="${pizza.valkosipuli == true}">valkosipuli</c:when>
+    				<c:otherwise></c:otherwise>
+    			</c:choose><br>
     				</c:forEach>
     			</div>
     			<!-- juomien tiedot -->
-    			<div class="col-lg-4" style="text-align:left;"> Juomat<br>
-    				id juomannimi<br/><br/>
+    			<div class="col-lg-3" style="text-align:left;">
+    			<c:forEach items="${tilaus.juomat}" var="juoma">
+   					<strong style="font-size:16px;"><c:out value="${juoma.numero}"/>. <c:out value="${juoma.nimi}"/><br/></strong>
+    				<br/>
+    				</c:forEach>
     			</div>
-    			<div class="col-lg-4">
+    			<div class="col-lg-3">
     				<p>yhteishinta: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
     			</div>
-    			<div class="col-lg-10"></div><div class="col-lg-2"><form action="tulosta_tilaus" method="post"><button class="btn btn-default">Tulosta tilaus</button></form><br><br></div></div>
+    			<div class="col-lg-10"></div><div class="col-lg-2"><form action="tulosta_tilaus" method="post"><button class="btn btn-default">Tulosta tilaus</button><input type="hidden" name="ordernr" value="<c:out value="${tilaus.id}"/>"></form><br><br></div></div>
    			</div>
 		</c:forEach>
     </div>

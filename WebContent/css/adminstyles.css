@@ -64,14 +64,14 @@ label {
 
 .sisaltopizza td, th {
 	margin: 0px;
-	padding: 0px !important;
+	padding: 10px !important;
 	text-align: center;
 	border-collapse: collapse !important;
 }
 
 .sisaltojuoma td, th {
 	margin: 0px;
-	padding: 0px !important;
+	padding: 10px !important;
 	text-align: center;
 	border-collapse: collapse !important;
 }
@@ -103,18 +103,18 @@ input {
 }
 
 .ylinrivi {
-	padding: 0px;
+	padding: 10px;
 }
 
 .tilaustable {
 	margin-left:auto !important;
 }
-.kasittelyssa {
-	background-color: red !important;
+.saapunut {
+	background-color: #5cb85c !important;
 }
-.valmis {
-	background-color: yellow !important;
+.valmistettu {
+	background-color: #f0ad4e !important;
 }
 .maksettu {
-	background-color: green !important;
+	background-color: #d9534f !important;
 }
