@@ -97,7 +97,7 @@
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.proteiini}"  minFractionDigits="2"/></td>
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.hiilihydraatti}"  minFractionDigits="2"/></td>
     <td class="ravintoarvot"><fmt:formatNumber value="${pizza.rasva}"  minFractionDigits="2"/></td>
-    <td class="ravintoarvot"></td>
+    <td class="ravintoarvot"><c:forEach items="${pizza.taytteet}" var="tayte"><c:out value="${tayte.nimi}"/> </c:forEach></td>
     <td>
     <form action="del" method="post"><input type="hidden" name="id" value="<c:out value="${pizza.id}"/>"><button class="btn btn-danger nappula"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
     </tr>
@@ -110,7 +110,7 @@
     	  	<td><label for="proteiini"><input type="number" min="0" step="any" name="proteiini" form="addform"></label></td>
     	  	<td><label for="hiilihydraatti"><input type="number" min="0" step="any" name="hiilihydraatti" form="addform"></label></td>
     	  	<td><label for="rasva"><input type="number" min="0" step="any" name="rasva" form="addform"></label></td>
-    	  	<td><label for="taytteet"><input type="text" min="0" step="any" name="taytteet" form="addform"></label></td>
+    	  	<td><label for="taytteet"><input type="text" placeholder="pilkulla eroteltuna" min="0" step="any" name="taytteet" form="addform"></label></td>
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
