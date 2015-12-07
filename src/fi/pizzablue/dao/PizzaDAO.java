@@ -112,6 +112,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
 			} 
+			
 
 		}
 		public void poista(Pizza p, Connection yhteys) throws DAOPoikkeus{
@@ -121,7 +122,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//suoritetaan haku
 				
 				//alustetaan sql-lause, huom pitää olla ? ja seuraavassa kohtaa täydennetään tiedot
-				String sql = "delete from pizza where id = ?";
+				String sql = "delete from pizza where id = ?;";
 				PreparedStatement lause = yhteys.prepareStatement(sql);
 				
 				//täytetään puuttuvat tiedot
@@ -134,8 +135,107 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
 			} 
+		}
+		
+		public void poistaTaytteet(Pizza p, Connection yhteys) throws DAOPoikkeus{
+			
+			try {
+				
+				//suoritetaan haku
+				
+				//alustetaan sql-lause, huom pitää olla ? ja seuraavassa kohtaa täydennetään tiedot
+				String sql = "delete from pizzantayte where pizza_id = ?;";
+				PreparedStatement lause = yhteys.prepareStatement(sql);
+				
+				//täytetään puuttuvat tiedot
+				lause.setInt(1, p.getId());
+				
+				//suoritetaan lause
+				lause.executeUpdate();
+				System.out.println("Poistettiin tietokannasta taytteet: "+ p);
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
+			} 
+		}
+		
+		
+		
+		public int haeTayteId(String taytenimi, Connection yhteys) throws DAOPoikkeus {
+			
+			int id = 0;
+			
+			try {
+				//suoritetaan haku
+				
+				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
+				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
+				String sql = "select id from tayte where nimi = ?;";
+				PreparedStatement haku = yhteys.prepareStatement(sql);
+				haku.setString(1, taytenimi);
+				ResultSet tulokset = haku.executeQuery();
+				
+				while(tulokset.next()) {
+					id = tulokset.getInt("id");
+				}
+				
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
+			}
+			
+			return id;
+		}
+		
+		public void lisaaPizzanTayte(int pizzaId, int tayteId, Connection yhteys) throws DAOPoikkeus{
+			
+			try {
+				//suoritetaan haku
+				
+				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
+				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
+				String sql = "insert into pizzantayte(pizza_id, tayte_id) values(?,?)";
+				PreparedStatement lause = yhteys.prepareStatement(sql);
+				
+				//täytetään puuttuvat tiedot
+				lause.setInt(1, pizzaId);
+				lause.setInt(2, tayteId);
+				
+				//suoritetaan lause
+				lause.executeUpdate();
+				System.out.println("Lisättiin tietokantaan pizzantayte: "+ pizzaId + ", " + tayteId);
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Täytteen lisäämisyritys aiheutti virheen", e);
+			} 
 			
 
+		}
+		
+		public int haePizzaId(Pizza p, Connection yhteys) throws DAOPoikkeus {
+			
+			int id = 0;
+			
+			try {
+				//suoritetaan haku
+				
+				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
+				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
+				String sql = "select id from pizza where numero = ?;";
+				PreparedStatement haku = yhteys.prepareStatement(sql);
+				haku.setInt(1, p.getNumero());
+				ResultSet tulokset = haku.executeQuery();
+				
+				while(tulokset.next()) {
+					id = tulokset.getInt("id");
+				}
+				
+			} catch(Exception e) {
+				//JOTAIN VIRHETTÄ TAPAHTUI
+				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
+			}
+			
+			return id;
 		}
 		
 	}

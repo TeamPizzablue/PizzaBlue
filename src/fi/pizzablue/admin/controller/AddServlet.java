@@ -28,6 +28,9 @@ public class AddServlet extends HttpServlet {
 		String syoteProteiini = request.getParameter("proteiini");
 		String syoteHiilihydraatti = request.getParameter("hiilihydraatti");
 		String syoteRasva = request.getParameter("rasva");
+		String taytteetString = request.getParameter("taytteet");
+		
+		String[] taytteet = taytteetString.split(",");
 		
 		//haetaan viimeksi syötetyn pizzan numero kannasta
 
@@ -55,7 +58,7 @@ public class AddServlet extends HttpServlet {
 		
 		try {
 			PizzaAdminService service = new PizzaAdminService();
-			service.lisaaPizza(p);
+			service.lisaaPizza(p, taytteet);
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
