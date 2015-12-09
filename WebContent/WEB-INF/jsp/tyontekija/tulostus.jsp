@@ -12,6 +12,10 @@
 <h1>Tilausnumero: <c:out value="${tilaus.id}"/></h1>
 <p>Aikaleima: <c:out value="${tilaus.aikaleima}"/></p>
 <p>Toimitustapa: <c:out value="${tilaus.kotiinkuljetus}"/></p>
-<p>Tuotteet: </p>
+<p>Tuotteet: 
+<c:forEach items="${tilaus.pizzat}" var="pizza">
+<c:out value="${pizza.numero}"/>. 
+<c:out value="${pizza.nimi}"/>
+</c:forEach></p>
 </body>
 </html>

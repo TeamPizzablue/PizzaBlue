@@ -59,9 +59,8 @@
     <div class="row">
 		<h1>Tilausten seuranta</h1>
 
-		<!-- juomat -->
-		<c:if test="${not empty param.lisatty}"><br><p class="pizzanluomisilmoitus">Uuden juoman luominen onnistui!</p></c:if>
-		<c:if test="${not empty param.poistettu}"><br><p class="pizzanpoistoilmoitus">Juoman poistaminen onnistui!</p></c:if>
+		<!-- tilan vaihto onnistunut -->
+		<c:if test="${not empty param.vaihdettu}"><br><p style="color:lime;">Tilauksen tila vaihdettiin onnistuneesti!</p></c:if>
 
 		<br>
 		<h2>Tilaukset</h2><br>
@@ -91,7 +90,7 @@
     			<div class="ylinrivi col-lg-2 lisatietojaBut"><button class="btn btn-default">Lisätietoja</button></div>
     			<div class="lisatiedot col-lg-12">
     			<!-- pizzojen tiedot -->
-    			<div class="col-lg-6" style="text-align:left;">
+    			<div class="col-lg-4" style="text-align:left;">
     				<c:forEach items="${tilaus.pizzat}" var="pizza">
    					<strong style="font-size:16px;"><c:out value="${pizza.numero}"/>. <c:out value="${pizza.nimi}"/></strong><strong><br>pohja: </strong>
     				<c:out value="${pizza.pohja}"/><strong><c:choose><c:when test="${pizza.oregano == false && pizza.valkosipuli == false}"> </c:when><c:otherwise>, mausteet: </c:otherwise></c:choose></strong>
@@ -103,16 +102,30 @@
     				</c:forEach>
     			</div>
     			<!-- juomien tiedot -->
-    			<div class="col-lg-3" style="text-align:left;">
+    			<div class="col-lg-4" style="text-align:left;">
     			<c:forEach items="${tilaus.juomat}" var="juoma">
    					<strong style="font-size:16px;"><c:out value="${juoma.numero}"/>. <c:out value="${juoma.nimi}"/><br/></strong>
     				<br/>
     				</c:forEach>
     			</div>
-    			<div class="col-lg-3">
+    			<div class="col-lg-4">
     				<p>yhteishinta: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> €</p>
     			</div>
-    			<div class="col-lg-10"></div><div class="col-lg-2"><form action="tulosta_tilaus" method="post"><button class="btn btn-default">Tulosta tilaus</button><input type="hidden" name="ordernr" value="<c:out value="${tilaus.id}"/>"></form><br><br></div></div>
+    			<div class="row">
+    			<div class="col-lg-8"></div>
+    			<div class="col-lg-4">
+    			<c:choose>
+    				<c:when test="${tilaus.tila == 1}">
+    					<form action="muuta_valmistetuksi" method="post" style="display:inline-block;"><button class="btn btn-warning">Valmistettu</button><input type="hidden" name="tilausId" value="<c:out value="${tilaus.id}"/>"></form>
+    				</c:when>
+    				<c:when test="${tilaus.tila == 2}">
+  						<form action="muuta_maksetuksi" method="post" style="display:inline-block;"><button class="btn btn-danger">Maksettu</button><input type="hidden" name="tilausId" value="<c:out value="${tilaus.id}"/>"></form>  					
+    				</c:when>
+    			</c:choose>
+    			<form action="tulosta_tilaus" method="post" style="display:inline-block;"><br><button class="btn btn-default">Tulosta tilaus</button><input type="hidden" name="ordernr" value="<c:out value="${tilaus.id}"/>"></form><br><br>
+    			</div>
+    			</div>
+    			</div>
    			</div>
 		</c:forEach>
     </div>
