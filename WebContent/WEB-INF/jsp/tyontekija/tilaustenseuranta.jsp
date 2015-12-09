@@ -119,10 +119,9 @@
     					<form action="muuta_valmistetuksi" method="post" style="display:inline-block;"><button class="btn btn-warning">Valmistettu</button><input type="hidden" name="tilausId" value="<c:out value="${tilaus.id}"/>"></form>
     				</c:when>
     				<c:when test="${tilaus.tila == 2}">
-  						<form action="muuta_maksetuksi" method="post" style="display:inline-block;"><button class="btn btn-danger">Maksettu</button><input type="hidden" name="tilausId" value="<c:out value="${tilaus.id}"/>"></form>  					
+  						<form action="muuta_maksetuksi" method="post" style="display:inline-block;"><button class="btn btn-danger">Maksettu</button><input type="hidden" name="tilausId" value="<c:out value="${tilaus.id}"/>"></form>				
     				</c:when>
-    			</c:choose>
-    			<form action="tulosta_tilaus" method="post" style="display:inline-block;"><br><button class="btn btn-default">Tulosta tilaus</button><input type="hidden" name="ordernr" value="<c:out value="${tilaus.id}"/>"></form><br><br>
+    			</c:choose><br><br>	
     			</div>
     			</div>
     			</div>
