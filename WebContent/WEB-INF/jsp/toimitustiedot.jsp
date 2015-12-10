@@ -62,7 +62,8 @@
 					<p> Muistathan ilmoittaa sähköpostiosoitteesi, mikäli haluat tilausvahvistuksen. </p>
 					
 					<form action="siirry_tilausvahvistukseen" method="post">
-						<div class="col-lg-4 col-lg-offset-4">
+						<div class="row">
+							<div class="col-lg-4 col-lg-offset-4">
 								<div class="form-group col-xs-6">
 									<label for="Etunimi">Etunimi: </label><input
 										class="form-control" type="text" id="Etunimi" name="etunimi"
@@ -116,40 +117,15 @@
 									<label for="Lisatietoja">Lisätietoja: </label>
 									<textarea class="form-control" id="Lisatietoja" name="lisatietoja" rows="8" placeholder="Esim. ovikoodi" style="color: black"></textarea>
 								</div>
-						</div> <!-- Jatka tilaamista -painike / Palaa edelliselle sivulle -painike -->
+							</div> 
+						</div>
+						<!-- Jatka tilaamista -painike / Palaa edelliselle sivulle -painike -->
 						<div class="col-lg-8 col-lg-offset-2"><br>
 						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
 								<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 								</div>
 						</form>
-					</div>
-					
-					
-					<!-- nouto(lomake) ei vielä otettu käyttöön -->
-					<%-- 
-					<form action="siirry_toimitustietoihin" method="post" role="form">
-					<div id="nouto" class="tab-pane fade">
-						<div class="col-lg-4 col-lg-offset-4">
-							
-								<div class="form-group col-xs-12">
-									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" name="puhelinnumero"
-										style="color: black">
-								</div>
-								<div class="form-group col-xs-12">
-									<label for="Sahkoposti">Sähköposti: </label><input
-										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-  										  onchange="try{setCustomValidity('')}catch(e){}">
-								</div>
-								<a href="http://localhost:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Edellinen sivu</a>
-								<button class="btn btn-default btn-lg" type="submit" value="Submit">Seuraava sivu  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
-							
-						</div>
-					</div>
-					
-					</form> --%>
-				
-			
+					</div>		
 	</section>
 	
 	<!-- Footer -->

@@ -263,24 +263,20 @@
 			<div class="container">
 				<div class="col-lg-12">
 					<h2>Valikoima</h2>
-					<p>
-						Tilaussivullamme voit valita haluatko pitsallesi gluteenittoman, täysjyvän vai tavallisen pohjan.
-						<br>Juomia pystyy tilaamaan vain pitsojen yhteydessä sekä pitsojen täytteitä ei pysty itse valitsemaan.
-						<br>Kaikkiin pitsoihin kuuluu vakiona juusto sekä tomaattikastike. Kaikki tuotteiden hinnat ovat alvillisia.
-						 <br>Huomioi, että pitsoja voi tilata enintään 10 kpl yhdellä tilauksella.
-						 <br><br>Toimitusalueemme on 5,0 km. Kotiinkuljetuksemme hinta on <span style="color: pink; font-weight: 700;">2.99 €</span>
-					<br/> <br/>
+					<p>Tilauksen yhteydessä voit valita haluatko pitsallesi gluteenittoman, tavallisen vai täysjyvä pohjan.
+						<br/>Kaikkiin pitsoihin kuuluu vakiona juusto sekä tomaattikastike.
+						<br/>Huomioithan, että voit tilata korkeintaan kymmenen pitsaa.
+						<br/><br/>Toimitamme tilaukset maksimissaan viiden kilometrin säteelle pitseriastamme. <br/>Kotiinkuljetuksemme hinta on <span style="color: pink; font-weight: 700;">2.99 €</span>
+						<br/> <br/>
 					</p>
 					<!-- navigointi pizzojen ja juomien välillä -->
 					<ul id="tabs" class="nav nav-tabs viiva-pois">
-						<li class="active"><a href="#pizzalista" class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a>
-						</li>
-						<li><a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a>
-						</li>
+						<li class="active"><a href="#pizzalista" class="btn btn-default btn-lg butska" data-toggle="tab">pizzat</a></li>
+						<li><a href="#juomalista" class="btn btn-default btn-lg butska" data-toggle="tab">juomat</a></li>
 					</ul>
-					<p>	<!-- lisätty ohje nappien käytöstä -->
+					<small>	<!-- lisätty ohje nappien käytöstä -->
 						<br><span style="color:#42DCA3; font-size:35px;">*</span> Yläpuolella näkyvien nappien avulla, pääset hyppimään pitsojen ja juomien välillä.
-					</p>
+					</small>
 					<br> <br>
 					<!-- PIZZALISTA ALKAA -->
 					<div id="my-tab-content" class="tab-content">
@@ -691,8 +687,8 @@
 		</div>
 	</section>
 	<!-- Yhteystiedot -->
-	<section id="yhteystiedot" class="container content-section text-center">
-		<br/>
+	<section id="yhteystiedot" class="container text-center">
+		<br/><br/><br/>
 		<h2>Yhteystiedot</h2>
 		<div class="row">
 			<div class="col-lg-6">	
