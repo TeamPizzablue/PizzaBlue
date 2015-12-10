@@ -54,7 +54,7 @@
 					<h2>Ostoskorin sisältö</h2>
 
 					<table class="sisalto text-uppercase footable"
-						data-show-toggle="false" data-expand-first="true">
+						data-show-toggle="true" data-expand-first="false">
 						<thead class="tietorivi">
 							<tr>
 								<th data-breakpoints="xs">tuotenumero</th>
@@ -228,9 +228,9 @@
 		$(function($) {
 			$('.footable').footable({
 				"breakpoints": {
-					"xs": 480,
-					"sm": 768,
-					"md": 992,
+					"xs": 400,
+					"sm": 480,
+					"md": 768,
 					"lg": 1200
 				}
 			});
