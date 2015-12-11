@@ -159,6 +159,11 @@ table .minikuvat {
 	padding-top: 8px;
 }
 
+@media (min-width: 387px) and (max-width: 768px) {
+ .mausteet { text-align:center !important; }
+
+}
+
 @media (max-width: 992px) {
 .pikkukuvat {display:none !important;}
 #minikuvat {padding: 15px !important;

@@ -48,7 +48,7 @@
 
 		<!-- Ostoskori -->
 
-		<section id="ostoskori" class="container content-section text-center">
+		<section id="ostoskori" class="container content-section text-center" style="padding-top: 100px;">
 			<div class="row">
 				<div class="col-lg-10 col-lg-offset-1">
 					<h2>Ostoskorin sisältö</h2>
@@ -57,10 +57,10 @@
 						data-show-toggle="true" data-expand-first="false" >
 						<thead class="tietorivi">
 							<tr>
-								<th data-breakpoints="xs">tuotenumero</th>
+								<th data-breakpoints="xs sm">tuotenumero</th>
 								<th data-type="html" data-sort-use="text">tuotenimi</th>
 								<th>hinta</th>
-								<th data-breakpoints="xs" data-type="html" data-sort-use="text" >lisämausteet</th>
+								<th data-breakpoints="xs sm" data-type="html" data-sort-use="text" >lisämausteet</th>
 								<th data-breakpoints="xs sm" data-title="pizzapohja" data-type="html" data-sort-use="text">pizzapohja
 									<span style="color: #42DCA3; font-size: 25px;">*</span>
 								</th>
