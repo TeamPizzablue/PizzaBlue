@@ -102,8 +102,8 @@
 				</table>
 				<br/><br/>
 				<h2 class="yhteissumma">Yhteissumma: <fmt:formatNumber value="${tilaus.hinta}" minFractionDigits="2"></fmt:formatNumber> &euro;</h2>
-				<h5>sis. alv 14%</h5>
-				<h5><c:if test="${tilaus.kotiinkuljetus == true}">sis. kotiinkuljetuksen maksun 2.99 €</c:if></h5>
+				<h5>sis. alv 14%<br/>
+				<c:if test="${tilaus.kotiinkuljetus == true}">sis. kotiinkuljetuksen hinnan 2.99 €</c:if></h5>
 				<br/><br/>
 				<h3>Toimitustiedot:</h3><br/>
 				<p>
