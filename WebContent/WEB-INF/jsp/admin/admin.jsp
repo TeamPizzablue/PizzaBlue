@@ -114,7 +114,7 @@
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
-   	<section id="hallinta" class="container content-section text-center">
+   	<section class="container content-section text-center">
     <br><br>
     <h2>Juomat</h2><br>
  	</section>
