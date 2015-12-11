@@ -62,8 +62,7 @@
         </div>
         <!-- /.container -->
     </nav>
-    <section id="hallinta" class="container content-section text-center">
-        <div class="row">
+<section id="hallinta" class="container content-section text-center">
 <h1>Hallinnoi pizzoja ja juomia</h1>
 <!-- pizzat -->
 <c:if test="${not empty param.added}"><br><p class="pizzanluomisilmoitus">Uuden pizzan luominen onnistui!</p></c:if>
@@ -71,10 +70,11 @@
 <!-- juomat -->
 <c:if test="${not empty param.lisatty}"><br><p class="pizzanluomisilmoitus">Uuden juoman luominen onnistui!</p></c:if>
 <c:if test="${not empty param.poistettu}"><br><p class="pizzanpoistoilmoitus">Juoman poistaminen onnistui!</p></c:if>
-
 <br>
 <h2>Pizzat</h2><br>
-<table class="sisaltopizza text-uppercase table-responsive" style="width:100%">
+</section>
+<section>
+<table class="sisaltopizza text-uppercase table-responsive taulukot">
     <tr>
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
@@ -114,11 +114,11 @@
     	  	<td><form action="add" method="post" id="addform"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
-   </div>
+   	<section class="container content-section text-center">
     <br><br>
-    <div class="row">
     <h2>Juomat</h2><br>
-    <table class="sisaltojuoma text-uppercase table-responsive" style="margin: 0 auto">
+ 	</section>
+    <table class="sisaltojuoma text-uppercase table-responsive taulukot">
     <tr>
     <td class="ylinrivi id"><strong>id</strong></td>
     <td class="ylinrivi"><strong>nimi</strong></td>
@@ -158,8 +158,7 @@
     	  	<td><form action="lisaajuoma" method="post" id="lisaajuoma"><button class="btn btn-success nappula" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></form></td>	
     	 </tr>
    </table>
-   </div>
-   </section>
+ </section>
 </body>
 <footer><br><br>
 </footer>

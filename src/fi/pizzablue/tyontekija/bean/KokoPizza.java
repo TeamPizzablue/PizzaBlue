@@ -1,22 +1,44 @@
 package fi.pizzablue.tyontekija.bean;
 
-import fi.pizzablue.bean.Pizza;
 
 public class KokoPizza {
 	
 	private int tilausId;
+	private int numero;
+	private String nimi;
 	private boolean oregano;
 	private boolean valkosipuli;
 	private String pohja;
-	private Pizza pizza;
 	
-	public KokoPizza(int tilausId, boolean oregano, boolean valkosipuli, String pohja, Pizza pizza) {
+	public KokoPizza(int tilausId, int numero, String nimi, boolean oregano, boolean valkosipuli, String pohja) {
 		this.tilausId = tilausId;
+		this.numero = numero;
+		this.nimi = nimi;
 		this.oregano = oregano;
 		this.valkosipuli = valkosipuli;
-		this.pohja = pohja;
-		this.pizza = pizza;
+		this.pohja = pohja;	
 	}
+	
+
+	public int getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+
+	public String getNimi() {
+		return nimi;
+	}
+
+
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
+	}
+
 
 	public KokoPizza() {
 		
@@ -54,20 +76,12 @@ public class KokoPizza {
 		this.pohja = pohja;
 	}
 
-	public Pizza getPizza() {
-		return pizza;
-	}
-
-	public void setPizza(Pizza pizza) {
-		this.pizza = pizza;
-	}
 
 	@Override
 	public String toString() {
-		return "KokoPizza [oregano=" + oregano + ", valkosipuli=" + valkosipuli
-				+ ", pohja=" + pohja + ", pizza=" + pizza + "]";
+		return "KokoPizza [tilausId=" + tilausId + ", numero=" + numero
+				+ ", nimi=" + nimi + ", oregano=" + oregano + ", valkosipuli="
+				+ valkosipuli + ", pohja=" + pohja + "]";
 	}
-	
-	
 
 }
