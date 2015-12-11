@@ -22,6 +22,9 @@
 <!-- Team Blue CSS -->
 <link href="css/teamblue_styles.css" rel="stylesheet">
 
+<!-- Footable CSS -->
+<link href="css/footable.bootstrap.min.css" rel="stylesheet">
+
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	  type="text/css">
@@ -43,15 +46,16 @@
 		<div class="col-lg-12">
 			<h1>Tilausvahvistus</h1>
 			<p>Vahvista syöttämäsi tiedot ennen tilauksen vahvistamista:
-				<table class="sisalto text-uppercase table-responsive">
+				<table class="sisalto text-uppercase footable">
+				<thead>
 				<tr class="tietorivi">
-					<td>numero<span style="color:#42DCA3; font-size:25px;">*</span></td>
-					<td>tuotteen nimi</td>
-					<td>hinta</td>
-					<td>lisämausteet</td>
-					<td>pizzapohja</td>
+					<th data-breakpoints="xs sm">numero<span style="color:#42DCA3; font-size:25px;">*</span></th>
+					<th>tuotenimi</th>
+					<th>hinta</th>
+					<th data-breakpoints="xs sm">lisämausteet</th>
+					<th data-breakpoints="xs sm">pizzapohja</th>
 				</tr>
-					
+				</thead>
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä -->
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 					<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
@@ -184,13 +188,26 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
 
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Footable JavaScript -->
+		<script src="js/footable.js">
+	</script>
 	<script>
+		$(function($) {
+			$('.footable').footable({
+				"breakpoints": {
+					"xs": 400,
+					"sm": 480,
+					"md": 768,
+					"lg": 1200
+				}
+			});
+		});
 		$(document).ready(function() {
 			$("#tabs").tabs();
 		});
 	</script>
-
-
 </body>
 
 </html>

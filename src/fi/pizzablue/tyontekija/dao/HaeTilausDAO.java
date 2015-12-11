@@ -3,8 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import fi.pizzablue.bean.Juoma;
@@ -31,7 +31,7 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				//käydään hakutulokset läpi
 				while(tulokset.next()) {
 					int tilausId = tulokset.getInt("t.id");
-					Date aikaleima = tulokset.getDate("t.aikaleima");
+					Timestamp aikaleima = tulokset.getTimestamp("t.aikaleima");
 					boolean kotiinkuljetus = tulokset.getBoolean("t.kotiinkuljetus");
 					double hinta = tulokset.getDouble("t.hinta");
 					String etunimi = tulokset.getString("t.etunimi");

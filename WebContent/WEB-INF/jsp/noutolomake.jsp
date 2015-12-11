@@ -43,7 +43,8 @@
 					<p> Jos haluat sähköpostivahvistuksen tilauksestasi, kirjoita sähköpostiosoitteesi tälle lomakkeelle. </p>
 					
 					<form action="siirry_tilausvahvistukseen" method="post">
-						<div class="col-lg-4 col-lg-offset-4">
+						<div class="row">
+							<div class="col-lg-4 col-lg-offset-4">
 								<div class="form-group col-xs-12">
 									<label for="Puhelinnumero">Puhelinnumero: *</label><input
 										class="form-control" type="tel" id="Puhelinnumero" name="puhelinnumero" pattern="[0-9]{10}" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
@@ -59,6 +60,7 @@
 									<textarea class="form-control" id="Lisatietoja" name="lisatietoja" rows="8"
 										placeholder="Esim. ovikoodi" style="color: black"></textarea>
 								</div>
+							</div>
 						</div>
 						<div class="col-lg-8 col-lg-offset-2"><br>
 						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
@@ -84,20 +86,9 @@
 	<!-- Plugin JavaScript -->
 	<script src="js/jquery.easing.min.js"></script>
 
-	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
 	<!-- Custom Theme JavaScript -->
 	<script src="js/grayscale.js"></script>
 
-	<script>
-		$(document).ready(function() {
-
-			$("#tabs").tabs();
-
-		});
-	</script>
 
 
 </body>
