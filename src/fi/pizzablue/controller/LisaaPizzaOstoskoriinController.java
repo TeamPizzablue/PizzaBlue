@@ -52,7 +52,7 @@ public class LisaaPizzaOstoskoriinController extends HttpServlet {
 			request.getSession().setAttribute("tilaus", tilaus);
 			
 			//siirrytään takaisin etusivun pizzalistaan
-			response.sendRedirect("index.jsp#pizzalista");
+			response.sendRedirect("frontpage#pizzalista");
 			
 		//ohjataan etusivulle jos tulee virhe, jossa myös näkyy virhe viesti
 		} catch(DAOPoikkeus e) {

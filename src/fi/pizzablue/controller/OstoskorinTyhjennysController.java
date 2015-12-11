@@ -21,7 +21,7 @@ public class OstoskorinTyhjennysController extends HttpServlet {
 		request.getSession().invalidate();
 		
 		//siirrytään etusivulle
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("frontpage");
 	}
 }
 

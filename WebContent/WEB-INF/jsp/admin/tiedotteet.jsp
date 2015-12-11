@@ -45,7 +45,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="http://localhost:8080/pizzablue/admin">Tuotteet</a>
+                        <a class="page-scroll" href="http://proto297.haaga-helia.fi:8080/pizzablue/admin">Tuotteet</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#">Tiedotteet</a>

@@ -61,7 +61,7 @@
 								ongelmatilannetta varten<span class="glyphicon glyphicon-heart" style="margin-left: 5px; color: #FF1975;" aria-hidden="true"></span>
 							</p>
 						</div>
-                <br><br><a href="http://localhost:8080/pizzablue/index.jsp" class="btn btn-default btn-lg">Takaisin pääsivulle</a>
+                <br><br><a href="http://proto297.haaga-helia.fi:8080/pizzablue/index.jsp" class="btn btn-default btn-lg">Takaisin pääsivulle</a>
                 <a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp#yhteystiedot" class="btn btn-default btn-lg">Anna palautetta</a> 
                 <br><br><br><br><br><br>		
             </div> 

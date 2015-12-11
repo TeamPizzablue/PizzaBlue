@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TilaussivuController
  */
-@WebServlet(urlPatterns={"/toimitus", "/toimitustiedot.jsp"})
+@WebServlet(urlPatterns={"/kotiinkuljetus", "/kotiinkuljetus.jsp"})
 public class KotiinkuljetusController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +23,7 @@ public class KotiinkuljetusController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("WEB-INF/jsp/toimitustiedot.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/kotiinkuljetuslomake.jsp").forward(request, response);
 		
 	}
 }

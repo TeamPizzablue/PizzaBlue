@@ -81,7 +81,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		request.getSession().invalidate();
 		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
 		request.setAttribute("tilausid", tilausId);
-		request.getRequestDispatcher("WEB-INF/jsp/kiitosTilauksesta.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/kiitostilauksesta.jsp").forward(request, response);
 		
 	}
 }

@@ -48,7 +48,7 @@
                         <a class="page-scroll" href="#">Tuotteet</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="http://localhost:8080/pizzablue/tiedotteet">Tiedotteet</a>
+                        <a class="page-scroll" href="http://proto297.haaga-helia.fi:8080/pizzablue/tiedotteet">Tiedotteet</a>
                     </li>
                     <!--<li>
                         <a class="page-scroll" href="">Aukioloajat</a>

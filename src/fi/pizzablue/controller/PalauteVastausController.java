@@ -21,7 +21,7 @@ public class PalauteVastausController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//siirrytään palauteVastaus sivulle
-		request.getRequestDispatcher("WEB-INF/jsp/palauteVastaus.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/palautevastaus.jsp").forward(request, response);
 		
 	}
 }

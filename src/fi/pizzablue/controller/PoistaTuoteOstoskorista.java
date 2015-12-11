@@ -31,7 +31,7 @@ public class PoistaTuoteOstoskorista extends HttpServlet {
 		System.out.println("Tilausrivit size: "+ tilaus.getTilausrivit().size());
 
 		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("frontpage");
 
 	}
 

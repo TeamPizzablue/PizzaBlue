@@ -49,7 +49,7 @@ public class TallennaToimitustiedotController extends HttpServlet {
 		System.out.println(tilaus.toString());
 		
 		request.getSession().setAttribute("tilaus", tilaus);
-		response.sendRedirect("tilausvahvistus.jsp");
+		response.sendRedirect("vahvistus");
 		
 	}
 

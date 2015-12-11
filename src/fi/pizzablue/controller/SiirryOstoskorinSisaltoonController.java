@@ -60,7 +60,7 @@ public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 		request.getSession().setAttribute("tilaus", tilaus);
 		
 		//siirrytään ostoskorin sisältö sivulle
-		request.getRequestDispatcher("WEB-INF/jsp/ostoskorinSisalto.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/jsp/ostoskorinsisalto.jsp").forward(request, response);
 		
 	}
 }
