@@ -1,7 +1,5 @@
 package fi.pizzablue.tyontekija.bean;
 
-import fi.pizzablue.bean.Juoma;
-
 public class KokoJuoma {
 	
 	private int tilausId;
