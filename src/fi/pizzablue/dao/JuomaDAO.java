@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fi.pizzablue.bean.Juoma;
-import fi.pizzablue.bean.Pizza;
 
 public class JuomaDAO {
 	
-
 	//Hakee pizzat kannasta 
 	public List<Juoma> haeJuomat(Connection yhteys) throws DAOPoikkeus{		
 		
@@ -119,8 +117,6 @@ public class JuomaDAO {
 	public void poista(Juoma j, Connection yhteys) throws DAOPoikkeus{
 
 		try {
-			
-			//suoritetaan haku
 			
 			//alustetaan sql-lause, huom pitää olla ? ja seuraavassa kohtaa täydennetään tiedot
 			String sql = "delete from juoma where id = ?";

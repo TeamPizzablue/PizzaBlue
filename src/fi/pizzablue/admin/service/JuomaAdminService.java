@@ -4,10 +4,8 @@ import java.sql.Connection;
 
 import fi.pizzablue.admin.dao.JuomaNumeroDAO;
 import fi.pizzablue.bean.Juoma;
-import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.JuomaDAO;
-import fi.pizzablue.dao.PizzaDAO;
 import fi.pizzablue.dao.Yhteys;
 
 public class JuomaAdminService {

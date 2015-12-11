@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 import fi.pizzablue.admin.bean.Tiedote;
-import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 
 /**
