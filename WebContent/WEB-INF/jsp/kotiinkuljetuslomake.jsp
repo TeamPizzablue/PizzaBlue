@@ -13,6 +13,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<!-- favicon kuva -->
+<link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -91,7 +94,7 @@
 										00600|00610|00620|00630|00640|00650|00660|00670|00680|00690|
 										00700|00710|00720|00730|00740|00750|00760|00770|00780|00790|
 										00800|00810|00820|00830|00840|00850|00860|00870|00880|00890|
-										00900|00910|00920|00930|00940|00950|00960|00970|00980|00990|
+										00900|00910|00920|00930|00940|00950|00960|00970|00980|00990|"
 										style="color:black"
 										oninvalid="setCustomValidity('Toimitamme pizzoja ainoastaan Helsingin alueelle ')"
  										   onchange="try{setCustomValidity('')}catch(e){}" required> 

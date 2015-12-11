@@ -13,6 +13,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<!-- favicon kuva -->
+<link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
