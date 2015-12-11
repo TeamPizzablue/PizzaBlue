@@ -7,18 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/kiitostilauksesta")
-public class kiitosTilauksestaController extends HttpServlet {
+/**
+ * Servlet implementation class TilaussivuController
+ */
+@WebServlet(urlPatterns={"/toimitus", "/toimitustiedot.jsp"})
+public class KotiinkuljetusController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public kiitosTilauksestaController() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public KotiinkuljetusController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/jsp/kiitosTilauksesta.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("WEB-INF/jsp/toimitustiedot.jsp").forward(request, response);
 		
 	}
-
 }

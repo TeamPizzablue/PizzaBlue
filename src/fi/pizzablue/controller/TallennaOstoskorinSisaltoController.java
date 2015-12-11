@@ -73,6 +73,9 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 			tilaus.setKotiinkuljetus(false);
 		} else if (toimitustapa.equals("kotiinkuljetus")) {
 			tilaus.setKotiinkuljetus(true);
+			double hinta = tilaus.getHinta();
+			hinta += 2.99;
+			tilaus.setHinta(hinta);
 		}
 		System.out.println(tilaus.getTilausrivit().size());
 		System.out.println(tilaus.getKotiinkuljetus());
