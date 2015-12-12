@@ -27,7 +27,6 @@ public class LisaaJuomaOstoskoriinController extends HttpServlet {
 		JuomalistaService service = new JuomalistaService();
 		
 		try {
-			
 			//muutetaan string intiksi
 			lisattavanJuomanId = Integer.parseInt(lisattavanJuomanIdStringina);
 			
@@ -56,12 +55,6 @@ public class LisaaJuomaOstoskoriinController extends HttpServlet {
 			System.out.println("ERROR: Ostoskoriin yritettiin lisätä pizza, jonka id ei ole kokonaisluku. (ID:" + lisattavanJuomanIdStringina + ")");
 			request.setAttribute("error", "Pizzan lisäys epäonnistui");
 			request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
-		}
-		
-		
-		
-		
-		
+		}	
 	}
-
 }

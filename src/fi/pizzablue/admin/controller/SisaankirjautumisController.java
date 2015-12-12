@@ -13,22 +13,12 @@ import fi.pizzablue.admin.bean.Kayttaja;
 import fi.pizzablue.admin.service.KayttajaService;
 import fi.pizzablue.dao.DAOPoikkeus;
 
-
 @WebServlet("/kirjaudu")
 public class SisaankirjautumisController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SisaankirjautumisController() {
-        super();
-    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -52,11 +42,7 @@ public class SisaankirjautumisController extends HttpServlet {
 			throw new ServletException("Tietokantavirhe", e);
 		} catch (NoSuchAlgorithmException e) {
 			throw new ServletException("Salausalgoritmia ei löydy.", e);
-		}
-			
-			
-			
+		}		
 	}
-
 }
 

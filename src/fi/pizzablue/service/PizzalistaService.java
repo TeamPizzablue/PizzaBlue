@@ -28,8 +28,7 @@ public class PizzalistaService {
 		}
 		
 		Yhteys.suljeYhteys(yhteys);
-		return pizzat;
-		
+		return pizzat;	
 	}
 	
 	public Pizza haePizza(int id) throws DAOPoikkeus {
@@ -39,10 +38,6 @@ public class PizzalistaService {
 		Pizza p = pDAO.haeYksiPizza(id, yhteys);
 		
 		Yhteys.suljeYhteys(yhteys);
-		return p;
-		
+		return p;	
 	}
-	
-	
-
 }

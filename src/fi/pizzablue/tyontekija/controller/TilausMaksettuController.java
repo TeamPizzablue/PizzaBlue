@@ -37,5 +37,4 @@ public class TilausMaksettuController extends HttpServlet {
 			response.sendRedirect("tilaustenseuranta.jsp?vaihdettu=true");
 		}
 	}
-
 }

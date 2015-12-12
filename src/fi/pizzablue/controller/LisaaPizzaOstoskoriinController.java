@@ -14,9 +14,6 @@ import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.service.PizzalistaService;
 
-/**
- * Servlet implementation class LisaaPizzaOstoskoriinController
- */
 @WebServlet("/lisaa_pizza_ostoskoriin")
 public class LisaaPizzaOstoskoriinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +27,6 @@ public class LisaaPizzaOstoskoriinController extends HttpServlet {
 		PizzalistaService service = new PizzalistaService();
 		
 		try {
-			
 			//muutetaan string intiksi
 			lisattavanPizzanId = Integer.parseInt(lisattavanPizzanIdStringina);
 			
@@ -59,12 +55,6 @@ public class LisaaPizzaOstoskoriinController extends HttpServlet {
 			System.out.println("ERROR: Ostoskoriin yritettiin lisätä pizza, jonka id ei ole kokonaisluku. (ID:" + lisattavanPizzanIdStringina + ")");
 			request.setAttribute("error", "Pizzan lisäys epäonnistui");
 			request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
-		}
-		
-		
-		
-		
-		
+		}	
 	}
-
 }

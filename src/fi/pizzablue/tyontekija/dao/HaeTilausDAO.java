@@ -14,9 +14,6 @@ import fi.pizzablue.tyontekija.bean.KokoJuoma;
 import fi.pizzablue.tyontekija.bean.KokoPizza;
 import fi.pizzablue.tyontekija.bean.KokoTilaus;
 
-	
-
-
 	public class HaeTilausDAO {
 		
 		public List<KokoTilaus> haeTilaukset(Connection yhteys) throws DAOPoikkeus {
@@ -65,12 +62,9 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				}
 			} catch(Exception e) {
 				throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-			} 
-				
-				//System.out.println("Haettiin tilaukset: " + kokotilaus.toString());
-				
-				return ktilaus;
-				
+			} 	
+			//System.out.println("Haettiin tilaukset: " + kokotilaus.toString());
+			return ktilaus;		
 		}
 		
 		public List<KokoPizza> haeKokotilauksenPizzat(int kokotilausid, Connection yhteys) throws DAOPoikkeus {
@@ -108,13 +102,11 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 				}
 			} catch(Exception e) {
 				throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
-			} 
-				
-				//System.out.println("Haettiin tilauksen pizzat: " + kokotilaus.getPizzat().toString());
-				
-				return kpLista;
-			
+			} 	
+			//System.out.println("Haettiin tilauksen pizzat: " + kokotilaus.getPizzat().toString());	
+			return kpLista;
 		}
+		
 		public List<KokoJuoma> haeKokotilauksenJuomat(int kokotilausid, Connection yhteys) throws DAOPoikkeus {
 			
 			List<KokoJuoma> jLista = new ArrayList<>();
@@ -144,11 +136,7 @@ import fi.pizzablue.tyontekija.bean.KokoTilaus;
 			} catch(Exception e) {
 				throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
 			} 
-				
-				//System.out.println("Haettiin tilauksen juomat: " + kokotilaus.getJuomat().toString());
-				
-				return jLista;
-			
+			//System.out.println("Haettiin tilauksen juomat: " + kokotilaus.getJuomat().toString());
+			return jLista;
 		}
-
 	} 

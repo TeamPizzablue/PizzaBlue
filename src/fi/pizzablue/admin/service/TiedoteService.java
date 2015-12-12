@@ -10,7 +10,6 @@ import fi.pizzablue.dao.Yhteys;
 
 public class TiedoteService {
 	
-	
 	TiedoteDAO tDAO = new TiedoteDAO();
 	
 	public void lisaaTiedote(Tiedote t) throws DAOPoikkeus {
@@ -32,8 +31,4 @@ public class TiedoteService {
 		Yhteys.suljeYhteys(yhteys);	
 		return tiedotteet;
 	}
-	
-
-	
-
 }

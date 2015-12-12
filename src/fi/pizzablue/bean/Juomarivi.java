@@ -26,5 +26,4 @@ public class Juomarivi extends Tilausrivi {
 		return "Juomarivi [juoma=" + juoma + ", id=" + id + ", maara=" + maara
 				+ ", hinta=" + hinta + "]";
 	}
-
 }

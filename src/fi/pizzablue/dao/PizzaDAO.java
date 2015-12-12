@@ -11,16 +11,13 @@ import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 
 	public class PizzaDAO {
-		
-
-		
+				
 		//Hakee pizzat kannasta 
 		public List<Pizza> haeKaikki(Connection yhteys) throws DAOPoikkeus{		
 			
 			ArrayList<Pizza> pizzat = new ArrayList<Pizza>();
 			
 			try {
-				
 				//suoritetaan haku
 				String sql = "select p.id, p.numero, p.nimi, p.hinta, p.energia, p.proteiini, p.hiilihydraatti, p.rasva from pizza p;";
 				Statement haku = yhteys.createStatement();
@@ -57,7 +54,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 			Pizza p = null;
 			
 			try {
-				
 				//suoritetaan haku
 				String sql = "select p.id, p.numero, p.nimi, p.hinta, p.energia, p.proteiini, p.hiilihydraatti, p.rasva from pizza p where p.id = ?;";
 				PreparedStatement haku = yhteys.prepareStatement(sql);
@@ -89,8 +85,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 		public void lisaa(Pizza p, Connection yhteys) throws DAOPoikkeus{
 			
 			try {
-				//suoritetaan haku
-				
 				//alustetaan sql-lause. HUOM! values kohdassa tulee olla (?,?) muuten sovellus on haavoittuvainen, sillä sqllää voi syöttää syötekenttiin
 				//älä ikinä katenoi käyttäjien syöttämiä tietoja sql komentoihin!
 				String sql = "insert into pizza(numero, nimi, hinta, energia, proteiini, hiilihydraatti, rasva) values(?,?,?,?,?,?,?)";
@@ -111,9 +105,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 			} catch(Exception e) {
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
-			} 
-			
-
+			} 	
 		}
 		public void poista(Pizza p, Connection yhteys) throws DAOPoikkeus{
 	
@@ -158,9 +150,7 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
 			} 
 		}
-		
-		
-		
+	
 		public int haeTayteId(String taytenimi, Connection yhteys) throws DAOPoikkeus {
 			
 			int id = 0;
@@ -183,7 +173,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
 			}
-			
 			return id;
 		}
 		
@@ -208,8 +197,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Täytteen lisäämisyritys aiheutti virheen", e);
 			} 
-			
-
 		}
 		
 		public int haePizzaId(Pizza p, Connection yhteys) throws DAOPoikkeus {
@@ -234,8 +221,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 				//JOTAIN VIRHETTÄ TAPAHTUI
 				throw new DAOPoikkeus("Pizzan lisäämisyritys aiheutti virheen", e);
 			}
-			
 			return id;
-		}
-		
-	}
+		}	
+}

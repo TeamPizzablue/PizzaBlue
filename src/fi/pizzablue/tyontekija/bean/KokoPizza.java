@@ -19,26 +19,21 @@ public class KokoPizza {
 		this.pohja = pohja;	
 	}
 	
-
 	public int getNumero() {
 		return numero;
 	}
-
 
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
-
 	public String getNimi() {
 		return nimi;
 	}
 
-
 	public void setNimi(String nimi) {
 		this.nimi = nimi;
 	}
-
 
 	public KokoPizza() {
 		
@@ -76,12 +71,10 @@ public class KokoPizza {
 		this.pohja = pohja;
 	}
 
-
 	@Override
 	public String toString() {
 		return "KokoPizza [tilausId=" + tilausId + ", numero=" + numero
 				+ ", nimi=" + nimi + ", oregano=" + oregano + ", valkosipuli="
 				+ valkosipuli + ", pohja=" + pohja + "]";
 	}
-
 }

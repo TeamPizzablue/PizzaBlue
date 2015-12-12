@@ -17,7 +17,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.service.JuomalistaService;
 import fi.pizzablue.service.PizzalistaService;
 
-
 @WebServlet(urlPatterns={"/frontpage","/index.jsp"})
 public class FrontPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -49,5 +48,4 @@ public class FrontPageController extends HttpServlet {
 		//siirrytään etusivulle
 		request.getRequestDispatcher("WEB-INF/jsp/frontpage.jsp").forward(request, response);
 	}
-
 }

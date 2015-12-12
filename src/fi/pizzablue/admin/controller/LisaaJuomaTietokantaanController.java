@@ -31,14 +31,12 @@ public class LisaaJuomaTietokantaanController extends HttpServlet {
 		System.out.println(request.getParameter("jmaara"));
 
 		int jNumero = 0;
-		
 		try {
 			JuomaAdminService jservice = new JuomaAdminService();
 			jNumero = jservice.haeJuomaNumero();
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		
 		jNumero += 1;
 
 		//muutetaan määrä, hinta, energia, proteiini ja hiilihydraatti desimaaliluvuksi
@@ -48,7 +46,6 @@ public class LisaaJuomaTietokantaanController extends HttpServlet {
 		Double proteiini = Double.parseDouble(syoteProteiini);
 		Double hiilihydraatti = Double.parseDouble(syoteHiilihydraatti);
 		Double rasva = Double.parseDouble(syoteRasva);
-		
 		
 		Juoma j = new Juoma(0, jNumero, syoteNimi, maara, hinta, energia, proteiini, hiilihydraatti, rasva);
 		
@@ -60,7 +57,6 @@ public class LisaaJuomaTietokantaanController extends HttpServlet {
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		
 		response.sendRedirect("admin?lisatty=true");
 	}
 	

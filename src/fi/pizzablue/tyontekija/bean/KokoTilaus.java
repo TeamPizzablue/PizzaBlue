@@ -199,5 +199,4 @@ public class KokoTilaus {
 				+ ", pizzojenMaara=" + pizzojenMaara + ", juomat=" + juomat
 				+ ", juomienMaara=" + juomienMaara + ", tila=" + tila + "]";
 	}
-
 }

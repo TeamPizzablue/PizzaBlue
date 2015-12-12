@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Tilaus {
-	
 	private int id;
 	private double hinta;
 	private Date aikaleima;
@@ -163,7 +162,5 @@ public class Tilaus {
 				+ postinro + ", postitmp=" + postitmp + ", lisatiedot="
 				+ lisatiedot + ", tila=" + tila + ", tilausrivit="
 				+ tilausrivit + "]";
-	}
-	
-	
+	}	
 }

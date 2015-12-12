@@ -32,5 +32,4 @@ public class DBConnectionProperties {
 		}
 		return instance;
 	}
-
 }

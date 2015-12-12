@@ -1,7 +1,6 @@
 package fi.pizzablue.bean;
 
 public class Pohja { 
-	
 	private int id;
 	private String nimi;
 	
@@ -34,5 +33,4 @@ public class Pohja {
 	public String toString() {
 		return "Pohja [id=" + id + ", nimi=" + nimi + "]";
 	}
-
 }

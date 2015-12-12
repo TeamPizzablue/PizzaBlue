@@ -18,15 +18,9 @@ import fi.pizzablue.bean.Tilausrivi;
 @WebServlet("/siirry_toimitustietoihin")
 public class TallennaOstoskorinSisaltoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public TallennaOstoskorinSisaltoController() {
-        super();
-    }
-    
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+			
 		String[] rivitJoissaValkosipuli = null;
 		String[] rivitJoissaOregano = null;
 		rivitJoissaOregano = request.getParameterValues("mausteetO");
@@ -67,7 +61,6 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 				}
 			}
 		}
-		
 		System.out.println(toimitustapa);
 		if (toimitustapa.equals("nouto")) {
 			tilaus.setKotiinkuljetus(false);
@@ -88,5 +81,4 @@ public class TallennaOstoskorinSisaltoController extends HttpServlet {
 			response.sendRedirect("nouto");
 		}
 	}
-
 }

@@ -31,8 +31,6 @@ public class KokoTilausService {
 		
 		Yhteys.suljeYhteys(yhteys);
 		
-		return tilaus;
-		
+		return tilaus;	
 	}
 }
-

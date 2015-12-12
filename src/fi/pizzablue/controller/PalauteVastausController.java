@@ -7,21 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class PalauteVastausController
- */
 @WebServlet("/palautevastaus")
 public class PalauteVastausController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public PalauteVastausController() {
-        super();
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		//siirrytään palauteVastaus sivulle
-		request.getRequestDispatcher("WEB-INF/jsp/palautevastaus.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("WEB-INF/jsp/palautevastaus.jsp").forward(request, response);	
 	}
 }

@@ -15,11 +15,7 @@ public class TilausService {
 	public void lisaaTilaus(Tilaus tilaus) throws DAOPoikkeus {
 
 			Connection yhteys = Yhteys.avaaYhteys();
-			
 			tDAO.lisaaTilaus(tilaus, yhteys);
-			
-			Yhteys.suljeYhteys(yhteys);	
-			
+			Yhteys.suljeYhteys(yhteys);		
 		}
-
 }

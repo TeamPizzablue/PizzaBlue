@@ -38,5 +38,4 @@ public class TilausValmistettuController extends HttpServlet {
 			response.sendRedirect("tilaustenseuranta.jsp?vaihdettu=true");
 		}
 	}
-
 }

@@ -12,20 +12,10 @@ import fi.pizzablue.bean.Juomarivi;
 import fi.pizzablue.bean.Pizzarivi;
 import fi.pizzablue.bean.Tilaus;
 
-/**
- * Servlet implementation class TilaussivuController
- */
 @WebServlet(urlPatterns={"/ostoskorinsisalto"})
 public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SiirryOstoskorinSisaltoonController() {
-        super();
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//pyydetään sessiosta tilausta
@@ -35,7 +25,7 @@ public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 		
 		//loopataan läpi tilausrivit
 		for(int i = 0; i < tilaus.getTilausrivit().size(); i++) {
-			
+		
 			//jos tilausrivi on pizzarivi
 			if(tilaus.getTilausrivit().get(i) instanceof Pizzarivi) {
 				Pizzarivi pizzarivi = (Pizzarivi)tilaus.getTilausrivit().get(i);
@@ -49,7 +39,6 @@ public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 				//lisätään juoman hinta tilauksen kokonaishintaan
 				tilausrivienyhteenlaskettuhinta += juomarivi.getJuoma().getHinta();
 			}
-			
 		}
 		System.out.println(tilausrivienyhteenlaskettuhinta);
 		
@@ -61,6 +50,5 @@ public class SiirryOstoskorinSisaltoonController extends HttpServlet {
 		
 		//siirrytään ostoskorin sisältö sivulle
 		request.getRequestDispatcher("WEB-INF/jsp/ostoskorinsisalto.jsp").forward(request, response);
-		
 	}
 }

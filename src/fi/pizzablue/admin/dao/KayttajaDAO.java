@@ -9,8 +9,6 @@ import fi.pizzablue.admin.bean.Kayttaja;
 import fi.pizzablue.dao.DAOPoikkeus;
 
 public class KayttajaDAO {
-
-
 	/**
 	 * Lisää uuden webuserin tietokantaan
 	 * 

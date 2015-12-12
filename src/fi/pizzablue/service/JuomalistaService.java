@@ -31,5 +31,4 @@ public class JuomalistaService {
 		Yhteys.suljeYhteys(yhteys);
 		return j;	
 	}
-
 }

@@ -16,17 +16,13 @@ import fi.pizzablue.dao.DAOPoikkeus;
 public class LisaaTiedoteKantaanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public LisaaTiedoteKantaanController() {
-        super();
-       
-    }
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		String syoteOtsikko = request.getParameter("otsikko");
 		String syoteTiedote = request.getParameter("tiedote");
+		
 		Tiedote t = new Tiedote(syoteOtsikko, syoteTiedote);
 
 		try {

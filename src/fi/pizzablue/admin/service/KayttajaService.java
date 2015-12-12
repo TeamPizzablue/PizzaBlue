@@ -21,9 +21,8 @@ public class KayttajaService {
 		
 		Connection yhteys = Yhteys.avaaYhteys();
 		Kayttaja k = kDAO.hae(kayttajatunnus, yhteys);
-		Yhteys.suljeYhteys(yhteys);
+		Yhteys.suljeYhteys(yhteys);	
 		
 		return k;
 	}
-
 }

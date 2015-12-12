@@ -19,11 +19,7 @@ import fi.pizzablue.service.TilausrivitService;
 public class TallennaTilausTietokantaanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public TallennaTilausTietokantaanController() {
-        super();
-    }
-
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Tilaus tilaus = (Tilaus)request.getSession().getAttribute("tilaus");
 		
@@ -81,7 +77,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		request.getSession().invalidate();
 		request.setAttribute("vahvistus", "Tilaus on vahvistettu");
 		request.setAttribute("tilausid", tilausId);
-		request.getRequestDispatcher("WEB-INF/jsp/kiitostilauksesta.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("WEB-INF/jsp/kiitostilauksesta.jsp").forward(request, response);	
 	}
 }

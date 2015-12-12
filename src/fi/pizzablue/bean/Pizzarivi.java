@@ -16,8 +16,7 @@ public class Pizzarivi extends Tilausrivi {
 		this.oregano = oregano;
 		this.valkosipuli = valkosipuli;
 		this.pohja = pohja;
-		this.pizza = pizza;
-		
+		this.pizza = pizza;	
 	}
 
 	public boolean isOregano() {
@@ -58,5 +57,4 @@ public class Pizzarivi extends Tilausrivi {
 				+ ", pohja=" + pohja + ", pizza=" + pizza + ", id=" + id
 				+ ", maara=" + maara + ", hinta=" + hinta + "]";
 	}
-
 }

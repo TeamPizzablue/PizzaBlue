@@ -1,8 +1,6 @@
 package fi.pizzablue.bean;
 
-
 public class Juoma {
-	
 	private int id;
 	private int numero;
 	private String nimi;
@@ -112,8 +110,5 @@ public class Juoma {
 	@Override
 	public String toString() {
 		return "Juoma [id=" + id + ", nimi=" + nimi + "]";
-	}
-	
-	
-	
+	}	
 }

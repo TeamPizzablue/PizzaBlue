@@ -32,6 +32,4 @@ public class JuomaAdminService {
 		Yhteys.suljeYhteys(yhteys);
 		return numero;
 	}
-	
-
 }

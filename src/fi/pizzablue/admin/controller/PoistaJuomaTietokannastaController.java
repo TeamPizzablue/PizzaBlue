@@ -12,12 +12,10 @@ import fi.pizzablue.bean.Juoma;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.admin.service.JuomaAdminService;
 
-
 @WebServlet("/poistajuoma")
 public class PoistaJuomaTietokannastaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String syoteID = request.getParameter("id");
 		
@@ -28,7 +26,6 @@ public class PoistaJuomaTietokannastaController extends HttpServlet {
 		Juoma j = new Juoma(id);
 
 		try {
-			
 			JuomaAdminService service = new JuomaAdminService();
 			service.poistaJuoma(j);
 		} catch (DAOPoikkeus e) {

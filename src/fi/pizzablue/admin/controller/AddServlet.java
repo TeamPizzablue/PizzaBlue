@@ -11,15 +11,10 @@ import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.admin.service.PizzaAdminService;
 
-
-
-
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String syoteNimi = request.getParameter("nimi");
@@ -33,7 +28,6 @@ public class AddServlet extends HttpServlet {
 		String[] taytteet = taytteetString.split(",");
 		
 		//haetaan viimeksi syötetyn pizzan numero kannasta
-
 		int pNumero = 0;
 		try {
 			PizzaAdminService pservice = new PizzaAdminService();
@@ -43,15 +37,13 @@ public class AddServlet extends HttpServlet {
 		}
 		pNumero += 1;
 		
-
 		//muutetaan hinta, energia, proteiini ja hiilihydraatti desimaaliluvuksi
 		Double hinta = Double.parseDouble(syoteHinta);
 		int energia = Integer.parseInt(syoteEnergia);
 		Double proteiini = Double.parseDouble(syoteProteiini);
 		Double hiilihydraatti = Double.parseDouble(syoteHiilihydraatti);
 		Double rasva = Double.parseDouble(syoteRasva);
-		
-		
+			
 		Pizza p = new Pizza(0, pNumero, syoteNimi, hinta, energia, proteiini, hiilihydraatti, rasva);
 		
 		System.out.println(p.toString());
@@ -62,7 +54,6 @@ public class AddServlet extends HttpServlet {
 		} catch (DAOPoikkeus e) {
 			throw new ServletException(e);
 		}
-		
 		response.sendRedirect("admin?added=true");
 	}
 	

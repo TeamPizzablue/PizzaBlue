@@ -15,12 +15,7 @@ TilausrivitDAO trDAO = new TilausrivitDAO();
 	public void lisaaTilausrivit(Tilaus tilaus) throws DAOPoikkeus {
 
 			Connection yhteys = Yhteys.avaaYhteys();
-			
 			trDAO.lisaaTilausrivit(tilaus, yhteys);
-			
-			Yhteys.suljeYhteys(yhteys);	
-			
+			Yhteys.suljeYhteys(yhteys);		
 		}
-
-
 }

@@ -7,14 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/tyhjenna_ostoskori")
 public class OstoskorinTyhjennysController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public OstoskorinTyhjennysController() {
-        super();
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//tyhjennetään sessio

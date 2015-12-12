@@ -12,13 +12,10 @@ import fi.pizzablue.bean.Pizza;
 import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.admin.service.PizzaAdminService;
 
-
-
 @WebServlet("/del")
 public class DelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String syoteID = request.getParameter("id");
 		

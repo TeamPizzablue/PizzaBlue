@@ -14,13 +14,8 @@ public class TilausIdService {
 	public int haeTilausId() throws DAOPoikkeus {
 
 			Connection yhteys = Yhteys.avaaYhteys();
-			
 			int id = tidDAO.haeId(yhteys);
-			
 			Yhteys.suljeYhteys(yhteys);
-			
-			return id;
-			
-		}
-		
+			return id;	
+		}	
 }

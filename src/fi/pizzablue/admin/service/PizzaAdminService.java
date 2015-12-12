@@ -42,6 +42,4 @@ public class PizzaAdminService {
 		Yhteys.suljeYhteys(yhteys);
 		return numero;
 	}
-	
-
 }

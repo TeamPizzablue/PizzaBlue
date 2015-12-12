@@ -9,7 +9,6 @@ public class DAOPoikkeus extends Exception {
 		super("Tietokantapoikkeus");
 	}
 
-	
 	public DAOPoikkeus(String viesti) {
 		super(viesti);
 	}

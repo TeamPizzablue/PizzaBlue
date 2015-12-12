@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServlet;
 import fi.pizzablue.admin.bean.Tiedote;
 import fi.pizzablue.dao.DAOPoikkeus;
 
-/**
- * Servlet implementation class PizzaIdDAO
- */
 @WebServlet("/tiedoteDAO")
 public class TiedoteDAO extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -84,6 +81,5 @@ public class TiedoteDAO extends HttpServlet {
 		System.out.println("Haettiin kannasta tiedotteet: " + tiedotteet.toString());	
 	
 	return tiedotteet;
-
 	}
 }

@@ -18,10 +18,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 public class TallennaRekisteroityminenController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-       
-    public TallennaRekisteroityminenController() {
-        super();
-    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -53,16 +49,12 @@ public class TallennaRekisteroityminenController extends HttpServlet {
 		} else {
 			String virheviesti = "Käyttäjätunnus " + username + " ei kelpaa";
 			takaisinVirheviestilla(virheviesti, username, request, response);
-		}
-	
-		
+		}	
 	}
 	
 	private void takaisinVirheviestilla(String viesti, String username, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("error", viesti);
 		request.setAttribute("prev_reg_username", username);
-		request.getRequestDispatcher("WEB-INF/jsp/admin/rekisteroityminen.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("WEB-INF/jsp/admin/rekisteroityminen.jsp").forward(request, response);	
 	}
-
 }

@@ -14,16 +14,9 @@ import fi.pizzablue.admin.bean.Tiedote;
 import fi.pizzablue.admin.service.TiedoteService;
 import fi.pizzablue.dao.DAOPoikkeus;
 
-/**
- * Servlet implementation class TiedotteetController
- */
 @WebServlet(urlPatterns={"/tiedotteet.jsp","/tiedotteet"})
 public class TiedotteetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public TiedotteetController() {
-        super();
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Tiedote> tiedotteet;

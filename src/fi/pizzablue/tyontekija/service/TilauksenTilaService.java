@@ -6,7 +6,6 @@ import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.dao.Yhteys;
 import fi.pizzablue.tyontekija.dao.VaihdaTilauksenTilaDAO;
 
-
 public class TilauksenTilaService {
 	
 	public void muutaTilaValmistetuksi(int tilausId) throws DAOPoikkeus {

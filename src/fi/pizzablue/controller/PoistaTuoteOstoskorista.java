@@ -13,10 +13,6 @@ import fi.pizzablue.bean.Tilaus;
 @WebServlet("/poista_tuote_ostoskorista")
 public class PoistaTuoteOstoskorista extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public PoistaTuoteOstoskorista() {
-		super();
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -34,5 +30,4 @@ public class PoistaTuoteOstoskorista extends HttpServlet {
 		response.sendRedirect("frontpage");
 
 	}
-
 }

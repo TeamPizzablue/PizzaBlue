@@ -10,7 +10,6 @@ import fi.pizzablue.bean.Tilaus;
 import fi.pizzablue.bean.Tilausrivi;
 import fi.pizzablue.service.TilausIdService;
 
-
 public class TilausrivitDAO {
 				
 	public void lisaaTilausrivit(Tilaus tilaus, Connection yhteys) throws DAOPoikkeus {

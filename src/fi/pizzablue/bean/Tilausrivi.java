@@ -42,6 +42,5 @@ public abstract class Tilausrivi {
 	public String toString() {
 		return "Tilausrivi [id=" + id + ", maara=" + maara + ", hinta=" + hinta
 				+ "]";
-	}
-	
+	}	
 }

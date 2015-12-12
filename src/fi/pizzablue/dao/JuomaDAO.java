@@ -132,7 +132,5 @@ public class JuomaDAO {
 			//JOTAIN VIRHETTÄ TAPAHTUI
 			throw new DAOPoikkeus("Juoman lisäämisyritys aiheutti virheen", e);
 		} 
-		
-
 	}
 }

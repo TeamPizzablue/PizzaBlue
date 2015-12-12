@@ -10,18 +10,20 @@ public class Tiedote {
 		this.otsikko = otsikko;
 		this.sisalto = sisalto;
 	}
+	
 	public Tiedote (String otsikko, String sisalto) {
 		this.otsikko = otsikko;
 		this.sisalto = sisalto;
 	}
+	
 	public Tiedote (int id) {
 		this.id = id;
-	}
+	}	
 	
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}

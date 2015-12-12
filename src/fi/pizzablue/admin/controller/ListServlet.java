@@ -17,17 +17,9 @@ import fi.pizzablue.dao.DAOPoikkeus;
 import fi.pizzablue.service.JuomalistaService;
 import fi.pizzablue.service.PizzalistaService;
 
-
-
 @WebServlet(urlPatterns={"/admin.jsp","/admin"})
 public class ListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-    public ListServlet() {
-        super();
-        
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

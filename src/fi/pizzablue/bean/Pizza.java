@@ -2,9 +2,7 @@ package fi.pizzablue.bean;
 
 import java.util.List;
 
-
 public class Pizza {
-	
 	private int id;
 	private int numero;
 	private String nimi;
@@ -14,8 +12,7 @@ public class Pizza {
 	private double hiilihydraatti;
 	private double rasva;
 	private List<Tayte> taytteet;
-	
-	
+		
 	public Pizza(int id) {
 		this.id = id;
 	}
@@ -118,9 +115,4 @@ public class Pizza {
 	public String toString() {
 		return "Pizza [id=" + id + ", nimi=" + nimi + "]";
 	}
-	
-
-
-	
-
 }

@@ -14,11 +14,6 @@ import fi.pizzablue.bean.Tilaus;
 @WebServlet("/siirry_tilausvahvistukseen")
 public class TallennaToimitustiedotController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public TallennaToimitustiedotController() {
-        super();
-    }
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -50,7 +45,5 @@ public class TallennaToimitustiedotController extends HttpServlet {
 		
 		request.getSession().setAttribute("tilaus", tilaus);
 		response.sendRedirect("vahvistus");
-		
 	}
-
 }

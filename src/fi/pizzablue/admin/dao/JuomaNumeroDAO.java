@@ -1,6 +1,5 @@
 package fi.pizzablue.admin.dao;
 
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -17,7 +16,6 @@ public class JuomaNumeroDAO extends HttpServlet {
 	public int haeNumero(Connection yhteys) throws DAOPoikkeus{		
 		
 		int numero = 0;
-		
 		try {
 			//suoritetaan haku
 			String sql = "SELECT MAX(numero) FROM juoma";
@@ -27,14 +25,12 @@ public class JuomaNumeroDAO extends HttpServlet {
 			//käydään hakutulokset läpi
 			while (tulokset.next()) {
 				numero = tulokset.getInt("MAX(numero)");
-			}
-			
+			}	
 		} catch(Exception e) {
 			// virheitä tapahtui
 			throw new DAOPoikkeus("Tietokantahaku aiheutti virheen", e);
 		}
 		return numero;
 	}
-
 }
 
