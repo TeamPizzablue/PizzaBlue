@@ -60,31 +60,32 @@
 					<!-- Tästä eteenpäin loopataan ostoskorin sisältö yllämainitussa järjestyksessä -->
 					<c:forEach items="${tilaus.tilausrivit}" var="tilausrivi" varStatus="count">
 						<c:if test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
-						<tr class="tuoterivi">
-							<td><c:out value="${tilausrivi.pizza.numero}"/></td>
-							<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
-							<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
-							<td>
-								<c:if test="${tilausrivi.oregano == true}">
-									Oregano
-								</c:if>
-								<c:if test="${tilausrivi.valkosipuli == true}">
-									Valkosipuli
-								</c:if>
-							</td>
-							<td><c:choose>
-								<c:when test="${tilausrivi.pohja.nimi == 'tavallinen'}">
-									Tavallinen
-								</c:when>
-								<c:when test="${tilausrivi.pohja.nimi == 'taysjyva'}">
-									Täysjyvä
-								</c:when>
-								<c:otherwise>
-									Gluteeniton
-								</c:otherwise>
+							<tr class="tuoterivi">
+								<td><c:out value="${tilausrivi.pizza.numero}"/></td>
+								<td><c:out value="${tilausrivi.pizza.nimi}"/></td>
+								<td><fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €</td>
+								<td>
+									<c:if test="${tilausrivi.oregano == true}">
+										Oregano
+									</c:if>
+									<c:if test="${tilausrivi.valkosipuli == true}">
+										Valkosipuli
+									</c:if>
+								</td>
+								<td>
+								<c:choose>
+									<c:when test="${tilausrivi.pohja.nimi == 'tavallinen'}">
+										Tavallinen
+									</c:when>
+									<c:when test="${tilausrivi.pohja.nimi == 'taysjyva'}">
+										Täysjyvä
+									</c:when>
+									<c:otherwise>
+										Gluteeniton
+									</c:otherwise>
 								</c:choose>
-							</td>
-						</tr>
+								</td>
+							</tr>
 						</c:if>
 					</c:forEach>
 	

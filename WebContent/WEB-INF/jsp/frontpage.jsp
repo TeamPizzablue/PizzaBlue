@@ -129,47 +129,6 @@
 									</li>
 								</c:if>
 							</c:forEach>
-							<%--
-							<li><c:forEach items="${tilaus.getTilausrivit()}" var="tilausrivi">
-							<c:choose>
-								<c:when test="${tilausrivi.getClass().name == 'fi.pizzablue.bean.Pizzarivi'}">
-								<form action="poista_pizza_ostoskorista" method="post">
-									<span class="item"> <span class="item-left">
-									<img src="img/m<c:out value="${tilausrivi.pizza.numero}"/>.png" alt="kuva">
-											<span class="item-info"> 
-												<c:out value="${tilausrivi.pizza.numero}" />. 
-												<c:out value="${tilausrivi.pizza.nimi}" /><br /> 
-												<fmt:formatNumber value="${tilausrivi.pizza.hinta}" minFractionDigits="2"></fmt:formatNumber> €
-											</span>
-										</span>
-											<span class="item-right">
-											<input type="hidden" name="id" value="<c:out value="${tilausrivi.pizza.id}"/>">
-												<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
-											
-											</span>
-									</span>
-								</form>
-								</c:when>
-								<c:otherwise>
-								<form action="poista_juoma_ostoskorista" method="post">
-									<span class="item"> <span class="item-left">
-									<!-- <img src="img/mj<c:out value="${tilausrivi.juoma.numero}"/>.png" alt="kuva"> -->
-											<span class="item-info"> 
-												<c:out value="${tilausrivi.juoma.numero}" />. 
-												<c:out value="${tilausrivi.juoma.nimi}" /><br /> 
-												<fmt:formatNumber value="${tilausrivi.juoma.hinta}" minFractionDigits="2"></fmt:formatNumber> €
-											</span>
-										</span>
-											<span class="item-right">
-											<input type="hidden" name="id" value="<c:out value="${tilausrivi.juoma.id}"/>">
-												<button type="submit" class="btn btn-xs btn-danger pull-right">x</button>
-											
-											</span>
-									</span>
-								</form>
-								</c:otherwise>
-							</c:choose>
-							</c:forEach></li> --%>
 							
 							<!-- testataan onko ostoskorissa tuotteita, jotta tilaamaan ei pääse ostoskorin ollessa tyhjä -->
 							<c:if test="${tilaus.getTilausrivit().size() != null && tilaus.getTilausrivit().size() != 0}">
@@ -253,7 +212,6 @@
 				</c:forEach>
 				<img class="img-responsive center-block" src="img/Bonappetito.png" alt="kuva">
 			</div>
-			<!-- <img class="slaissi img-responsive" align="right" src="img/Slaissi.png" alt="slaissi"> -->
 		</div>
 		<!-- esittely sivu päättyy -->
 	</section>

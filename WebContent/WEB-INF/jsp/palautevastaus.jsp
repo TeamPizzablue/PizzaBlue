@@ -48,16 +48,12 @@
 <section class="container text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-            	<br><br><br><br><br><br><br>
+            	<br/><br/><br/><br/><br/><br/><br/>
                 <h2>Kiitos palautteestasi!</h2>
-                <br><br><a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp" class="btn btn-default btn-lg">Takaisin pääsivulle</a> <br><br><br><br><br><br>
+                <br/><br/><a href="http://proto297.haaga-helia.fi:8080/pizzablue/frontpage.jsp" class="btn btn-default btn-lg">Takaisin pääsivulle</a> <br/><br/><br/><br/><br/><br/>
                 <img class="kuva img-responsive center-block" src="img/palautesivu.png" alt="kuva">
-					
-            </div>
-            
-        	</div>
-        	
-        
+            </div>    
+        </div>
     </section>
 </body>
 </html>

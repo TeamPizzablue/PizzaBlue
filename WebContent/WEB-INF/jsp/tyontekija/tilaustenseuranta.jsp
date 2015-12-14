@@ -62,8 +62,8 @@
 		<!-- tilan vaihto onnistunut -->
 		<c:if test="${not empty param.vaihdettu}"><br><p style="color:lime;">Tilauksen tila vaihdettiin onnistuneesti!</p></c:if>
 
-		<br>
-		<h2>Tilaukset</h2><br>
+		<br/>
+		<h2>Tilaukset</h2><br/>
 		<div class="col-lg-12 sisaltopizza tilaustable text-uppercase table-responsive">
     			<div class="ylinrivi col-lg-2"><strong>tilausnumero</strong></div>
     			<div class="ylinrivi col-lg-2"><strong>aika</strong></div>
@@ -79,9 +79,12 @@
     			<div class="ylinrivi col-lg-2"><strong><fmt:formatDate pattern="dd.MM.yy HH:mm" value="${tilaus.aikaleima}"/></strong></div>
     			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.pizzojenMaara}"/></strong></div>
     			<div class="ylinrivi col-lg-1"><strong><c:out value="${tilaus.juomienMaara}"/></strong></div>
-    			<div class="ylinrivi col-lg-2"><strong><c:choose>
-    			<c:when test="${tilaus.kotiinkuljetus == true}">Kotiinkuljetus</c:when>
-    			<c:otherwise>Nouto</c:otherwise></c:choose></strong></div>
+    			<div class="ylinrivi col-lg-2"><strong>
+    				<c:choose>
+    					<c:when test="${tilaus.kotiinkuljetus == true}">Kotiinkuljetus</c:when>
+    					<c:otherwise>Nouto</c:otherwise>
+    				</c:choose></strong>
+    			</div>
     			<c:choose>
     				<c:when test="${tilaus.tila == 1}"><div class="ylinrivi col-lg-2 saapunut"><strong>saapunut</strong></div></c:when>
     				<c:when test="${tilaus.tila == 2}"><div class="ylinrivi col-lg-2 valmistettu"><strong>valmistettu</strong></div></c:when>

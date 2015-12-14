@@ -38,39 +38,45 @@
 </head>
 <body>
 	<!-- Toimitustiedot -->
-	<section id="toimitustiedot"
-		class="container content-section text-center" style="padding: 50px 0px 0px 0px !important;">
+	<section id="toimitustiedot" class="container content-section text-center" style="padding: 50px 0px 0px 0px !important;">
 		<div class="col-lg-12">
-					<h1>Nouto</h1>
+			<h1>Nouto</h1>
 					
-					<p> Jos haluat sähköpostivahvistuksen tilauksestasi, kirjoita sähköpostiosoitteesi tälle lomakkeelle. </p>
+			<p> Jos haluat sähköpostivahvistuksen tilauksestasi, kirjoita sähköpostiosoitteesi tälle lomakkeelle. </p>
 					
-					<form action="siirry_tilausvahvistukseen" method="post">
-						<div class="row">
-							<div class="col-lg-4 col-lg-offset-4">
-								<div class="form-group col-xs-12">
-									<label for="Puhelinnumero">Puhelinnumero: *</label><input
-										class="form-control" type="tel" id="Puhelinnumero" name="puhelinnumero" pattern="[0-9]{10}" style="color:black" oninvalid="setCustomValidity('Syötä vain numeroita! ')"
-    onchange="try{setCustomValidity('')}catch(e){}" required></div>
+			<form action="siirry_tilausvahvistukseen" method="post">
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-4">
+						<div class="form-group col-xs-12">
+							<label for="Puhelinnumero">Puhelinnumero: *</label>
+							<input class="form-control" type="tel" id="Puhelinnumero" name="puhelinnumero" 
+										pattern="[0-9]{10}" 
+										style="color:black" 
+										oninvalid="setCustomValidity('Syötä vain numeroita! ')"
+    									onchange="try{setCustomValidity('')}catch(e){}" required>
+    					</div>
 										
-								<div class="form-group col-xs-12">
-									<label for="Sahkoposti">Sähköposti: </label><input
-										class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" id="Sahkoposti" name="sahkoposti" style="color:black" oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
-    onchange="try{setCustomValidity('')}catch(e){}">
-								</div>
-								<div class="form-group col-xs-12">
-									<label for="Lisatietoja">Lisätietoja: </label>
-									<textarea class="form-control" id="Lisatietoja" name="lisatietoja" rows="8"
-										placeholder="Esim. ovikoodi" style="color: black"></textarea>
-								</div>
-							</div>
+						<div class="form-group col-xs-12">
+							<label for="Sahkoposti">Sähköposti: </label>
+							<input class="form-control" type="email" id="Sahkoposti" name="sahkoposti"
+										pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" 
+										style="color:black" 
+										oninvalid="setCustomValidity('Syötä sähköposti oikeassa muodossa (nimi@maili.com) ')"
+    									onchange="try{setCustomValidity('')}catch(e){}">
 						</div>
-						<div class="col-lg-8 col-lg-offset-2"><br>
-						<a href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
-								<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
-								</div>
-						</form>
-					</div>	
+						<div class="form-group col-xs-12">
+							<label for="Lisatietoja">Lisätietoja: </label>
+							<textarea class="form-control" id="Lisatietoja" name="lisatietoja" rows="8"
+										placeholder="Esim. ovikoodi" style="color: black"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 col-lg-offset-2"><br>
+					<a href="http://proto297.haaga-helia.fi:8080/pizzablue/ostoskorinsisalto" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>  Palaa edelliselle sivulle</a>
+					<button class="btn btn-default btn-lg" type="submit" value="Submit">Jatka tilaamista  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+				</div>
+			</form>
+		</div>	
 	</section>
 	
 	<!-- Footer -->
